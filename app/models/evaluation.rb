@@ -14,7 +14,7 @@
 #
 
 class Evaluation < ApplicationRecord
-	
-  belongs_to :self_evaluation
-  belongs_to :evaluationable, polyphomy: true
+
+  #belongs_to :self_evaluation
+  belongs_to :evaluationable, polymorphic: true
 end
