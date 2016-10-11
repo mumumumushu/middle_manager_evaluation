@@ -21,5 +21,7 @@
 
 class Leader < User
 	
+	validates :job_num, :email, :password, presence: true
+	
 
 end

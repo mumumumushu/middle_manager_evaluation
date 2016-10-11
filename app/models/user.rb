@@ -26,6 +26,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
           authentication_keys: [:job_num]
 
+  has_many :evaluations , as: :evaluationsable
+
 
 
 
