@@ -19,8 +19,8 @@
 #  user_info              :text
 #
 
-equire 'rails_helper'
+require 'rails_helper'					
 
-RSpec.describe User, type: :model do
-  it { should has_one(:self_evaluation)}
+RSpec.describe MiddleManager, type: :model do
+  it { should have_one(:self_evaluation)}
 end
