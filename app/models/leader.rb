@@ -1,0 +1,4 @@
+class Leader < User
+	
+
+end
