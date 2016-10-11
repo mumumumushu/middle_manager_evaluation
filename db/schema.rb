@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011041225) do
+ActiveRecord::Schema.define(version: 20161011072957) do
+
+  create_table "activities", force: :cascade do |t|
+    t.datetime "first_phase_begin"
+    t.datetime "second_phase_begin"
+    t.datetime "third_phase_begin"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "evaluations", force: :cascade do |t|
     t.text     "thought_morals"
