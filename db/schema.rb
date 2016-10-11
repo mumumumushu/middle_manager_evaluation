@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011024157) do
+ActiveRecord::Schema.define(version: 20161011024522) do
 
   create_table "evaluations", force: :cascade do |t|
     t.text     "thought_morals"
     t.text     "upright_incorruptiable"
     t.text     "duties"
-    t.integer  "evaluation"
     t.string   "user_type"
     t.integer  "user_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "evaluation_totality"
     t.index ["user_type", "user_id"], name: "index_evaluations_on_user_type_and_user_id"
   end
 
