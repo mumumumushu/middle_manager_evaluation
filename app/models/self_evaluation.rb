@@ -12,4 +12,5 @@
 
 class SelfEvaluation < ApplicationRecord
   belongs_to :middle_manager
+  has_many :evaluations
 end
