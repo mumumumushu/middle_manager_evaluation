@@ -21,6 +21,7 @@ class Evaluation < ApplicationRecord
   belongs_to :evaluationable, polymorphic: true
 
   before_validation :can_edit?
+ 	validates :can_edit?, presence: true
 
 
 
@@ -40,6 +41,7 @@ class Evaluation < ApplicationRecord
 
 
   def can_edit?
+
   	if self.evaluationable_type == 'self_evaluation'
   		self.in_first_phase?
 		else
