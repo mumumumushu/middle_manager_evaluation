@@ -17,24 +17,13 @@ class SelfEvaluation < ApplicationRecord
 
 
   before_validation :in_first_phase?
-  validates :in_first_phase?, presence: true
+  validates :in_first_phase?, presence: true, message: '填写未开放'
+
+  after_create :create_evaluations
+
+  after_update :update_evaluations
   
 
-
-
-  
-
- 
-
-
-
-
-
-
-
-
-
-  
 
   protected
 
@@ -56,10 +45,18 @@ class SelfEvaluation < ApplicationRecord
       _evaluation.save
 
     end
-
   end
-  
 
+  def update_evaluations
+    User.all.each do |user|
+
+      _evaluation = user.evaluations.where( :self_evaluations_id => self.id)   
+      _evaluation.duties = self.duties
+
+      _evaluation.save
+
+    end 
+  end
 
 
 

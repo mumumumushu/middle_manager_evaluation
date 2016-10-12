@@ -21,7 +21,7 @@ class Evaluation < ApplicationRecord
   belongs_to :evaluationable, polymorphic: true
 
   before_validation :can_edit?
- 	validates :can_edit?, presence: true
+ 	validates :can_edit?, presence: true, message: '填写未开放'
 
 
 
@@ -47,7 +47,7 @@ class Evaluation < ApplicationRecord
 		else
 			self.in_second_phase?
   	end	
-  	
+
   end
 
 end
