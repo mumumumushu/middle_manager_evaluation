@@ -16,8 +16,8 @@ class SelfEvaluation < ApplicationRecord
   has_many :evaluations, as: :evaluationable
 
 
-  before_create :in_first_phase?
-  before_update :in_first_phase?
+  before_save :in_first_phase?
+  
 
 
 

@@ -1,0 +1,1 @@
+json.partial! "self_evaluations/self_evaluation", self_evaluation: @self_evaluation
