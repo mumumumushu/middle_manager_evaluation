@@ -17,23 +17,11 @@ class Activity < ApplicationRecord
 
 
 
-
-
-	
-
-
-
-
-
 protected
+
 	def set_created_year
 		self.created_year = created_at.year
-		
 	end
-
-
-
-
 
 
 
