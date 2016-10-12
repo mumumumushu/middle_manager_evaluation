@@ -22,7 +22,7 @@ class SelfEvaluationsController < ApplicationController
     #   @evaluation.save
       
       
-    end
+   
 
   end
 

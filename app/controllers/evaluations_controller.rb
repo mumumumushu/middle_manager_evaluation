@@ -12,11 +12,11 @@ class EvaluationsController < ApplicationController
     respond_with(@evaluation)
   end
 
-  # def create
-  #   @evaluation = Evaluation.new(evaluation_params)
-  #   @evaluation.save
-  #   respond_with(@evaluation)
-  # end
+  def create
+    @evaluation = Evaluation.new(evaluation_params)
+    @evaluation.save
+    respond_with(@evaluation)
+  end
 
   def update
     @evaluation.update(evaluation_params)
