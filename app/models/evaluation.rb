@@ -20,34 +20,20 @@ class Evaluation < ApplicationRecord
   
   belongs_to :evaluationable, polymorphic: true
 
-  before_validation :can_edit?
- 	validates :can_edit?, presence: true, message: '填写未开放'
+  before_validation :in_first_or_second_phase?
+ 	validates :in_first_or_second_phase?, presence: true, message: '填写未开放'
 
 
 
 
   protected
 
-  def in_second_phase?
-    _activity = Activity.where(:activity_create_year => Time.now.year )
-    _activity.second_phase_begin  < Time.now && Time.now < _activity.third_phase_begin
+
+  def in_first_or_second_phase?
+  	_activity = Activity.where(:activity_create_year => Time.now.year )
+    _activity.first_phase_begin  < Time.now && Time.now < _activity.third_phase_begin
   end
 
-  def in_first_phase?
-    _activity = Activity.where(:activity_create_year => Time.now.year )
-    _activity.first_phase_begin  < Time.now && Time.now < _activity.second_phase_begin
-  end
-
-
-
-  def can_edit?
-
-  	if self.evaluationable_type == 'self_evaluation'
-  		self.in_first_phase?
-		else
-			self.in_second_phase?
-  	end	
-
-  end
+  
 
 end
