@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012004514) do
+ActiveRecord::Schema.define(version: 20161012074732) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "first_phase_begin"
@@ -25,15 +25,15 @@ ActiveRecord::Schema.define(version: 20161012004514) do
     t.text     "thought_morals"
     t.text     "upright_incorruptiable"
     t.text     "duties"
-    t.string   "user_type"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "evaluation_totality"
     t.string   "evaluationable_type"
     t.integer  "evaluationable_id"
     t.string   "create_year"
+    t.integer  "self_evaluation_id"
     t.index ["evaluationable_type", "evaluationable_id"], name: "index_evaluations_on_evaluationable_type_and_evaluationable_id"
-    t.index ["user_type"], name: "index_evaluations_on_user_type_and_user_id"
+    t.index ["self_evaluation_id"], name: "index_evaluations_on_self_evaluation_id"
   end
 
   create_table "self_evaluations", force: :cascade do |t|

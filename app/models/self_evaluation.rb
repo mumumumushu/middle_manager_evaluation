@@ -13,7 +13,7 @@
 
 class SelfEvaluation < ApplicationRecord
   belongs_to :middle_manager
-  has_many :evaluations, as: :evaluationable
+  has_many :evaluations
 
 
   before_validation :in_first_phase?
@@ -45,7 +45,19 @@ class SelfEvaluation < ApplicationRecord
     _activity.first_phase_begin  < Time.now && Time.now < _activity.second_phase_begin
 
   end
- 	
+
+
+ 	def create_evaluations
+    User.all.each do |user|
+      _evaluation = user.evaluations.new
+      _evaluation.self_evaluations_id = self.id
+      _evaluation.duties = self.duties
+
+      _evaluation.save
+
+    end
+
+  end
   
 
 

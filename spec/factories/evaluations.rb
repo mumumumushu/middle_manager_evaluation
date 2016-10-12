@@ -6,13 +6,13 @@
 #  thought_morals         :text
 #  upright_incorruptiable :text
 #  duties                 :text
-#  user_type              :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  evaluation_totality    :integer
 #  evaluationable_type    :string
 #  evaluationable_id      :integer
 #  create_year            :string
+#  self_evaluation_id     :integer
 #
 
 FactoryGirl.define do
