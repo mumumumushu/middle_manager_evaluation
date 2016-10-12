@@ -7,10 +7,12 @@
 #  upright_incorruptiable :text
 #  duties                 :text
 #  user_type              :string
-#  user_id                :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  evaluation_totality    :integer
+#  evaluationable_type    :string
+#  evaluationable_id      :integer
+#  create_year            :string
 #
 
 require 'rails_helper'

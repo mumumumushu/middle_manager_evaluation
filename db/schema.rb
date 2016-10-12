@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011073340) do
+ActiveRecord::Schema.define(version: 20161012004514) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "first_phase_begin"
     t.datetime "second_phase_begin"
     t.datetime "third_phase_begin"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "activity_created_year"
   end
 
   create_table "evaluations", force: :cascade do |t|
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 20161011073340) do
     t.integer  "middle_manager_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.string   "create_year"
+    t.integer  "created_year"
     t.index ["middle_manager_id"], name: "index_self_evaluations_on_middle_manager_id"
   end
 

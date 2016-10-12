@@ -28,6 +28,9 @@ class User < ApplicationRecord
 
   has_many :evaluations, as: :evaluationable
 
+  ## Token Authenticatable
+  acts_as_token_authenticatable
+
 
 
 
