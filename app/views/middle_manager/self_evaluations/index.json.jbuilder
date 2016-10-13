@@ -1,0 +1,1 @@
+json.array! @middle_manager_self_evaluations, partial: 'middle_manager_self_evaluations/middle_manager_self_evaluation', as: :middle_manager_self_evaluation
