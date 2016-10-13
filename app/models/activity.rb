@@ -12,17 +12,11 @@
 #
 
 class Activity < ApplicationRecord
-	before_save :set_created_year
+	
 
 
 
 
 protected
-
-	def set_created_year
-		self.created_year = created_at.year
-	end
-
-
 
 end

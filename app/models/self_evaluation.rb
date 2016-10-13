@@ -9,15 +9,22 @@
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  created_year             :integer
+#  activity_id              :integer
 #
 
 class SelfEvaluation < ApplicationRecord
   belongs_to :middle_manager
   has_many :evaluations
+  #has_one :result
 
 
   before_validation :in_first_phase?
-  validates :in_first_phase?, presence: true, message: '填写未开放'
+  validates_presence_of :in_first_phase, :message => '填写未开放'
+  
+  validates_presence_of :duties
+
+  validates_presence_of :self_evaluation_totality
+
 
   after_create :create_evaluations
 
@@ -29,7 +36,7 @@ class SelfEvaluation < ApplicationRecord
 
   def in_first_phase?
 
-    _activity = Activity.where(:activity_create_year => Time.now.year )
+    _activity = Activity.find( self_evaluation_id )
 
     _activity.first_phase_begin  < Time.now && Time.now < _activity.second_phase_begin
 
@@ -51,8 +58,8 @@ class SelfEvaluation < ApplicationRecord
     User.all.each do |user|
 
       _evaluation = user.evaluations.where( :self_evaluations_id => self.id)   
-      _evaluation.duties = self.duties
-
+      _evaluation.duties =  self.duties#.keys, [ Array.new ] ].to_hash 
+ 
       _evaluation.save
 
     end 

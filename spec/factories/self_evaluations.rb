@@ -9,6 +9,7 @@
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  created_year             :integer
+#  activity_id              :integer
 #
 
 FactoryGirl.define do
