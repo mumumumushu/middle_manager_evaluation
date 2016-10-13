@@ -1,39 +1,40 @@
 class MiddleManager::ResultsController < ApplicationController
-  before_action :set_middle_manager_result, only: [:show, :update, :destroy]
-
+  before_action :set_result, only: [:show]
+  before_action :authenticate_middle_manager!
+  
   respond_to :json
 
-  def index
-    @middle_manager_results = MiddleManager::Result.all
-    respond_with(@middle_manager_results)
-  end
+  # def index
+  #   @results = MiddleManager::Result.all
+  #   respond_with(@results)
+  # end
 
   def show
-    respond_with(@middle_manager_result)
+    respond_with(@result)
   end
 
-  def create
-    @middle_manager_result = MiddleManager::Result.new(middle_manager_result_params)
-    @middle_manager_result.save
-    respond_with(@middle_manager_result)
-  end
+  # def create
+  #   @result = MiddleManager::Result.new(result_params)
+  #   @result.save
+  #   respond_with(@result)
+  # end
 
-  def update
-    @middle_manager_result.update(middle_manager_result_params)
-    respond_with(@middle_manager_result)
-  end
+  # def update
+  #   @result.update(result_params)
+  #   respond_with(@result)
+  # end
 
-  def destroy
-    @middle_manager_result.destroy
-    respond_with(@middle_manager_result)
-  end
+  # def destroy
+  #   @result.destroy
+  #   respond_with(@result)
+  # end
 
   private
-    def set_middle_manager_result
-      @middle_manager_result = MiddleManager::Result.find(params[:id])
+    def set_result
+      @result = current_user.result
     end
 
-    def middle_manager_result_params
-      params[:middle_manager_result]
-    end
+    # def result_params
+    #   params[:result]
+    # end
 end
