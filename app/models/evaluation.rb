@@ -19,21 +19,28 @@ class Evaluation < ApplicationRecord
 
   
   belongs_to :evaluationable, polymorphic: true
+	before_validation :in_first_or_second_phase?
+ ##	
+ 	validates_presence_of :in_first_or_second_phase, :message => '填写未开放'
+ 	
+ 	validates_presence_of	:thought_morals
+ 	validates_presence_of	:upright_incorruptiable
+ 	# :duties  ####!score
+ 	validates_presence_of :duties
+ 	validates_presence_of :evaluation_totality
+##
 
-  before_validation :in_first_or_second_phase?
- 	validates :in_first_or_second_phase?, presence: true, message: '填写未开放'
 
 
 
-
-  protected
+  private	
 
 
   def in_first_or_second_phase?
-  	_activity = Activity.where(:activity_create_year => Time.now.year )
+  	_activity = Activity.find( Self_evaluation.find( self_evaluation_id ).activity_id )
     _activity.first_phase_begin  < Time.now && Time.now < _activity.third_phase_begin
   end
 
-  
+
 
 end
