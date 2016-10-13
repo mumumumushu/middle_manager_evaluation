@@ -38,7 +38,9 @@ class Evaluation < ApplicationRecord
 
   def in_first_or_second_phase?
   	_activity = Activity.find( Self_evaluation.find( self_evaluation_id ).activity_id )
+    
     _activity.first_phase_begin  < Time.now && Time.now < _activity.third_phase_begin
+  
   end
 
 

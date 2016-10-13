@@ -17,4 +17,5 @@ require 'rails_helper'
 RSpec.describe SelfEvaluation, type: :model do
   it { should belong_to(:middle_manager)}
   it { should have_many(:evaluations)}
+  it { should have_one(:result)}
 end
