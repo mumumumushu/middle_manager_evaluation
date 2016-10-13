@@ -1,39 +1,40 @@
 class Staff::EvaluationsController < ApplicationController
-  before_action :set_staff_evaluation, only: [:show, :update, :destroy]
+  before_action :set_evaluation, only: [:show, :update, :destroy]
+  before_action :authenticate_staff!
 
   respond_to :json
 
   def index
-    @staff_evaluations = Staff::Evaluation.all
-    respond_with(@staff_evaluations)
+    @evaluations = current_user.evaluations.all
+    respond_with(@evaluations)
   end
 
   def show
-    respond_with(@staff_evaluation)
+    respond_with(@evaluation)
   end
 
-  def create
-    @staff_evaluation = Staff::Evaluation.new(staff_evaluation_params)
-    @staff_evaluation.save
-    respond_with(@staff_evaluation)
-  end
+  # def create
+  #   @evaluation = Leader::Evaluation.new(evaluation_params)
+  #   @evaluation.save
+  #   respond_with(@evaluation)
+  # end
 
   def update
-    @staff_evaluation.update(staff_evaluation_params)
-    respond_with(@staff_evaluation)
+    @evaluation.update(evaluation_params)
+    respond_with(@evaluation)
   end
 
-  def destroy
-    @staff_evaluation.destroy
-    respond_with(@staff_evaluation)
-  end
+  # def destroy
+  #   @evaluation.destroy
+  #   respond_with(@evaluation)
+  # end
 
   private
-    def set_staff_evaluation
-      @staff_evaluation = Staff::Evaluation.find(params[:id])
+    def set_evaluation
+      @evaluation = current_user.evaluations.find(params[:id])
     end
 
-    def staff_evaluation_params
-      params[:staff_evaluation]
+    def evaluation_params
+      params[:evaluation]
     end
 end

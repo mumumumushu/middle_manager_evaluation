@@ -44,9 +44,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
   	resources :results, only: [ :index, :show ] do
-  		post :set_fina_result, on: :member
+  		patch :set_fina_result, on: :member
 		end
 	end
+
+  resources :activitise
+
 
 	
 end

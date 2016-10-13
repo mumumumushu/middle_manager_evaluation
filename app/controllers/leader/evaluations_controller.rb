@@ -1,39 +1,40 @@
 class Leader::EvaluationsController < ApplicationController
-  before_action :set_leader_evaluation, only: [:show, :update, :destroy]
+  before_action :set_evaluation, only: [:show, :update]
+  before_action :authenticate_leader!
 
   respond_to :json
 
   def index
-    @leader_evaluations = Leader::Evaluation.all
-    respond_with(@leader_evaluations)
+    @evaluations = current_user.evaluations.all
+    respond_with(@evaluations)
   end
 
   def show
-    respond_with(@leader_evaluation)
+    respond_with(@evaluation)
   end
 
-  def create
-    @leader_evaluation = Leader::Evaluation.new(leader_evaluation_params)
-    @leader_evaluation.save
-    respond_with(@leader_evaluation)
-  end
+  # def create
+  #   @evaluation = Leader::Evaluation.new(evaluation_params)
+  #   @evaluation.save
+  #   respond_with(@evaluation)
+  # end
 
   def update
-    @leader_evaluation.update(leader_evaluation_params)
-    respond_with(@leader_evaluation)
+    @evaluation.update(evaluation_params)
+    respond_with(@evaluation)
   end
 
-  def destroy
-    @leader_evaluation.destroy
-    respond_with(@leader_evaluation)
-  end
+  # def destroy
+  #   @evaluation.destroy
+  #   respond_with(@evaluation)
+  # end
 
   private
-    def set_leader_evaluation
-      @leader_evaluation = Leader::Evaluation.find(params[:id])
+    def set_evaluation
+      @evaluation = current_user.evaluations.find(params[:id])
     end
 
-    def leader_evaluation_params
-      params[:leader_evaluation]
+    def evaluation_params
+      params[:evaluation]
     end
 end

@@ -6,6 +6,7 @@
 #  self_evaluation_id :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  final_result       :string
 #
 
 FactoryGirl.define do

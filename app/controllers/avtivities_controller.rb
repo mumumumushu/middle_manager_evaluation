@@ -1,6 +1,7 @@
 class AvtivitiesController < ApplicationController
   before_action :set_avtivity, only: [:show, :update, :destroy]
-
+  before_action :authenticate_admin!
+  
   respond_to :json
 
   def index
@@ -23,10 +24,10 @@ class AvtivitiesController < ApplicationController
     respond_with(@avtivity)
   end
 
-  def destroy
-    @avtivity.destroy
-    respond_with(@avtivity)
-  end
+  # def destroy
+  #   @avtivity.destroy
+  #   respond_with(@avtivity)
+  # end
 
   private
     def set_avtivity
