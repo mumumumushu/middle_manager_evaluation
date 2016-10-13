@@ -24,6 +24,7 @@ class MiddleManager < User
 	validates :job_num, :email, :password, presence: true
 
 	has_one :self_evaluation
+	
 
 
 

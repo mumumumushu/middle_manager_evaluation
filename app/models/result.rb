@@ -11,9 +11,6 @@
 class Result < ApplicationRecord
   belongs_to :self_evaluation
 
-def method_name
-	
-end
 
 
 end
