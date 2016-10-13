@@ -1,0 +1,1 @@
+json.array! @staff_evaluations, partial: 'staff_evaluations/staff_evaluation', as: :staff_evaluation

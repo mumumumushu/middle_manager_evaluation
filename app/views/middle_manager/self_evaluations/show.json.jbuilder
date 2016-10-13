@@ -1,0 +1,1 @@
+json.partial! "middle_manager_self_evaluations/middle_manager_self_evaluation", middle_manager_self_evaluation: @middle_manager_self_evaluation

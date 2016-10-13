@@ -1,0 +1,1 @@
+json.array! @middle_manager_results, partial: 'middle_manager_results/middle_manager_result', as: :middle_manager_result
