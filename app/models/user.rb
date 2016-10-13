@@ -32,6 +32,11 @@ class User < ApplicationRecord
   acts_as_token_authenticatable
 
 
+  def user_type   #####给接口？？？？？？
+    self.class
+  end
+
+
 
 
 
