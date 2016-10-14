@@ -20,7 +20,38 @@
 #
 
 FactoryGirl.define do
-  factory :user do
+  factory :leader, class: Leader do
+    job_num 'leader_job_num'
+    password 'hahaha'
+    authentication_token 'qwertyuiop1'
+    user_info 'leader_user_info'
+
+		after(:create) do |leader|
+			create( :evaluation, evaluationable: leader)
+		end
+  end
+
+  factory :staff, class: Staff do
+  	job_num 'staff_job_num'
+    password 'hahaha'
+    authentication_token 'qwertyuiop1'
+    user_info 'staff_user_info'
+
+    after(:create) do |staff|
+			create( :evaluation, evaluationable: staff)
+		end
+    
+  end
+
+  factory :middle_manager, class: MiddleManager do
+  	job_num 'middle_manager_job_num'
+    password 'hahaha'
+    authentication_token 'qwertyuiop1'
+    user_info 'middle_manager_user_info'
+
+    after(:create) do |middle_manager|
+			create( :evaluation, evaluationable: middle_manager)
+		end
     
   end
 end

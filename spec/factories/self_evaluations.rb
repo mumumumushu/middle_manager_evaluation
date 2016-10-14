@@ -10,13 +10,14 @@
 #  updated_at               :datetime         not null
 #  created_year             :integer
 #  activity_id              :integer
-#  activity                 :reference
+
 #
 
 FactoryGirl.define do
   factory :self_evaluation do
-    duties "MyString"
-    self_evaluation_totality "MyString"
-    middle_manager nil
+    duties "self_evaluation_duties"
+    self_evaluation_totality "优秀"
+    #middle_manager nil
+    #acticity nil
   end
 end

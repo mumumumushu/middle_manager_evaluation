@@ -11,6 +11,7 @@
 
 FactoryGirl.define do
   factory :result do
-    self_evaluation nil
+  	final_result '基本称职'
+    #self_evaluation nil
   end
 end
