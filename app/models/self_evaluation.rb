@@ -44,23 +44,24 @@ class SelfEvaluation < ApplicationRecord
 
  	def create_evaluations
     User.all.each do |user|
-      _evaluation = user.evaluations.new
-      _evaluation.self_evaluations_id = self.id
-      _evaluation.duties = self.duties
+      unless user.id == middle_manager_id
+        _evaluation = user.evaluations.new
+        _evaluation.self_evaluations_id = self.id
+        _evaluation.duties = self.duties
 
-      _evaluation.save
-
+        _evaluation.save
+      end
     end
   end
 
   def update_evaluations
     User.all.each do |user|
-
-      _evaluation = user.evaluations.where( :self_evaluations_id => self.id)   
-      _evaluation.duties =  self.duties#.keys, [ Array.new ] ].to_hash 
+      unless user.id == middle_manager_id
+        _evaluation = user.evaluations.where( :self_evaluations_id => self.id)   
+        _evaluation.duties =  self.duties#.keys, [ Array.new ] ].to_hash 
  
-      _evaluation.save
-
+        _evaluation.save
+      end
     end 
   end
 
