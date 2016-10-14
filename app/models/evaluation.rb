@@ -21,7 +21,7 @@ class Evaluation < ApplicationRecord
   belongs_to :evaluationable, polymorphic: true
 	before_validation :in_first_or_second_phase?
  ##	
- 	validates_presence_of :in_first_or_second_phase, :message => '填写未开放'
+ 	validates_presence_of :in_first_or_second_phase?, :message => '填写未开放'
  	
  	validates_presence_of	:thought_morals
  	validates_presence_of	:upright_incorruptiable

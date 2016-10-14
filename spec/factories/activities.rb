@@ -13,8 +13,8 @@
 
 FactoryGirl.define do
   factory :activity do
-    first_phase_begin "2016-10-11 15:29:57"
-    second_phase_begin "2016-10-11 15:29:57"
-    third_phase_begin "2016-10-11 15:29:57"
+    first_phase_begin "2016-10-1 00:00:00"
+    second_phase_begin "2016-11-1 00:00:00"
+    third_phase_begin "2016-12-1 00:00:00"
   end
 end

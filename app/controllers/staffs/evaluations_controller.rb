@@ -1,6 +1,6 @@
-class Staff::EvaluationsController < ApplicationController
-  before_action :set_evaluation, only: [:show, :update, :destroy]
+class Leaders::EvaluationsController < ApplicationController
   before_action :authenticate_staff!
+  before_action :set_evaluation, only: [:show, :update, :destroy]
 
   respond_to :json
 

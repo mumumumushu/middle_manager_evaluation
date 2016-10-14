@@ -1,6 +1,9 @@
-class MiddleManager::EvaluationsController < ApplicationController
+class MiddleManagers::EvaluationsController < ApplicationController
+  include ActionView::Layouts
+  include ActionController::MimeResponds
+
+  #acts_as_token_authentication_handler_for MiddleManager
   before_action :set_evaluation, only: [:show, :update ]
-  before_action :authenticate_middle_manager!
   
   respond_to :json
 

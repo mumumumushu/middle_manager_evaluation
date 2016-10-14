@@ -1,6 +1,6 @@
-class MiddleManager::ResultsController < ApplicationController
-  before_action :set_result, only: [:show]
+class MiddleManagers::ResultsController < ApplicationController
   before_action :authenticate_middle_manager!
+  before_action :set_result, only: [:show]
   
   respond_to :json
 

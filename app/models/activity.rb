@@ -18,10 +18,11 @@ class Activity < ApplicationRecord
 
 
 
+
 private
 
 	def set_created_year
-		self.activity_created_year = created_at.year
+		self.activity_created_year = self.first_phase_begin.year
 	end
 
 end
