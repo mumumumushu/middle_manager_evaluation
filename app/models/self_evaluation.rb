@@ -48,6 +48,7 @@ class SelfEvaluation < ApplicationRecord
         _evaluation = user.evaluations.new
         _evaluation.self_evaluations_id = self.id
         _evaluation.duties = self.duties
+        #duties !!!!!
 
         _evaluation.save
       end

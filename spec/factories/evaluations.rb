@@ -17,9 +17,9 @@
 
 FactoryGirl.define do
   factory :evaluation do
-    thought_morals "MyText"
-    upright_incorruptiable "MyText"
-    duties "MyText"
+    thought_morals "thought_morals"
+    upright_incorruptiable "upright_incorruptiable"
+    duties "duties"
     evaluation 1
     user nil
   end
