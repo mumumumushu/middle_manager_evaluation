@@ -15,11 +15,12 @@
 
 class SelfEvaluation < ApplicationRecord
   belongs_to :middle_manager
+  belongs_to :activity
   has_many :evaluations
   has_one :result
 
   before_validation :in_first_phase?
-  validates_presence_of :in_first_phase, :message => '填写未开放'
+  validates_presence_of :in_first_phase?, :message => '填写未开放'
   validates_presence_of :duties
   validates_presence_of :self_evaluation_totality
 
@@ -35,7 +36,7 @@ class SelfEvaluation < ApplicationRecord
   private
 
   def in_first_phase?
-    _activity = Activity.find( self_evaluation_id )
+    _activity = Activity.find( self.activity_id )
 
     _activity.first_phase_begin  < Time.now && Time.now < _activity.second_phase_begin
   

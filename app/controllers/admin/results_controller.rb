@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
-  before_action :set_result, only: [:show, :update, :set_fina_result]
   before_action :authenticate_admin!
+  before_action :set_result, only: [:show, :update, :set_fina_result]
 
   respond_to :json
 

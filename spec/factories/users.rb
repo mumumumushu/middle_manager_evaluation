@@ -20,7 +20,7 @@
 #
 
 FactoryGirl.define do
-  factory :leader, class: Leader do
+  factory :leader do
     job_num 'leader_job_num'
     password 'hahaha'
     authentication_token 'qwertyuiop1'
@@ -31,7 +31,7 @@ FactoryGirl.define do
 		end
   end
 
-  factory :staff, class: Staff do
+  factory :staff  do
   	job_num 'staff_job_num'
     password 'hahaha'
     authentication_token 'qwertyuiop1'
@@ -43,15 +43,18 @@ FactoryGirl.define do
     
   end
 
-  factory :middle_manager, class: MiddleManager do
-  	job_num 'middle_manager_job_num'
+  factory :middle_manager do
+  	job_num '123456'
     password 'hahaha'
     authentication_token 'qwertyuiop1'
-    user_info 'middle_manager_user_info'
+    user_info 'XBK2RchpFYerBdxKUD1V'
 
-    after(:create) do |middle_manager|
-			create( :evaluation, evaluationable: middle_manager)
-		end
+    email 'hahaha@haha.com'
+
+    #多态对象创建
+    # after(:create) do |middle_manager|
+		# 	create( :evaluation, evaluationable: middle_manager)
+		# end
     
   end
 end

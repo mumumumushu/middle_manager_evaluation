@@ -1,7 +1,7 @@
-class MiddleManager::SelfEvaluationsController < ApplicationController
-  before_action :set_self_evaluation, only: [:show, :update, :destroy]  
+class MiddleManagers::SelfEvaluationsController < ApplicationController
   before_action :authenticate_middle_manager!
-
+  before_action :set_self_evaluation, only: [:show, :update, :destroy]  
+  
   respond_to :json
 
   # def index

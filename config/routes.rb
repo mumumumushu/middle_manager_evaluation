@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   #   sessions: 'staffs/sessions'
   # }
 
-  # devise_for :middle_managers, controllers: {
-  #   sessions: 'middle_managers/sessions'
-  # }
+  devise_for :middle_managers, controllers: {
+    sessions: 'middle_managers/sessions'
+  }
   devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :admins
 
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   namespace :middle_managers do
   	resources :evaluations, only: [ :index, :show, :update ]
-  	resource :slef_evaluations, only: [ :show, :create, :update ]
+  	resource :self_evaluation, only: [ :show, :create, :update ]
   	resource :result, only: [ :show, :update ]
   end
 

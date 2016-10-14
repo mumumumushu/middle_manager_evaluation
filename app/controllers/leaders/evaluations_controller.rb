@@ -1,6 +1,6 @@
 class Leader::EvaluationsController < ApplicationController
-  before_action :set_evaluation, only: [:show, :update]
   before_action :authenticate_leader!
+  before_action :set_evaluation, only: [:show, :update]
 
   respond_to :json
 
