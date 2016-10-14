@@ -10,6 +10,7 @@
 #  updated_at               :datetime         not null
 #  created_year             :integer
 #  activity_id              :integer
+#  activity                 :reference
 #
 
 require 'rails_helper'

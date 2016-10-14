@@ -10,6 +10,7 @@
 #  updated_at               :datetime         not null
 #  created_year             :integer
 #  activity_id              :integer
+#  activity                 :reference
 #
 
 class SelfEvaluation < ApplicationRecord
@@ -24,6 +25,10 @@ class SelfEvaluation < ApplicationRecord
 
   after_create :create_evaluations
   after_update :update_evaluations
+
+  def created_year
+    Activity.all.find( activity_id ).activity_created_year 
+  end
   
 
 

@@ -28,15 +28,15 @@ Rails.application.routes.draw do
   # resources :evaluations
   # resource :self_evaluations
 
-  namespace :leader do
+  namespace :leaders do
   	resources :evaluations, only: [ :index, :show, :update ]
   end	
 
-  namespace :staff do
+  namespace :staffs do
   	resources :evaluation, only: [ :index, :show, :update ]
   end	
 
-  namespace :middle_manager do
+  namespace :middle_managers do
   	resources :evaluations, only: [ :index, :show, :update ]
   	resource :slef_evaluations, only: [ :show, :create, :update ]
   	resource :result, only: [ :show, :update ]
@@ -53,61 +53,66 @@ Rails.application.routes.draw do
 
 	
 end
-
 #                         Prefix Verb   URI Pattern                                  Controller#Action
-#                         apitome        /api/docs                                    Apitome::Engine
-#                new_user_session GET    /users/sign_in(.:format)                     devise/sessions#new
-#                    user_session POST   /users/sign_in(.:format)                     devise/sessions#create
-#            destroy_user_session DELETE /users/sign_out(.:format)                    devise/sessions#destroy
-#                   user_password POST   /users/password(.:format)                    devise/passwords#create
-#               new_user_password GET    /users/password/new(.:format)                devise/passwords#new
-#              edit_user_password GET    /users/password/edit(.:format)               devise/passwords#edit
-#                                 PATCH  /users/password(.:format)                    devise/passwords#update
-#                                 PUT    /users/password(.:format)                    devise/passwords#update
-#        cancel_user_registration GET    /users/cancel(.:format)                      devise/registrations#cancel
-#               user_registration POST   /users(.:format)                             devise/registrations#create
-#           new_user_registration GET    /users/sign_up(.:format)                     devise/registrations#new
-#          edit_user_registration GET    /users/edit(.:format)                        devise/registrations#edit
-#                                 PATCH  /users(.:format)                             devise/registrations#update
-#                                 PUT    /users(.:format)                             devise/registrations#update
-#                                 DELETE /users(.:format)                             devise/registrations#destroy
-#               new_admin_session GET    /admins/sign_in(.:format)                    devise/sessions#new
-#                   admin_session POST   /admins/sign_in(.:format)                    devise/sessions#create
-#           destroy_admin_session DELETE /admins/sign_out(.:format)                   devise/sessions#destroy
-#                  admin_password POST   /admins/password(.:format)                   devise/passwords#create
-#              new_admin_password GET    /admins/password/new(.:format)               devise/passwords#new
-#             edit_admin_password GET    /admins/password/edit(.:format)              devise/passwords#edit
-#                                 PATCH  /admins/password(.:format)                   devise/passwords#update
-#                                 PUT    /admins/password(.:format)                   devise/passwords#update
-#       cancel_admin_registration GET    /admins/cancel(.:format)                     devise/registrations#cancel
-#              admin_registration POST   /admins(.:format)                            devise/registrations#create
-#          new_admin_registration GET    /admins/sign_up(.:format)                    devise/registrations#new
-#         edit_admin_registration GET    /admins/edit(.:format)                       devise/registrations#edit
-#                                 PATCH  /admins(.:format)                            devise/registrations#update
-#                                 PUT    /admins(.:format)                            devise/registrations#update
-#                                 DELETE /admins(.:format)                            devise/registrations#destroy
-#              leader_evaluations GET    /leader/evaluations(.:format)                leader/evaluations#index
-#               leader_evaluation GET    /leader/evaluations/:id(.:format)            leader/evaluations#show
-#                                 PATCH  /leader/evaluations/:id(.:format)            leader/evaluations#update
-#                                 PUT    /leader/evaluations/:id(.:format)            leader/evaluations#update
-#          staff_evaluation_index GET    /staff/evaluation(.:format)                  staff/evaluation#index
-#                staff_evaluation GET    /staff/evaluation/:id(.:format)              staff/evaluation#show
-#                                 PATCH  /staff/evaluation/:id(.:format)              staff/evaluation#update
-#                                 PUT    /staff/evaluation/:id(.:format)              staff/evaluation#update
-#      middle_manager_evaluations GET    /middle_manager/evaluations(.:format)        middle_manager/evaluations#index
-#       middle_manager_evaluation GET    /middle_manager/evaluations/:id(.:format)    middle_manager/evaluations#show
-#                                 PATCH  /middle_manager/evaluations/:id(.:format)    middle_manager/evaluations#update
-#                                 PUT    /middle_manager/evaluations/:id(.:format)    middle_manager/evaluations#update
-# middle_manager_slef_evaluations POST   /middle_manager/slef_evaluations(.:format)   middle_manager/slef_evaluations#create
-#                                 GET    /middle_manager/slef_evaluations(.:format)   middle_manager/slef_evaluations#show
-#                                 PATCH  /middle_manager/slef_evaluations(.:format)   middle_manager/slef_evaluations#update
-#                                 PUT    /middle_manager/slef_evaluations(.:format)   middle_manager/slef_evaluations#update
-#           middle_manager_result GET    /middle_manager/result(.:format)             middle_manager/results#show
-#                                 PATCH  /middle_manager/result(.:format)             middle_manager/results#update
-#                                 PUT    /middle_manager/result(.:format)             middle_manager/results#update
-#    set_fina_result_admin_result POST   /admin/results/:id/set_fina_result(.:format) admin/results#set_fina_result
-#                   admin_results GET    /admin/results(.:format)                     admin/results#index
-#                    admin_result GET    /admin/results/:id(.:format)                 admin/results#show
+#                          apitome        /api/docs                                    Apitome::Engine
+#                 new_user_session GET    /users/sign_in(.:format)                     users/sessions#new
+#                     user_session POST   /users/sign_in(.:format)                     users/sessions#create
+#             destroy_user_session DELETE /users/sign_out(.:format)                    users/sessions#destroy
+#                    user_password POST   /users/password(.:format)                    devise/passwords#create
+#                new_user_password GET    /users/password/new(.:format)                devise/passwords#new
+#               edit_user_password GET    /users/password/edit(.:format)               devise/passwords#edit
+#                                  PATCH  /users/password(.:format)                    devise/passwords#update
+#                                  PUT    /users/password(.:format)                    devise/passwords#update
+#         cancel_user_registration GET    /users/cancel(.:format)                      devise/registrations#cancel
+#                user_registration POST   /users(.:format)                             devise/registrations#create
+#            new_user_registration GET    /users/sign_up(.:format)                     devise/registrations#new
+#           edit_user_registration GET    /users/edit(.:format)                        devise/registrations#edit
+#                                  PATCH  /users(.:format)                             devise/registrations#update
+#                                  PUT    /users(.:format)                             devise/registrations#update
+#                                  DELETE /users(.:format)                             devise/registrations#destroy
+#                new_admin_session GET    /admins/sign_in(.:format)                    devise/sessions#new
+#                    admin_session POST   /admins/sign_in(.:format)                    devise/sessions#create
+#            destroy_admin_session DELETE /admins/sign_out(.:format)                   devise/sessions#destroy
+#                   admin_password POST   /admins/password(.:format)                   devise/passwords#create
+#               new_admin_password GET    /admins/password/new(.:format)               devise/passwords#new
+#              edit_admin_password GET    /admins/password/edit(.:format)              devise/passwords#edit
+#                                  PATCH  /admins/password(.:format)                   devise/passwords#update
+#                                  PUT    /admins/password(.:format)                   devise/passwords#update
+#        cancel_admin_registration GET    /admins/cancel(.:format)                     devise/registrations#cancel
+#               admin_registration POST   /admins(.:format)                            devise/registrations#create
+#           new_admin_registration GET    /admins/sign_up(.:format)                    devise/registrations#new
+#          edit_admin_registration GET    /admins/edit(.:format)                       devise/registrations#edit
+#                                  PATCH  /admins(.:format)                            devise/registrations#update
+#                                  PUT    /admins(.:format)                            devise/registrations#update
+#                                  DELETE /admins(.:format)                            devise/registrations#destroy
+#              leaders_evaluations GET    /leaders/evaluations(.:format)               leaders/evaluations#index
+#               leaders_evaluation GET    /leaders/evaluations/:id(.:format)           leaders/evaluations#show
+#                                  PATCH  /leaders/evaluations/:id(.:format)           leaders/evaluations#update
+#                                  PUT    /leaders/evaluations/:id(.:format)           leaders/evaluations#update
+#          staffs_evaluation_index GET    /staffs/evaluation(.:format)                 staffs/evaluation#index
+#                staffs_evaluation GET    /staffs/evaluation/:id(.:format)             staffs/evaluation#show
+#                                  PATCH  /staffs/evaluation/:id(.:format)             staffs/evaluation#update
+#                                  PUT    /staffs/evaluation/:id(.:format)             staffs/evaluation#update
+#      middle_managers_evaluations GET    /middle_managers/evaluations(.:format)       middle_managers/evaluations#index
+#       middle_managers_evaluation GET    /middle_managers/evaluations/:id(.:format)   middle_managers/evaluations#show
+#                                  PATCH  /middle_managers/evaluations/:id(.:format)   middle_managers/evaluations#update
+#                                  PUT    /middle_managers/evaluations/:id(.:format)   middle_managers/evaluations#update
+# middle_managers_slef_evaluations POST   /middle_managers/slef_evaluations(.:format)  middle_managers/slef_evaluations#create
+#                                  GET    /middle_managers/slef_evaluations(.:format)  middle_managers/slef_evaluations#show
+#                                  PATCH  /middle_managers/slef_evaluations(.:format)  middle_managers/slef_evaluations#update
+#                                  PUT    /middle_managers/slef_evaluations(.:format)  middle_managers/slef_evaluations#update
+#           middle_managers_result GET    /middle_managers/result(.:format)            middle_managers/results#show
+#                                  PATCH  /middle_managers/result(.:format)            middle_managers/results#update
+#                                  PUT    /middle_managers/result(.:format)            middle_managers/results#update
+#     set_fina_result_admin_result PATCH  /admin/results/:id/set_fina_result(.:format) admin/results#set_fina_result
+#                    admin_results GET    /admin/results(.:format)                     admin/results#index
+#                     admin_result GET    /admin/results/:id(.:format)                 admin/results#show
+#                 activitise_index GET    /activitise(.:format)                        activitise#index
+#                                  POST   /activitise(.:format)                        activitise#create
+#                       activitise GET    /activitise/:id(.:format)                    activitise#show
+#                                  PATCH  /activitise/:id(.:format)                    activitise#update
+#                                  PUT    /activitise/:id(.:format)                    activitise#update
+#                                  DELETE /activitise/:id(.:format)                    activitise#destroy
 
 # Routes for Apitome::Engine:
 #   root GET  /                         apitome/docs#index

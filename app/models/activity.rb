@@ -13,6 +13,7 @@
 
 class Activity < ApplicationRecord
 	before_save :set_created_year
+	has_many :self_evaluations
 
 
 
@@ -20,7 +21,7 @@ class Activity < ApplicationRecord
 private
 
 	def set_created_year
-		self.created_year = created_at.year
+		self.activity_created_year = created_at.year
 	end
 
 end

@@ -5,7 +5,9 @@ class ResultsController < ApplicationController
   respond_to :json
 
   def index
-    @results = Result.all
+    page = params[:page] || 1
+    per_page = params[:per_page] || 10
+    @results = current_user.results.paginate(page: page, per_page: per_page)
     respond_with(@results)
   end
 
@@ -33,6 +35,7 @@ class ResultsController < ApplicationController
     @result = Result.find(params[:id])
     @result.attributes = params.slice(:final_result)
     @result.save 
+    respond_with @result, template: "admin/results/show", status: 201
   end
 
   private
