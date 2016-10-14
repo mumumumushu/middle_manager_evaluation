@@ -1,1 +1,0 @@
-json.partial! "middle_manager_results/middle_manager_result", middle_manager_result: @middle_manager_result

@@ -1,0 +1,1 @@
+json.extract! appointment, :id, :first_phase_begin, :second_phase_begin, :third_phase_begin, :activity_created_year

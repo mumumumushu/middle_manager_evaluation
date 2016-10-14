@@ -14,7 +14,9 @@ class Result < ApplicationRecord
 
  #enum status: { active: 0, waiting: 1 ,archived: 2 }
   
-
+ def middle_manager_id
+ 	SelfEvaluation.all.find( self_evaluation_id ).middle_manager_id
+ end
 
 
 end

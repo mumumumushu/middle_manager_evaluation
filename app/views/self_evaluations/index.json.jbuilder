@@ -1,1 +1,0 @@
-json.array! @self_evaluations, partial: 'self_evaluations/self_evaluation', as: :self_evaluation

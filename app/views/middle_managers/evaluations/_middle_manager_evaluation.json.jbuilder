@@ -1,0 +1,1 @@
+json.extract! evaluation, :id, :thought_morals, :upright_incorruptiable, :duties, :evaluation_totality, :evaluationable_type, :evaluationable_id, :self_evaluation_id  

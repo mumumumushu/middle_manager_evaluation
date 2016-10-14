@@ -1,1 +1,0 @@
-json.array! @avtivities, partial: 'avtivities/avtivity', as: :avtivity

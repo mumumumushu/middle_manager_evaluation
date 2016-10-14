@@ -29,7 +29,9 @@ class Evaluation < ApplicationRecord
  	validates_presence_of :duties
  	validates_presence_of :evaluation_totality
 ##
-
+	def created_year
+    SelfEvaluation.all.find( self_evaluation_id ).created_year 
+  end
 
 
 
