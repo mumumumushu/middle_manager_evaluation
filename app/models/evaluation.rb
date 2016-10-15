@@ -18,11 +18,12 @@
 class Evaluation < ApplicationRecord
 
   
-  belongs_to :evaluationable, polymorphic: true
+  belongs_to :user #:evaluationable, polymorphic: true
+  belongs_to :self_evaluation
 	before_validation :in_first_or_second_phase?
  ##	
  	validates_presence_of :in_first_or_second_phase?, :message => '填写未开放'
- 	
+ ##	
  	validates_presence_of	:thought_morals
  	validates_presence_of	:upright_incorruptiable
  	# :duties  ####!score
@@ -30,7 +31,7 @@ class Evaluation < ApplicationRecord
  	validates_presence_of :evaluation_totality
 ##
 	def created_year
-    SelfEvaluation.all.find( self_evaluation_id ).created_year 
+    SelfEvaluation.find( self.self_evaluation_id ).created_year 
   end
 
 
@@ -39,7 +40,7 @@ class Evaluation < ApplicationRecord
 
 
   def in_first_or_second_phase?
-  	_activity = Activity.find( Self_evaluation.find( self_evaluation_id ).activity_id )
+  	_activity = Activity.find( SelfEvaluation.find( self.self_evaluation_id ).activity_id )
     
     _activity.first_phase_begin  < Time.now && Time.now < _activity.third_phase_begin
   

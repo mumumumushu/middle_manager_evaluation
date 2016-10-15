@@ -21,6 +21,14 @@
 
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  it { should have_many(:evaluations)}
+RSpec.describe MiddleManager, type: :model do
+   it { should have_many(:evaluations)}
+end
+
+RSpec.describe Leader, type: :model do
+   it { should have_many(:evaluations)}
+end
+
+RSpec.describe Staff, type: :model do
+   it { should have_many(:evaluations)}
 end

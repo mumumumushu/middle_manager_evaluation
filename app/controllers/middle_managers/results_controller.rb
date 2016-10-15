@@ -1,5 +1,8 @@
 class MiddleManagers::ResultsController < ApplicationController
-  before_action :authenticate_middle_manager!
+  include ActionView::Layouts
+  include ActionController::MimeResponds
+
+  acts_as_token_authentication_handler_for MiddleManager
   before_action :set_result, only: [:show]
   
   respond_to :json

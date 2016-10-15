@@ -23,6 +23,7 @@ class MiddleManager < User
 
 	validates :job_num, :email, :password, presence: true
 
+	# has_many :m_evaluations, -> { where evaluationable_type: 'middle_manager' }, class_name: 'Evaluation',as: :evaluationable
 	has_one :self_evaluation
 
 	def middle_manager_id

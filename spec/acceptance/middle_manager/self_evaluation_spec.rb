@@ -14,8 +14,7 @@ resource	'中层干部自评表查看修改' do
       @middle_manager = create(:middle_manager)
       @activity = create(:activity)
       create(:self_evaluation, middle_manager: @middle_manager,
-      												 activity: @activity,
-      												 created_at: '2016-10-2 15:29:57')
+      												 activity: @activity)
     end
 
     example "中层干部自评表查看成功" do
@@ -32,8 +31,34 @@ resource	'中层干部自评表查看修改' do
     #     expect(status).to eq(404)
     #   end 
     # end
-
-
 	end	
+
+
+  # put '/middle_managers/self_evaluation' do
+  #   user_attrs = FactoryGirl.attributes_for(:user)
+  #   image_attrs = FactoryGirl.attributes_for(:image, photo_type: "avatar")
+
+  #   header "X-User-Token", user_attrs[:authentication_token]
+  #   header "X-User-Phone", user_attrs[:phone]
+
+  #   parameter :nickname, "称谓", require: false, scope: :user_info
+  #   parameter :mail, "邮箱", require: false, scope: :user_info
+  #   parameter :avatar_attributes, "头像", require: false, scope: :user_info
+
+  #   before do
+  #     @user = create(:user)
+  #   end
+
+  #   let(:nickname) { "new nickname" }
+  #   let(:mail) { "new mail" }
+  #   let(:avatar_attributes) { image_attrs }
+
+
+  #   example "中层干部 修改自评表成功" do
+  #     do_request
+  #     puts response_body
+  #     expect(status).to eq(201)
+  #   end
+  # end
 
 end	

@@ -22,5 +22,6 @@
 require 'rails_helper'					
 
 RSpec.describe MiddleManager, type: :model do
+	
   it { should have_one(:self_evaluation)}
 end

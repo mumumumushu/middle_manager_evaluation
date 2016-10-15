@@ -19,6 +19,10 @@
 #  user_info              :text
 #
 
+
+
+ # aliases: [:author, :commenter]
+
 FactoryGirl.define do
   factory :leader do
     job_num 'leader_job_num'
@@ -26,9 +30,11 @@ FactoryGirl.define do
     authentication_token 'qwertyuiop1'
     user_info 'leader_user_info'
 
-		after(:create) do |leader|
-			create( :evaluation, evaluationable: leader)
-		end
+    # ×   association :evaluation, factory: :evaluation, evaluation_type: "leader"
+                                                    #photo_type 而不用imagerable_type??
+		# after(:create) do |leader|
+		# 	create( :evaluation, evaluationable: leader)
+		# end
   end
 
   factory :staff  do
@@ -37,9 +43,9 @@ FactoryGirl.define do
     authentication_token 'qwertyuiop1'
     user_info 'staff_user_info'
 
-    after(:create) do |staff|
-			create( :evaluation, evaluationable: staff)
-		end
+  #   after(:create) do |staff|
+		# 	create( :evaluation, evaluationable: staff)
+		# end
     
   end
 
@@ -50,6 +56,9 @@ FactoryGirl.define do
     user_info 'XBK2RchpFYerBdxKUD1V'
 
     email 'hahaha@haha.com'
+
+    # association :m_evaluation, factory: :evaluation#, evaluationable_type: "middle_manager"
+    #cloud_closet_api --image
 
     #多态对象创建
     # after(:create) do |middle_manager|

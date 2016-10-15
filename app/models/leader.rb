@@ -22,6 +22,6 @@
 class Leader < User
 	
 	validates :job_num, :email, :password, presence: true
-	
+	# has_many :evaluations, ->{ where evaluationable_type: 'leader' }, as: :evaluationable
 
 end

@@ -1,5 +1,8 @@
 class MiddleManagers::SelfEvaluationsController < ApplicationController
-  before_action :authenticate_middle_manager!
+  include ActionView::Layouts
+  include ActionController::MimeResponds
+
+  acts_as_token_authentication_handler_for MiddleManager
   before_action :set_self_evaluation, only: [:show, :update, :destroy]  
   
   respond_to :json
@@ -31,7 +34,7 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
 
   private
     def set_self_evaluation
-      @self_evaluation = current_user.self_evaluation
+      @self_evaluation = current_middle_manager.self_evaluation
     end
 
     def self_evaluation_params
