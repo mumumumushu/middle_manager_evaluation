@@ -26,8 +26,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
           authentication_keys: [:job_num]
 
-  has_many :evaluations, as: :evaluationable
-
+  #has_many :evaluations, as: :evaluationable
+  has_many :evaluations
   ## Token Authenticatable
   acts_as_token_authenticatable
 

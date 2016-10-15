@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  # devise_for :users#, controllers: { sessions: "users/sessions" }
+ 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # devise_for :users, controllers: {
   #   sessions: 'user/sessions',
@@ -11,18 +14,16 @@ Rails.application.routes.draw do
   #   passwords: 'admin/passwords', 
   # }
 
-  # devise_for :leaders, controllers: {
+  # devise_for :leaders
+  # , controllers: {
   #   sessions: 'leaders/sessions'
   # }
 
-  # devise_for :staffs, controllers: {
-  #   sessions: 'staffs/sessions'
-  # }
+###？？？？？？？？user？？？？？？会无法验证
 
-  devise_for :middle_managers, controllers: {
-    sessions: 'middle_managers/sessions'
-  }
-  devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_for :leaders
+  devise_for :staffs
+  devise_for :middle_managers
   devise_for :admins
 
   # resources :evaluations

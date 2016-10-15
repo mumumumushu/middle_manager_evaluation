@@ -19,4 +19,5 @@ require 'rails_helper'
 
 RSpec.describe Evaluation, type: :model do
    it { should belong_to(:evaluationable)}
+   it { should belong_to(:self_evaluation)}
 end

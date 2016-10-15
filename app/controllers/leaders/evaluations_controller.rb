@@ -1,5 +1,8 @@
 class Leader::EvaluationsController < ApplicationController
-  before_action :authenticate_leader!
+  include ActionView::Layouts
+  include ActionController::MimeResponds
+
+  acts_as_token_authentication_handler_for Leader
   before_action :set_evaluation, only: [:show, :update]
 
   respond_to :json

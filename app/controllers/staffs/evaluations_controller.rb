@@ -1,5 +1,8 @@
-class Leaders::EvaluationsController < ApplicationController
-  before_action :authenticate_staff!
+class Staffs::EvaluationsController < ApplicationController
+  include ActionView::Layouts
+  include ActionController::MimeResponds
+
+  acts_as_token_authentication_handler_for Staff
   before_action :set_evaluation, only: [:show, :update, :destroy]
 
   respond_to :json

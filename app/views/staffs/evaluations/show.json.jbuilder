@@ -1,1 +1,1 @@
-json.partial! "staff_evaluations/staff_evaluation", staff_evaluation: @staff_evaluation
+json.partial! "evaluation", staff_evaluation: @evaluation

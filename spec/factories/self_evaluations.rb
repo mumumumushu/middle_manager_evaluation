@@ -19,5 +19,6 @@ FactoryGirl.define do
     self_evaluation_totality "优秀"
     #middle_manager nil
     #acticity nil
+    created_at '2016-10-2 15:29:57'
   end
 end
