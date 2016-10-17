@@ -51,11 +51,12 @@ Rails.application.routes.draw do
 
   resources :activitise
   resource :user_info, only: [:show]
-
-
-
 	
 end
+
+
+
+
 #                         Prefix Verb   URI Pattern                                  Controller#Action
 #                          apitome        /api/docs                                    Apitome::Engine
 #                 new_user_session GET    /users/sign_in(.:format)                     users/sessions#new

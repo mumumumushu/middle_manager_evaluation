@@ -49,7 +49,6 @@ GEM
     bcrypt (3.1.11)
     builder (3.2.2)
     byebug (9.0.5)
-    china_sms (0.0.7)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -62,7 +61,6 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.1.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     eventmachine (1.2.0.1)
@@ -210,12 +208,11 @@ DEPENDENCIES
   annotate
   apitome
   byebug
-  china_sms
   devise
-  devise-i18n
   factory_girl_rails
   jbuilder (~> 2.5)
   listen (~> 3.0.5)
+  multi_json
   mysql2
   paperclip (~> 5.0.0)
   puma (~> 3.0)

@@ -33,9 +33,51 @@ class Evaluation < ApplicationRecord
     SelfEvaluation.find( self.self_evaluation_id ).created_year 
   end
 
-  def user_type
-    User.find(self.user_id).user_type
-  end 
+  #统计
+  #分数集合
+  def score_array
+    _score = MultiJson.load(self.thought_morals).values +
+              MultiJson.load(self.upright_incorruptiable).values + 
+              MultiJson.load(self.duties).values +
+              [evaluation_totality]
+  end
+
+  #好，较好，一般，较差
+  def level_count
+    [ 
+      self.score_array.select{ |x| x <= 99 && x >= 90 }.count,
+      self.score_array.select{ |x| x <= 89 && x >= 80 }.count,
+      self.score_array.select{ |x| x <= 79 && x >= 60 }.count,       
+      self.score_array.select{ |x| x <= 59 }.count
+    ]       
+
+  end
+
+  #平均分 
+  #优秀，称职，基本称职，不称职
+  def average_score
+    _score = self.score_array
+    _sum = 0.00
+    _sum = _score.each { |x| _sum += x} 
+    _average_score = _sum / _score.count
+    #四舍五入？？？？？？
+  end
+
+  def average_score_level
+    _x = self.average_score
+
+    case _x #?
+    when _x >= 90 && _x <= 99
+      "优秀"
+    when _x < 90 && _x >= 80
+      "称职"
+    when _x < 80 && _x >= 60
+      "基本称职"
+    else
+      "不称职"
+    end  
+
+  end
 
 
 
