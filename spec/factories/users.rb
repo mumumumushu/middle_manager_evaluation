@@ -1,10 +1,8 @@
-
 # == Schema Information
 #
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -28,7 +26,7 @@ FactoryGirl.define do
   factory :leader do
     job_num 'leader_job_num'
     password 'hahaha'
-    authentication_token 'qwertyuiop1'
+    authentication_token 'l_qwertyuiop1'
     user_info 'leader_user_info'
 
     user_type 'leader'
@@ -38,7 +36,7 @@ FactoryGirl.define do
   factory :staff  do
   	job_num 'staff_job_num'
     password 'hahaha'
-    authentication_token 'qwertyuiop1'
+    authentication_token 's_qwertyuiop1'
     user_info 'staff_user_info'
 
     user_type 'staff'
@@ -48,7 +46,7 @@ FactoryGirl.define do
   factory :middle_manager do
   	job_num 'middle_manager_job_num'
     password 'hahaha'
-    authentication_token 'qwertyuiop1'
+    authentication_token 'm_qwertyuiop1'
     user_info 'middle_manager_user_info'
 
     user_type 'middle_manager'

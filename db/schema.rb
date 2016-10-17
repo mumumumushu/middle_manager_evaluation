@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015035420) do
+ActiveRecord::Schema.define(version: 20161017015939) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "first_phase_begin"
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 20161015035420) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                             default: ""
     t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -89,7 +88,6 @@ ActiveRecord::Schema.define(version: 20161015035420) do
     t.string   "authentication_token",   limit: 30
     t.string   "user_type"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

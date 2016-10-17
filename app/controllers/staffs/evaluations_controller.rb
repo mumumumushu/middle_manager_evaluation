@@ -3,7 +3,7 @@ class Staffs::EvaluationsController < ApplicationController
   include ActionController::MimeResponds
 
   acts_as_token_authentication_handler_for Staff
-  before_action :set_evaluation, only: [:show, :update, :destroy]
+  before_action :set_evaluation, only: [:show, :update]
 
   respond_to :json
 
