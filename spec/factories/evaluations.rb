@@ -9,10 +9,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  evaluation_totality    :integer
-#  evaluationable_type    :string
-#  evaluationable_id      :integer
-#  create_year            :string
 #  self_evaluation_id     :integer
+#  user_id                :integer
 #
 
 FactoryGirl.define do
@@ -27,7 +25,7 @@ FactoryGirl.define do
     created_at '2016-10-2 15:29:57'
     updated_at '2016-11-2 15:29:57'
 
-    association :evaluationable
+    # association :evaluationable
     # self_evaluation_id
     # evaluationable_type staff || middle_manager || leader
 

@@ -1,4 +1,4 @@
-class Leader::EvaluationsController < ApplicationController
+class Leaders::EvaluationsController < ApplicationController
   include ActionView::Layouts
   include ActionController::MimeResponds
 
@@ -10,7 +10,7 @@ class Leader::EvaluationsController < ApplicationController
   def index
     page = params[:page] || 1
     per_page = params[:per_page] || 10
-    @evaluations = current_user.evaluations.paginate(page: page, per_page: per_page)
+    @evaluations = current_leader.evaluations.paginate(page: page, per_page: per_page)
     
     respond_with(@evaluations)
   end
@@ -27,7 +27,7 @@ class Leader::EvaluationsController < ApplicationController
 
   def update
     @evaluation.update(evaluation_params)
-    respond_with(@evaluation)
+    respond_with @evaluation, template: "leaders/evaluations/show", status: 201 
   end
 
   # def destroy
@@ -37,10 +37,13 @@ class Leader::EvaluationsController < ApplicationController
 
   private
     def set_evaluation
-      @evaluation = current_user.evaluations.find(params[:id])
+      @evaluation = current_leader.evaluations.find(params[:id])
     end
 
     def evaluation_params
-      params[:evaluation]
+      params.require( :evaluation ).permit(
+        :duties, :thought_morals, 
+        :upright_incorruptiable, :evaluation_totality
+        )
     end
 end

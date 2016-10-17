@@ -9,10 +9,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  evaluation_totality    :integer
-#  evaluationable_type    :string
-#  evaluationable_id      :integer
-#  create_year            :string
 #  self_evaluation_id     :integer
+#  user_id                :integer
 #
 
 class Evaluation < ApplicationRecord
@@ -21,6 +19,7 @@ class Evaluation < ApplicationRecord
   belongs_to :user #:evaluationable, polymorphic: true
   belongs_to :self_evaluation
 	before_validation :in_first_or_second_phase?
+
  ##	
  	validates_presence_of :in_first_or_second_phase?, :message => '填写未开放'
  ##	
@@ -33,6 +32,11 @@ class Evaluation < ApplicationRecord
 	def created_year
     SelfEvaluation.find( self.self_evaluation_id ).created_year 
   end
+
+  def user_type
+    User.find(self.user_id).user_type
+  end 
+
 
 
 

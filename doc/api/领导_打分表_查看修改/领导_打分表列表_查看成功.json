@@ -1,0 +1,59 @@
+{
+  "resource": "领导 打分表 查看修改",
+  "http_method": "GET",
+  "route": "/leaders/evaluations",
+  "description": "领导 打分表列表 查看成功",
+  "explanation": null,
+  "parameters": [
+    {
+      "require": false,
+      "name": "page",
+      "description": "当前页"
+    },
+    {
+      "require": false,
+      "name": "per_page",
+      "description": "每页的数量"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/leaders/evaluations?page=2&per_page=4",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-Leader-Token": "l_qwertyuiop1",
+        "X-Leader-Job-Num": "leader_job_num",
+        "X-Leader-Email": "l_hahaha@haha.com",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "page": "2",
+        "per_page": "4"
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"current_page\": 2,\n  \"total_pages\": 3,\n  \"leader_evaluations\": [\n    {\n      \"id\": 5,\n      \"thought_morals\": \"thought_morals\",\n      \"upright_incorruptiable\": \"upright_incorruptiable\",\n      \"duties\": \"duties\",\n      \"evaluation_totality\": 90,\n      \"self_evaluation_id\": 1,\n      \"user_id\": 1,\n      \"user_type\": \"leader\"\n    },\n    {\n      \"id\": 6,\n      \"thought_morals\": \"thought_morals\",\n      \"upright_incorruptiable\": \"upright_incorruptiable\",\n      \"duties\": \"duties\",\n      \"evaluation_totality\": 90,\n      \"self_evaluation_id\": 1,\n      \"user_id\": 1,\n      \"user_type\": \"leader\"\n    },\n    {\n      \"id\": 7,\n      \"thought_morals\": \"thought_morals\",\n      \"upright_incorruptiable\": \"upright_incorruptiable\",\n      \"duties\": \"duties\",\n      \"evaluation_totality\": 90,\n      \"self_evaluation_id\": 1,\n      \"user_id\": 1,\n      \"user_type\": \"leader\"\n    },\n    {\n      \"id\": 8,\n      \"thought_morals\": \"thought_morals\",\n      \"upright_incorruptiable\": \"upright_incorruptiable\",\n      \"duties\": \"duties\",\n      \"evaluation_totality\": 90,\n      \"self_evaluation_id\": 1,\n      \"user_id\": 1,\n      \"user_type\": \"leader\"\n    }\n  ]\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"26a082f51ba5431efb445668bbac8969\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "040f6b47-2ecd-4af6-acf9-15b2c971e580",
+        "X-Runtime": "0.038730",
+        "Vary": "Origin",
+        "Content-Length": "825"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

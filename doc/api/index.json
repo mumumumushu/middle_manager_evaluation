@@ -1,0 +1,101 @@
+{
+  "resources": [
+    {
+      "name": "中层干部 打分表 查看修改",
+      "examples": [
+        {
+          "description": "中层干部 打分表 修改成功",
+          "link": "中层干部_打分表_查看修改/中层干部_打分表_修改成功.json",
+          "groups": "all",
+          "route": "/middle_managers/evaluations/:id",
+          "method": "put"
+        },
+        {
+          "description": "中层干部 打分表列表 查看成功",
+          "link": "中层干部_打分表_查看修改/中层干部_打分表列表_查看成功.json",
+          "groups": "all",
+          "route": "/middle_managers/evaluations",
+          "method": "get"
+        },
+        {
+          "description": "中层干部 打分表详情 查看成功",
+          "link": "中层干部_打分表_查看修改/中层干部_打分表详情_查看成功.json",
+          "groups": "all",
+          "route": "/middle_managers/evaluations/:id",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "中层干部 自评表 查看修改",
+      "examples": [
+        {
+          "description": "中层干部 修改 自评表 成功",
+          "link": "中层干部_自评表_查看修改/中层干部_修改_自评表_成功.json",
+          "groups": "all",
+          "route": "/middle_managers/self_evaluation",
+          "method": "put"
+        },
+        {
+          "description": "中层干部 自评表 查看 成功",
+          "link": "中层干部_自评表_查看修改/中层干部_自评表_查看_成功.json",
+          "groups": "all",
+          "route": "/middle_managers/self_evaluation",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "职工 打分表 查看修改",
+      "examples": [
+        {
+          "description": "职工 打分表 修改成功",
+          "link": "职工_打分表_查看修改/职工_打分表_修改成功.json",
+          "groups": "all",
+          "route": "/staffs/evaluations/:id",
+          "method": "put"
+        },
+        {
+          "description": "职工 打分表列表 查看成功",
+          "link": "职工_打分表_查看修改/职工_打分表列表_查看成功.json",
+          "groups": "all",
+          "route": "/staffs/evaluations",
+          "method": "get"
+        },
+        {
+          "description": "职工 打分表详情 查看成功",
+          "link": "职工_打分表_查看修改/职工_打分表详情_查看成功.json",
+          "groups": "all",
+          "route": "/staffs/evaluations/:id",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "领导 打分表 查看修改",
+      "examples": [
+        {
+          "description": "领导 打分表 修改成功",
+          "link": "领导_打分表_查看修改/领导_打分表_修改成功.json",
+          "groups": "all",
+          "route": "/leaders/evaluations/:id",
+          "method": "put"
+        },
+        {
+          "description": "领导 打分表列表 查看成功",
+          "link": "领导_打分表_查看修改/领导_打分表列表_查看成功.json",
+          "groups": "all",
+          "route": "/leaders/evaluations",
+          "method": "get"
+        },
+        {
+          "description": "领导 打分表详情 查看成功",
+          "link": "领导_打分表_查看修改/领导_打分表详情_查看成功.json",
+          "groups": "all",
+          "route": "/leaders/evaluations/:id",
+          "method": "get"
+        }
+      ]
+    }
+  ]
+}

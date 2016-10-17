@@ -1,0 +1,48 @@
+{
+  "resource": "职工 打分表 查看修改",
+  "http_method": "GET",
+  "route": "/staffs/evaluations/:id",
+  "description": "职工 打分表详情 查看成功",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/staffs/evaluations/1",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-Staff-Token": "s_qwertyuiop1",
+        "X-Staff-Job-Num": "staff_job_num",
+        "X-Staff-Email": "s_hahaha@haha.com",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 1,\n  \"thought_morals\": \"thought_morals\",\n  \"upright_incorruptiable\": \"upright_incorruptiable\",\n  \"duties\": \"duties\",\n  \"evaluation_totality\": 90,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"user_type\": \"staff\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"0c50ca7abcd62148ab286ffd55acb6d3\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "b6155de6-982b-4f5b-a991-20aea4733c0e",
+        "X-Runtime": "0.011044",
+        "Vary": "Origin",
+        "Content-Length": "190"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

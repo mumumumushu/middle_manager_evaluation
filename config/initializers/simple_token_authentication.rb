@@ -1,11 +1,4 @@
-
-
 SimpleTokenAuthentication.configure do |config|
-	# Configure the session persistence policy after a successful sign in,
-  # in other words, if the authentication token acts as a signin token.
-  # If true, user is stored in the session and the authentication token and
-  # email may be provided only once.
-  # If false, users must provide their authentication token and email at every request.
 
   config.sign_in_token = false
 
@@ -28,13 +21,17 @@ SimpleTokenAuthentication.configure do |config|
   #     `X-Admin-Auth-Token, X-SuperAdmin-Email`
   #
   config.header_names = {
-    middle_manager: { authentication_token: 'X-MiddleManager-Token', email: 'X-MiddleManager-Email', job_num: 'X-MiddleManager-Job_num' },
-    leader: { authentication_token: 'X-Leader-Token', email: 'X-Leader-Email' },
-    staff: { authentication_token: 'X-Staff-Token', email: 'X-Staff-Email' },
-    admin: { authentication_token: 'X-Admin-Token', email: 'X-Admin-Email' },
+    middle_manager: { authentication_token: 'X-MiddleManager-Token', job_num: 'X-MiddleManager-JobNum' },
+    leader: { authentication_token: 'X-Leader-Token', job_num: 'X-Leader-JobNum' },
+    staff: { authentication_token: 'X-Staff-Token', job_num: 'X-Staff-JobNum' },
+    admin: { authentication_token: 'X-admin-Token', email: 'X-admin-Email' },
   }
   
-  config.identifiers = { middle_manager: :email , leader: :email ,
-  											staff: :email, admin: :email }
+  config.identifiers = { 
+    middle_manager: :job_num, 
+    leader: :job_num, 
+    staff: :job_num, 
+    admin: :email   
+  }
 
 end

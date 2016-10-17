@@ -1,14 +1,13 @@
 require 'acceptance_helper'
 
-resource	'中层干部自评表查看修改' do
+resource	'中层干部 自评表 查看修改' do
 	header "Accept", "application/json"
 
 	get '/middle_managers/self_evaluation' do
 		middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
 
 		header "X-MiddleManager-Token", middle_manager_attrs[:authentication_token]
-    header "X-MiddleManager-Job_num", middle_manager_attrs[:job_num]
-    header "X-MiddleManager-Email", middle_manager_attrs[:email]
+    header "X-MiddleManager-JobNum", middle_manager_attrs[:job_num]
 
     before do
       @middle_manager = create(:middle_manager)
@@ -17,7 +16,7 @@ resource	'中层干部自评表查看修改' do
       												 activity: @activity)
     end
 
-    example "中层干部自评表查看成功" do
+    example "中层干部 自评表 查看 成功" do
       do_request
       puts response_body
       expect(status).to eq(200)
@@ -34,31 +33,31 @@ resource	'中层干部自评表查看修改' do
 	end	
 
 
-  # put '/middle_managers/self_evaluation' do
-  #   user_attrs = FactoryGirl.attributes_for(:user)
-  #   image_attrs = FactoryGirl.attributes_for(:image, photo_type: "avatar")
+  put '/middle_managers/self_evaluation' do
+    middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
 
-  #   header "X-User-Token", user_attrs[:authentication_token]
-  #   header "X-User-Phone", user_attrs[:phone]
+    header "X-MiddleManager-Token", middle_manager_attrs[:authentication_token]
+    header "X-MiddleManager-JobNum", middle_manager_attrs[:job_num]
 
-  #   parameter :nickname, "称谓", require: false, scope: :user_info
-  #   parameter :mail, "邮箱", require: false, scope: :user_info
-  #   parameter :avatar_attributes, "头像", require: false, scope: :user_info
+    parameter :duties, "履行岗位职责情况", require: false, scope: :self_evaluation
+    parameter :self_evaluation_totality, "自我总体评价", require: false, scope: :self_evaluation
 
-  #   before do
-  #     @user = create(:user)
-  #   end
+    before do
+      @middle_manager = create(:middle_manager)
+      @activity = create(:activity)
+      create(:self_evaluation, middle_manager: @middle_manager,
+                               activity: @activity)
+    end
 
-  #   let(:nickname) { "new nickname" }
-  #   let(:mail) { "new mail" }
-  #   let(:avatar_attributes) { image_attrs }
+    let(:duties) { "new duties" }
+    let(:self_evaluation_totality) { "new 优秀" }
 
 
-  #   example "中层干部 修改自评表成功" do
-  #     do_request
-  #     puts response_body
-  #     expect(status).to eq(201)
-  #   end
-  # end
+    example "中层干部 修改 自评表 成功" do
+      do_request
+      puts response_body
+      expect(status).to eq(201)
+    end
+  end
 
 end	
