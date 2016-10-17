@@ -1,0 +1,48 @@
+{
+  "resource": "领导 打分表 查看修改",
+  "http_method": "GET",
+  "route": "/leaders/evaluations/:id",
+  "description": "领导 打分表详情 查看成功",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/leaders/evaluations/1",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-Leader-Token": "l_qwertyuiop1",
+        "X-Leader-Job-Num": "leader_job_num",
+        "X-Leader-Email": "l_hahaha@haha.com",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 1,\n  \"thought_morals\": \"thought_morals\",\n  \"upright_incorruptiable\": \"upright_incorruptiable\",\n  \"duties\": \"duties\",\n  \"evaluation_totality\": 90,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"user_type\": \"leader\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"10a723018d479d71fa6c2b921ef7ae34\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "edaaf85d-b88a-4b24-8d93-a4595fe1d882",
+        "X-Runtime": "0.011426",
+        "Vary": "Origin",
+        "Content-Length": "191"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

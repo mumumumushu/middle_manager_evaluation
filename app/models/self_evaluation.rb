@@ -10,7 +10,6 @@
 #  updated_at               :datetime         not null
 #  created_year             :integer
 #  activity_id              :integer
-#  activity                 :reference ??
 #
 
 class SelfEvaluation < ApplicationRecord
@@ -47,8 +46,10 @@ class SelfEvaluation < ApplicationRecord
     User.all.each do |user|
       unless user.id == middle_manager_id
         _evaluation = user.evaluations.new
-        _evaluation.self_evaluations_id = self.id
-        _evaluation.duties = self.duties
+        _evaluation.self_evaluation_id = self.id
+        _evaluation.user_id = user.id
+        
+        _evaluation.duties = self.duties#[ self.duties.keys, [ Array.new ] ].to_hash 
         #duties !!!!!
 
         _evaluation.save
@@ -59,8 +60,8 @@ class SelfEvaluation < ApplicationRecord
   def update_evaluations
     User.all.each do |user|
       unless user.id == middle_manager_id
-        _evaluation = user.evaluations.where( :self_evaluations_id => self.id)   
-        _evaluation.duties =  self.duties#.keys, [ Array.new ] ].to_hash 
+        _evaluation = user.evaluations.where( :self_evaluation_id => self.id)        
+        _evaluation.duties = self.duties #[ self.duties.keys, [ Array.new ] ].to_hash 
  
         _evaluation.save
       end

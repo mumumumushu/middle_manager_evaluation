@@ -1,1 +1,1 @@
-json.extract! evaluation, :id, :evaluationable_id,:evaluationable_type, :thought_morals, :upright_incorruptiable, :duties, :evaluation_totality, :evaluationable_type, :evaluationable_id, :self_evaluation_id  
+json.extract! evaluation, :id, :thought_morals, :upright_incorruptiable, :duties, :evaluation_totality, :self_evaluation_id, :user_id, :user_type

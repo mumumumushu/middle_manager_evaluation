@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -15,20 +15,15 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  job_num                :string
+#  job_num                :string           default(""), not null
 #  user_info              :text
+#  authentication_token   :string(30)
+#  user_type              :string
 #
 
 require 'rails_helper'
 
-RSpec.describe MiddleManager, type: :model do
+RSpec.describe User, type: :model do
    it { should have_many(:evaluations)}
 end
 
-RSpec.describe Leader, type: :model do
-   it { should have_many(:evaluations)}
-end
-
-RSpec.describe Staff, type: :model do
-   it { should have_many(:evaluations)}
-end

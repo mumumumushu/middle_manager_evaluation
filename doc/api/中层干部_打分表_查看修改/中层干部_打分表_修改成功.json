@@ -1,0 +1,72 @@
+{
+  "resource": "中层干部 打分表 查看修改",
+  "http_method": "PUT",
+  "route": "/middle_managers/evaluations/:id",
+  "description": "中层干部 打分表 修改成功",
+  "explanation": null,
+  "parameters": [
+    {
+      "require": false,
+      "scope": "evaluation",
+      "name": "thought_morals",
+      "description": "思想道德情况"
+    },
+    {
+      "require": false,
+      "scope": "evaluation",
+      "name": "duties",
+      "description": "履行岗位职责情况"
+    },
+    {
+      "require": false,
+      "scope": "evaluation",
+      "name": "upright_incorruptiable",
+      "description": "廉洁自律情况"
+    },
+    {
+      "require": false,
+      "scope": "evaluation",
+      "name": "evaluation_totality",
+      "description": "总体评价"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/middle_managers/evaluations/1",
+      "request_body": "evaluation[thought_morals]=new+thought_morals&evaluation[duties]=new+upright_incorruptiable&evaluation[upright_incorruptiable]=new+duties&evaluation[evaluation_totality]=100",
+      "request_headers": {
+        "Accept": "application/json",
+        "X-Middlemanager-Token": "m_qwertyuiop1",
+        "X-Middlemanager-Job-Num": "123456",
+        "X-Middlemanager-Email": "m_hahaha@haha.com",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 1,\n  \"thought_morals\": \"new thought_morals\",\n  \"upright_incorruptiable\": \"new duties\",\n  \"duties\": \"new upright_incorruptiable\",\n  \"evaluation_totality\": 100,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"user_type\": \"middle_manager\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"eb057d247d4825eca2cc735d355cf212\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "0d1a0739-c1d1-4109-b64c-16e570d8db29",
+        "X-Runtime": "0.014253",
+        "Vary": "Origin",
+        "Content-Length": "212"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

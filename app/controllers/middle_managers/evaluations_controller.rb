@@ -27,7 +27,7 @@ class MiddleManagers::EvaluationsController < ApplicationController
 
   def update
     @evaluation.update(evaluation_params)
-    respond_with(@evaluation)
+    respond_with @evaluation, template: "middle_managers/evaluations/show", status: 201
   end
 
   # def destroy
@@ -37,10 +37,13 @@ class MiddleManagers::EvaluationsController < ApplicationController
 
   private
     def set_evaluation
-      @evaluation = current_middle_manager.evaluations.where( :evaluationable_type => 'MiddleManager', :evaluationable_id => params[:id])
+      @evaluation = current_middle_manager.evaluations.find(params[:id])
     end
 
     def evaluation_params
-      params[:evaluation]
+      params.require( :evaluation ).permit(
+        :duties, :thought_morals, 
+        :upright_incorruptiable, :evaluation_totality
+        )
     end
 end

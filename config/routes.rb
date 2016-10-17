@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # }
 
 ###？？？？？？？？user？？？？？？会无法验证
-
+  # devise_for :users
   devise_for :leaders
   devise_for :staffs
   devise_for :middle_managers
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   end	
 
   namespace :staffs do
-  	resources :evaluation, only: [ :index, :show, :update ]
+  	resources :evaluations, only: [ :index, :show, :update ]
   end	
 
   namespace :middle_managers do

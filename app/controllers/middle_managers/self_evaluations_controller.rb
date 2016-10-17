@@ -3,7 +3,8 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
   include ActionController::MimeResponds
 
   acts_as_token_authentication_handler_for MiddleManager
-  before_action :set_self_evaluation, only: [:show, :update, :destroy]  
+
+  before_action :set_self_evaluation, only: [:show, :update]  
   
   respond_to :json
 
@@ -24,7 +25,7 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
 
   def update
     @self_evaluation.update(self_evaluation_params)
-    respond_with(@self_evaluation)
+    respond_with @self_evaluation, template: "middle_managers/self_evaluations/show", status: 201
   end
 
   # def destroy
@@ -38,6 +39,9 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
     end
 
     def self_evaluation_params
-      params[:self_evaluation]
+      params.require( :self_evaluation ).permit(
+        :duties, :self_evaluation_totality
+        )
     end
+
 end

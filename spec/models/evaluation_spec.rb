@@ -9,15 +9,13 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  evaluation_totality    :integer
-#  evaluationable_type    :string
-#  evaluationable_id      :integer
-#  create_year            :string
 #  self_evaluation_id     :integer
+#  user_id                :integer
 #
 
 require 'rails_helper'
 
 RSpec.describe Evaluation, type: :model do
-   it { should belong_to(:evaluationable)}
+   it { should belong_to(:user)}
    it { should belong_to(:self_evaluation)}
 end

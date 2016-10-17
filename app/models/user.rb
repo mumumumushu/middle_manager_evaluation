@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -15,45 +15,39 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  job_num                :string
+#  job_num                :string           default(""), not null
 #  user_info              :text
+#  authentication_token   :string(30)
+#  user_type              :string
 #
 
 class User < ApplicationRecord
+  
+  ## Token Authenticatable
+  acts_as_token_authenticatable
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
           authentication_keys: [:job_num]
 
+  validates :job_num, uniqueness: true
   #has_many :evaluations, as: :evaluationable
   has_many :evaluations
-  ## Token Authenticatable
-  acts_as_token_authenticatable
+ 
+  
 
-
-  def user_type   #####给接口？？？？？？
-    self.class
-  end
-
-
-
-
-
-
-
-
-   protected
   def email_required?
     false
   end
 
-  def job_num_required?
-    true
-  end
+  # def email_changed?
+  #   false
+  # end
 
-  def email_changed?
-    false
-  end
+  # def job_num_required?
+  #   true    
+  # end
   
 end
