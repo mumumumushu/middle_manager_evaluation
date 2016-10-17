@@ -60,7 +60,7 @@ class SelfEvaluation < ApplicationRecord
   def update_evaluations
     User.all.each do |user|
       unless user.id == middle_manager_id
-        _evaluation = user.evaluations.where( :self_evaluation_id => self.id)        
+        _evaluation = user.evaluations.where( :self_evaluation_id => self.id).first        
         _evaluation.duties = self.duties #[ self.duties.keys, [ Array.new ] ].to_hash 
  
         _evaluation.save

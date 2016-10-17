@@ -1,0 +1,1 @@
+json.extract! user_info, :id, :user_id, :name, :sex, :date_of_birth, :politics_status, :degree_of_education, :department_and_duty, :job, :starting_time_for_the_present_job

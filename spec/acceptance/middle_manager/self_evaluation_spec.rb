@@ -6,8 +6,8 @@ resource	'中层干部 自评表 查看修改' do
 	get '/middle_managers/self_evaluation' do
 		middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
 
-		header "X-MiddleManager-Token", middle_manager_attrs[:authentication_token]
-    header "X-MiddleManager-JobNum", middle_manager_attrs[:job_num]
+		header "X-User-Token", middle_manager_attrs[:authentication_token]
+    header "X-User-JobNum", middle_manager_attrs[:job_num]
 
     before do
       @middle_manager = create(:middle_manager)
@@ -36,8 +36,8 @@ resource	'中层干部 自评表 查看修改' do
   put '/middle_managers/self_evaluation' do
     middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
 
-    header "X-MiddleManager-Token", middle_manager_attrs[:authentication_token]
-    header "X-MiddleManager-JobNum", middle_manager_attrs[:job_num]
+    header "X-User-Token", middle_manager_attrs[:authentication_token]
+    header "X-User-JobNum", middle_manager_attrs[:job_num]
 
     parameter :duties, "履行岗位职责情况", require: false, scope: :self_evaluation
     parameter :self_evaluation_totality, "自我总体评价", require: false, scope: :self_evaluation

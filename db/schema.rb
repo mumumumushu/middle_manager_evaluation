@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017015939) do
+ActiveRecord::Schema.define(version: 20161017021834) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "first_phase_begin"
@@ -71,6 +71,21 @@ ActiveRecord::Schema.define(version: 20161017015939) do
     t.index ["middle_manager_id"], name: "index_self_evaluations_on_middle_manager_id"
   end
 
+  create_table "user_infos", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "sex"
+    t.string   "date_of_birth"
+    t.string   "politics_status"
+    t.string   "degree_of_education"
+    t.string   "department_and_duty"
+    t.string   "job"
+    t.string   "starting_time_for_the_present_job"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["user_id"], name: "index_user_infos_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
@@ -84,7 +99,6 @@ ActiveRecord::Schema.define(version: 20161017015939) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.string   "job_num",                           default: "", null: false
-    t.text     "user_info"
     t.string   "authentication_token",   limit: 30
     t.string   "user_type"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true

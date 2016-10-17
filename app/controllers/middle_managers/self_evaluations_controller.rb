@@ -2,7 +2,7 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
   include ActionView::Layouts
   include ActionController::MimeResponds
 
-  acts_as_token_authentication_handler_for MiddleManager
+  acts_as_token_authentication_handler_for User
 
   before_action :set_self_evaluation, only: [:show, :update]  
   
@@ -35,7 +35,7 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
 
   private
     def set_self_evaluation
-      @self_evaluation = current_middle_manager.self_evaluation
+      @self_evaluation = MiddleManager.find(current_user.id).self_evaluation
     end
 
     def self_evaluation_params

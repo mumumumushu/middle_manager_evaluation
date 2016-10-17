@@ -15,7 +15,6 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  job_num                :string           default(""), not null
-#  user_info              :text
 #  authentication_token   :string(30)
 #  user_type              :string
 #

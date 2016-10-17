@@ -7,8 +7,8 @@ resource	'职工 打分表 查看修改' do
 		middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
     staff_attrs = FactoryGirl.attributes_for(:staff)
 
-		header "X-Staff-Token", staff_attrs[:authentication_token]
-    header "X-Staff-JobNum", staff_attrs[:job_num]
+		header "X-User-Token", staff_attrs[:authentication_token]
+    header "X-User-JobNum", staff_attrs[:job_num]
 
     before do
     	@staff = create(:staff)
@@ -41,8 +41,8 @@ resource	'职工 打分表 查看修改' do
     middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
     staff_attrs = FactoryGirl.attributes_for(:staff)
 
-    header "X-Staff-Token", staff_attrs[:authentication_token]
-    header "X-Staff-JobNum", staff_attrs[:job_num]
+    header "X-User-Token", staff_attrs[:authentication_token]
+    header "X-User-JobNum", staff_attrs[:job_num]
 
     before do
    
@@ -72,8 +72,8 @@ resource	'职工 打分表 查看修改' do
     middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
     staff_attrs = FactoryGirl.attributes_for(:staff)
 
-    header "X-Staff-Token", staff_attrs[:authentication_token]
-    header "X-Staff-JobNum", staff_attrs[:job_num]
+    header "X-User-Token", staff_attrs[:authentication_token]
+    header "X-User-JobNum", staff_attrs[:job_num]
 
     parameter :thought_morals, "思想道德情况", require: false, scope: :evaluation
     parameter :duties, "履行岗位职责情况", require: false, scope: :evaluation
