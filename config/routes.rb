@@ -20,10 +20,10 @@ Rails.application.routes.draw do
   # }
 
 ###？？？？？？？？user？？？？？？会无法验证
-  # devise_for :users
-  devise_for :leaders
-  devise_for :staffs
-  devise_for :middle_managers
+  devise_for :users
+  # devise_for :leaders
+  # devise_for :staffs
+  # devise_for :middle_managers
   devise_for :admins
 
   # resources :evaluations
@@ -50,6 +50,8 @@ Rails.application.routes.draw do
 	end
 
   resources :activitise
+  resource :user_info, only: [:show]
+
 
 
 	

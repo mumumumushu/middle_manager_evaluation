@@ -15,7 +15,6 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  job_num                :string           default(""), not null
-#  user_info              :text
 #  authentication_token   :string(30)
 #  user_type              :string
 #
@@ -34,6 +33,7 @@ class User < ApplicationRecord
   validates :job_num, uniqueness: true
   #has_many :evaluations, as: :evaluationable
   has_many :evaluations
+  has_one :user_info
  
   
 

@@ -15,7 +15,6 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  job_num                :string           default(""), not null
-#  user_info              :text
 #  authentication_token   :string(30)
 #  user_type              :string
 #
@@ -26,31 +25,22 @@ FactoryGirl.define do
   factory :leader do
     job_num 'leader_job_num'
     password 'hahaha'
-    authentication_token 'l_qwertyuiop1'
-    user_info 'leader_user_info'
-
+    authentication_token 'l_qwertyuiop1'  #不可重复
     user_type 'leader'
-
   end
 
   factory :staff  do
   	job_num 'staff_job_num'
     password 'hahaha'
     authentication_token 's_qwertyuiop1'
-    user_info 'staff_user_info'
-
     user_type 'staff'
-
   end
 
   factory :middle_manager do
   	job_num 'middle_manager_job_num'
     password 'hahaha'
     authentication_token 'm_qwertyuiop1'
-    user_info 'middle_manager_user_info'
-
     user_type 'middle_manager'
-
     # after(:create) do |middle|
     #    @activity = create(:activity)
     #   @self_evaluation = create(:self_evaluation, 

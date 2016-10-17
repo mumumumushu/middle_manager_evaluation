@@ -21,16 +21,12 @@ SimpleTokenAuthentication.configure do |config|
   #     `X-Admin-Auth-Token, X-SuperAdmin-Email`
   #
   config.header_names = {
-    middle_manager: { authentication_token: 'X-MiddleManager-Token', job_num: 'X-MiddleManager-JobNum' },
-    leader: { authentication_token: 'X-Leader-Token', job_num: 'X-Leader-JobNum' },
-    staff: { authentication_token: 'X-Staff-Token', job_num: 'X-Staff-JobNum' },
+    user: { authentication_token: 'X-User-Token', job_num: 'X-User-JobNum' },
     admin: { authentication_token: 'X-admin-Token', email: 'X-admin-Email' },
   }
   
   config.identifiers = { 
-    middle_manager: :job_num, 
-    leader: :job_num, 
-    staff: :job_num, 
+    user: :job_num, 
     admin: :email   
   }
 

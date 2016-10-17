@@ -6,8 +6,8 @@ resource	'中层干部 打分表 查看修改' do
 	get '/middle_managers/evaluations' do
 		middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
 
-		header "X-MiddleManager-Token", middle_manager_attrs[:authentication_token]
-    header "X-MiddleManager-JobNum", middle_manager_attrs[:job_num]
+		header "X-User-Token", middle_manager_attrs[:authentication_token]
+    header "X-User-JobNum", middle_manager_attrs[:job_num]
     
     before do
    
@@ -38,8 +38,8 @@ resource	'中层干部 打分表 查看修改' do
   get '/middle_managers/evaluations/:id' do
     middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
 
-    header "X-MiddleManager-Token", middle_manager_attrs[:authentication_token]
-    header "X-MiddleManager-JobNum", middle_manager_attrs[:job_num]
+    header "X-User-Token", middle_manager_attrs[:authentication_token]
+    header "X-User-JobNum", middle_manager_attrs[:job_num]
     
     before do
    
@@ -66,8 +66,8 @@ resource	'中层干部 打分表 查看修改' do
   put '/middle_managers/evaluations/:id' do
     middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
 
-    header "X-MiddleManager-Token", middle_manager_attrs[:authentication_token]
-    header "X-MiddleManager-JobNum", middle_manager_attrs[:job_num]
+    header "X-User-Token", middle_manager_attrs[:authentication_token]
+    header "X-User-JobNum", middle_manager_attrs[:job_num]
     
     parameter :thought_morals, "思想道德情况", require: false, scope: :evaluation
     parameter :duties, "履行岗位职责情况", require: false, scope: :evaluation
