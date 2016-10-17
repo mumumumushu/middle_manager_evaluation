@@ -41,6 +41,17 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 'm_qwertyuiop1'
     user_type 'middle_manager'
+  end
+
+  factory :wrong_type, class: :user do
+    job_num 'staff_job_num'
+    password 'hahaha'
+    authentication_token 'wertyuiop1'
+    user_type 'wrong_type'
+  end
+
+
+end
     # after(:create) do |middle|
     #    @activity = create(:activity)
     #   @self_evaluation = create(:self_evaluation, 
@@ -60,5 +71,3 @@ FactoryGirl.define do
 		# 	create( :evaluation, evaluationable: middle_manager)
 		# end
     
-  end
-end

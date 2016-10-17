@@ -3,6 +3,8 @@ class MiddleManagers::ResultsController < ApplicationController
   include ActionController::MimeResponds
 
   acts_as_token_authentication_handler_for User
+  before_action :middle_manager?
+
   before_action :set_result, only: [:show]
   
   respond_to :json
@@ -33,6 +35,11 @@ class MiddleManagers::ResultsController < ApplicationController
   # end
 
   private
+
+    def middle_manager?
+      current_user.right_type?('middle_manager')
+    end
+    
     def set_result
       @result = current_user.result
     end

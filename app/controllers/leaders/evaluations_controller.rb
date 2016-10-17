@@ -3,6 +3,8 @@ class Leaders::EvaluationsController < ApplicationController
   include ActionController::MimeResponds
 
   acts_as_token_authentication_handler_for User
+  before_action :leader?
+
   before_action :set_evaluation, only: [:show, :update]
 
   respond_to :json
@@ -36,6 +38,11 @@ class Leaders::EvaluationsController < ApplicationController
   # end
 
   private
+
+    def leader?
+      current_user.right_type?('leader')
+    end
+
     def set_evaluation
       @evaluation = current_user.evaluations.find(params[:id])
     end
