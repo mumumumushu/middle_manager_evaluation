@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -42,9 +41,9 @@ class User < ApplicationRecord
     false
   end
 
-  # def email_changed?
-  #   false
-  # end
+  def email_changed? #删除email字段后 需要加上
+    false
+  end
 
   # def job_num_required?
   #   true    
