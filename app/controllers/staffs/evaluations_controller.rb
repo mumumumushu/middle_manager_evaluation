@@ -3,6 +3,8 @@ class Staffs::EvaluationsController < ApplicationController
   include ActionController::MimeResponds
 
   acts_as_token_authentication_handler_for User
+  before_action :staff?
+
   before_action :set_evaluation, only: [:show, :update]
 
   respond_to :json
@@ -36,6 +38,11 @@ class Staffs::EvaluationsController < ApplicationController
   # end
 
   private
+
+    def staff?
+      current_user.right_type?('staff')
+    end
+
     def set_evaluation
       @evaluation = current_user.evaluations.find(params[:id])
     end

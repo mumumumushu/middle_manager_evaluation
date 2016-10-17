@@ -34,9 +34,18 @@ class User < ApplicationRecord
   #has_many :evaluations, as: :evaluationable
   has_many :evaluations
   has_one :user_info
- 
-  
 
+
+
+  def right_type? (type)
+    unless self.user_type == type
+      render json: {
+          error: "用户没有访问权限",
+          status: 401
+          } ,status: 401
+    end 
+  end
+ 
   def email_required?
     false
   end

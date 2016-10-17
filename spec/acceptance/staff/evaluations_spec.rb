@@ -35,6 +35,20 @@ resource	'职工 打分表 查看修改' do
       puts response_body
       expect(status).to eq(200)
     end
+
+    describe "用户没有访问权限" do
+      staff_attrs = FactoryGirl.attributes_for(:wrong_type)
+
+      header "X-User-Token", staff_attrs[:authentication_token]
+      header "X-User-JobNum", staff_attrs[:job_num]
+     
+      example "用户类型错误" do    
+        do_request
+        puts response_body
+        expect(status).to eq(401)
+      end 
+    end
+
 	end	
 
   get '/staffs/evaluations/:id' do

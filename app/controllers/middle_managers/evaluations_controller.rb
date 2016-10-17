@@ -2,7 +2,9 @@ class MiddleManagers::EvaluationsController < ApplicationController
   include ActionView::Layouts
   include ActionController::MimeResponds
 
-  acts_as_token_authentication_handler_for User
+  acts_as_token_authentication_handler_for User  
+  before_action :middle_manager?
+
   before_action :set_evaluation, only: [:show, :update ]
   
   respond_to :json
@@ -36,6 +38,11 @@ class MiddleManagers::EvaluationsController < ApplicationController
   # end
 
   private
+
+    def middle_manager?
+      current_user.right_type?('middle_manager')
+    end
+    
     def set_evaluation
       @evaluation = current_user.evaluations.find(params[:id])
     end

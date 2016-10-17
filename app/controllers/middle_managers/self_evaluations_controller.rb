@@ -3,11 +3,12 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
   include ActionController::MimeResponds
 
   acts_as_token_authentication_handler_for User
+  before_action :middle_manager?
 
   before_action :set_self_evaluation, only: [:show, :update]  
   
   respond_to :json
-
+  
   # def index
   #   @self_evaluations = MiddleManager::SelfEvaluation.all
   #   respond_with(@self_evaluations)
@@ -34,6 +35,11 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
   # end
 
   private
+
+    def middle_manager?
+      current_user.right_type?('middle_manager')
+    end
+
     def set_self_evaluation
       @self_evaluation = MiddleManager.find(current_user.id).self_evaluation
     end
