@@ -22,7 +22,7 @@ FactoryGirl.define do
   factory :admin do
   	email '123456@qq.com'
   	password 'hahaha'
-  	authentication_token 'qwertyuiop1'
+  	authentication_token 'aqwertyuiop1'
     
   end
 end

@@ -48,7 +48,7 @@ class Leaders::EvaluationsController < ApplicationController
     end
 
     def evaluation_params
-      params.require( :evaluation ).permit(
+      params.require(:evaluation).permit(
         :duties, :thought_morals, 
         :upright_incorruptiable, :evaluation_totality
         )
