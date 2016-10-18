@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   namespace :middle_managers do
   	resources :evaluations, only: [ :index, :show, :update ]
   	resource :self_evaluation, only: [ :show, :create, :update ]
-  	resource :result, only: [ :show, :update ]
+  	resource :result, only: [ :show ]
   end
 
   namespace :admin do

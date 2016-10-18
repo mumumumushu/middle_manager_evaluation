@@ -1,8 +1,8 @@
 {
-  "resource": "中层干部 打分表 查看修改",
+  "resource": "职工 打分表 查看修改",
   "http_method": "GET",
-  "route": "/middle_managers/evaluations",
-  "description": "中层干部 打分表列表 查看成功",
+  "route": "/staffs/evaluations",
+  "description": "用户类型错误",
   "explanation": null,
   "parameters": [
     {
@@ -22,12 +22,12 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/middle_managers/evaluations?page=2&per_page=4",
+      "request_path": "/staffs/evaluations?page=2&per_page=4",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json",
-        "X-User-Token": "m_qwertyuiop1",
-        "X-User-Jobnum": "middle_manager_job_num",
+        "X-User-Token": "wertyuiop1",
+        "X-User-Jobnum": "staff_job_num",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,20 +36,19 @@
         "per_page": "4"
       },
       "request_content_type": null,
-      "response_status": 200,
-      "response_status_text": "OK",
-      "response_body": "{\n  \"current_page\": 2,\n  \"total_pages\": 1,\n  \"middle_manager_evaluations\": [\n\n  ]\n}",
+      "response_status": 401,
+      "response_status_text": "Unauthorized",
+      "response_body": "{\n  \"error\": \"translation missing: zh-CN.devise.failure.user.unauthenticated\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"a4f986b973d4a7c86211f10c3a2b9019\"",
-        "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "9e4d4da5-59e2-4543-80de-2103dae4003c",
-        "X-Runtime": "0.012432",
+        "Cache-Control": "no-cache",
+        "X-Request-Id": "abbb8a02-6956-4471-914a-27083f2fd5b4",
+        "X-Runtime": "0.002730",
         "Vary": "Origin",
-        "Content-Length": "66"
+        "Content-Length": "74"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null

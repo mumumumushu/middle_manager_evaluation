@@ -37,12 +37,11 @@
     {
       "request_method": "PUT",
       "request_path": "/leaders/evaluations/1",
-      "request_body": "evaluation[thought_morals]=new+thought_morals&evaluation[duties]=new+upright_incorruptiable&evaluation[upright_incorruptiable]=new+duties&evaluation[evaluation_totality]=100",
+      "request_body": "evaluation[thought_morals]=%7B%22new%22%3A90%7D&evaluation[duties]=%7B%22new%22%3A90%7D&evaluation[upright_incorruptiable]=%7B%22new%22%3A90%7D&evaluation[evaluation_totality]=99",
       "request_headers": {
         "Accept": "application/json",
-        "X-Leader-Token": "l_qwertyuiop1",
-        "X-Leader-Job-Num": "leader_job_num",
-        "X-Leader-Email": "l_hahaha@haha.com",
+        "X-User-Token": "l_qwertyuiop1",
+        "X-User-Jobnum": "leader_job_num",
         "Host": "example.org",
         "Content-Type": "application/x-www-form-urlencoded",
         "Cookie": ""
@@ -52,18 +51,18 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 1,\n  \"thought_morals\": \"new thought_morals\",\n  \"upright_incorruptiable\": \"new duties\",\n  \"duties\": \"new upright_incorruptiable\",\n  \"evaluation_totality\": 100,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"user_type\": \"leader\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"name\": \"谌明举\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"thought_morals\": \"{\\\"new\\\":90}\",\n  \"upright_incorruptiable\": \"{\\\"new\\\":90}\",\n  \"duties\": \"{\\\"new\\\":90}\",\n  \"evaluation_totality\": 99,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"created_year\": 2016\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"9813c0f71d494be8d91a5ba9e3e6e5b7\"",
+        "ETag": "W/\"172ec4249e8e16319abe1901eede6db6\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "dc9471bb-f5f3-42df-bbb2-f9f22e6c19c7",
-        "X-Runtime": "0.017830",
+        "X-Request-Id": "4e4b9698-b673-4ef0-9226-2db11425b451",
+        "X-Runtime": "0.026442",
         "Vary": "Origin",
-        "Content-Length": "204"
+        "Content-Length": "274"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null

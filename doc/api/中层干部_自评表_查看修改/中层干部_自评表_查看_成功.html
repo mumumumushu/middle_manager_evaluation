@@ -118,9 +118,8 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
-X-Middlemanager-Token: m_qwertyuiop1
-X-Middlemanager-Job-Num: 123456
-X-Middlemanager-Email: m_hahaha@haha.com
+X-User-Token: m_qwertyuiop1
+X-User-Jobnum: middle_manager_job_num
 Host: example.org
 Cookie: </pre>
 
@@ -136,24 +135,26 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;bedba6cb8b27fb17b21c4922c14d61d4&quot;
+ETag: W/&quot;72db07b2d0dcefdfbea63b64c092e364&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: ab74c911-9055-41af-82b6-fb28639bf092
-X-Runtime: 0.020025
+X-Request-Id: 914c9b58-5938-413f-b6ca-7659cec2bad1
+X-Runtime: 0.016253
 Vary: Origin
-Content-Length: 226</pre>
+Content-Length: 355</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;id&quot;: 1,
+  &quot;name&quot;: &quot;谌明举&quot;,
+  &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;,
   &quot;activity_id&quot;: 1,
   &quot;middle_manager_id&quot;: 1,
-  &quot;duties&quot;: &quot;self_evaluation_duties&quot;,
+  &quot;duties&quot;: &quot;{\&quot;项目1\&quot;:80,\&quot;项目2\&quot;:70,\&quot;项目3\&quot;:60,\&quot;项目4\&quot;:90}&quot;,
   &quot;self_evaluation_totality&quot;: &quot;优秀&quot;,
   &quot;created_year&quot;: 2016,
   &quot;created_at&quot;: &quot;2016-10-02T15:29:57.000+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-10-15T16:08:48.062+08:00&quot;
+  &quot;updated_at&quot;: &quot;2016-10-18T10:37:26.248+08:00&quot;
 }</pre>
       </div>
     </div>
