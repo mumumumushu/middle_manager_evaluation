@@ -161,9 +161,8 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
-X-Leader-Token: l_qwertyuiop1
-X-Leader-Job-Num: leader_job_num
-X-Leader-Email: l_hahaha@haha.com
+X-User-Token: l_qwertyuiop1
+X-User-Jobnum: leader_job_num
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
@@ -173,7 +172,7 @@ Cookie: </pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">evaluation[thought_morals]=new+thought_morals&evaluation[duties]=new+upright_incorruptiable&evaluation[upright_incorruptiable]=new+duties&evaluation[evaluation_totality]=100</pre>
+            <pre class="request body">evaluation[thought_morals]=%7B%22new%22%3A90%7D&evaluation[duties]=%7B%22new%22%3A90%7D&evaluation[upright_incorruptiable]=%7B%22new%22%3A90%7D&evaluation[evaluation_totality]=99</pre>
 
 
             <h3>Response</h3>
@@ -182,24 +181,26 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;9813c0f71d494be8d91a5ba9e3e6e5b7&quot;
+ETag: W/&quot;172ec4249e8e16319abe1901eede6db6&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: dc9471bb-f5f3-42df-bbb2-f9f22e6c19c7
-X-Runtime: 0.017830
+X-Request-Id: 4e4b9698-b673-4ef0-9226-2db11425b451
+X-Runtime: 0.026442
 Vary: Origin
-Content-Length: 204</pre>
+Content-Length: 274</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;id&quot;: 1,
-  &quot;thought_morals&quot;: &quot;new thought_morals&quot;,
-  &quot;upright_incorruptiable&quot;: &quot;new duties&quot;,
-  &quot;duties&quot;: &quot;new upright_incorruptiable&quot;,
-  &quot;evaluation_totality&quot;: 100,
+  &quot;name&quot;: &quot;谌明举&quot;,
+  &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;,
+  &quot;thought_morals&quot;: &quot;{\&quot;new\&quot;:90}&quot;,
+  &quot;upright_incorruptiable&quot;: &quot;{\&quot;new\&quot;:90}&quot;,
+  &quot;duties&quot;: &quot;{\&quot;new\&quot;:90}&quot;,
+  &quot;evaluation_totality&quot;: 99,
   &quot;self_evaluation_id&quot;: 1,
   &quot;user_id&quot;: 1,
-  &quot;user_type&quot;: &quot;leader&quot;
+  &quot;created_year&quot;: 2016
 }</pre>
       </div>
     </div>

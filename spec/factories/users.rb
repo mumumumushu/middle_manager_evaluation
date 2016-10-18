@@ -43,6 +43,15 @@ FactoryGirl.define do
     user_type 'middle_manager'
   end
 
+  factory :middle_manager2, class: :user do
+    job_num 'middle_manager2_job_num'
+    password 'hahaha'
+    authentication_token 'm_qwertyuiop2'
+    user_type 'middle_manager'
+  end
+
+
+
   factory :wrong_type, class: :user do
     job_num 'staff_job_num'
     password 'hahaha'

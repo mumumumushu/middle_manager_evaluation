@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>中层干部 自评表 查看修改 API</title>
+    <title>用户注册登录 API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>中层干部 自评表 查看修改 API</h1>
+      <h1>用户注册登录 API</h1>
 
       <div class="article">
-        <h2>中层干部 修改 自评表 成功</h2>
-        <h3>PUT /middle_managers/self_evaluation</h3>
+        <h2>用户登录成功</h2>
+        <h3>POST /users/sign_in</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -122,41 +122,98 @@ table th, table td {
             </thead>
             <tbody>
               <tr>
-                <td>
-                    <span class="name">self_evaluation[duties]</span>
+                <td class="required">
+                    <span class="name">user[job_num]</span>
                 </td>
                 <td>
-                  <span class="description">履行岗位职责情况</span>
+                  <span class="description">登录的工号</span>
                 </td>
               </tr>
               <tr>
-                <td>
-                    <span class="name">self_evaluation[self_evaluation_totality]</span>
+                <td class="required">
+                    <span class="name">user[password]</span>
                 </td>
                 <td>
-                  <span class="description">自我总体评价</span>
+                  <span class="description">登录密码</span>
                 </td>
               </tr>
             </tbody>
           </table>
 
+          <h3>Response Fields</h3>
+          <table class="response-fields table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">id</span>
+                </td>
+                <td>
+                  <span class="description">用户ID</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">job_num</span>
+                </td>
+                <td>
+                  <span class="description">工号</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">created_at</span>
+                </td>
+                <td>
+                  <span class="description">创建时间</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">updated_at</span>
+                </td>
+                <td>
+                  <span class="description">更新时间</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user_type</span>
+                </td>
+                <td>
+                  <span class="description">用户类型</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">authentication_token</span>
+                </td>
+                <td>
+                  <span class="description">鉴权Token</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
-X-User-Token: m_qwertyuiop1
-X-User-Jobnum: middle_manager_job_num
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT /middle_managers/self_evaluation</pre>
+          <pre class="request route highlight">POST /users/sign_in</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">self_evaluation[duties]=new+duties&self_evaluation[self_evaluation_totality]=new+%E4%BC%98%E7%A7%80</pre>
+            <pre class="request body">user[job_num]=middle_manager_job_num&user[password]=hahaha</pre>
 
 
             <h3>Response</h3>
@@ -164,27 +221,24 @@ Cookie: </pre>
               <pre class="response headers">X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
+Location: /
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;75a9837df880daa984c902b92d24eca5&quot;
+ETag: W/&quot;b860ed776328beb9454578f3f70e86cc&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 766f6057-f4e2-4231-9456-496bd7671ab1
-X-Runtime: 0.013781
+X-Request-Id: 9fed74b3-f970-414a-a591-b9d5f471d404
+X-Runtime: 0.011378
 Vary: Origin
-Content-Length: 308</pre>
+Content-Length: 201</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;id&quot;: 1,
-  &quot;name&quot;: &quot;谌明举&quot;,
-  &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;,
-  &quot;activity_id&quot;: 1,
-  &quot;middle_manager_id&quot;: 1,
-  &quot;duties&quot;: &quot;new duties&quot;,
-  &quot;self_evaluation_totality&quot;: &quot;new 优秀&quot;,
-  &quot;created_year&quot;: 2016,
-  &quot;created_at&quot;: &quot;2016-10-02T15:29:57.000+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-10-18T10:37:26.304+08:00&quot;
+  &quot;authentication_token&quot;: &quot;m_qwertyuiop1&quot;,
+  &quot;created_at&quot;: &quot;2016-10-18T10:37:26.588+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-10-18T10:37:26.599+08:00&quot;,
+  &quot;job_num&quot;: &quot;middle_manager_job_num&quot;,
+  &quot;user_type&quot;: &quot;middle_manager&quot;
 }</pre>
       </div>
     </div>

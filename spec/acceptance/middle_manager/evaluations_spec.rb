@@ -12,6 +12,9 @@ resource	'中层干部 打分表 查看修改' do
     before do
    
       @middle_manager = create(:middle_manager)
+      create(:user_info, user: @middle_manager)
+      @other_middle_manager = create(:middle_manager2)
+      
       @activity = create(:activity)
       @self_evaluation = create(:self_evaluation, 
                                   middle_manager: @middle_manager,
@@ -19,7 +22,7 @@ resource	'中层干部 打分表 查看修改' do
 
       @evaluations = create_list(:evaluation, 10,
       												      self_evaluation: @self_evaluation,
-                                    user: @middle_manager)            
+                                    user: @other_middle_manager)            
     end
 
     parameter :page, "当前页", require: false
@@ -44,6 +47,8 @@ resource	'中层干部 打分表 查看修改' do
     before do
    
       @middle_manager = create(:middle_manager)
+      create(:user_info, user: @middle_manager)
+      
       @activity = create(:activity)
       @self_evaluation = create(:self_evaluation, 
                                   middle_manager: @middle_manager,
@@ -76,6 +81,8 @@ resource	'中层干部 打分表 查看修改' do
 
     before do
       @middle_manager = create(:middle_manager)
+      create(:user_info, user: @middle_manager)
+      
       @activity = create(:activity)
       @self_evaluation = create(:self_evaluation, 
                                   middle_manager: @middle_manager,
@@ -86,10 +93,10 @@ resource	'中层干部 打分表 查看修改' do
                                     user: @middle_manager)
     end
 
-    let(:thought_morals) { "new thought_morals" }
-    let(:duties) { "new upright_incorruptiable" }
-    let(:upright_incorruptiable) { "new duties" }
-    let(:evaluation_totality) { 100 }
+    let(:thought_morals) { '{"new":90}' }
+    let(:duties) { '{"new":90}'}
+    let(:upright_incorruptiable) { '{"new":90}' }
+    let(:evaluation_totality) { 99 }
 
     let(:id) {@evaluations.first.id}
 

@@ -12,6 +12,8 @@ resource	'中层干部 自评表 查看修改' do
 
     before do
       @middle_manager = create(:middle_manager)
+      create(:user_info, user: @middle_manager)
+      
       @activity = create(:activity)
       create(:self_evaluation, middle_manager: @middle_manager,
       												 activity: @activity)
@@ -51,6 +53,8 @@ resource	'中层干部 自评表 查看修改' do
 
     before do
       @middle_manager = create(:middle_manager)
+      create(:user_info, user: @middle_manager)
+
       @activity = create(:activity)
       create(:self_evaluation, middle_manager: @middle_manager,
                                activity: @activity)

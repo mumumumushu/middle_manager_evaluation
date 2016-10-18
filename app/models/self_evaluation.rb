@@ -29,8 +29,14 @@ class SelfEvaluation < ApplicationRecord
   def created_year
     Activity.find( activity_id ).activity_created_year 
   end
-  
+  ##??? middle_manager_id == user_id ??
+  def name
+    MiddleManager.find(self.middle_manager_id).user_info.name
+  end
 
+  def department_and_duty #职务
+    MiddleManager.find(self.middle_manager_id).user_info.department_and_duty
+  end
 
   private
 
@@ -49,8 +55,9 @@ class SelfEvaluation < ApplicationRecord
         _evaluation.self_evaluation_id = self.id
         _evaluation.user_id = user.id
         
-        _evaluation.duties = [ self.duties.keys, [ Array.new ] ].to_hash 
-        #duties !!!!!
+        # _evaluation.duties = self.duties 
+        # _evaluation.duties = [ MultiJson.load(self.duties).keys ,Array.new(0,12)].to_h
+        #duties !!!!! ???
 
         _evaluation.save
       end
@@ -61,7 +68,8 @@ class SelfEvaluation < ApplicationRecord
     User.all.each do |user|
       unless user.id == middle_manager_id
         _evaluation = user.evaluations.where( :self_evaluation_id => self.id).first        
-        _evaluation.duties = self.duties.keys, [ Array.new ] ].to_hash 
+        _evaluation.duties = self.duties  
+        #_evaluation.duties = MultiJson.load(self.duties).keys.to_h
  
         _evaluation.save
       end

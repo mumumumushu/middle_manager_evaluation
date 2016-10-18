@@ -118,9 +118,8 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
-X-Staff-Token: s_qwertyuiop1
-X-Staff-Job-Num: staff_job_num
-X-Staff-Email: s_hahaha@haha.com
+X-User-Token: s_qwertyuiop1
+X-User-Jobnum: staff_job_num
 Host: example.org
 Cookie: </pre>
 
@@ -136,24 +135,26 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;0c50ca7abcd62148ab286ffd55acb6d3&quot;
+ETag: W/&quot;a25f162824280bb2a1a4712b377c099c&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: b6155de6-982b-4f5b-a991-20aea4733c0e
-X-Runtime: 0.011044
+X-Request-Id: c41f66f3-8833-4f7d-a715-ddc1c1a18482
+X-Runtime: 0.010694
 Vary: Origin
-Content-Length: 190</pre>
+Content-Length: 443</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;id&quot;: 1,
-  &quot;thought_morals&quot;: &quot;thought_morals&quot;,
-  &quot;upright_incorruptiable&quot;: &quot;upright_incorruptiable&quot;,
-  &quot;duties&quot;: &quot;duties&quot;,
+  &quot;name&quot;: &quot;谌明举&quot;,
+  &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;,
+  &quot;thought_morals&quot;: &quot;{\&quot;思想政治态度\&quot;:95,\&quot;道德作风品行\&quot;:85,\&quot;团结协调合作\&quot;:75}&quot;,
+  &quot;upright_incorruptiable&quot;: &quot;{\&quot;廉洁从政\&quot;: 65, \&quot;执行党风廉政建设责任制\&quot;: 55}&quot;,
+  &quot;duties&quot;: &quot;{\&quot;项目1\&quot;:80,\&quot;项目2\&quot;:70,\&quot;项目3\&quot;:60,\&quot;项目4\&quot;:90}&quot;,
   &quot;evaluation_totality&quot;: 90,
   &quot;self_evaluation_id&quot;: 1,
   &quot;user_id&quot;: 1,
-  &quot;user_type&quot;: &quot;staff&quot;
+  &quot;created_year&quot;: 2016
 }</pre>
       </div>
     </div>

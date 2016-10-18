@@ -14,7 +14,6 @@
 #
 
 class Evaluation < ApplicationRecord
-
   
   belongs_to :user #:evaluationable, polymorphic: true
   belongs_to :self_evaluation
@@ -31,6 +30,14 @@ class Evaluation < ApplicationRecord
 ##
 	def created_year
     SelfEvaluation.find( self.self_evaluation_id ).created_year 
+  end
+
+  def name
+    SelfEvaluation.find(self.self_evaluation_id).name
+  end
+
+  def department_and_duty #职务
+    SelfEvaluation.find(self.self_evaluation_id).department_and_duty
   end
 
   #统计
@@ -58,7 +65,7 @@ class Evaluation < ApplicationRecord
   def average_score
     _score = self.score_array
     _sum = 0.00
-    _sum = _score.each { |x| _sum += x} 
+    _score.each { |x| _sum += x} 
     _average_score = _sum / _score.count
     #四舍五入？？？？？？
   end
@@ -66,15 +73,15 @@ class Evaluation < ApplicationRecord
   def average_score_level
     _x = self.average_score
 
-    case _x #?
-    when _x >= 90 && _x <= 99
-      "优秀"
-    when _x < 90 && _x >= 80
-      "称职"
-    when _x < 80 && _x >= 60
-      "基本称职"
-    else
-      "不称职"
+    case
+      when _x >= 90 && _x <= 99
+        "优秀"
+      when _x < 90 && _x >= 80
+        "称职"
+      when _x < 80 && _x >= 60
+        "基本称职"
+      else
+        "不称职"
     end  
 
   end

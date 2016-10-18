@@ -16,7 +16,7 @@
 
 FactoryGirl.define do
   factory :self_evaluation do
-    duties "self_evaluation_duties"
+    duties '{"项目1":80,"项目2":70,"项目3":60,"项目4":90}'
     self_evaluation_totality "优秀"
     #middle_manager nil
     #acticity nil

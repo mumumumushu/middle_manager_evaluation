@@ -27,6 +27,18 @@
       ]
     },
     {
+      "name": "中层干部 测评结果 查看",
+      "examples": [
+        {
+          "description": "中层干部 测评结果 查看",
+          "link": "中层干部_测评结果_查看/中层干部_测评结果_查看.json",
+          "groups": "all",
+          "route": "/middle_managers/result",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "中层干部 自评表 查看修改",
       "examples": [
         {
@@ -42,12 +54,50 @@
           "groups": "all",
           "route": "/middle_managers/self_evaluation",
           "method": "get"
+        },
+        {
+          "description": "用户类型错误",
+          "link": "中层干部_自评表_查看修改/用户类型错误.json",
+          "groups": "all",
+          "route": "/middle_managers/self_evaluation",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "用户个人信息 查看",
+      "examples": [
+        {
+          "description": "用户个人信息 查看 成功",
+          "link": "用户个人信息_查看/用户个人信息_查看_成功.json",
+          "groups": "all",
+          "route": "/user_info",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "用户注册登录",
+      "examples": [
+        {
+          "description": "用户登录成功",
+          "link": "用户注册登录/用户登录成功.json",
+          "groups": "all",
+          "route": "/users/sign_in",
+          "method": "post"
         }
       ]
     },
     {
       "name": "职工 打分表 查看修改",
       "examples": [
+        {
+          "description": "用户类型错误",
+          "link": "职工_打分表_查看修改/用户类型错误.json",
+          "groups": "all",
+          "route": "/staffs/evaluations",
+          "method": "get"
+        },
         {
           "description": "职工 打分表 修改成功",
           "link": "职工_打分表_查看修改/职工_打分表_修改成功.json",

@@ -14,6 +14,8 @@ resource	'职工 打分表 查看修改' do
     	@staff = create(:staff)
 
    		@middle_manager = create(:middle_manager)
+      create(:user_info, user: @middle_manager)
+      
       @activity = create(:activity)
       @self_evaluation = create(:self_evaluation, 
                                   middle_manager: @middle_manager,
@@ -63,6 +65,8 @@ resource	'职工 打分表 查看修改' do
       @staff = create(:staff)
 
    		@middle_manager = create(:middle_manager)
+      create(:user_info, user: @middle_manager)
+      
       @activity = create(:activity)
       @self_evaluation = create(:self_evaluation, 
                                   middle_manager: @middle_manager,
@@ -98,6 +102,8 @@ resource	'职工 打分表 查看修改' do
       @staff = create(:staff)
 
    		@middle_manager = create(:middle_manager)
+      create(:user_info, user: @middle_manager)
+      
       @activity = create(:activity)
       @self_evaluation = create(:self_evaluation, 
                                   middle_manager: @middle_manager,
@@ -109,10 +115,10 @@ resource	'职工 打分表 查看修改' do
 
     end
 
-    let(:thought_morals) { "new thought_morals" }
-    let(:duties) { "new upright_incorruptiable" }
-    let(:upright_incorruptiable) { "new duties" }
-    let(:evaluation_totality) { 100 }
+    let(:thought_morals) { '{"new":90}' }
+    let(:duties) { '{"new":90}'}
+    let(:upright_incorruptiable) { '{"new":90}' }
+    let(:evaluation_totality) { 99 }
 
     let(:id) {@evaluations.first.id}
 

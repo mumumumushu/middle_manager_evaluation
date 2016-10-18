@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>中层干部 自评表 查看修改 API</title>
+    <title>职工 打分表 查看修改 API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>中层干部 自评表 查看修改 API</h1>
+      <h1>职工 打分表 查看修改 API</h1>
 
       <div class="article">
-        <h2>中层干部 修改 自评表 成功</h2>
-        <h3>PUT /middle_managers/self_evaluation</h3>
+        <h2>用户类型错误</h2>
+        <h3>GET /staffs/evaluations</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -123,18 +123,18 @@ table th, table td {
             <tbody>
               <tr>
                 <td>
-                    <span class="name">self_evaluation[duties]</span>
+                    <span class="name">page</span>
                 </td>
                 <td>
-                  <span class="description">履行岗位职责情况</span>
+                  <span class="description">当前页</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                    <span class="name">self_evaluation[self_evaluation_totality]</span>
+                    <span class="name">per_page</span>
                 </td>
                 <td>
-                  <span class="description">自我总体评价</span>
+                  <span class="description">每页的数量</span>
                 </td>
               </tr>
             </tbody>
@@ -145,18 +145,18 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
-X-User-Token: m_qwertyuiop1
-X-User-Jobnum: middle_manager_job_num
+X-User-Token: wertyuiop1
+X-User-Jobnum: staff_job_num
 Host: example.org
-Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT /middle_managers/self_evaluation</pre>
+          <pre class="request route highlight">GET /staffs/evaluations?page=2&amp;per_page=4</pre>
 
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">page: 2
+per_page: 4</pre>
 
-            <h4>Body</h4>
-            <pre class="request body">self_evaluation[duties]=new+duties&self_evaluation[self_evaluation_totality]=new+%E4%BC%98%E7%A7%80</pre>
 
 
             <h3>Response</h3>
@@ -165,26 +165,16 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;75a9837df880daa984c902b92d24eca5&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 766f6057-f4e2-4231-9456-496bd7671ab1
-X-Runtime: 0.013781
+Cache-Control: no-cache
+X-Request-Id: abbb8a02-6956-4471-914a-27083f2fd5b4
+X-Runtime: 0.002730
 Vary: Origin
-Content-Length: 308</pre>
+Content-Length: 74</pre>
             <h4>Status</h4>
-            <pre class="response status">201 Created</pre>
+            <pre class="response status">401 Unauthorized</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 1,
-  &quot;name&quot;: &quot;谌明举&quot;,
-  &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;,
-  &quot;activity_id&quot;: 1,
-  &quot;middle_manager_id&quot;: 1,
-  &quot;duties&quot;: &quot;new duties&quot;,
-  &quot;self_evaluation_totality&quot;: &quot;new 优秀&quot;,
-  &quot;created_year&quot;: 2016,
-  &quot;created_at&quot;: &quot;2016-10-02T15:29:57.000+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-10-18T10:37:26.304+08:00&quot;
+  &quot;error&quot;: &quot;translation missing: zh-CN.devise.failure.user.unauthenticated&quot;
 }</pre>
       </div>
     </div>
