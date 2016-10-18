@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>用户个人信息 查看 API</title>
+    <title>管理员 统计结果 查看 与 设置 单位评鉴结果 API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,27 +106,49 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>用户个人信息 查看 API</h1>
+      <h1>管理员 统计结果 查看 与 设置 单位评鉴结果 API</h1>
 
       <div class="article">
-        <h2>用户个人信息 查看 成功</h2>
-        <h3>GET /user_info</h3>
+        <h2>管理员 设置 单位评鉴意见 成功</h2>
+        <h3>PATCH /admin/results/:id/set_final_result</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">result[final_result]</span>
+                </td>
+                <td>
+                  <span class="description">单位评鉴意见</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
-X-User-Token: m_qwertyuiop1
-X-User-Jobnum: middle_manager_job_num
+X-Admin-Token: aqwertyuiop1
+X-Admin-Email: 123456@qq.com
 Host: example.org
+Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /user_info</pre>
+          <pre class="request route highlight">PATCH /admin/results/1/set_final_result</pre>
 
 
+            <h4>Body</h4>
+            <pre class="request body">result[final_result]=%E4%BC%98%E7%A7%80</pre>
 
 
             <h3>Response</h3>
@@ -135,26 +157,44 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;c2d77a69f39b1748f9ac29891b1225e1&quot;
+ETag: W/&quot;cbf6db1279308513a2bebe615dd071e9&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: e5404925-dcfe-49d2-be9f-7639ccf41fd4
-X-Runtime: 0.010806
+X-Request-Id: 4b44ae6e-0eb9-4335-b587-68a1c2acebac
+X-Runtime: 0.123883
 Vary: Origin
-Content-Length: 314</pre>
+Content-Length: 718</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
+            <pre class="response status">201 Created</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;id&quot;: 1,
-  &quot;user_id&quot;: 1,
+  &quot;self_evaluation_id&quot;: 1,
+  &quot;final_result&quot;: &quot;优秀&quot;,
+  &quot;self_evaluation_duties&quot;: &quot;{\&quot;项目1\&quot;:80,\&quot;项目2\&quot;:70,\&quot;项目3\&quot;:60,\&quot;项目4\&quot;:90}&quot;,
   &quot;name&quot;: &quot;谌明举&quot;,
-  &quot;sex&quot;: &quot;男&quot;,
-  &quot;date_of_birth&quot;: &quot;1981.10&quot;,
-  &quot;politics_status&quot;: &quot;中共党员&quot;,
-  &quot;degree_of_education&quot;: &quot;中共党员&quot;,
   &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;,
-  &quot;job&quot;: &quot;基层党建工作、学生教育与管理&quot;,
-  &quot;starting_time_for_the_present_job&quot;: &quot;2015.4&quot;
+  &quot;sum_of_level_count&quot;: 100,
+  &quot;level_count_and_percentage&quot;: {
+    &quot;好-票数&quot;: 30,
+    &quot;好-比例&quot;: &quot;30.00%&quot;,
+    &quot;较好-票数&quot;: 20,
+    &quot;较好-比例&quot;: &quot;20.00%&quot;,
+    &quot;一般-票数&quot;: 40,
+    &quot;一般-比例&quot;: &quot;40.00%&quot;,
+    &quot;较差-票数&quot;: 10,
+    &quot;较差-比例&quot;: &quot;10.00%&quot;
+  },
+  &quot;sum_of_result_level_count&quot;: 10,
+  &quot;result_level_count_and_percentage&quot;: {
+    &quot;优秀-票数&quot;: 0,
+    &quot;优秀-比例&quot;: &quot;0.00%&quot;,
+    &quot;称职-票数&quot;: 0,
+    &quot;称职-比例&quot;: &quot;0.00%&quot;,
+    &quot;基本称职-票数&quot;: 10,
+    &quot;基本称职-比例&quot;: &quot;100.00%&quot;,
+    &quot;不称职-票数&quot;: 0,
+    &quot;不称职-比例&quot;: &quot;0.00%&quot;
+  }
 }</pre>
       </div>
     </div>

@@ -89,6 +89,44 @@
       ]
     },
     {
+      "name": "管理员 统计结果 查看 与 设置 单位评鉴结果",
+      "examples": [
+        {
+          "description": "管理员 统计结果列表 查看成功",
+          "link": "管理员_统计结果_查看_与_设置_单位评鉴结果/管理员_统计结果列表_查看成功.json",
+          "groups": "all",
+          "route": "/admin/results",
+          "method": "get"
+        },
+        {
+          "description": "管理员 统计详情 查看成功",
+          "link": "管理员_统计结果_查看_与_设置_单位评鉴结果/管理员_统计详情_查看成功.json",
+          "groups": "all",
+          "route": "/admin/results/:id",
+          "method": "get"
+        },
+        {
+          "description": "管理员 设置 单位评鉴意见 成功",
+          "link": "管理员_统计结果_查看_与_设置_单位评鉴结果/管理员_设置_单位评鉴意见_成功.json",
+          "groups": "all",
+          "route": "/admin/results/:id/set_final_result",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "管理员注册登录",
+      "examples": [
+        {
+          "description": "管理员登录成功",
+          "link": "管理员注册登录/管理员登录成功.json",
+          "groups": "all",
+          "route": "/admins/sign_in",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "name": "职工 打分表 查看修改",
       "examples": [
         {
