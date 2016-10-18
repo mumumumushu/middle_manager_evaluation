@@ -1,19 +1,19 @@
 {
-  "resource": "用户注册登录",
+  "resource": "管理员注册登录",
   "http_method": "POST",
-  "route": "/users/sign_in",
-  "description": "用户登录成功",
+  "route": "/admins/sign_in",
+  "description": "管理员登录成功",
   "explanation": null,
   "parameters": [
     {
       "required": true,
-      "scope": "user",
-      "name": "job_num",
-      "description": "登录的工号"
+      "scope": "admin",
+      "name": "email",
+      "description": "登录的邮箱"
     },
     {
       "required": true,
-      "scope": "user",
+      "scope": "admin",
       "name": "password",
       "description": "登录密码"
     }
@@ -21,11 +21,11 @@
   "response_fields": [
     {
       "name": "id",
-      "description": "用户ID"
+      "description": "管理员ID"
     },
     {
-      "name": "job_num",
-      "description": "工号"
+      "name": "email",
+      "description": "邮箱"
     },
     {
       "name": "created_at",
@@ -36,10 +36,6 @@
       "description": "更新时间"
     },
     {
-      "name": "user_type",
-      "description": "用户类型"
-    },
-    {
       "name": "authentication_token",
       "description": "鉴权Token"
     }
@@ -47,8 +43,8 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/users/sign_in",
-      "request_body": "user[job_num]=middle_manager_job_num&user[password]=hahaha",
+      "request_path": "/admins/sign_in",
+      "request_body": "admin[email]=123456%40qq.com&admin[password]=hahaha",
       "request_headers": {
         "Accept": "application/json",
         "Host": "example.org",
@@ -60,19 +56,19 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 1,\n  \"authentication_token\": \"m_qwertyuiop1\",\n  \"created_at\": \"2016-10-18T12:32:13.728+08:00\",\n  \"updated_at\": \"2016-10-18T12:32:13.734+08:00\",\n  \"job_num\": \"middle_manager_job_num\",\n  \"user_type\": \"middle_manager\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"authentication_token\": \"aqwertyuiop1\",\n  \"email\": \"123456@qq.com\",\n  \"created_at\": \"2016-10-18T12:32:11.816+08:00\",\n  \"updated_at\": \"2016-10-18T12:32:11.847+08:00\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Location": "/",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"96903ecfd14ef690191b5d603b474f8a\"",
+        "ETag": "W/\"5a35066943806cd05a070ded8dd83bcb\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "4f6c513a-a74e-43c1-8c90-22611b95f286",
-        "X-Runtime": "0.007316",
+        "X-Request-Id": "edb02dd3-f169-4c29-bb6c-7a7c3c440fef",
+        "X-Runtime": "0.028319",
         "Vary": "Origin",
-        "Content-Length": "201"
+        "Content-Length": "160"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null

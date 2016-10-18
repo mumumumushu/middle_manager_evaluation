@@ -22,7 +22,7 @@ class SelfEvaluation < ApplicationRecord
   validates_presence_of :in_first_phase?, :message => '填写未开放'
   validates_presence_of :duties
   validates_presence_of :self_evaluation_totality
-
+  
   after_create :create_evaluations
   after_update :update_evaluations
 
@@ -55,10 +55,13 @@ class SelfEvaluation < ApplicationRecord
         _evaluation.self_evaluation_id = self.id
         _evaluation.user_id = user.id
         
-        # _evaluation.duties = self.duties 
-        # _evaluation.duties = [ MultiJson.load(self.duties).keys ,Array.new(0,12)].to_h
-        #duties !!!!! ???
-
+        _duties = {}
+        _keys = MultiJson.load(self.duties).keys
+        0.upto( _keys.count - 1 ) do |n|
+          _duties.store( _keys[n], -1 )
+        end                        #####!!!!!#####
+                                   ####打分表初始分数？？
+        _evaluation.duties = _duties
         _evaluation.save
       end
     end
@@ -68,9 +71,15 @@ class SelfEvaluation < ApplicationRecord
     User.all.each do |user|
       unless user.id == middle_manager_id
         _evaluation = user.evaluations.where( :self_evaluation_id => self.id).first        
-        _evaluation.duties = self.duties  
-        #_evaluation.duties = MultiJson.load(self.duties).keys.to_h
- 
+        
+        _duties = {}
+        _keys = MultiJson.load(self.duties).keys
+        0.upto( _keys.count - 1 ) do |n|
+          _duties.store( _keys[n], -1 )
+        end                        #####!!!!!#####
+                                   ####打分表初始分数？？
+        _evaluation.duties = _duties
+
         _evaluation.save
       end
     end 

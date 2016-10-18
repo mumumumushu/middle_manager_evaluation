@@ -1,0 +1,47 @@
+{
+  "resource": "管理员 统计结果 查看 与 设置 单位评鉴结果",
+  "http_method": "GET",
+  "route": "/admin/results/:id",
+  "description": "管理员 统计详情 查看成功",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/admin/results/1",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-Admin-Token": "aqwertyuiop1",
+        "X-Admin-Email": "123456@qq.com",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"final_result\": \"未评鉴\",\n  \"self_evaluation_duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n  \"name\": \"谌明举\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"sum_of_level_count\": 100,\n  \"level_count_and_percentage\": {\n    \"好-票数\": 30,\n    \"好-比例\": \"30.00%\",\n    \"较好-票数\": 20,\n    \"较好-比例\": \"20.00%\",\n    \"一般-票数\": 40,\n    \"一般-比例\": \"40.00%\",\n    \"较差-票数\": 10,\n    \"较差-比例\": \"10.00%\"\n  },\n  \"sum_of_result_level_count\": 10,\n  \"result_level_count_and_percentage\": {\n    \"优秀-票数\": 0,\n    \"优秀-比例\": \"0.00%\",\n    \"称职-票数\": 0,\n    \"称职-比例\": \"0.00%\",\n    \"基本称职-票数\": 10,\n    \"基本称职-比例\": \"100.00%\",\n    \"不称职-票数\": 0,\n    \"不称职-比例\": \"0.00%\"\n  }\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"90fab86ff6aaf69ece76c3c8522360f3\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "43c1b0d3-e1a5-4d51-9550-901d340c49a3",
+        "X-Runtime": "0.122493",
+        "Vary": "Origin",
+        "Content-Length": "721"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
