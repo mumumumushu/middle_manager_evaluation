@@ -1,4 +1,4 @@
-class ResultsController < ApplicationController
+class Admin::ResultsController < ApplicationController
   include ActionView::Layouts
   include ActionController::MimeResponds
 
@@ -36,8 +36,7 @@ class ResultsController < ApplicationController
 
   def set_final_result
     @result = Result.find(params[:id])
-    @result.attributes = params.slice(:final_result)
-    @result.save 
+    @result.update(result_params)
     respond_with @result, template: "admin/results/show", status: 201
   end
 
@@ -46,7 +45,7 @@ class ResultsController < ApplicationController
       @result = Result.find(params[:id])
     end
 
-    # def result_params
-    #   params[:result]
-    # end
+    def result_params
+      params.require(:result).permit(:final_result)
+    end
 end

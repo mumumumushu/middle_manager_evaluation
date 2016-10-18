@@ -45,7 +45,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
   	resources :results, only: [ :index, :show ] do
-  		patch :set_fina_result, on: :member
+  		patch :set_final_result, on: :member
 		end
 	end
 
