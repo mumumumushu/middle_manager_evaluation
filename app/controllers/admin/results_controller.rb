@@ -1,13 +1,16 @@
 class ResultsController < ApplicationController
-  before_action :authenticate_admin!
-  before_action :set_result, only: [:show, :update, :set_fina_result]
+  include ActionView::Layouts
+  include ActionController::MimeResponds
+
+  acts_as_token_authentication_handler_for Admin
+  before_action :set_result, only: [:show, :set_fina_result]
 
   respond_to :json
 
   def index
     page = params[:page] || 1
     per_page = params[:per_page] || 10
-    @results = current_user.results.paginate(page: page, per_page: per_page)
+    @results = Result.all.paginate(page: page, per_page: per_page)
     respond_with(@results)
   end
 
@@ -43,7 +46,7 @@ class ResultsController < ApplicationController
       @result = Result.find(params[:id])
     end
 
-    def result_params
-      params[:result]
-    end
+    # def result_params
+    #   params[:result]
+    # end
 end

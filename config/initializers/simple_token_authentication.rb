@@ -22,7 +22,7 @@ SimpleTokenAuthentication.configure do |config|
   #
   config.header_names = {
     user: { authentication_token: 'X-User-Token', job_num: 'X-User-JobNum' },
-    admin: { authentication_token: 'X-admin-Token', email: 'X-admin-Email' },
+    admin: { authentication_token: 'X-Admin-Token', email: 'X-Admin-Email' },
   }
   
   config.identifiers = { 
