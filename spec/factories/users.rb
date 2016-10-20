@@ -17,6 +17,8 @@
 #  job_num                :string           default(""), not null
 #  authentication_token   :string(30)
 #  user_type              :string
+#  activity_id            :integer
+#  take_part_in           :boolean          default(TRUE)
 #
 
  # aliases: [:author, :commenter]
@@ -27,6 +29,8 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 'l_qwertyuiop1'  #不可重复
     user_type 'leader'
+    take_part_in true
+    
   end
 
   factory :staff  do
@@ -34,6 +38,7 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 's_qwertyuiop1'
     user_type 'staff'
+    take_part_in true
   end
 
   factory :middle_manager do
@@ -41,6 +46,7 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 'm_qwertyuiop1'
     user_type 'middle_manager'
+    take_part_in true
   end
 
   factory :middle_manager2, class: :user do
@@ -48,6 +54,7 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 'm_qwertyuiop2'
     user_type 'middle_manager'
+    take_part_in true
   end
 
 
@@ -57,6 +64,7 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 'wertyuiop1'
     user_type 'wrong_type'
+    take_part_in true
   end
 
 
