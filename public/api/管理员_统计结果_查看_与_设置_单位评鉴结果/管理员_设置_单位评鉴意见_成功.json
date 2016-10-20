@@ -1,0 +1,53 @@
+{
+  "resource": "管理员 统计结果 查看 与 设置 单位评鉴结果",
+  "http_method": "PATCH",
+  "route": "/admin/results/:id/set_final_result",
+  "description": "管理员 设置 单位评鉴意见 成功",
+  "explanation": null,
+  "parameters": [
+    {
+      "require": true,
+      "scope": "result",
+      "name": "final_result",
+      "description": "单位评鉴意见"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/admin/results/1/set_final_result",
+      "request_body": "result[final_result]=%E4%BC%98%E7%A7%80",
+      "request_headers": {
+        "Accept": "application/json",
+        "X-Admin-Token": "aqwertyuiop1",
+        "X-Admin-Email": "123456@qq.com",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"final_result\": \"优秀\",\n  \"self_evaluation_duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n  \"name\": \"谌明举\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"sum_of_level_count\": 100,\n  \"level_count_and_percentage\": {\n    \"好-票数\": 30,\n    \"好-比例\": \"30.00%\",\n    \"较好-票数\": 20,\n    \"较好-比例\": \"20.00%\",\n    \"一般-票数\": 40,\n    \"一般-比例\": \"40.00%\",\n    \"较差-票数\": 10,\n    \"较差-比例\": \"10.00%\"\n  },\n  \"sum_of_result_level_count\": 10,\n  \"result_level_count_and_percentage\": {\n    \"优秀-票数\": 0,\n    \"优秀-比例\": \"0.00%\",\n    \"称职-票数\": 0,\n    \"称职-比例\": \"0.00%\",\n    \"基本称职-票数\": 10,\n    \"基本称职-比例\": \"100.00%\",\n    \"不称职-票数\": 0,\n    \"不称职-比例\": \"0.00%\"\n  }\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"cbf6db1279308513a2bebe615dd071e9\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "40b43afe-87d2-4acb-8c71-c107929d580f",
+        "X-Runtime": "0.118780",
+        "Vary": "Origin",
+        "Content-Length": "718"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

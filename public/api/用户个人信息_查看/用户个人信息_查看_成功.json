@@ -1,0 +1,47 @@
+{
+  "resource": "用户个人信息 查看",
+  "http_method": "GET",
+  "route": "/user_info",
+  "description": "用户个人信息 查看 成功",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/user_info",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-User-Token": "m_qwertyuiop1",
+        "X-User-Jobnum": "middle_manager_job_num",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"name\": \"谌明举\",\n  \"sex\": \"男\",\n  \"date_of_birth\": \"1981.10\",\n  \"politics_status\": \"中共党员\",\n  \"degree_of_education\": \"中共党员\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"job\": \"基层党建工作、学生教育与管理\",\n  \"starting_time_for_the_present_job\": \"2015.4\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"c2d77a69f39b1748f9ac29891b1225e1\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "4097b69e-d6e5-4f2e-9187-1ff5c08e04db",
+        "X-Runtime": "0.012576",
+        "Vary": "Origin",
+        "Content-Length": "314"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

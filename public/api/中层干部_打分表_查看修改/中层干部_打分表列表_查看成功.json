@@ -1,0 +1,58 @@
+{
+  "resource": "中层干部 打分表 查看修改",
+  "http_method": "GET",
+  "route": "/middle_managers/evaluations",
+  "description": "中层干部 打分表列表 查看成功",
+  "explanation": null,
+  "parameters": [
+    {
+      "require": false,
+      "name": "page",
+      "description": "当前页"
+    },
+    {
+      "require": false,
+      "name": "per_page",
+      "description": "每页的数量"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/middle_managers/evaluations?page=2&per_page=4",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-User-Token": "m_qwertyuiop1",
+        "X-User-Jobnum": "middle_manager_job_num",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "page": "2",
+        "per_page": "4"
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"current_page\": 2,\n  \"total_pages\": 1,\n  \"middle_manager_evaluations\": [\n\n  ]\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"a4f986b973d4a7c86211f10c3a2b9019\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "2d6c9011-2614-485e-bf1c-73864ede7a88",
+        "X-Runtime": "0.013502",
+        "Vary": "Origin",
+        "Content-Length": "66"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
