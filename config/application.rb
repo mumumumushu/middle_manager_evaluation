@@ -40,7 +40,7 @@ module MiddleManagerEvaluation
       end
     end
 
-    config.action_controller.asset_host = "http://closet-api.tallty.com"
+    config.action_controller.asset_host = "http://middle_manager_evaluation.com"
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
