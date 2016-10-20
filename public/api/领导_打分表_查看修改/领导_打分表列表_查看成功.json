@@ -1,0 +1,58 @@
+{
+  "resource": "领导 打分表 查看修改",
+  "http_method": "GET",
+  "route": "/leaders/evaluations",
+  "description": "领导 打分表列表 查看成功",
+  "explanation": null,
+  "parameters": [
+    {
+      "require": false,
+      "name": "page",
+      "description": "当前页"
+    },
+    {
+      "require": false,
+      "name": "per_page",
+      "description": "每页的数量"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/leaders/evaluations?page=2&per_page=4",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-User-Token": "l_qwertyuiop1",
+        "X-User-Jobnum": "leader_job_num",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "page": "2",
+        "per_page": "4"
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"current_page\": 2,\n  \"total_pages\": 3,\n  \"leader_evaluations\": [\n    {\n      \"id\": 5,\n      \"name\": \"谌明举\",\n      \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\",\n      \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n      \"thought_morals\": \"{\\\"思想政治态度\\\":95,\\\"道德作风品行\\\":85,\\\"团结协调合作\\\":75}\",\n      \"upright_incorruptiable\": \"{\\\"廉洁从政\\\": 65, \\\"执行党风廉政建设责任制\\\": 55}\",\n      \"duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n      \"evaluation_totality\": 90,\n      \"self_evaluation_id\": 1,\n      \"user_id\": 1,\n      \"created_year\": 2016,\n      \"already_edited\": false,\n      \"evaluating_user_type\": \"leader\"\n    },\n    {\n      \"id\": 6,\n      \"name\": \"谌明举\",\n      \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\",\n      \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n      \"thought_morals\": \"{\\\"思想政治态度\\\":95,\\\"道德作风品行\\\":85,\\\"团结协调合作\\\":75}\",\n      \"upright_incorruptiable\": \"{\\\"廉洁从政\\\": 65, \\\"执行党风廉政建设责任制\\\": 55}\",\n      \"duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n      \"evaluation_totality\": 90,\n      \"self_evaluation_id\": 1,\n      \"user_id\": 1,\n      \"created_year\": 2016,\n      \"already_edited\": false,\n      \"evaluating_user_type\": \"leader\"\n    },\n    {\n      \"id\": 7,\n      \"name\": \"谌明举\",\n      \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\",\n      \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n      \"thought_morals\": \"{\\\"思想政治态度\\\":95,\\\"道德作风品行\\\":85,\\\"团结协调合作\\\":75}\",\n      \"upright_incorruptiable\": \"{\\\"廉洁从政\\\": 65, \\\"执行党风廉政建设责任制\\\": 55}\",\n      \"duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n      \"evaluation_totality\": 90,\n      \"self_evaluation_id\": 1,\n      \"user_id\": 1,\n      \"created_year\": 2016,\n      \"already_edited\": false,\n      \"evaluating_user_type\": \"leader\"\n    },\n    {\n      \"id\": 8,\n      \"name\": \"谌明举\",\n      \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\",\n      \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n      \"thought_morals\": \"{\\\"思想政治态度\\\":95,\\\"道德作风品行\\\":85,\\\"团结协调合作\\\":75}\",\n      \"upright_incorruptiable\": \"{\\\"廉洁从政\\\": 65, \\\"执行党风廉政建设责任制\\\": 55}\",\n      \"duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n      \"evaluation_totality\": 90,\n      \"self_evaluation_id\": 1,\n      \"user_id\": 1,\n      \"created_year\": 2016,\n      \"already_edited\": false,\n      \"evaluating_user_type\": \"leader\"\n    }\n  ]\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"c7a648a3b9a942c70b8712fa62111ebf\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "d3c9ac83-f2df-45ed-9b2f-80c15ee28026",
+        "X-Runtime": "0.031555",
+        "Vary": "Origin",
+        "Content-Length": "3421"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

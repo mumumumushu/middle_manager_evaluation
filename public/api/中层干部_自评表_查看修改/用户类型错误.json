@@ -1,0 +1,46 @@
+{
+  "resource": "中层干部 自评表 查看修改",
+  "http_method": "GET",
+  "route": "/middle_managers/self_evaluation",
+  "description": "用户类型错误",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/middle_managers/self_evaluation",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-User-Token": "wertyuiop1",
+        "X-User-Jobnum": "staff_job_num",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 401,
+      "response_status_text": "Unauthorized",
+      "response_body": "{\n  \"error\": \"translation missing: zh-CN.devise.failure.user.unauthenticated\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-cache",
+        "X-Request-Id": "e1b0ed46-9cec-41a0-b9c7-fb97fe4c3979",
+        "X-Runtime": "0.003327",
+        "Vary": "Origin",
+        "Content-Length": "74"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
