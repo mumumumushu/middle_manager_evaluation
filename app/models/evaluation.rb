@@ -36,6 +36,10 @@ class Evaluation < ApplicationRecord
     SelfEvaluation.find(self.self_evaluation_id).name
   end
 
+  def evaluated_user_info
+    SelfEvaluation.find(self.self_evaluation_id).evaluated_user_info
+  end
+
   def department_and_duty #职务
     SelfEvaluation.find(self.self_evaluation_id).department_and_duty
   end

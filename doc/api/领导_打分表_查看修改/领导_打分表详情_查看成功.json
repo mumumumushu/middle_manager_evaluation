@@ -27,18 +27,18 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 1,\n  \"name\": \"谌明举\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"thought_morals\": \"{\\\"思想政治态度\\\":95,\\\"道德作风品行\\\":85,\\\"团结协调合作\\\":75}\",\n  \"upright_incorruptiable\": \"{\\\"廉洁从政\\\": 65, \\\"执行党风廉政建设责任制\\\": 55}\",\n  \"duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n  \"evaluation_totality\": 90,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"created_year\": 2016\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"name\": \"谌明举\",\n  \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"thought_morals\": \"{\\\"思想政治态度\\\":95,\\\"道德作风品行\\\":85,\\\"团结协调合作\\\":75}\",\n  \"upright_incorruptiable\": \"{\\\"廉洁从政\\\": 65, \\\"执行党风廉政建设责任制\\\": 55}\",\n  \"duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n  \"evaluation_totality\": 90,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"created_year\": 2016\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"a25f162824280bb2a1a4712b377c099c\"",
+        "ETag": "W/\"3fff5725740ed305db84868540484373\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "0a8fa263-c11a-41bb-a238-dd1098124588",
-        "X-Runtime": "0.014050",
+        "X-Request-Id": "fed5a190-1923-4358-90f4-63d692dbb590",
+        "X-Runtime": "0.011462",
         "Vary": "Origin",
-        "Content-Length": "443"
+        "Content-Length": "785"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null

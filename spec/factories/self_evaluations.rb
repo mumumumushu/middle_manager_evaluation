@@ -10,6 +10,8 @@
 #  updated_at               :datetime         not null
 #  created_year             :integer
 #  activity_id              :integer
+#  user_info                :string
+#  evaluated_user_info      :text
 #
 
 #
