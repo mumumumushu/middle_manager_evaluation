@@ -18,7 +18,7 @@
 #  authentication_token   :string(30)
 #  user_type              :string
 #  activity_id            :integer
-#  take_part_in           :boolean          default(TRUE)
+#  take_part_in           :boolean          default(FALSE)
 #
 
 require 'rails_helper'

@@ -28,6 +28,7 @@ class Staffs::EvaluationsController < ApplicationController
   # end
 
   def update
+    @evaluation.already_edited = true
     @evaluation.update(evaluation_params)
     respond_with @evaluation, template: "staffs/evaluations/show", status: 201
   end

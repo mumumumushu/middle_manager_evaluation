@@ -28,6 +28,7 @@ class Leaders::EvaluationsController < ApplicationController
   # end
 
   def update
+    @evaluation.already_edited = true
     @evaluation.update(evaluation_params)
     respond_with @evaluation, template: "leaders/evaluations/show", status: 201 
   end

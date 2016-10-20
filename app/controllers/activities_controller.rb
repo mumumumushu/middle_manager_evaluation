@@ -22,10 +22,10 @@ class ActivitiesController < ApplicationController
     respond_with(@activity)
   end
 
-  def update
-    @activity.update(activity_params)
-    respond_with(@activity)
-  end
+  # def update
+  #   @activity.update(activity_params)
+  #   respond_with(@activity)
+  # end
 
   # def destroy
   #   @activity.destroy
