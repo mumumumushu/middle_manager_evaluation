@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 		end
 	end
 
-  resources :activitise
+  resources :activitise, only: [:index, :show]
   resource :user_info, only: [:show]
 	
 end

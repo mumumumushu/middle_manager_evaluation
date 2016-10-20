@@ -11,6 +11,8 @@
 #  evaluation_totality    :integer
 #  self_evaluation_id     :integer
 #  user_id                :integer
+#  already_edited         :boolean          default(FALSE)
+#  evaluating_user_type   :string
 #
 
 class Evaluation < ApplicationRecord
@@ -19,6 +21,7 @@ class Evaluation < ApplicationRecord
   belongs_to :self_evaluation
 	before_validation :in_first_or_second_phase?
 
+  before_save :set_evaluating_user_type
  ##	
  	validates_presence_of :in_first_or_second_phase?, :message => '填写未开放'
  ##	
@@ -84,7 +87,7 @@ class Evaluation < ApplicationRecord
         "称职"
       when _x < 80 && _x >= 60
         "基本称职"
-      else
+      when _x < 60 && _x >= 0
         "不称职"
     end  
 
@@ -95,12 +98,13 @@ class Evaluation < ApplicationRecord
 
   private	
 
+  def set_evaluating_user_type
+    self.evaluating_user_type = User.find(self.user_id).user_type
+  end
 
   def in_first_or_second_phase?
-  	_activity = Activity.find( SelfEvaluation.find( self.self_evaluation_id ).activity_id )
-    
+  	_activity = Activity.find( SelfEvaluation.find( self.self_evaluation_id ).activity_id )  
     _activity.first_phase_begin  < Time.now && Time.now < _activity.third_phase_begin
-  
   end
 
 

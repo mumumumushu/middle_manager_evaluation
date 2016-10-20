@@ -14,7 +14,7 @@
 class Activity < ApplicationRecord
 	before_save :set_created_year
 	has_many :self_evaluations
-
+	
 
 
 

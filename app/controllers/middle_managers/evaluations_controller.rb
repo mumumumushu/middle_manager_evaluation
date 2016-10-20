@@ -28,6 +28,7 @@ class MiddleManagers::EvaluationsController < ApplicationController
   # end
 
   def update
+    @evaluation.already_edited = true
     @evaluation.update(evaluation_params)
     respond_with @evaluation, template: "middle_managers/evaluations/show", status: 201
   end

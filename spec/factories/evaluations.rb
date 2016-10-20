@@ -11,6 +11,8 @@
 #  evaluation_totality    :integer
 #  self_evaluation_id     :integer
 #  user_id                :integer
+#  already_edited         :boolean          default(FALSE)
+#  evaluating_user_type   :string
 #
 
 FactoryGirl.define do

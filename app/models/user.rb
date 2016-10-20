@@ -18,7 +18,7 @@
 #  authentication_token   :string(30)
 #  user_type              :string
 #  activity_id            :integer
-#  take_part_in           :boolean          default(TRUE)
+#  take_part_in           :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
@@ -40,7 +40,7 @@ class User < ApplicationRecord
 
 
   def right_type? (type)
-    unless self.user_type == type
+    unless self.user_type == type and self.take_part_in
       render json: {
           error: "用户没有访问权限",
           status: 401
