@@ -10,6 +10,8 @@
 #  updated_at               :datetime         not null
 #  created_year             :integer
 #  activity_id              :integer
+#  user_info                :string
+#  evaluated_user_info      :text
 #
 
 class SelfEvaluation < ApplicationRecord
@@ -23,6 +25,7 @@ class SelfEvaluation < ApplicationRecord
   validates_presence_of :duties
   validates_presence_of :self_evaluation_totality
   
+  before_create :set_evaluated_user_info
   after_create :create_evaluations
   after_update :update_evaluations
 
@@ -40,13 +43,26 @@ class SelfEvaluation < ApplicationRecord
 
   private
 
-  def in_first_phase?
-    _activity = Activity.find( self.activity_id )
-
-    _activity.first_phase_begin  < Time.now && Time.now < _activity.second_phase_begin
-  
+   def set_evaluated_user_info
+    _user_info_in_user = User.find(self.middle_manager_id).user_info
+    _arry = [
+                      "姓名", _user_info_in_user.name,
+                      "性别", _user_info_in_user.sex,
+                      "出生年月", _user_info_in_user.date_of_birth,
+                      "政治面貌", _user_info_in_user.politics_status,
+                      "文化程度", _user_info_in_user.degree_of_education,
+                      "现任职时间", _user_info_in_user.starting_time_for_the_present_job,
+                      "从事或分管工作", _user_info_in_user.department_and_duty,
+                      "部门及职务", _user_info_in_user.job
+                      ]
+    self.evaluated_user_info = MultiJson.dump(Hash[*_arry])
+    
   end
 
+  def in_first_phase?
+    _activity = Activity.find( self.activity_id )
+    _activity.first_phase_begin  < Time.now && Time.now < _activity.second_phase_begin  
+  end
 
  	def create_evaluations
     User.all.each do |user|
