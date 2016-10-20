@@ -117,6 +117,16 @@ class Result < ApplicationRecord
 		User.find( self.user_id ).user_info.department_and_duty
 	end
 
+#############参与人数##############
+
+	def count_of_middle_manager
+		User.where( "take_part_in = ? AND user_type = ?", true, 'middle_manager_id' ).count
+	end
+	
+	def count_of_all_user
+		User.where( :take_part_in => true ).count
+	end	
+
 
 end
 	# def level_1_count_sum

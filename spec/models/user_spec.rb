@@ -17,6 +17,8 @@
 #  job_num                :string           default(""), not null
 #  authentication_token   :string(30)
 #  user_type              :string
+#  activity_id            :integer
+#  take_part_in           :boolean          default(TRUE)
 #
 
 require 'rails_helper'
