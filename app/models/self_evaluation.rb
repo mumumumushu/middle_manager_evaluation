@@ -60,7 +60,7 @@ class SelfEvaluation < ApplicationRecord
         0.upto( _keys.count - 1 ) do |n|
           _duties.store( _keys[n], -1 )
         end                        #####!!!!!#####
-                                   ####打分表初始分数？？
+                                   ####打分表初始分数 --> -1
         _evaluation.duties = _duties
         _evaluation.save
       end
@@ -77,7 +77,7 @@ class SelfEvaluation < ApplicationRecord
         0.upto( _keys.count - 1 ) do |n|
           _duties.store( _keys[n], -1 )
         end                        #####!!!!!#####
-                                   ####打分表初始分数？？
+                                   ####打分表初始分数--> -1
         _evaluation.duties = _duties
 
         _evaluation.save

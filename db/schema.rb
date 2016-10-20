@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018035305) do
+ActiveRecord::Schema.define(version: 20161018064527) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "first_phase_begin"
