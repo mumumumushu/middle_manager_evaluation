@@ -51,18 +51,18 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 1,\n  \"name\": \"谌明举\",\n  \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"thought_morals\": \"{\\\"new\\\":90}\",\n  \"upright_incorruptiable\": \"{\\\"new\\\":90}\",\n  \"duties\": \"{\\\"new\\\":90}\",\n  \"evaluation_totality\": 99,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"created_year\": 2016\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"name\": \"谌明举\",\n  \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"thought_morals\": \"{\\\"new\\\":90}\",\n  \"upright_incorruptiable\": \"{\\\"new\\\":90}\",\n  \"duties\": \"{\\\"new\\\":90}\",\n  \"evaluation_totality\": 99,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"created_year\": 2016,\n  \"already_edited\": true,\n  \"evaluating_user_type\": \"leader\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"0f42f44935eb6988dd5f2336186d1001\"",
+        "ETag": "W/\"434a138ce3274155fe499384cc4290a3\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "1dfe8bcf-3ca2-40aa-b683-9fcaa9c14161",
-        "X-Runtime": "0.015670",
+        "X-Request-Id": "4484945d-e354-41ad-8ea0-b51278b6b302",
+        "X-Runtime": "0.013935",
         "Vary": "Origin",
-        "Content-Length": "616"
+        "Content-Length": "670"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null

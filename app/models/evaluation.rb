@@ -21,7 +21,7 @@ class Evaluation < ApplicationRecord
   belongs_to :self_evaluation
 	before_validation :in_first_or_second_phase?
 
-  before_save :set_evaluating_user_type
+  before_create :set_evaluating_user_type
  ##	
  	validates_presence_of :in_first_or_second_phase?, :message => '填写未开放'
  ##	
