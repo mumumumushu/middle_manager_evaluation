@@ -20,10 +20,8 @@ class Result < ApplicationRecord
 		self.self_evaluation.middle_manager_id
 	end
 
-	def evaluations
-		
+	def evaluations		
 		Evaluation.where( :self_evaluation_id => self.self_evaluation_id )
-
 	end
 
 #############中层干部整体评价##############

@@ -5,6 +5,7 @@ class MiddleManagers::ResultsController < ApplicationController
   acts_as_token_authentication_handler_for User
   before_action :middle_manager?
 
+  before_action :had_setted_final_reslut?
   before_action :set_result, only: [:show]
   
   respond_to :json
@@ -42,6 +43,9 @@ class MiddleManagers::ResultsController < ApplicationController
     
     def set_result
       @result = MiddleManager.find(current_user.id).self_evaluation.result
+    end
+
+    def had_setted_final_reslut?
     end
 
     # def result_params

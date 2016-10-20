@@ -41,11 +41,11 @@ class Evaluation < ApplicationRecord
   end
 
   #统计
-  #分数集合
+  #分数集合  剔除 -1（空）
   def score_array
-    _score = MultiJson.load(self.thought_morals).values +
-              MultiJson.load(self.upright_incorruptiable).values + 
-              MultiJson.load(self.duties).values +
+    _score = MultiJson.load(self.thought_morals).values.reject{ |x| x == -1} +
+              MultiJson.load(self.upright_incorruptiable).values.reject{ |x| x == -1} + 
+              MultiJson.load(self.duties).values.reject{ |x| x == -1} +
               [evaluation_totality]
   end
 
@@ -55,7 +55,7 @@ class Evaluation < ApplicationRecord
       self.score_array.select{ |x| x <= 99 && x >= 90 }.count,
       self.score_array.select{ |x| x <= 89 && x >= 80 }.count,
       self.score_array.select{ |x| x <= 79 && x >= 60 }.count,       
-      self.score_array.select{ |x| x <= 59 }.count
+      self.score_array.select{ |x| x <= 59 && x >= 0}.count
     ]       
 
   end
