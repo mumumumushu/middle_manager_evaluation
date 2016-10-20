@@ -65,7 +65,7 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
 
       @evaluations = create_list(:evaluation, 10,
       												      self_evaluation: @self_evaluation,
-                                    user: @leaedr
+                                    user: @leader
                                 )            
 
    		@results = create_list(:result, 5,
@@ -106,7 +106,7 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
                                 )
       @evaluations = create_list(:evaluation, 10,
       												      self_evaluation: @self_evaluation,
-                                    user: @leaedr
+                                    user: @leader
                                 )            
    		@results = create_list(:result, 5,
    																self_evaluation: @self_evaluation,
