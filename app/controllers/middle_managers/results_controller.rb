@@ -42,7 +42,7 @@ class MiddleManagers::ResultsController < ApplicationController
     end
     
     def set_result
-      @result = MiddleManager.find(current_user.id).self_evaluation.result
+      @result = current_user.self_evaluation.result
     end
 
     def had_setted_final_reslut?

@@ -41,7 +41,7 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
     end
 
     def set_self_evaluation
-      @self_evaluation = MiddleManager.find(current_user.id).self_evaluation
+      @self_evaluation =  current_user.self_evaluation
     end
 
     def self_evaluation_params
