@@ -28,6 +28,7 @@ class SelfEvaluation < ApplicationRecord
   before_create :set_evaluated_user_info
   after_create :create_evaluations
   after_update :update_evaluations
+  after_create :create_result
 
   def created_year
     Activity.find( activity_id ).activity_created_year 
@@ -99,6 +100,12 @@ class SelfEvaluation < ApplicationRecord
         _evaluation.save
       end
     end 
+  end
+
+  def create_result
+    _result = Result.new
+    _result.self_evaluation_id = self.id
+    _result.save
   end
 
 
