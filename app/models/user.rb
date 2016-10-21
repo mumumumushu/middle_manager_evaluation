@@ -47,6 +47,10 @@ class User < ApplicationRecord
           } ,status: 401
     end 
   end
+
+  def info
+    self.user_info || self.create_user_info
+  end
  
   def email_required?
     false

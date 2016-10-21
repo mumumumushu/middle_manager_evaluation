@@ -35,7 +35,7 @@ class UserInfosController < ApplicationController
 
   private
     def set_user_info
-      @user_info = UserInfo.where( :user_id => current_user.id ).first
+      @user_info = current_user.info
     end
 
     # def user_info_params

@@ -26,10 +26,10 @@ resource	'中层干部 自评表 查看修改' do
     end
 
     describe "用户没有访问权限" do
-      staff_attrs = FactoryGirl.attributes_for(:wrong_type)
+      wrong_attrs = FactoryGirl.attributes_for(:wrong_type)
 
-      header "X-User-Token", staff_attrs[:authentication_token]
-      header "X-User-JobNum", staff_attrs[:job_num]
+      header "X-User-Token", wrong_attrs[:authentication_token]
+      header "X-User-JobNum", wrong_attrs[:job_num]
      
       example "用户类型错误" do    
         do_request
