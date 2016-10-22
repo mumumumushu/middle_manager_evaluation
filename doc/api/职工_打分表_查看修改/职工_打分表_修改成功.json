@@ -51,18 +51,19 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 1,\n  \"name\": \"谌明举\",\n  \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"thought_morals\": \"{\\\"new\\\":90}\",\n  \"upright_incorruptiable\": \"{\\\"new\\\":90}\",\n  \"duties\": \"{\\\"new\\\":90}\",\n  \"evaluation_totality\": 99,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"created_year\": 2016,\n  \"already_edited\": true,\n  \"evaluating_user_type\": \"staff\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"already_edited\": true,\n  \"created_year\": 2016,\n  \"info\": {\n    \"name\": \"谌明举\",\n    \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n    \"evaluating_user_type\": \"staff\",\n    \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\"\n  },\n  \"content\": {\n    \"thought_morals\": \"{\\\"new\\\":90}\",\n    \"duties\": \"{\\\"new\\\":90}\",\n    \"upright_incorruptiable\": \"{\\\"new\\\":90}\",\n    \"evaluation_totality\": 99\n  }\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"64e7917d4ae266bc34d93246b9be75b0\"",
+        "ETag": "W/\"4c656712189f020f5587e8d1ed3c8909\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "8c453368-3a2d-4552-a084-9bc24e81a723",
-        "X-Runtime": "0.013745",
+        "X-Request-Id": "e7d5cde1-a0cb-458a-8d43-ce7bb39d800c",
+        "X-Runtime": "0.015615",
         "Vary": "Origin",
-        "Content-Length": "669"
+        "X-Rack-CORS": "preflight-hit; no-origin",
+        "Content-Length": "690"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null

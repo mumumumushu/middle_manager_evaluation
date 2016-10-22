@@ -33,18 +33,19 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"final_result\": \"优秀\",\n  \"self_evaluation_duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n  \"name\": \"谌明举\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"sum_of_level_count\": 100,\n  \"level_count_and_percentage\": {\n    \"好-票数\": 30,\n    \"好-比例\": \"30.00%\",\n    \"较好-票数\": 20,\n    \"较好-比例\": \"20.00%\",\n    \"一般-票数\": 40,\n    \"一般-比例\": \"40.00%\",\n    \"较差-票数\": 10,\n    \"较差-比例\": \"10.00%\"\n  },\n  \"sum_of_result_level_count\": 10,\n  \"result_level_count_and_percentage\": {\n    \"优秀-票数\": 0,\n    \"优秀-比例\": \"0.00%\",\n    \"称职-票数\": 0,\n    \"称职-比例\": \"0.00%\",\n    \"基本称职-票数\": 10,\n    \"基本称职-比例\": \"100.00%\",\n    \"不称职-票数\": 0,\n    \"不称职-比例\": \"0.00%\"\n  }\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"info\": {\n    \"name\": \"谌明举\",\n    \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n    \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\"\n  },\n  \"self_evaluation\": {\n    \"self_evaluation_duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n    \"self_evaluation_totality\": \"优秀\"\n  },\n  \"little_iterm\": {\n    \"sum_of_level_count\": 100,\n    \"level_count_and_percentage\": {\n      \"好-票数\": 30,\n      \"好-比例\": \"30.00%\",\n      \"较好-票数\": 20,\n      \"较好-比例\": \"20.00%\",\n      \"一般-票数\": 40,\n      \"一般-比例\": \"40.00%\",\n      \"较差-票数\": 10,\n      \"较差-比例\": \"10.00%\"\n    }\n  },\n  \"average_for_all_evaluation\": {\n    \"sum_of_result_level_count\": 10,\n    \"result_level_count_and_percentage\": {\n      \"优秀-票数\": 0,\n      \"优秀-比例\": \"0.00%\",\n      \"称职-票数\": 0,\n      \"称职-比例\": \"0.00%\",\n      \"基本称职-票数\": 10,\n      \"基本称职-比例\": \"100.00%\",\n      \"不称职-票数\": 0,\n      \"不称职-比例\": \"0.00%\"\n    }\n  },\n  \"average_for_each_role\": {\n    \"average_score_for_staff\": null,\n    \"average_score_for_middle_manager\": null,\n    \"average_score_for_leader\": 76.5\n  },\n  \"statistics_result\": {\n    \"average_score_for_all\": null,\n    \"level_of_average_score_for_all\": null\n  },\n  \"set_by_admin\": {\n    \"final_result\": \"优秀\"\n  },\n  \"count_of_people\": {\n    \"count_of_middle_manager\": 1,\n    \"count_of_all_user\": 2\n  }\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"cbf6db1279308513a2bebe615dd071e9\"",
+        "ETag": "W/\"ffdbbcd4e622e1e4293b21fbc7030420\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "40b43afe-87d2-4acb-8c71-c107929d580f",
-        "X-Runtime": "0.118780",
+        "X-Request-Id": "10e84015-5bf8-4002-971c-09c10aa64de6",
+        "X-Runtime": "0.159352",
         "Vary": "Origin",
-        "Content-Length": "718"
+        "X-Rack-CORS": "preflight-hit; no-origin",
+        "Content-Length": "1478"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
