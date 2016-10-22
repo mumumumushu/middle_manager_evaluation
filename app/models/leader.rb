@@ -16,9 +16,9 @@
 #  updated_at             :datetime         not null
 #  job_num                :string           default(""), not null
 #  authentication_token   :string(30)
-#  user_type              :string
 #  activity_id            :integer
-#  take_part_in           :boolean          default(FALSE)
+#  take_part_in           :boolean
+#  user_type              :string
 #
 
 class Leader < User
