@@ -64,7 +64,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'rails-i18n', '~> 5.0.0'
 #A generic swappable back-end for JSON handling. http://rdoc.info/projects/intridea/multi_json
 gem 'multi_json'
-
+#Roo provides an interface to spreadsheets of several sorts.https://github.com/roo-rb/roo
+gem 'roo'
 
 ###############################################################################
 
