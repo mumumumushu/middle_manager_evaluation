@@ -4,8 +4,8 @@ class LoadMiddleManagerInfo
 	def self.load(path)
 		MiddleManager.all.each do |m| 
 			m.take_part_in = false
-			m.password = 'hahahaha' #< == 
-			m.user_info
+			m.password = Password.new #< == 
+			m.save
 		end
 
 		xlsx = Roo::Excelx.new(path)
@@ -15,7 +15,7 @@ class LoadMiddleManagerInfo
 			_middle_manager.job_num = LoadMiddleManagerInfo.get_job_num(row,xlsx)
 			_middle_manager.user_type = 'middle_manager'
 			_middle_manager.take_part_in = true
-			_middle_manager.password = "hahahaha"
+			_middle_manager.password = Password.new
 			_middle_manager.save
 
 			_user_info = UserInfo.new
