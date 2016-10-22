@@ -113,6 +113,10 @@ class Result < ApplicationRecord
 		self.self_evaluation.duties
 	end
 
+	def self_evaluation_totality # 自我总体评价（✔️）
+		self.self_evaluation.self_evaluation_totality
+	end
+
 	def name #（✔️）
 		User.find( self.user_id ).user_info.name
 	end
@@ -120,6 +124,11 @@ class Result < ApplicationRecord
 	def department_and_duty #职务 #（✔️）
 		User.find( self.user_id ).user_info.department_and_duty
 	end
+
+	def evaluated_user_info
+		self.self_evaluation.evaluated_user_info
+	end
+
 
 
 

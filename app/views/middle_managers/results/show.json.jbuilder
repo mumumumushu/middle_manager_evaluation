@@ -1,1 +1,1 @@
-json.partial! "middle_managers/results/middle_manager_result", result: @result
+json.partial! "/result", result: @result

@@ -1,1 +1,1 @@
-json.partial! "admin/results/admin_result", result: @result
+json.partial! "/result", result: @result
