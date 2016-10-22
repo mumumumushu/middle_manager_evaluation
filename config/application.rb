@@ -50,24 +50,6 @@ module MiddleManagerEvaluation
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :'zh-CN'
 
-  end
-
-  module YourApp
-  class Application < Rails::Application
-
-    # ...
-
-    # Rails 3/4
-
-    # config.middleware.insert_before 0, "Rack::Cors" do
-    #   allow do
-    #     origins '*'
-    #     resource '*', :headers => :any, :methods => [:get, :post, :options]
-    #   end
-    # end
-
-    # Rails 5
-
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
@@ -75,6 +57,8 @@ module MiddleManagerEvaluation
       end
     end
 
+    
   end
-end
+
+  
 end
