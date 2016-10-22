@@ -2,11 +2,11 @@ class LoadMiddleManagerInfo
 	require 'roo'
 
 	def self.load(path)
-		# MiddleManager.all.each do |m| 
-		# 	m.user_info.take_part_in = false
-		
-		# 	m.user_info
-		# end
+		MiddleManager.all.each do |m| 
+			m.take_part_in = false
+			m.password = 'hahahaha' #< == 
+			m.user_info
+		end
 
 		xlsx = Roo::Excelx.new(path)
 
@@ -18,18 +18,18 @@ class LoadMiddleManagerInfo
 			_middle_manager.password = "hahahaha"
 			_middle_manager.save
 
-			# _user_info = UserInfo.new
-			# _user_info.user_id = _middle_manager.id
+			_user_info = UserInfo.new
+			_user_info.user_id = _middle_manager.id
 
-			# _user_info.name = LoadMiddleManagerInfo.get_name(row,xlsx)
-			# _user_info.sex = LoadMiddleManagerInfo.get_sex(row,xlsx)
-			# _user_info.date_of_birth = LoadMiddleManagerInfo.get_birth(row,xlsx)
-			# _user_info.degree_of_education = LoadMiddleManagerInfo.get_degree_of_education(row,xlsx)
-			# _user_info.politics_status = LoadMiddleManagerInfo.get_politics_status(row,xlsx)
-			# _user_info.department_and_duty = LoadMiddleManagerInfo.get_department(row,xlsx) + "  " + LoadMiddleManagerInfo.get_duty(row,xlsx)
-			# _user_info.starting_time_for_the_present_job = LoadMiddleManagerInfo.get_time(row,xlsx)
+			_user_info.name = LoadMiddleManagerInfo.get_name(row,xlsx)
+			_user_info.sex = LoadMiddleManagerInfo.get_sex(row,xlsx)
+			_user_info.date_of_birth = LoadMiddleManagerInfo.get_birth(row,xlsx)
+			_user_info.degree_of_education = LoadMiddleManagerInfo.get_degree_of_education(row,xlsx)
+			_user_info.politics_status = LoadMiddleManagerInfo.get_politics_status(row,xlsx)
+			_user_info.department_and_duty = LoadMiddleManagerInfo.get_department(row,xlsx) + "  " + LoadMiddleManagerInfo.get_duty(row,xlsx)
+			_user_info.starting_time_for_the_present_job = LoadMiddleManagerInfo.get_time(row,xlsx)
 
-			# _user_info.save		
+			_user_info.save		
 		end
 
 	end
