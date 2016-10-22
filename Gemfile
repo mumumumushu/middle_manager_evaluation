@@ -66,6 +66,8 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'multi_json'
 #Roo provides an interface to spreadsheets of several sorts.https://github.com/roo-rb/roo
 gem 'roo'
+#跨域Rack Middleware for handling Cross-Origin Resource Sharing (CORS), which makes cross-origin AJAX possible.https://github.com/cyu/rack-cors
+gem 'rack-cors'
 
 ###############################################################################
 
