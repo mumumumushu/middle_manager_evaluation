@@ -51,19 +51,19 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"already_edited\": true,\n  \"created_year\": 2016,\n  \"info\": {\n    \"name\": \"谌明举\",\n    \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n    \"evaluating_user_type\": \"middle_manager\",\n    \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\"\n  },\n  \"content\": {\n    \"thought_morals\": \"{\\\"new\\\":90}\",\n    \"duties\": \"{\\\"new\\\":90}\",\n    \"upright_incorruptiable\": \"{\\\"new\\\":90}\",\n    \"evaluation_totality\": 99\n  }\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 2,\n  \"user_id\": 1,\n  \"already_edited\": true,\n  \"created_year\": 2016,\n  \"activity_id\": 1,\n  \"info\": {\n    \"name\": \"谌明举\",\n    \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n    \"evaluating_user_type\": \"middle_manager\"\n  },\n  \"content\": {\n    \"thought_morals\": \"{\\\"new\\\":90}\",\n    \"duties\": \"{\\\"new\\\":90}\",\n    \"upright_incorruptiable\": \"{\\\"new\\\":90}\",\n    \"evaluation_totality\": 99\n  }\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"eaf3bd5eab90f168e49a03f4ee26f47d\"",
+        "ETag": "W/\"23b2c76d5c4cccd462dd1d8dc2fa4371\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "c1df76f4-f951-4827-ac48-ab3bdfa2cbc0",
-        "X-Runtime": "0.015598",
+        "X-Request-Id": "286363e2-3a4a-4ac2-b2c5-0ba642f50e20",
+        "X-Runtime": "0.013801",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "699"
+        "Content-Length": "373"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null

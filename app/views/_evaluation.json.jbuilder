@@ -2,7 +2,7 @@ json.extract! evaluation, :id, :self_evaluation_id, :user_id, :already_edited, :
 
 json.info do
 	json.( evaluation, :name, 
-	:department_and_duty, :evaluating_user_type, :evaluated_user_info)
+	:department_and_duty, :evaluating_user_type )
 end
 
 json.content do 

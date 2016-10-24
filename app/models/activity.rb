@@ -32,7 +32,7 @@ private
 			_self_evaluation = SelfEvaluation.new
 			_self_evaluation.activity_id = self.id
 			_self_evaluation.middle_manager_id = middle_manager.id
-
+			_self_evaluation.duties = '{}'
 			_self_evaluation.save
 		end
 	end
