@@ -23,13 +23,13 @@ resource	'中层干部 打分表 查看修改' do
 
       @evaluations = create_list(:evaluation, 10,
       												      self_evaluation: @self_evaluation,
-                                    user: @middle_manager)            
+                                    user: @other_middle_manager)            
     end
 
     parameter :page, "当前页", require: false
     parameter :per_page, "每页的数量", require: false
 
-    let(:page) {2}
+    let(:page) {1}
     let(:per_page) {4}
 
     example "中层干部 打分表列表 查看成功" do

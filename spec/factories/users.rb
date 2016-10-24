@@ -41,7 +41,7 @@ FactoryGirl.define do
     take_part_in true
   end
 
-  factory :middle_manager,class: :middle_manager do
+  factory :middle_manager do
   	job_num 'middle_manager_job_num'
     password 'hahaha'
     authentication_token 'm_qwertyuiop1'
@@ -49,15 +49,21 @@ FactoryGirl.define do
     take_part_in true
   end
 
-  factory :middle_manager2, class: :user do
-    job_num 'middle_manager2_job_num'
+  # factory :other_middle_manager, class: :middle_manager do
+  #   sequence(:job_num, 1000) {|n| "#{n}"}
+  #   sequence(:authentication_token) {|n| "qwertyuiop#{n}"}
+  #   password 'hahaha'
+  #   user_type 'middle_manager'
+  #   take_part_in true
+  # end
+
+  factory :middle_manager2, class: :middle_manager do
+    job_num 'middle_manager_job_num12'
     password 'hahaha'
-    authentication_token 'm_qwertyuiop2'
+    authentication_token 'm_qwertyuiop12'
     user_type 'middle_manager'
     take_part_in true
   end
-
-
 
   factory :wrong_type, class: :user do
     job_num 'staff_job_num'

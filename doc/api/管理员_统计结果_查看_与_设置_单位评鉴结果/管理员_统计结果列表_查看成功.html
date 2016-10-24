@@ -165,13 +165,13 @@ per_page: 2</pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;b41b40ca30cb9616921cb3d96a21685b&quot;
+ETag: W/&quot;0587d5231fd223c7147a9f62fce51a7c&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 0d287bba-97d8-46a3-a993-35facdc4c2b3
-X-Runtime: 0.242456
+X-Request-Id: 7d271cab-ecab-4b9c-96c1-c9c666635311
+X-Runtime: 0.374220
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 2373</pre>
+Content-Length: 2414</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
@@ -184,8 +184,7 @@ Content-Length: 2373</pre>
       &quot;self_evaluation_id&quot;: 3,
       &quot;info&quot;: {
         &quot;name&quot;: &quot;谌明举&quot;,
-        &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;,
-        &quot;evaluated_user_info&quot;: null
+        &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;
       },
       &quot;self_evaluation&quot;: {
         &quot;self_evaluation_duties&quot;: &quot;{\&quot;项目1\&quot;:80,\&quot;项目2\&quot;:70,\&quot;项目3\&quot;:60,\&quot;项目4\&quot;:90}&quot;,
@@ -193,41 +192,73 @@ Content-Length: 2373</pre>
       },
       &quot;little_iterm&quot;: {
         &quot;sum_of_level_count&quot;: 100,
-        &quot;level_count_and_percentage&quot;: {
-          &quot;好-票数&quot;: 30,
-          &quot;好-比例&quot;: &quot;30.00%&quot;,
-          &quot;较好-票数&quot;: 20,
-          &quot;较好-比例&quot;: &quot;20.00%&quot;,
-          &quot;一般-票数&quot;: 40,
-          &quot;一般-比例&quot;: &quot;40.00%&quot;,
-          &quot;较差-票数&quot;: 10,
-          &quot;较差-比例&quot;: &quot;10.00%&quot;
-        }
+        &quot;level_count_and_percentage&quot;: [
+          {
+            &quot;excellent-count&quot;: 30
+          },
+          {
+            &quot;excellent-proportion&quot;: &quot;30.00%&quot;
+          },
+          {
+            &quot;good-count&quot;: 20
+          },
+          {
+            &quot;good-proportion&quot;: &quot;20.00%&quot;
+          },
+          {
+            &quot;average-count&quot;: 40
+          },
+          {
+            &quot;average-proportion&quot;: &quot;40.00%&quot;
+          },
+          {
+            &quot;bad-count&quot;: 10
+          },
+          {
+            &quot;bad-proportion&quot;: &quot;10.00%&quot;
+          }
+        ]
       },
       &quot;average_for_all_evaluation&quot;: {
         &quot;sum_of_result_level_count&quot;: 10,
-        &quot;result_level_count_and_percentage&quot;: {
-          &quot;优秀-票数&quot;: 0,
-          &quot;优秀-比例&quot;: &quot;0.00%&quot;,
-          &quot;称职-票数&quot;: 0,
-          &quot;称职-比例&quot;: &quot;0.00%&quot;,
-          &quot;基本称职-票数&quot;: 10,
-          &quot;基本称职-比例&quot;: &quot;100.00%&quot;,
-          &quot;不称职-票数&quot;: 0,
-          &quot;不称职-比例&quot;: &quot;0.00%&quot;
-        }
+        &quot;result_level_count_and_percentage&quot;: [
+          {
+            &quot;excellent-count&quot;: 0
+          },
+          {
+            &quot;excellent-proportion&quot;: &quot;0.00%&quot;
+          },
+          {
+            &quot;good-count&quot;: 0
+          },
+          {
+            &quot;good-proportion&quot;: &quot;0.00%&quot;
+          },
+          {
+            &quot;average-count&quot;: 10
+          },
+          {
+            &quot;average-proportion&quot;: &quot;100.00%&quot;
+          },
+          {
+            &quot;bad-count&quot;: 0
+          },
+          {
+            &quot;bad-proportion&quot;: &quot;0.00%&quot;
+          }
+        ]
       },
       &quot;average_for_each_role&quot;: {
-        &quot;average_score_for_staff&quot;: null,
-        &quot;average_score_for_middle_manager&quot;: null,
+        &quot;average_score_for_staff&quot;: -1,
+        &quot;average_score_for_middle_manager&quot;: -1,
         &quot;average_score_for_leader&quot;: 76.5
       },
       &quot;statistics_result&quot;: {
-        &quot;average_score_for_all&quot;: null,
-        &quot;level_of_average_score_for_all&quot;: null
+        &quot;average_score_for_all&quot;: 37.75,
+        &quot;level_of_average_score_for_all&quot;: &quot;不称职&quot;
       },
       &quot;set_by_admin&quot;: {
-        &quot;final_result&quot;: null
+        &quot;final_result&quot;: &quot;未评鉴&quot;
       },
       &quot;count_of_people&quot;: {
         &quot;count_of_middle_manager&quot;: 1,
@@ -239,8 +270,7 @@ Content-Length: 2373</pre>
       &quot;self_evaluation_id&quot;: 3,
       &quot;info&quot;: {
         &quot;name&quot;: &quot;谌明举&quot;,
-        &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;,
-        &quot;evaluated_user_info&quot;: null
+        &quot;department_and_duty&quot;: &quot;计算机应用系 党支部书记、副主任&quot;
       },
       &quot;self_evaluation&quot;: {
         &quot;self_evaluation_duties&quot;: &quot;{\&quot;项目1\&quot;:80,\&quot;项目2\&quot;:70,\&quot;项目3\&quot;:60,\&quot;项目4\&quot;:90}&quot;,
@@ -248,38 +278,70 @@ Content-Length: 2373</pre>
       },
       &quot;little_iterm&quot;: {
         &quot;sum_of_level_count&quot;: 100,
-        &quot;level_count_and_percentage&quot;: {
-          &quot;好-票数&quot;: 30,
-          &quot;好-比例&quot;: &quot;30.00%&quot;,
-          &quot;较好-票数&quot;: 20,
-          &quot;较好-比例&quot;: &quot;20.00%&quot;,
-          &quot;一般-票数&quot;: 40,
-          &quot;一般-比例&quot;: &quot;40.00%&quot;,
-          &quot;较差-票数&quot;: 10,
-          &quot;较差-比例&quot;: &quot;10.00%&quot;
-        }
+        &quot;level_count_and_percentage&quot;: [
+          {
+            &quot;excellent-count&quot;: 30
+          },
+          {
+            &quot;excellent-proportion&quot;: &quot;30.00%&quot;
+          },
+          {
+            &quot;good-count&quot;: 20
+          },
+          {
+            &quot;good-proportion&quot;: &quot;20.00%&quot;
+          },
+          {
+            &quot;average-count&quot;: 40
+          },
+          {
+            &quot;average-proportion&quot;: &quot;40.00%&quot;
+          },
+          {
+            &quot;bad-count&quot;: 10
+          },
+          {
+            &quot;bad-proportion&quot;: &quot;10.00%&quot;
+          }
+        ]
       },
       &quot;average_for_all_evaluation&quot;: {
         &quot;sum_of_result_level_count&quot;: 10,
-        &quot;result_level_count_and_percentage&quot;: {
-          &quot;优秀-票数&quot;: 0,
-          &quot;优秀-比例&quot;: &quot;0.00%&quot;,
-          &quot;称职-票数&quot;: 0,
-          &quot;称职-比例&quot;: &quot;0.00%&quot;,
-          &quot;基本称职-票数&quot;: 10,
-          &quot;基本称职-比例&quot;: &quot;100.00%&quot;,
-          &quot;不称职-票数&quot;: 0,
-          &quot;不称职-比例&quot;: &quot;0.00%&quot;
-        }
+        &quot;result_level_count_and_percentage&quot;: [
+          {
+            &quot;excellent-count&quot;: 0
+          },
+          {
+            &quot;excellent-proportion&quot;: &quot;0.00%&quot;
+          },
+          {
+            &quot;good-count&quot;: 0
+          },
+          {
+            &quot;good-proportion&quot;: &quot;0.00%&quot;
+          },
+          {
+            &quot;average-count&quot;: 10
+          },
+          {
+            &quot;average-proportion&quot;: &quot;100.00%&quot;
+          },
+          {
+            &quot;bad-count&quot;: 0
+          },
+          {
+            &quot;bad-proportion&quot;: &quot;0.00%&quot;
+          }
+        ]
       },
       &quot;average_for_each_role&quot;: {
-        &quot;average_score_for_staff&quot;: null,
-        &quot;average_score_for_middle_manager&quot;: null,
+        &quot;average_score_for_staff&quot;: -1,
+        &quot;average_score_for_middle_manager&quot;: -1,
         &quot;average_score_for_leader&quot;: 76.5
       },
       &quot;statistics_result&quot;: {
-        &quot;average_score_for_all&quot;: null,
-        &quot;level_of_average_score_for_all&quot;: null
+        &quot;average_score_for_all&quot;: 37.75,
+        &quot;level_of_average_score_for_all&quot;: &quot;不称职&quot;
       },
       &quot;set_by_admin&quot;: {
         &quot;final_result&quot;: &quot;未评鉴&quot;

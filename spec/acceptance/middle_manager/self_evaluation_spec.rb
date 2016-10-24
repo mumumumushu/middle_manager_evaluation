@@ -5,10 +5,10 @@ resource	'中层干部 自评表 查看修改' do
 
 	get '/middle_managers/self_evaluation' do
 
-		user_attrs = FactoryGirl.attributes_for(:middle_manager)
+		middle_manager_attrs = FactoryGirl.attributes_for(:middle_manager)
 
-		header "X-User-Token", user_attrs[:authentication_token]
-    header "X-User-JobNum", user_attrs[:job_num]
+		header "X-User-Token", middle_manager_attrs[:authentication_token]
+    header "X-User-JobNum", middle_manager_attrs[:job_num]
 
     before do
       @middle_manager = create(:middle_manager)
