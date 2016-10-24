@@ -47,17 +47,17 @@ class Result < ApplicationRecord
 
   #中层干部整体评价 各等级评价的 票数 与 比例 #（✔️）
   def level_count_and_percentage		
-		_name_keys = [ '好-票数', '好-比例', '较好-票数', '较好-比例','一般-票数','一般-比例', '较差-票数','较差-比例']
+		_name_keys = [ 'excellent-count', 'excellent-proportion', 'good-count', 'good-proportion','average-count','average-proportion', 'bad-count','bad-proportion']
 
 		_count_and_percentage = []
 		0.upto(3) do |n|
-			_percentage =	((self.each_level_count_array[n]).to_f/(self.sum_of_level_count).to_f * 100).round(2)
+			_percentage = self.sum_of_level_count == 0 ? -1 :((self.each_level_count_array[n]).to_f/(self.sum_of_level_count).to_f * 100).round(2) || 0
 			_count_and_percentage += [ self.each_level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
 
-		_x = {}
+		_x = []
 		0.upto(7) do |n|
-			_x.store( _name_keys[n], _count_and_percentage[n])
+			_x += [ Hash[ _name_keys[n], _count_and_percentage[n] ] ]
 		end	
 		_x
 	
@@ -79,7 +79,6 @@ class Result < ApplicationRecord
 					_level_count_array[2] += 1
 				when "不称职"
 					_level_count_array[3] += 1
-				else	
 			end
 		end
 
@@ -92,17 +91,17 @@ class Result < ApplicationRecord
 
 
 	def result_level_count_and_percentage #（✔️）
-		 _name_keys = [ '优秀-票数', '优秀-比例', '称职-票数', '称职-比例', '基本称职-票数', '基本称职-比例', '不称职-票数', '不称职-比例' ]
+		 _name_keys = [ 'excellent-count', 'excellent-proportion', 'good-count', 'good-proportion', 'average-count', 'average-proportion', 'bad-count', 'bad-proportion' ]
 
 		_count_and_percentage = []
 		0.upto(3) do |n|
-			_percentage =	((self.each_result_level_count_array[n]).to_f/(self.sum_of_result_level_count).to_f * 100).round(2)
+			_percentage = self.sum_of_level_count == 0 ? -1 : ((self.each_result_level_count_array[n]).to_f/(self.sum_of_result_level_count).to_f * 100).round(2) 
 			_count_and_percentage += [ self.each_result_level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
 
-		_x = {}
+		_x = []
 		0.upto(7) do |n|
-			_x.store( _name_keys[n], _count_and_percentage[n])
+			_x += [ Hash[ _name_keys[n], _count_and_percentage[n] ] ]
 		end	
 		_x
 	end
@@ -139,7 +138,7 @@ class Result < ApplicationRecord
 		_sum = 0.00
 		_arry.each { |evaluation| _sum += evaluation.average_score }
 		
-		(_sum.to_f / _arry.count.to_f).round(2)	
+		 _arry.count == 0 ? -1 : (_sum.to_f / _arry.count.to_f).round(2)	
 	end
 
 	def average_score_for_middle_manager
@@ -147,7 +146,7 @@ class Result < ApplicationRecord
 		_sum = 0.00
 		_arry.each { |evaluation| _sum += evaluation.average_score }
 		
-		(_sum.to_f / _arry.count.to_f).round(2)	
+		 _arry.count == 0 ? -1 : (_sum.to_f / _arry.count.to_f).round(2)	
 	end
 
 	def average_score_for_leader
@@ -155,7 +154,7 @@ class Result < ApplicationRecord
 		_sum = 0.00
 		_arry.each { |evaluation| _sum += evaluation.average_score }
 		
-		(_sum.to_f / _arry.count.to_f).round(2)	
+		 _arry.count == 0 ? -1 : (_sum.to_f / _arry.count.to_f).round(2)	
 	end
 
 ########  考核总分 及 考核等级  ##########
@@ -177,6 +176,8 @@ class Result < ApplicationRecord
         "基本称职"
       when _x < 60 && _x >= 0
         "不称职"
+      else
+      	""
     end
 	end
 

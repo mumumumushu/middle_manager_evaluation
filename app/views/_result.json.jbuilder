@@ -1,8 +1,7 @@
 json.extract! result, :id, :self_evaluation_id 
 
 json.info do 
-	json.( result, :name, :department_and_duty,
-				:evaluated_user_info)
+	json.( result, :name, :department_and_duty )
 end
 
 json.self_evaluation do

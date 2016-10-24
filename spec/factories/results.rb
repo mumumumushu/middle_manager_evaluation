@@ -1,5 +1,5 @@
 # == Schema Information
-#
+#s
 # Table name: results
 #
 #  id                 :integer          not null, primary key
@@ -11,7 +11,7 @@
 
 FactoryGirl.define do
   factory :result do
-  	final_result '基本称职'
+  	final_result "未评鉴"
     #self_evaluation nil   
   end
 

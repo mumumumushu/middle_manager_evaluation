@@ -44,20 +44,20 @@ class SelfEvaluation < ApplicationRecord
 
   private
 
-   def set_evaluated_user_info
-    _user_info_in_user = MiddleManager.find(self.middle_manager_id).user_info
-    _arry = [
-                      "姓名", _user_info_in_user.name,
-                      "性别", _user_info_in_user.sex,
-                      "出生年月", _user_info_in_user.date_of_birth,
-                      "政治面貌", _user_info_in_user.politics_status,
-                      "文化程度", _user_info_in_user.degree_of_education,
-                      "现任职时间", _user_info_in_user.starting_time_for_the_present_job,
-                      "从事或分管工作", _user_info_in_user.department_and_duty,
-                      "部门及职务", _user_info_in_user.job
-                      ]
-    self.evaluated_user_info = Hash[*_arry]
-  end
+  #  def set_evaluated_user_info
+  #   _user_info_in_user = MiddleManager.find(self.middle_manager_id).user_info
+  #   _arry = [
+  #                     "姓名", _user_info_in_user.name,
+  #                     "性别", _user_info_in_user.sex,
+  #                     "出生年月", _user_info_in_user.date_of_birth,
+  #                     "政治面貌", _user_info_in_user.politics_status,
+  #                     "文化程度", _user_info_in_user.degree_of_education,
+  #                     "现任职时间", _user_info_in_user.starting_time_for_the_present_job,
+  #                     "从事或分管工作", _user_info_in_user.department_and_duty,
+  #                     "部门及职务", _user_info_in_user.job
+  #                     ]
+  #   self.evaluated_user_info = Hash[*_arry]
+  # end
 
   # def in_first_phase?
   #   _activity = Activity.find( self.activity_id )
@@ -104,6 +104,7 @@ class SelfEvaluation < ApplicationRecord
   def create_result
     _result = Result.new
     _result.self_evaluation_id = self.id
+    _result.final_result = "未评鉴"
     _result.save
   end
 

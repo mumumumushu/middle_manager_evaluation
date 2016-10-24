@@ -27,19 +27,19 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"info\": {\n    \"name\": \"谌明举\",\n    \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n    \"evaluated_user_info\": null\n  },\n  \"self_evaluation\": {\n    \"self_evaluation_duties\": \"{}\",\n    \"self_evaluation_totality\": null\n  },\n  \"little_iterm\": {\n    \"sum_of_level_count\": 0,\n    \"level_count_and_percentage\": {\n      \"好-票数\": 0,\n      \"好-比例\": \"NaN%\",\n      \"较好-票数\": 0,\n      \"较好-比例\": \"NaN%\",\n      \"一般-票数\": 0,\n      \"一般-比例\": \"NaN%\",\n      \"较差-票数\": 0,\n      \"较差-比例\": \"NaN%\"\n    }\n  },\n  \"average_for_all_evaluation\": {\n    \"sum_of_result_level_count\": 0,\n    \"result_level_count_and_percentage\": {\n      \"优秀-票数\": 0,\n      \"优秀-比例\": \"NaN%\",\n      \"称职-票数\": 0,\n      \"称职-比例\": \"NaN%\",\n      \"基本称职-票数\": 0,\n      \"基本称职-比例\": \"NaN%\",\n      \"不称职-票数\": 0,\n      \"不称职-比例\": \"NaN%\"\n    }\n  },\n  \"average_for_each_role\": {\n    \"average_score_for_staff\": null,\n    \"average_score_for_middle_manager\": null,\n    \"average_score_for_leader\": null\n  },\n  \"statistics_result\": {\n    \"average_score_for_all\": null,\n    \"level_of_average_score_for_all\": null\n  },\n  \"set_by_admin\": {\n    \"final_result\": null\n  },\n  \"count_of_people\": {\n    \"count_of_middle_manager\": 1,\n    \"count_of_all_user\": 2\n  }\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"info\": {\n    \"name\": \"谌明举\",\n    \"department_and_duty\": \"计算机应用系 党支部书记、副主任\"\n  },\n  \"self_evaluation\": {\n    \"self_evaluation_duties\": \"{}\",\n    \"self_evaluation_totality\": \"\"\n  },\n  \"little_iterm\": {\n    \"sum_of_level_count\": 0,\n    \"level_count_and_percentage\": [\n      {\n        \"excellent-count\": 0\n      },\n      {\n        \"excellent-proportion\": \"-1.00%\"\n      },\n      {\n        \"good-count\": 0\n      },\n      {\n        \"good-proportion\": \"-1.00%\"\n      },\n      {\n        \"average-count\": 0\n      },\n      {\n        \"average-proportion\": \"-1.00%\"\n      },\n      {\n        \"bad-count\": 0\n      },\n      {\n        \"bad-proportion\": \"-1.00%\"\n      }\n    ]\n  },\n  \"average_for_all_evaluation\": {\n    \"sum_of_result_level_count\": 0,\n    \"result_level_count_and_percentage\": [\n      {\n        \"excellent-count\": 0\n      },\n      {\n        \"excellent-proportion\": \"-1.00%\"\n      },\n      {\n        \"good-count\": 0\n      },\n      {\n        \"good-proportion\": \"-1.00%\"\n      },\n      {\n        \"average-count\": 0\n      },\n      {\n        \"average-proportion\": \"-1.00%\"\n      },\n      {\n        \"bad-count\": 0\n      },\n      {\n        \"bad-proportion\": \"-1.00%\"\n      }\n    ]\n  },\n  \"average_for_each_role\": {\n    \"average_score_for_staff\": -1,\n    \"average_score_for_middle_manager\": -1,\n    \"average_score_for_leader\": -1\n  },\n  \"statistics_result\": {\n    \"average_score_for_all\": -1.0,\n    \"level_of_average_score_for_all\": \"\"\n  },\n  \"set_by_admin\": {\n    \"final_result\": \"未评鉴\"\n  },\n  \"count_of_people\": {\n    \"count_of_middle_manager\": 1,\n    \"count_of_all_user\": 1\n  }\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"25868b7bbe160b5657a0f47324ecc5ee\"",
+        "ETag": "W/\"8b04ecda82b5678b76577511d6d4a8cf\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "1039d8db-0e57-47c3-ab01-a81a8bf19433",
-        "X-Runtime": "0.039919",
+        "X-Request-Id": "8a5bb97d-f690-400d-b953-d8be3c85f8e5",
+        "X-Runtime": "0.041505",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "1074"
+        "Content-Length": "1100"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null

@@ -27,19 +27,19 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"name\": \"谌明举\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"evaluated_user_info\": null,\n  \"activity_id\": 1,\n  \"middle_manager_id\": 1,\n  \"duties\": \"{}\",\n  \"self_evaluation_totality\": null,\n  \"created_year\": 2016,\n  \"created_at\": \"2016-10-24T15:30:41.971+08:00\",\n  \"updated_at\": \"2016-10-24T15:30:41.971+08:00\"\n}",
+      "response_body": "{\n  \"name\": \"谌明举\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"activity_id\": 1,\n  \"middle_manager_id\": 1,\n  \"duties\": \"{}\",\n  \"self_evaluation_totality\": \"\",\n  \"created_year\": 2016,\n  \"created_at\": \"2016-10-24T19:32:11.974+08:00\",\n  \"updated_at\": \"2016-10-24T19:32:11.974+08:00\",\n  \"evaluated_user_info\": null\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"359e405a2e068d1b93ef2b3a98c8e4db\"",
+        "ETag": "W/\"95064a408e450e2c7eda25f048ba3d7b\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "ceb4bd19-8d98-4d8c-b538-140abf90797b",
-        "X-Runtime": "0.014211",
+        "X-Request-Id": "9c7cc2a0-9bae-45a8-9a86-ac099332527b",
+        "X-Runtime": "0.020043",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "312"
+        "Content-Length": "310"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null

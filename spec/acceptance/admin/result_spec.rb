@@ -26,9 +26,8 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
                                     user: @leader)            
 
    		@results = create_list(:result, 5,
-   																self_evaluation: @self_evaluation,
-   																final_result: "未评鉴"
-   								)	
+   																self_evaluation: @self_evaluation
+             								)	
       
     end
 
@@ -69,9 +68,8 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
                                 )            
 
    		@results = create_list(:result, 5,
-   															self_evaluation: @self_evaluation,
-   															final_result: "未评鉴"
-   													)	
+   															self_evaluation: @self_evaluation
+             													)	
       
     end
 
@@ -109,9 +107,8 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
                                     user: @leader
                                 )            
    		@results = create_list(:result, 5,
-   																self_evaluation: @self_evaluation,
-   																final_result: "未评鉴"
-														)	      
+   																self_evaluation: @self_evaluation
+          														)	      
     end
 
     let(:final_result) { '优秀' }
