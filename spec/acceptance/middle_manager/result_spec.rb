@@ -19,9 +19,9 @@ resource	'中层干部 测评结果 查看' do
                                   middle_manager: @middle_manager,
       												    activity: @activity)
       @leader = create(:leader)
-      create_list(:evaluation, 2,
-                     self_evaluation: @self_evaluation,
-                     user: @leader) 
+      # create_list(:evaluation, 2,
+      #                self_evaluation: @self_evaluation,
+      #                user: @leader) 
       create(:result, self_evaluation: @self_evaluation)
 
 

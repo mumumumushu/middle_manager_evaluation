@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022103547) do
+ActiveRecord::Schema.define(version: 20161024032818) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "first_phase_begin"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20161022103547) do
     t.integer  "user_id"
     t.boolean  "already_edited",         default: false
     t.string   "evaluating_user_type"
+    t.integer  "activity_id"
     t.index ["self_evaluation_id"], name: "index_evaluations_on_self_evaluation_id"
     t.index ["user_id"], name: "index_evaluations_on_user_id"
   end

@@ -44,7 +44,7 @@ class MiddleManagers::ResultsController < ApplicationController
     def set_result
       @result = MiddleManager.find(current_user.id).self_evaluation.result
     end
-
+                            ###################找得到MiddleManager ###找不到它的self_evaluation
     def had_setted_final_reslut?
     end
 

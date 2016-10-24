@@ -19,11 +19,12 @@ class Evaluation < ApplicationRecord
   
   belongs_to :user #:evaluationable, polymorphic: true
   belongs_to :self_evaluation
-	before_validation :in_first_or_second_phase?
+	# before_validation :in_first_or_second_phase?
 
   before_create :set_evaluating_user_type
+  before_create :set_activity_id
  ##	
- 	validates_presence_of :in_first_or_second_phase?, :message => '填写未开放'
+ 	# validates_presence_of :in_first_or_second_phase?, :message => '填写未开放'
  ##	
  	validates_presence_of	:thought_morals
  	validates_presence_of	:upright_incorruptiable
@@ -102,10 +103,14 @@ class Evaluation < ApplicationRecord
     self.evaluating_user_type = User.find(self.user_id).user_type
   end
 
-  def in_first_or_second_phase?
-  	_activity = Activity.find( SelfEvaluation.find( self.self_evaluation_id ).activity_id )  
-    _activity.first_phase_begin  < Time.now && Time.now < _activity.third_phase_begin
+  def set_activity_id
+    self.activity_id = SelfEvaluation.find(self.self_evaluation_id).activity_id
   end
+
+  # def in_first_or_second_phase?
+  # 	_activity = Activity.find( SelfEvaluation.find( self.self_evaluation_id ).activity_id )  
+  #   _activity.first_phase_begin  < Time.now && Time.now < _activity.third_phase_begin
+  # end
 
 
 
