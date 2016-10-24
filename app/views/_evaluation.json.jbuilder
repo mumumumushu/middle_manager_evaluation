@@ -1,4 +1,4 @@
-json.extract! evaluation, :id, :self_evaluation_id, :user_id, :already_edited, :created_year
+json.extract! evaluation, :id, :self_evaluation_id, :user_id, :already_edited, :created_year, :activity_id
 
 json.info do
 	json.( evaluation, :name, 

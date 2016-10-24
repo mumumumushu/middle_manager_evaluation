@@ -20,12 +20,12 @@ class SelfEvaluation < ApplicationRecord
   has_many :evaluations
   has_one :result
 
-  before_validation :in_first_phase?
-  validates_presence_of :in_first_phase?, :message => '填写未开放'
+  # before_validation :in_first_phase?
+  # validates_presence_of :in_first_phase?, :message => '填写未开放'
   validates_presence_of :duties
   validates_presence_of :self_evaluation_totality
   
-  before_create :set_evaluated_user_info
+  after_create :set_evaluated_user_info
   after_create :create_evaluations
   after_update :update_evaluations
   after_create :create_result
@@ -45,7 +45,7 @@ class SelfEvaluation < ApplicationRecord
   private
 
    def set_evaluated_user_info
-    _user_info_in_user = User.find(self.middle_manager_id).user_info
+    _user_info_in_user = MiddleManager.find(self.middle_manager_id).user_info
     _arry = [
                       "姓名", _user_info_in_user.name,
                       "性别", _user_info_in_user.sex,
@@ -60,14 +60,14 @@ class SelfEvaluation < ApplicationRecord
     
   end
 
-  def in_first_phase?
-    _activity = Activity.find( self.activity_id )
-    _activity.first_phase_begin  < Time.now && Time.now < _activity.second_phase_begin  
-  end
+  # def in_first_phase?
+  #   _activity = Activity.find( self.activity_id )
+  #   _activity.first_phase_begin  < Time.now && Time.now < _activity.second_phase_begin  
+  # end
 
  	def create_evaluations
-    User.all.each do |user|
-      unless user.id == middle_manager_id
+    User.where(:take_part_in => true).each do |user|
+      unless user.id == self.middle_manager_id
         _evaluation = user.evaluations.new
         _evaluation.self_evaluation_id = self.id
         _evaluation.user_id = user.id
@@ -85,8 +85,8 @@ class SelfEvaluation < ApplicationRecord
   end
 
   def update_evaluations
-    User.all.each do |user|
-      unless user.id == middle_manager_id
+    User.where(:take_part_in => true).each do |user|
+      unless user.id == self.middle_manager_id
         _evaluation = user.evaluations.where( :self_evaluation_id => self.id).first        
         
         _duties = {}
