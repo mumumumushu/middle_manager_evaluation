@@ -22,12 +22,12 @@ class SelfEvaluation < ApplicationRecord
 
   # before_validation :in_first_phase?
   # validates_presence_of :in_first_phase?, :message => '填写未开放'
-  validates_presence_of :duties
-  validates_presence_of :self_evaluation_totality
+  # validates_presence_of :duties
+  # validates_presence_of :self_evaluation_totality
   
-  after_create :set_evaluated_user_info
-  after_create :create_evaluations
-  after_update :update_evaluations
+  # before_create :set_evaluated_user_info
+  after_save :create_evaluations
+  # after_update :update_evaluations
   after_create :create_result
 
   def created_year
@@ -56,8 +56,7 @@ class SelfEvaluation < ApplicationRecord
                       "从事或分管工作", _user_info_in_user.department_and_duty,
                       "部门及职务", _user_info_in_user.job
                       ]
-    self.evaluated_user_info = MultiJson.dump(Hash[*_arry])
-    
+    self.evaluated_user_info = Hash[*_arry]
   end
 
   # def in_first_phase?
@@ -68,7 +67,7 @@ class SelfEvaluation < ApplicationRecord
  	def create_evaluations
     User.where(:take_part_in => true).each do |user|
       unless user.id == self.middle_manager_id
-        _evaluation = user.evaluations.new
+        _evaluation = user.evaluations.where( :self_evaluation_id => self.id).first || Evaluation.new
         _evaluation.self_evaluation_id = self.id
         _evaluation.user_id = user.id
         
@@ -84,23 +83,23 @@ class SelfEvaluation < ApplicationRecord
     end
   end
 
-  def update_evaluations
-    User.where(:take_part_in => true).each do |user|
-      unless user.id == self.middle_manager_id
-        _evaluation = user.evaluations.where( :self_evaluation_id => self.id).first        
+  # def update_evaluations
+  #   User.where(:take_part_in => true).each do |user|
+  #     unless user.id == self.middle_manager_id
+  #       _evaluation = user.evaluations.where( :self_evaluation_id => self.id).first        
         
-        _duties = {}
-        _keys = MultiJson.load(self.duties).keys
-        0.upto( _keys.count - 1 ) do |n|
-          _duties.store( _keys[n], -1 )
-        end                        #####!!!!!#####
-                                   ####打分表初始分数--> -1
-        _evaluation.duties = _duties
+  #       _duties = {}
+  #       _keys = MultiJson.load(self.duties).keys
+  #       0.upto( _keys.count - 1 ) do |n|
+  #         _duties.store( _keys[n], -1 )
+  #       end                        #####!!!!!#####
+  #                                  ####打分表初始分数--> -1
+  #       _evaluation.duties = _duties
 
-        _evaluation.save
-      end
-    end 
-  end
+  #       _evaluation.save
+  #     end
+  #   end 
+  # end
 
   def create_result
     _result = Result.new

@@ -41,7 +41,7 @@ FactoryGirl.define do
     take_part_in true
   end
 
-  factory :middle_manager do
+  factory :middle_manager,class: :middle_manager do
   	job_num 'middle_manager_job_num'
     password 'hahaha'
     authentication_token 'm_qwertyuiop1'

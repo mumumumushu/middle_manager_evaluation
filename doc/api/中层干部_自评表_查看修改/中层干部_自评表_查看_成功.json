@@ -27,19 +27,19 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"name\": \"谌明举\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"evaluated_user_info\": \"{\\\"姓名\\\":\\\"谌明举\\\",\\\"性别\\\":\\\"男\\\",\\\"出生年月\\\":\\\"1981.10\\\",\\\"政治面貌\\\":\\\"中共党员\\\",\\\"文化程度\\\":\\\"中共党员\\\",\\\"现任职时间\\\":\\\"2015.4\\\",\\\"从事或分管工作\\\":\\\"计算机应用系 党支部书记、副主任\\\",\\\"部门及职务\\\":\\\"基层党建工作、学生教育与管理\\\"}\",\n  \"activity_id\": 1,\n  \"middle_manager_id\": 1,\n  \"duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n  \"self_evaluation_totality\": \"优秀\",\n  \"created_year\": 2016,\n  \"created_at\": \"2016-10-02T15:29:57.000+08:00\",\n  \"updated_at\": \"2016-10-22T23:05:11.934+08:00\"\n}",
+      "response_body": "{\n  \"name\": \"谌明举\",\n  \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n  \"evaluated_user_info\": null,\n  \"activity_id\": 1,\n  \"middle_manager_id\": 1,\n  \"duties\": \"{}\",\n  \"self_evaluation_totality\": null,\n  \"created_year\": 2016,\n  \"created_at\": \"2016-10-24T15:30:41.971+08:00\",\n  \"updated_at\": \"2016-10-24T15:30:41.971+08:00\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"5f4da8b17207009dcab1a26121f3a5cb\"",
+        "ETag": "W/\"359e405a2e068d1b93ef2b3a98c8e4db\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "03310d28-4763-4f4e-a7b2-70accc12cab3",
-        "X-Runtime": "0.016475",
+        "X-Request-Id": "ceb4bd19-8d98-4d8c-b538-140abf90797b",
+        "X-Runtime": "0.014211",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "690"
+        "Content-Length": "312"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
