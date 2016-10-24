@@ -17,5 +17,31 @@
 !/log/.keep
 !/tmp/.keep
 
+
 # Ignore Byebug command history file.
 .byebug_history
+
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+config/database.yml
+config/secrets.yml
+config/puma.rb
+
+Gemfile.lock
+
+/doc/*
+/public/system/*
+/public/pdfs
+/public/*
+/vendor/*
+/libreoffice/*
+/test/output/*
+
+# .DS_Store
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
+app/assets/images/.DS_Store
