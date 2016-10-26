@@ -33,28 +33,28 @@ class Evaluation < ApplicationRecord
  	validates_presence_of :evaluation_totality
 ##
 	def created_year
-    SelfEvaluation.find( self.self_evaluation_id ).created_year 
+    self.self_evaluation.created_year 
   end
 
   def name
-    SelfEvaluation.find(self.self_evaluation_id).name
+    self.self_evaluation.name
   end
 
   # def evaluated_user_info
-  #   SelfEvaluation.find(self.self_evaluation_id).evaluated_user_info
+  #   self.self_evaluation.evaluated_user_info
   # end
 
   def department_and_duty #职务
-    SelfEvaluation.find(self.self_evaluation_id).department_and_duty
+    self.self_evaluation.department_and_duty
   end
 
   #统计
   #分数集合  剔除 -1（空）
   def score_array
     _score = MultiJson.load(self.thought_morals).values.reject{ |x| x == -1} +
-              MultiJson.load(self.upright_incorruptiable).values.reject{ |x| x == -1} + 
-              MultiJson.load(self.duties).values.reject{ |x| x == -1} +
-              [evaluation_totality]
+             MultiJson.load(self.upright_incorruptiable).values.reject{ |x| x == -1} + 
+             MultiJson.load(self.duties).values.reject{ |x| x == -1} +
+             [evaluation_totality]
   end
 
   #好，较好，一般，较差
@@ -74,13 +74,11 @@ class Evaluation < ApplicationRecord
     _score = self.score_array
     _sum = 0.00
     _score.each { |x| _sum += x} 
-    _average_score = _sum / _score.count
-    #四舍五入？？？？？？
+    (_average_score = _sum / _score.count).round(2)
   end
 
   def average_score_level
     _x = self.average_score
-
     case
       when _x >= 90 && _x <= 99
         "优秀"
@@ -91,27 +89,20 @@ class Evaluation < ApplicationRecord
       when _x < 60 && _x >= 0
         "不称职"
     end  
-
   end
-
-
-
 
   private	
 
   def set_evaluating_user_type
-    self.evaluating_user_type = User.find(self.user_id).user_type
+    self.evaluating_user_type = self.user.user_type
   end
 
   def set_activity_id
-    self.activity_id = SelfEvaluation.find(self.self_evaluation_id).activity_id
+    self.activity_id = self.self_evaluation.activity_id
   end
 
   # def in_first_or_second_phase?
   # 	_activity = Activity.find( SelfEvaluation.find( self.self_evaluation_id ).activity_id )  
   #   _activity.first_phase_begin  < Time.now && Time.now < _activity.third_phase_begin
   # end
-
-
-
 end

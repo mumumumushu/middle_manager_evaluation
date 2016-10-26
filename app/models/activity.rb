@@ -17,10 +17,6 @@ class Activity < ApplicationRecord
 
 	after_create :create_self_evaluation
 	
-
-
-
-
 private
 
 	def set_created_year
@@ -29,15 +25,12 @@ private
 
 	def create_self_evaluation
 		MiddleManager.where("take_part_in = ?", true).each do |middle_manager|
-			_self_evaluation = SelfEvaluation.new
-			_self_evaluation.activity_id = self.id
-			_self_evaluation.middle_manager_id = middle_manager.id
-			_self_evaluation.duties = '{}'
-			_self_evaluation.self_evaluation_totality = ""
+			_self_evaluation = SelfEvaluation.new(:activity_id => self.id,
+																						:middle_manager_id => middle_manager.id,
+																						:duties => '{}',
+																						:self_evaluation_totality => "")
 			_self_evaluation.save
 		end
 	end
-
-	
 
 end

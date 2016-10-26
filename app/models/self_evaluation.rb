@@ -31,21 +31,21 @@ class SelfEvaluation < ApplicationRecord
   after_create :create_result
 
   def created_year
-    Activity.find( activity_id ).activity_created_year 
+    self.activity.activity_created_year 
   end
   ##??? middle_manager_id == user_id ??
   def name
-    MiddleManager.find(self.middle_manager_id).user_info.name
+    self.middle_manager.user_info.name
   end
 
   def department_and_duty #职务
-    MiddleManager.find(self.middle_manager_id).user_info.department_and_duty
+    self.middle_manager.user_info.department_and_duty
   end
 
   private
 
   #  def set_evaluated_user_info
-  #   _user_info_in_user = MiddleManager.find(self.middle_manager_id).user_info
+  #   _user_info_in_user = self.middle_manager.user_info
   #   _arry = [
   #                     "姓名", _user_info_in_user.name,
   #                     "性别", _user_info_in_user.sex,
@@ -102,12 +102,9 @@ class SelfEvaluation < ApplicationRecord
   # end
 
   def create_result
-    _result = Result.new
-    _result.self_evaluation_id = self.id
-    _result.final_result = "未评鉴"
+    _result = Result.new(:self_evaluation_id => self.id,
+                         :final_result => "未评鉴")
     _result.save
   end
-
-
 
 end
