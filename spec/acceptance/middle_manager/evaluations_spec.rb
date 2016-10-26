@@ -10,20 +10,21 @@ resource	'中层干部 打分表 查看修改' do
     header "X-User-JobNum", middle_manager_attrs[:job_num]
     
     before do
-   
+      #当前用户 查看人
       @middle_manager = create(:middle_manager)
       create(:user_info, user: @middle_manager)
+      #其他中层干部 被查看人 evaluations的拥有者
       @other_middle_manager = create(:middle_manager2)
       create(:user_info, user: @other_middle_manager)  #创建活动会创建self_evaluation  创建self_evaluation 会set_user_info 
       
       @activity = create(:activity)
       @self_evaluation = create(:self_evaluation, 
-                                  middle_manager: @middle_manager,
+                                  middle_manager: @other_middle_manager,
                                   activity: @activity)
 
       @evaluations = create_list(:evaluation, 10,
       												      self_evaluation: @self_evaluation,
-                                    user: @other_middle_manager)            
+                                    user: @middle_manager)            
     end
 
     parameter :page, "当前页", require: false
