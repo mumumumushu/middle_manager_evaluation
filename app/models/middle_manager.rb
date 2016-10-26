@@ -32,15 +32,13 @@ class MiddleManager < User
 		self.id
 	end
 
-	def evaluationed_by_others
-		self_evaluation.evaluations
-	end
+	# def evaluationed_by_others
+	# 	self_evaluation.evaluations
+	# end
 
 	# def email_required?
 	#   false
 	# end
-	
-
 	
 end
 

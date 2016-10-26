@@ -1,14 +1,15 @@
 class LoadMiddleManagerInfo
 	require 'roo'
 
-	def self.load(path)
+	def self.load(input_file,output_path)
 		MiddleManager.all.each do |m| 
 			m.take_part_in = false
 			m.password = Password.new #< == 
 			m.save
 		end
 
-		xlsx = Roo::Excelx.new(path)
+		xlsx = Roo::Excelx.new(input_file)
+		file = File.new("#{output_path}/password.txt", "w")
 
 		4.upto( LoadMiddleManagerInfo.get_sum(xlsx) ).each do |row|
 			_middle_manager = MiddleManager.where( "job_num = ?", LoadMiddleManagerInfo.get_job_num(row,xlsx)).first ||  MiddleManager.new
@@ -30,10 +31,15 @@ class LoadMiddleManagerInfo
 			_user_info.starting_time_for_the_present_job = LoadMiddleManagerInfo.get_time(row,xlsx)
 
 			_user_info.save		
+
+			file.write("姓名: #{_user_info.name},  工号: #{_middle_manager.job_num},  密码: #{_middle_manager.password}\n")
 		end
+
+		file.close
 
 	end
 
+	
 	def self.get_sum(xlsx)
 		i = 0
 		xlsx.each_row_streaming do |row| 
@@ -99,11 +105,5 @@ class LoadMiddleManagerInfo
  			time = "20" + _x[3] + "." + _x[1] + "." + _x[2]
 		end
 	end
-
-
-
-
-
-
 
 end

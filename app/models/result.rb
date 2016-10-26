@@ -12,10 +12,6 @@
 class Result < ApplicationRecord
   belongs_to :self_evaluation
 
-	def self_evaluation
-		SelfEvaluation.find( self_evaluation_id )
-	end
-
 	def user_id
 		self.self_evaluation.middle_manager_id
 	end
@@ -23,7 +19,6 @@ class Result < ApplicationRecord
 	def evaluations		
 		Evaluation.where( :self_evaluation_id => self.self_evaluation_id )
 	end
-
 
 #############中层干部整体评价##############
 
@@ -133,28 +128,24 @@ class Result < ApplicationRecord
 
 ###########  各角色总平均分  #########
 ###待测试
-	def average_score_for_staff
-		_arry = Evaluation.where( " self_evaluation_id = ? AND evaluating_user_type = ?", self.self_evaluation_id, 'staff')
+	def average_score_for_role role
+		_arry = Evaluation.where( " self_evaluation_id = ? AND evaluating_user_type = ?", self.self_evaluation_id, role)
 		_sum = 0.00
 		_arry.each { |evaluation| _sum += evaluation.average_score }
-		
-		 _arry.count == 0 ? -1 : (_sum.to_f / _arry.count.to_f).round(2)	
+ 	  
+ 	  _arry.count == 0 ? -1 : ( _sum.to_f / _arry.count.to_f ).round(2)	
+	end
+
+	def average_score_for_staff
+		self.average_score_for_role('staff')
 	end
 
 	def average_score_for_middle_manager
-		_arry = Evaluation.where( " self_evaluation_id = ? AND evaluating_user_type = ?", self.self_evaluation_id, 'middle_manager')
-		_sum = 0.00
-		_arry.each { |evaluation| _sum += evaluation.average_score }
-		
-		 _arry.count == 0 ? -1 : (_sum.to_f / _arry.count.to_f).round(2)	
+		self.average_score_for_role('middle_manager')
 	end
 
 	def average_score_for_leader
-		_arry = Evaluation.where( " self_evaluation_id = ? AND evaluating_user_type = ?", self.self_evaluation_id, 'leader')
-		_sum = 0.00
-		_arry.each { |evaluation| _sum += evaluation.average_score }
-		
-		 _arry.count == 0 ? -1 : (_sum.to_f / _arry.count.to_f).round(2)	
+		self.average_score_for_role('leader')
 	end
 
 ########  考核总分 及 考核等级  ##########
@@ -180,7 +171,6 @@ class Result < ApplicationRecord
       	""
     end
 	end
-
 
 #############参与人数##############
 
