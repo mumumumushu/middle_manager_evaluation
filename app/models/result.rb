@@ -24,15 +24,11 @@ class Result < ApplicationRecord
 
 	#小项 各等级 数量 的数组
   def each_level_count_array
-  	_sum_array = []
-
-  	0.upto(3) do |n|
+  	0.upto(3).map do |n|
   		_sum = 0
   		self.evaluations.each{ |x| _sum += x.level_count[n] } 
-  		_sum_array += [ _sum ]
+  		_sum
   	end	
-
-  	_sum_array 	
   end
 
 	#小项总票数 #（✔️）
@@ -50,11 +46,9 @@ class Result < ApplicationRecord
 			_count_and_percentage += [ self.each_level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
 
-		_x = []
-		0.upto(7) do |n|
-			_x += [ Hash[ _name_keys[n], _count_and_percentage[n] ] ]
+		0.upto(7).map do |n|
+			Hash[ _name_keys[n], _count_and_percentage[n]] 
 		end	
-		_x
 	
 	end
 
@@ -94,11 +88,10 @@ class Result < ApplicationRecord
 			_count_and_percentage += [ self.each_result_level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
 
-		_x = []
 		0.upto(7) do |n|
-			_x += [ Hash[ _name_keys[n], _count_and_percentage[n] ] ]
+			Hash[ _name_keys[n], _count_and_percentage[n]] 
 		end	
-		_x
+		
 	end
 
 #############自评数据##############
