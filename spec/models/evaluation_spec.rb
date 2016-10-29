@@ -13,6 +13,7 @@
 #  user_id                :integer
 #  already_edited         :boolean          default(FALSE)
 #  evaluating_user_type   :string
+#  activity_id            :integer
 #
 
 require 'rails_helper'

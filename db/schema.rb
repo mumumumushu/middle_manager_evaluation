@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024032818) do
+ActiveRecord::Schema.define(version: 20161029081507) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "first_phase_begin"
@@ -108,10 +108,8 @@ ActiveRecord::Schema.define(version: 20161024032818) do
     t.datetime "updated_at",                                     null: false
     t.string   "job_num",                           default: "", null: false
     t.string   "authentication_token",   limit: 30
-    t.integer  "activity_id"
     t.boolean  "take_part_in"
     t.string   "user_type"
-    t.index ["activity_id"], name: "index_users_on_activity_id"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
