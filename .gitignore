@@ -32,7 +32,7 @@ config/puma.rb
 
 Gemfile.lock
 
-#/doc/*
+/doc/*
 /public/system/*
 /public/pdfs
 /public/*
