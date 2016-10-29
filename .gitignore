@@ -24,7 +24,7 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-!/log/.keep
+!/log/.keepci 
 /tmp
 config/database.yml
 config/secrets.yml
