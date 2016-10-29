@@ -1,0 +1,48 @@
+{
+  "resource": "领导 打分表 查看修改",
+  "http_method": "GET",
+  "route": "/leaders/evaluations/:id",
+  "description": "领导 打分表详情 查看成功",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/leaders/evaluations/1",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-User-Token": "l_qwertyuiop1",
+        "X-User-Jobnum": "leader_job_num",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"user_id\": 1,\n  \"already_edited\": false,\n  \"created_year\": 2016,\n  \"activity_id\": 1,\n  \"info\": {\n    \"name\": \"谌明举\",\n    \"department_and_duty\": \"计算机应用系 党支部书记、副主任\",\n    \"evaluating_user_type\": \"leader\"\n  },\n  \"content\": {\n    \"thought_morals\": \"{\\\"思想政治态度\\\":95,\\\"道德作风品行\\\":85,\\\"团结协调合作\\\":75}\",\n    \"duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n    \"upright_incorruptiable\": \"{\\\"廉洁从政\\\": 65, \\\"执行党风廉政建设责任制\\\": 55}\",\n    \"evaluation_totality\": 90\n  }\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"861b6c635cbcb6387345b632c40135c9\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "39430b08-bb61-4d85-bf2f-545d18c4dc77",
+        "X-Runtime": "0.012665",
+        "Vary": "Origin",
+        "X-Rack-CORS": "preflight-hit; no-origin",
+        "Content-Length": "535"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
