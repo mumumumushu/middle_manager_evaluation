@@ -1,0 +1,48 @@
+{
+  "resource": "管理员 统计结果 查看 与 设置 单位评鉴结果",
+  "http_method": "GET",
+  "route": "/admin/results/:id",
+  "description": "管理员 统计详情 查看成功",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/admin/results/1",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "X-Admin-Token": "aqwertyuiop1",
+        "X-Admin-Email": "123456@qq.com",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 1,\n  \"self_evaluation_id\": 1,\n  \"info\": {\n    \"name\": \"谌明举\",\n    \"department_and_duty\": \"计算机应用系 党支部书记、副主任\"\n  },\n  \"self_evaluation\": {\n    \"self_evaluation_duties\": \"{\\\"项目1\\\":80,\\\"项目2\\\":70,\\\"项目3\\\":60,\\\"项目4\\\":90}\",\n    \"self_evaluation_totality\": \"优秀\"\n  },\n  \"little_iterm\": {\n    \"sum_of_level_count\": 100,\n    \"level_count_and_percentage\": [\n      {\n        \"excellent-count\": 30\n      },\n      {\n        \"excellent-proportion\": \"30.00%\"\n      },\n      {\n        \"good-count\": 20\n      },\n      {\n        \"good-proportion\": \"20.00%\"\n      },\n      {\n        \"average-count\": 40\n      },\n      {\n        \"average-proportion\": \"40.00%\"\n      },\n      {\n        \"bad-count\": 10\n      },\n      {\n        \"bad-proportion\": \"10.00%\"\n      }\n    ]\n  },\n  \"average_for_all_evaluation\": {\n    \"sum_of_result_level_count\": 10,\n    \"result_level_count_and_percentage\": 0\n  },\n  \"average_for_each_role\": {\n    \"average_score_for_staff\": -1,\n    \"average_score_for_middle_manager\": -1,\n    \"average_score_for_leader\": 76.5\n  },\n  \"statistics_result\": {\n    \"average_score_for_all\": 37.75,\n    \"level_of_average_score_for_all\": \"不称职\"\n  },\n  \"set_by_admin\": {\n    \"final_result\": \"未评鉴\"\n  },\n  \"count_of_people\": {\n    \"count_of_middle_manager\": 1,\n    \"count_of_all_user\": 2\n  }\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"eee0435d3997a2a604f7b58ba8c6040b\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "62e84280-7f08-4aea-9ef7-bb3a26fbb614",
+        "X-Runtime": "0.237629",
+        "Vary": "Origin",
+        "X-Rack-CORS": "preflight-hit; no-origin",
+        "Content-Length": "986"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
