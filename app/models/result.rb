@@ -17,7 +17,7 @@ class Result < ApplicationRecord
 	end
 
 	def evaluations		
-		Evaluation.where( :self_evaluation_id => self.self_evaluation_id )
+		Evaluation.where( self_evaluation_id: self.self_evaluation_id )
 	end
 
 #############中层干部整体评价##############
