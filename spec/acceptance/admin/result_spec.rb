@@ -73,7 +73,7 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
       
     end
 
-   		let(:id) {1}
+   		let(:id) {@results.first.id}
 
     example "管理员 统计详情 查看成功" do
       do_request
@@ -112,7 +112,7 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
     end
 
     let(:final_result) { '优秀' }
-    let(:id) {@evaluations.first.id}
+    let(:id) {@results.first.id}
 
 
     example "管理员 设置 单位评鉴意见 成功" do
