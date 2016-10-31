@@ -74,10 +74,10 @@ class LoadMiddleManagerInfo
 		birth = xlsx.formatted_value(row,"G")
 		if birth.include?("/")
 			_x = /(\d+)\/(\d+)\/(\d+)/.match(birth) || /(\d+)\/(\d+)/.match(birth)
-			birth = _x[3]? _x[1] + "." + _x[2] + "." + _x[3] + ".":  _x[1] + "." + _x[2]
+			birth = _x[3]? "#{_x[1]}.#{_x[2]}.#{_x[3]}" : "#{_x[1]}.#{_x[2]}"
 		else
 			_x = /(\d+)-(\d+)-(\d+)/.match(birth) #["11-17-68",
-			birth = "19" + _x[3] + "." + _x[1] + "." + _x[2]
+			birth = "19#{_x[3]}.#{_x[1]}.#{_x[2]}"
 		end
 	end
 
@@ -102,7 +102,7 @@ class LoadMiddleManagerInfo
 			time = time.tr_s("-", ".")
 		else
 			_x = /(\d+)-(\d+)-(\d+)/.match(time)
- 			time = "20" + _x[3] + "." + _x[1] + "." + _x[2]
+ 			time = "20#{_x[3]}.#{_x[1]}.#{_x[2]}"
 		end
 	end
 
