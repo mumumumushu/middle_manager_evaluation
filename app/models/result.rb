@@ -172,7 +172,7 @@ class Result < ApplicationRecord
 	end
 	
 	def count_of_all_user
-		User.where( :take_part_in => true ).count
+		User.where(take_part_in: true).count
 	end	
 
 end

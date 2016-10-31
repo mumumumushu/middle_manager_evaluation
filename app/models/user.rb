@@ -39,7 +39,7 @@ class User < ApplicationRecord
   def right_type? (type)
     unless self.user_type == type and self.take_part_in
       render json: {
-                    error: "用户没有访问权限",
+                    error: "用户没有访问权限", #####!!!!!!不返回
                     status: 401
                     } ,status: 401
     end 
