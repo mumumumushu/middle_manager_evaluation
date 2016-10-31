@@ -1,5 +1,9 @@
 class ActivitiesController < ApplicationController
-  before_action :authenticate_admin!
+  include ActionView::Layouts
+  include ActionController::MimeResponds
+
+  acts_as_token_authentication_handler_for Admin
+
   before_action :set_activity, only: [:show, :update, :destroy]
   
   respond_to :json
@@ -7,7 +11,7 @@ class ActivitiesController < ApplicationController
   def index
     page = params[:page] || 1
     per_page = params[:per_page] || 10
-    @activities = current_user.activities.paginate(page: page, per_page: per_page)
+    @activities = Activity.all.paginate(page: page, per_page: per_page)
    
     respond_with(@activities)
   end
@@ -34,7 +38,7 @@ class ActivitiesController < ApplicationController
 
   private
     def set_activity
-      @activity = activity.find(params[:id])
+      @activity = Activity.find(params[:id])
     end
 
     def activity_params
