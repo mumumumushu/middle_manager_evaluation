@@ -15,8 +15,7 @@ class Activity < ApplicationRecord
 	before_save :set_created_year
 	has_many :self_evaluations
 
-	# after_create :create_self_evaluation  #加上后 factory girl 的数据不启用  统计结果为空
-																				#去掉后  出现统计结果
+	after_create :create_self_evaluation 
 	
 private
 
