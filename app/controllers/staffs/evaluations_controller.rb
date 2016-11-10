@@ -41,7 +41,10 @@ class Staffs::EvaluationsController < ApplicationController
   private
 
     def staff?
-      current_user.right_type?('staff')
+      render json: {
+                    error: "用户没有访问权限", 
+                    status: 401
+                    } ,status: 401 unless current_user.right_type?('staff')
     end
 
     def set_evaluation
