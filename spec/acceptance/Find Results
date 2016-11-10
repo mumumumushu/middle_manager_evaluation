@@ -1,0 +1,48 @@
+Searching 267 files for "right_type?"
+
+/Users/mushu/rails/middle_manager_evaluation/app/controllers/leaders/evaluations_controller.rb:
+   42  
+   43      def leader?
+   44:       render nothing: true, status: 401 if current_user.right_type?('leader')
+   45      end
+   46  
+
+/Users/mushu/rails/middle_manager_evaluation/app/controllers/middle_managers/evaluations_controller.rb:
+   41  
+   42      def middle_manager?
+   43:       render nothing: true, status: 401 if current_user.right_type?('middle_manager')
+   44      end
+   45      
+
+/Users/mushu/rails/middle_manager_evaluation/app/controllers/middle_managers/results_controller.rb:
+   39  
+   40      def middle_manager?
+   41:       render nothing: true, status: 401 if current_user.right_type?('middle_manager')
+   42      end
+   43      
+
+/Users/mushu/rails/middle_manager_evaluation/app/controllers/middle_managers/self_evaluations_controller.rb:
+   38  
+   39      def middle_manager?
+   40:       render nothing: true, status: 401 if current_user.right_type?('middle_manager')
+   41      end
+   42  
+
+/Users/mushu/rails/middle_manager_evaluation/app/controllers/staffs/evaluations_controller.rb:
+   42  
+   43      def staff?
+   44:       render nothing: true, status: 401 if current_user.right_type?('staff')
+   45      end
+   46  
+
+/Users/mushu/rails/middle_manager_evaluation/app/models/user.rb:
+   37    has_one :user_info
+   38  
+   39:   def right_type? (type)
+   40      self.user_type == type and self.take_part_in
+   41      # unless self.user_type == type and self.take_part_in
+
+/Users/mushu/rails/middle_manager_evaluation/log/development.log:
+    <binary>
+
+17 matches across 7 files

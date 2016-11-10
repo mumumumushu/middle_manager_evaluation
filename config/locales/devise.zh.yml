@@ -1,0 +1,59 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+zh-CN:
+  devise:
+    confirmations:
+      confirmed: "我们已经验证您的账号，您已成功登录。"
+      send_instructions: "您会在几分钟内收到一封告诉您如何验证账号的邮件。"
+      send_paranoid_instructions: "如果您的Email地址在我们的数据库中，您会在几分钟内收到一封告诉您如何验证账号的邮件。"
+    failure:
+      already_authenticated: "您已经登录了。"
+      inactive: "您的账号还没有激活。"
+      invalid: "Email或密码错误。"
+      invalid_token: "无效的登录令牌。"
+      locked: "您的账号已被锁定。"
+      not_found_in_database: "Email或密码错误。"
+      timeout: "您的登录已经过期，请再次登录以继续。"
+      unauthenticated: "您需要登录或注册才能继续操作。"
+      unconfirmed: "您必须验证你的账户才能继续操作。"
+    mailer:
+      confirmation_instructions:
+        subject: "验证您的账号"
+      reset_password_instructions:
+        subject: "重设您的密码"
+      unlock_instructions:
+        subject: "解锁您的账号"
+    omniauth_callbacks:
+      failure: "无法从%{kind}验证您的身份，因为\"%{reason}\"。"
+      success: "成功从%{kind}验证了您的身份。"
+    passwords:
+      no_token: "此页面必须从重设密码邮件中的链接访问。如果您确实是从密码重设邮件访问的此页面，请确认您输入的URL正确。"
+      send_instructions: "您会在几分钟内收到一封告诉您如何重设密码的邮件。"
+      send_paranoid_instructions: "如果您的Email地址在我们的数据库中，您会在几分钟内收到一封告诉您如何重设密码的邮件。"
+      updated: "您的密码已经重设，您已成功登录。"
+      updated_not_active: "您的密码已经重设。"
+    registrations:
+      destroyed: "再见！您的账号已经成功取消。我们希望不就能再次见到您。"
+      signed_up: "欢迎！您已成功注册。"
+      signed_up_but_inactive: "您已成功注册。但是，由于您的账号未验证，我们不能让您登录。"
+      signed_up_but_locked: "您已成功注册。但是，由于您的账号已被锁定，我们不能让您登录。"
+      signed_up_but_unconfirmed: "我们已向您发送了一封带有确认链接的邮件，请访问该链接咦激活您的账号。"
+      update_needs_confirmation: "您已成功更新账号，但我们需要重新验证您的Email地址。请查收邮件，并点击确认邮件中的链接已验证您的新Email地址。"
+      updated: "您已成功更新账号。"
+    sessions:
+      signed_in: "登录成功。"
+      signed_out: "注销成功。"
+    unlocks:
+      send_instructions: "您会在几分钟内收到一封告诉您如何解锁账号的邮件。"
+      send_paranoid_instructions: "如果您的账号存在，您会在几分钟内收到一封告诉您如何验证账号的邮件。"
+      unlocked: "您的账号已成功解锁，请登录以继续操作。"
+  errors:
+    messages:
+      already_confirmed: "验证成功，请登录以继续操作。"
+      confirmation_period_expired: "需要在%{period}内验证，请申请一个新的账号。"
+      expired: "已过期，请申请一个新的账号。"
+      not_found: "未找到"
+      not_locked: "已被锁定"
+      not_saved:
+        one: "一个错误使%{resource}保存失败："
+        other: "%{count}个错误使%{resource}保存失败："

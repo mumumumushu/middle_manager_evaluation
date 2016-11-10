@@ -36,13 +36,8 @@ class User < ApplicationRecord
   has_many :evaluations
   has_one :user_info
 
-  def right_type? (type)
-    unless self.user_type == type and self.take_part_in
-      render json: {
-                    error: "用户没有访问权限", #####!!!!!!不返回
-                    status: 401
-                    } ,status: 401
-    end 
+  def right_type? type
+    self.user_type == type and self.take_part_in
   end
 
   def info
