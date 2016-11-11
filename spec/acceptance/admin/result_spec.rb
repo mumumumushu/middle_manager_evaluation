@@ -107,7 +107,7 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
                                     user: @leader
                                 )            
    		@results = create_list(:result, 5,
-   																self_evaluation: @self_evaluation
+   																self_evaluation: @self_evaluation,
           														)	      
     end
 

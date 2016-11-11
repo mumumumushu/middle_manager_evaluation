@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 20161111014728) do
     t.datetime "updated_at",               null: false
     t.integer  "created_year"
     t.integer  "activity_id"
-    t.         "activity"
     t.string   "user_info"
     t.text     "evaluated_user_info"
     t.index ["activity_id"], name: "index_self_evaluations_on_activity_id"
