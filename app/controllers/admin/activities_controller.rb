@@ -1,4 +1,4 @@
-class ActivitiesController < ApplicationController
+class Admin::ActivitiesController < ApplicationController
   include ActionView::Layouts
   include ActionController::MimeResponds
 
@@ -13,17 +13,17 @@ class ActivitiesController < ApplicationController
     per_page = params[:per_page] || 10
     @activities = Activity.all.paginate(page: page, per_page: per_page)
    
-    respond_with(@activities)
+    respond_with @activities, template: 'activities/index', status: 200
   end
 
   def show
-    respond_with(@activity)
+    respond_with @activity, template: 'activities/show', status: 200
   end
 
   def create
-    @activity = activity.new(activity_params)
+    @activity = Activity.new(activity_params)
     @activity.save
-    respond_with(@activity)
+    respond_with @activity, template: 'activities/show', status: 201
   end
 
   # def update
@@ -42,6 +42,9 @@ class ActivitiesController < ApplicationController
     end
 
     def activity_params
-      params[:activity]
+      params.require(:activity).permit(
+        :first_phase_begin, :second_phase_begin, :third_phase_begin, :third_phase_end
+        )
+
     end
 end
