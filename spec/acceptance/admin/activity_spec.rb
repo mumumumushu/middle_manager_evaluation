@@ -48,11 +48,13 @@ resource	'管理员 查看修改 考核活动' do
 
       activity_attrs = FactoryGirl.attributes_for(:activity)
 
+      parameter :activity_created_year, "考核年度", required: true, scope: :activity
       parameter :first_phase_begin, "第一阶段【 中层干部填写自评表 】开始时间", required: true, scope: :activity
       parameter :second_phase_begin, "第二阶段【 领导，职工，中层干部填写打分表 】开始时间", required: true, scope: :activity
       parameter :third_phase_begin, "第三阶段【 中层干部查看考核结果统计表 】开始时间", required: true, scope: :activity
       parameter :third_phase_end, "第三阶段【 中层干部查看考核结果统计表 】结束时间", required: true, scope: :activity
 
+      let(:activity_created_year) { "2016" }
       let(:first_phase_begin) { activity_attrs[:first_phase_begin] }
       let(:second_phase_begin) { activity_attrs[:second_phase_begin] }
       let(:third_phase_begin) { activity_attrs[:third_phase_begin] }
@@ -69,11 +71,13 @@ resource	'管理员 查看修改 考核活动' do
 
       activity_attrs = FactoryGirl.attributes_for(:activity)
 
+      parameter :activity_created_year, "考核年度", required: true, scope: :activity
       parameter :first_phase_begin, "第一阶段【 中层干部填写自评表 】开始时间", required: true, scope: :activity
       parameter :second_phase_begin, "第二阶段【 领导，职工，中层干部填写打分表 】开始时间", required: true, scope: :activity
       parameter :third_phase_begin, "第三阶段【 中层干部查看考核结果统计表 】开始时间", required: true, scope: :activity
       parameter :third_phase_end, "第三阶段【 中层干部查看考核结果统计表 】结束时间", required: true, scope: :activity
 
+      let(:activity_created_year) { "6666" }
       let(:first_phase_begin) { "6666-10-1 00:00:00" }
       let(:second_phase_begin) { "6666-11-1 00:00:00" }
       let(:third_phase_begin) { "6666-12-1 00:00:00" }

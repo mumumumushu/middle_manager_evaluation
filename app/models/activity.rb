@@ -13,16 +13,16 @@
 #
 
 class Activity < ApplicationRecord
-	before_save :set_created_year
+	# before_save :set_created_year
 	has_many :self_evaluations
 
 	after_create :create_self_evaluation 
 	
 private
 
-	def set_created_year
-		self.activity_created_year = self.first_phase_begin.year
-	end
+	# def set_created_year
+	# 	self.activity_created_year = self.first_phase_begin.year
+	# end
 
 	def create_self_evaluation  
 		MiddleManager.where(take_part_in: true).each do |middle_manager|
