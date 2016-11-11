@@ -26,10 +26,10 @@ class Admin::ActivitiesController < ApplicationController
     respond_with @activity, template: 'activities/show', status: 201
   end
 
-  # def update
-  #   @activity.update(activity_params)
-  #   respond_with(@activity)
-  # end
+  def update
+    @activity.update(activity_params)
+    respond_with @activity, template: 'activities/show', status: 201
+  end
 
   # def destroy
   #   @activity.destroy

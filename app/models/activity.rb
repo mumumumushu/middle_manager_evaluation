@@ -30,7 +30,9 @@ private
 																						middle_manager_id: middle_manager.id,
 																						duties: '{}',
 																						self_evaluation_totality: "")
-			_self_evaluation.save
+			unless _self_evaluation.save
+				logger.error '自评表创建失败'
+			end
 		end
 	end
 

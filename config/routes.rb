@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   	resources :results, only: [ :index, :show ] do
   		patch :set_final_result, on: :member
 		end
-    resources :activities, only: [:index, :show, :create]
+    resources :activities, only: [:index, :show, :create, :update]
 	end
   
   resource :user_info, only: [:show]
