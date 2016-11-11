@@ -9,6 +9,7 @@
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  activity_created_year :integer
+#  third_phase_end       :string
 #
 
 class Activity < ApplicationRecord

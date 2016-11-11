@@ -9,6 +9,7 @@
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  activity_created_year :integer
+#  third_phase_end       :string
 #
 
 FactoryGirl.define do
@@ -16,5 +17,6 @@ FactoryGirl.define do
     first_phase_begin "2016-10-1 00:00:00"
     second_phase_begin "2016-11-1 00:00:00"
     third_phase_begin "2016-12-1 00:00:00"
+    third_phase_end "2016-12-30 00:00:00"
   end
 end
