@@ -43,7 +43,7 @@ class Admin::ActivitiesController < ApplicationController
 
     def activity_params
       params.require(:activity).permit(
-        :first_phase_begin, :second_phase_begin, :third_phase_begin, :third_phase_end
+        :activity_created_year, :first_phase_begin, :second_phase_begin, :third_phase_begin, :third_phase_end
         )
 
     end
