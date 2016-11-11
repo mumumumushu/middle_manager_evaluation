@@ -17,6 +17,7 @@ resource	'中层干部 自评表 查看修改' do
       @activity = create(:activity)
       create(:self_evaluation, middle_manager: @middle_manager,
       												 activity: @activity)
+      
     end
 
     example "中层干部 自评表 查看 成功" do
@@ -60,7 +61,7 @@ resource	'中层干部 自评表 查看修改' do
                                activity: @activity)
     end
 
-    let(:duties) { "new duties" }
+    let(:duties) { '{"项目1":80,"项目2":70,"项目3":60,"项目4":90}' }
     let(:self_evaluation_totality) { "new 优秀" }
 
 

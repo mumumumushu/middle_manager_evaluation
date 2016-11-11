@@ -5,9 +5,13 @@ json.info do
 	:department_and_duty, :evaluating_user_type )
 end
 
+_duties = JSON.parse(evaluation.try(:duties))
+_thought_morals = JSON.parse(evaluation.try(:thought_morals))
+_upright_incorruptiable = JSON.parse(evaluation.try(:upright_incorruptiable))
+
 json.content do 
-	json.( evaluation, :thought_morals, :duties,
-	:upright_incorruptiable,  
-	:evaluation_totality, 
-	)
+	json.duties _duties
+	json.thought_morals _thought_morals
+	json.upright_incorruptiable _upright_incorruptiable
+	json.(evaluation, :evaluation_totality) 
 end

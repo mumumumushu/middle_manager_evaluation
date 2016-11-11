@@ -12,6 +12,7 @@
 class Result < ApplicationRecord
   belongs_to :self_evaluation
 
+  scope :activity_year -> (year){where(activity_year: year)}
 	def user_id
 		self.self_evaluation.middle_manager_id
 	end
