@@ -52,7 +52,7 @@ resource	'中层干部 自评表 查看修改' do
     header "X-User-JobNum", middle_manager_attrs[:job_num]
 
     parameter :job, "从事及分管工作", required: true, scope: :user_info
-    parameter :duties, "履行岗位职责情况", required: true, scope: :self_evaluation
+    parameter :duties, "履行岗位职责情况. 项目与分数 英文逗号隔开，项目之间 英文分号隔开， 例：'项目1,80;项目2,70;项目3,60;项目4,90'", required: true, scope: :self_evaluation
     parameter :self_evaluation_totality, "自我总体评价", required: true, scope: :self_evaluation
 
     before do

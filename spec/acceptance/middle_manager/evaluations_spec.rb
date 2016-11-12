@@ -76,10 +76,10 @@ resource	'中层干部 打分表 查看修改' do
     header "X-User-Token", middle_manager_attrs[:authentication_token]
     header "X-User-JobNum", middle_manager_attrs[:job_num]
     
-    parameter :thought_morals, "思想道德情况", require: false, scope: :evaluation
-    parameter :duties, "履行岗位职责情况", require: false, scope: :evaluation
-    parameter :upright_incorruptiable, "廉洁自律情况", require: false, scope: :evaluation
-    parameter :evaluation_totality, "总体评价", require: false, scope: :evaluation
+    parameter :thought_morals, "思想道德情况. 项目与分数 英文逗号隔开，项目之间 英文分号隔开， 例：'项目1,80;项目2,70;项目3,60;项目4,90'", required: true, scope: :evaluation
+    parameter :duties, "履行岗位职责情况", required: true, scope: :evaluation
+    parameter :upright_incorruptiable, "廉洁自律情况", required: true, scope: :evaluation
+    parameter :evaluation_totality, "总体评价", required: true, scope: :evaluation
 
     before do
       @middle_manager = create(:middle_manager)
