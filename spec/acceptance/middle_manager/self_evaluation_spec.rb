@@ -49,8 +49,9 @@ resource	'中层干部 自评表 查看修改' do
     header "X-User-Token", middle_manager_attrs[:authentication_token]
     header "X-User-JobNum", middle_manager_attrs[:job_num]
 
-    parameter :duties, "履行岗位职责情况", require: false, scope: :self_evaluation
-    parameter :self_evaluation_totality, "自我总体评价", require: false, scope: :self_evaluation
+    parameter :job, "从事及分管工作", required: true, scope: :user_info
+    parameter :duties, "履行岗位职责情况", required: true, scope: :self_evaluation
+    parameter :self_evaluation_totality, "自我总体评价", required: true, scope: :self_evaluation
 
     before do
       @middle_manager = create(:middle_manager)
@@ -61,6 +62,7 @@ resource	'中层干部 自评表 查看修改' do
                                activity: @activity)
     end
 
+    let(:job) { "基层党建工作、学生教育与管基层党建工作、学生教育与管理基层党建工作、学生教育与管理基层党建工作、学生教育与管理" }
     let(:duties) { '{"项目1":80,"项目2":70,"项目3":60,"项目4":90}' }
     let(:self_evaluation_totality) { "new 优秀" }
 

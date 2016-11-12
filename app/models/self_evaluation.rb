@@ -10,8 +10,9 @@
 #  updated_at               :datetime         not null
 #  created_year             :integer
 #  activity_id              :integer
-#  user_info                :string
-#  evaluated_user_info      :text
+#  activity                 :reference
+#  user_info                :string #x
+#  evaluated_user_info      :text #x
 #
 
 class SelfEvaluation < ApplicationRecord

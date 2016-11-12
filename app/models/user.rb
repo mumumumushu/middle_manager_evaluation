@@ -16,7 +16,7 @@
 #  updated_at             :datetime         not null
 #  job_num                :string           default(""), not null
 #  authentication_token   :string(30)
-#  take_part_in           :boolean
+#  take_part_in           :boolean          default(FALSE)
 #  user_type              :string
 #
 

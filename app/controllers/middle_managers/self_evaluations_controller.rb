@@ -26,6 +26,7 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
 
   def update
     @self_evaluation.update(self_evaluation_params)
+    @self_evaluation.middle_manager.user_info.update(user_info_params)
     respond_with @self_evaluation, template: "middle_managers/self_evaluations/show", status: 201
   end
 
@@ -48,9 +49,13 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
     end
 
     def self_evaluation_params
-      params.require( :self_evaluation ).permit(
+      params.require(:self_evaluation).permit(
         :duties, :self_evaluation_totality
         )
+    end
+
+    def user_info_params
+      params.require(:user_info).permit(:job)
     end
 
 end
