@@ -79,10 +79,10 @@ resource	'领导 打分表 查看修改' do
     header "X-User-Token", leader_attrs[:authentication_token]
     header "X-User-JobNum", leader_attrs[:job_num]
 
-    parameter :thought_morals, "思想道德情况", require: false, scope: :evaluation
-    parameter :duties, "履行岗位职责情况", require: false, scope: :evaluation
-    parameter :upright_incorruptiable, "廉洁自律情况", require: false, scope: :evaluation
-    parameter :evaluation_totality, "总体评价", require: false, scope: :evaluation
+    parameter :thought_morals, "思想道德情况,未填写负数赋值 -1", required: false, scope: :evaluation
+    parameter :duties, "履行岗位职责情况", required: false, scope: :evaluation
+    parameter :upright_incorruptiable, "廉洁自律情况", required: false, scope: :evaluation
+    parameter :evaluation_totality, "总体评价", required: true, scope: :evaluation
 
     before do
       @leader = create(:leader)

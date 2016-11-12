@@ -13,7 +13,14 @@ class Admin::ResultsController < ApplicationController
   end
 
   def show
-    respond_with(@result)
+    @evaluations = Evaluation.where(self_evaluation: @result.self_evaluation)
+    @leader_evaluations = @evaluations.evaluated_by('leader')
+    @middle_manager_evaluations = @evaluations.evaluated_by('middle_manager')
+    @staff_evaluations = @evaluations.evaluated_by('staff')
+    respond_with(
+      @result, @evaluations, @leader_evaluations, 
+      @middle_manager_evaluations, @middle_manager_evaluations
+      )
   end
 
   def feedback_form
@@ -39,7 +46,7 @@ class Admin::ResultsController < ApplicationController
   def set_final_result
     @result = Result.find(params[:id])
     @result.update(result_params)
-    respond_with @result, template: "admin/results/show", status: 201
+    respond_with @result, template: "admin/results/feedback_form", status: 201
   end
 
   private

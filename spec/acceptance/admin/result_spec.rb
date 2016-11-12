@@ -21,11 +21,11 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
                                   middle_manager: @middle_manager,
                                   activity: @activity)
 
-      @evaluations = create_list(:evaluation, 10,
+      @evaluations = create_list(:evaluation, 2,
       												      self_evaluation: @self_evaluation,
                                     user: @leader)            
 
-    		@results = create_list(:result, 5,
+    		@results = create_list(:result, 3,
     																self_evaluation: @self_evaluation,
                                     activity_year: 2016
              								)	
@@ -45,6 +45,13 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
     end	
 
     get '/admin/results/:id' do
+      before do
+        @staff = create(:staff)
+        @evaluations = @evaluations.concat create_list(:evaluation, 2,
+                                    self_evaluation: @self_evaluation,
+                                    user: @staff,
+                                    evaluation_totality: 10)
+      end
 
      	let(:id) {@results.first.id}
 
