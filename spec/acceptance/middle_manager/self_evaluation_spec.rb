@@ -16,7 +16,9 @@ resource	'中层干部 自评表 查看修改' do
       
       @activity = create(:activity)
       create(:self_evaluation, middle_manager: @middle_manager,
-      												 activity: @activity)
+      												 activity: @activity,
+                               duties: '项目1,99;项目2,99;项目3,99;项目4,99',
+                               self_evaluation_totality: "优秀")
       
     end
 
@@ -62,8 +64,8 @@ resource	'中层干部 自评表 查看修改' do
                                activity: @activity)
     end
 
-    let(:job) { "基层党建工作、学生教育与管基层党建工作、学生教育与管理基层党建工作、学生教育与管理基层党建工作、学生教育与管理" }
-    let(:duties) { '{"项目1":80,"项目2":70,"项目3":60,"项目4":90}' }
+    let(:job) { "基层党建工作、学生教育与管基层党建工作" }
+    let(:duties) { '项目1,80;项目2,70;项目3,60;项目4,90' }
     let(:self_evaluation_totality) { "new 优秀" }
 
 

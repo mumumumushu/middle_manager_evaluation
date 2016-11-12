@@ -49,6 +49,10 @@ class Evaluation < ApplicationRecord
     self.self_evaluation.department_and_duty
   end
 
+  def change_output_format field
+    self.send(field).split(";").map { |e| e.split(",") } if self.send(field)
+  end
+
   #统计
   #分数集合  剔除 -1（空）
   def score_array
