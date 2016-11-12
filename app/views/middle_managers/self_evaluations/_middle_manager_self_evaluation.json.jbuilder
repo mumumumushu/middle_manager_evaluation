@@ -4,9 +4,7 @@ json.info do
 	json.(self_evaluation, :name, :department_and_duty)
 end
 
-_duties = JSON.parse(self_evaluation.try(:duties))
-
 json.content do
-	json.duties _duties
+	json.duties self_evaluation.try(:duties_output)
 	json.(self_evaluation, :self_evaluation_totality)
 end

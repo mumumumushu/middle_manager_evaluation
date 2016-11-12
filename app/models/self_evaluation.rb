@@ -43,6 +43,10 @@ class SelfEvaluation < ApplicationRecord
     self.middle_manager.user_info.department_and_duty
   end
 
+  def duties_output 
+    self.duties.split(";").map { |e| e.split(",") } || ""
+  end
+
   private
 
   #  def set_evaluated_user_info
@@ -72,12 +76,14 @@ class SelfEvaluation < ApplicationRecord
         _evaluation.self_evaluation_id = self.id
         _evaluation.user_id = user.id
         
-        _duties = {}
-        _keys = MultiJson.load(self.duties).keys
-        0.upto( _keys.count - 1 ) do |n|
-          _duties.store( _keys[n], -1 )
-        end                        #####!!!!!#####
+        # _duties = {}
+        # _keys = MultiJson.load(self.duties).keys
+        # 0.upto( _keys.count - 1 ) do |n|
+        #   _duties.store( _keys[n], -1 )
+        # end                        #####!!!!!#####
                                    ####打分表初始分数 --> -1
+        _duties = self.duties_output.map { |e| e[1] = -1 }
+
         _evaluation.duties = _duties
         _evaluation.save
       end
@@ -109,3 +115,17 @@ class SelfEvaluation < ApplicationRecord
   end
 
 end
+# class DateFormatConversion 
+
+#   def self.string_into_array string #one dimensional array
+#     if string
+#       _detail = string.split(";")
+#       _detail.map do |a| 
+#         a.split(",")
+#       end
+#     end
+#   end
+
+
+
+# end

@@ -28,7 +28,7 @@ private
 		MiddleManager.where(take_part_in: true).each do |middle_manager|
 			_self_evaluation = SelfEvaluation.new(activity_id: self.id,
 																						middle_manager_id: middle_manager.id,
-																						duties: '{}',
+																						duties: '',
 																						self_evaluation_totality: "")
 			unless _self_evaluation.save
 				logger.error '自评表创建失败'
