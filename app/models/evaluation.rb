@@ -33,6 +33,8 @@ class Evaluation < ApplicationRecord
  	validates_presence_of :duties
  	validates_presence_of :evaluation_totality
 ##
+  scope :evaluated_by, -> (type) {where(evaluating_user_type: type)}
+##
 	def created_year
     self.self_evaluation.created_year 
   end
@@ -49,6 +51,7 @@ class Evaluation < ApplicationRecord
     self.self_evaluation.department_and_duty
   end
 
+  #转换 duties, thought_morals, upright_incorruptiable
   def change_output_format field
     self.send(field) ? self.send(field).split(";").map { |e| e.split(",") } : []
   end
@@ -56,14 +59,23 @@ class Evaluation < ApplicationRecord
   #统计
   #分数集合  剔除 -1（空）
   def score_array
-    _score = self.change_output_format("thought_morals").map { |e| e[2] == -1 ? next : e[1].to_i } +
-             self.change_output_format("duties").map { |e| e[2] == -1 ? next : e[1].to_i } +
-             self.change_output_format("upright_incorruptiable").map { |e| e[2] == -1 ? next : e[1].to_i } +
+    _score = self.change_output_format("thought_morals").map { |e| e[1] == -1 ? next : e[1].to_i } +
+             self.change_output_format("duties").map { |e| e[1] == -1 ? next : e[1].to_i } +
+             self.change_output_format("upright_incorruptiable").map { |e| e[1] == -1 ? next : e[1].to_i } +
              [self.evaluation_totality]
     # _score = MultiJson.load(self.thought_morals).values.reject{ |x| x == -1} +
     #          MultiJson.load(self.upright_incorruptiable).values.reject{ |x| x == -1} + 
     #          MultiJson.load(self.duties).values.reject{ |x| x == -1} +
     #          [evaluation_totality]
+  end
+
+  #分数集合 填充 -1
+  def score_array_filled
+    _score = self.change_output_format("thought_morals").map { |e| e[1].to_i} +
+             self.change_output_format("duties").map { |e| e[1].to_i} +
+             Array.new(11 - self.change_output_format("duties").count, -1) +
+             self.change_output_format("upright_incorruptiable").map { |e| e[1].to_i} +
+             [self.evaluation_totality]
   end
 
   #好，较好，一般，较差

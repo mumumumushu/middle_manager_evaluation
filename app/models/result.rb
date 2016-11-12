@@ -179,7 +179,7 @@ class Result < ApplicationRecord
 	end	
 
 	##########
-	def change_socre_array_to_level_data array
+	def self.change_socre_array_to_level_data array
     _level_count_array = [ 
       array.select{ |x| x <= 99 && x >= 90 }.count,
       array.select{ |x| x <= 89 && x >= 80 }.count,
