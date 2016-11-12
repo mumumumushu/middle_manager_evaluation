@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   namespace :admin do
   	resources :results, only: [ :index, :show ] do
   		patch :set_final_result, on: :member
+      get :feedback_form, on: :member
 		end
     resources :activities, only: [:index, :show, :create, :update]
 	end

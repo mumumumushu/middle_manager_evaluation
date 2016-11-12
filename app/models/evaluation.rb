@@ -50,16 +50,20 @@ class Evaluation < ApplicationRecord
   end
 
   def change_output_format field
-    self.send(field).split(";").map { |e| e.split(",") } if self.send(field)
+    self.send(field) ? self.send(field).split(";").map { |e| e.split(",") } : []
   end
 
   #统计
   #分数集合  剔除 -1（空）
   def score_array
-    _score = MultiJson.load(self.thought_morals).values.reject{ |x| x == -1} +
-             MultiJson.load(self.upright_incorruptiable).values.reject{ |x| x == -1} + 
-             MultiJson.load(self.duties).values.reject{ |x| x == -1} +
-             [evaluation_totality]
+    _score = self.change_output_format("thought_morals").map { |e| e[2] == -1 ? next : e[1].to_i } +
+             self.change_output_format("duties").map { |e| e[2] == -1 ? next : e[1].to_i } +
+             self.change_output_format("upright_incorruptiable").map { |e| e[2] == -1 ? next : e[1].to_i } +
+             [self.evaluation_totality]
+    # _score = MultiJson.load(self.thought_morals).values.reject{ |x| x == -1} +
+    #          MultiJson.load(self.upright_incorruptiable).values.reject{ |x| x == -1} + 
+    #          MultiJson.load(self.duties).values.reject{ |x| x == -1} +
+    #          [evaluation_totality]
   end
 
   #好，较好，一般，较差

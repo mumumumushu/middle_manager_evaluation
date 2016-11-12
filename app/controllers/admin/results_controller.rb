@@ -3,20 +3,21 @@ class Admin::ResultsController < ApplicationController
   include ActionController::MimeResponds
 
   acts_as_token_authentication_handler_for Admin
-  before_action :set_result, only: [:show, :set_fina_result]
+  before_action :set_result, only: [:show, :feedback_form, :set_fina_result]
 
   respond_to :json
 
   def index
-
-    page = params[:page] || 1
-    per_page = params[:per_page] || 10
-    @results = Result.activity_year(params[:activity_year]).paginate(page: page, per_page: per_page)
+    @results = Result.where(activity_year: params[:activity_year])
     respond_with(@results)
   end
 
   def show
     respond_with(@result)
+  end
+
+  def feedback_form
+    respond_with (@result)
   end
 
   # def create
