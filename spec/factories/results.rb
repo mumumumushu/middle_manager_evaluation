@@ -1,5 +1,5 @@
 # == Schema Information
-#s
+#
 # Table name: results
 #
 #  id                 :integer          not null, primary key
@@ -7,6 +7,7 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  final_result       :string
+#  activity_year      :string
 #
 
 FactoryGirl.define do

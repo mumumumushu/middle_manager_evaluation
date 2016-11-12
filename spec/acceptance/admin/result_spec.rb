@@ -31,11 +31,13 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
       
     end
 
-    parameter :page, "当前页", require: false
-    parameter :per_page, "每页的数量", require: false
+    parameter :page, "当前页", required: false
+    parameter :per_page, "每页的数量", required: false
+    parameter :activity_year, "考核年度", required: true
 
     let(:page) {2}
     let(:per_page) {2}
+    let(:activity_year) {2016}
 
     example "管理员 统计结果列表 查看成功" do
       do_request
