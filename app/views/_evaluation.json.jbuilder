@@ -6,8 +6,13 @@ json.info do
 end
 
 json.content do 
-	json.duties evaluation.change_output_format("duties")
+
 	json.thought_morals evaluation.change_output_format("thought_morals")
+
+	json.duties evaluation.change_output_format("duties")
+
 	json.upright_incorruptiable evaluation.change_output_format("upright_incorruptiable")
+
 	json.(evaluation, :evaluation_totality) 
+	
 end

@@ -44,8 +44,12 @@ class SelfEvaluation < ApplicationRecord
   end
 
   def duties_output 
-    self.duties.split(";").map { |e| e.split(",") } || ""
+    self.duties ? self.duties.split(";").map { |e| e.split(",") } : []
   end
+  
+  # def change_output_format field
+  #   self.send(field) ? self.send(field).split(";").map { |e| e.split(",") } : []
+  # end
 
   private
 

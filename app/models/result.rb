@@ -25,7 +25,7 @@ class Result < ApplicationRecord
 
 #############中层干部整体评价##############
 
-	#小项 各等级 数量 的数组
+	#所有小项 各等级 总数量 的数组
   def each_level_count_array
   	0.upto(3).map do |n|
   		_sum = 0
@@ -91,7 +91,7 @@ class Result < ApplicationRecord
 			_count_and_percentage += [ self.each_result_level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
 
-		0.upto(7) do |n|
+		0.upto(7).map do |n|
 			Hash[ _name_keys[n], _count_and_percentage[n]] 
 		end	
 		
@@ -100,7 +100,7 @@ class Result < ApplicationRecord
 #############自评数据##############
 
 	def self_evaluation_duties #（✔️）
-		self.self_evaluation.duties
+		self.self_evaluation.duties_output
 	end
 
 	def self_evaluation_totality # 自我总体评价（✔️）
@@ -177,6 +177,31 @@ class Result < ApplicationRecord
 	def count_of_all_user
 		User.where(take_part_in: true).count
 	end	
+
+	##########
+	def change_socre_array_to_level_data array
+    _level_count_array = [ 
+      array.select{ |x| x <= 99 && x >= 90 }.count,
+      array.select{ |x| x <= 89 && x >= 80 }.count,
+      array.select{ |x| x <= 79 && x >= 60 }.count,       
+      array.select{ |x| x <= 59 && x >= 0}.count
+    ] 
+
+    _sum_count = array.count
+
+    _name_keys = [ 'excellent-count', 'excellent-proportion', 'good-count', 'good-proportion', 'average-count', 'average-proportion', 'bad-count', 'bad-proportion' ]
+
+		_count_and_percentage = []
+
+		0.upto(3) do |n|
+			_percentage = _sum_count == 0 ? -1 : ((_level_count_array[n]).to_f/(_sum_count).to_f ).round(2) * 100
+			_count_and_percentage += [ _level_count_array[n], '%.2f' % _percentage + '%'] 
+		end
+
+		0.upto(7).map do |n|
+			Hash[ _name_keys[n], _count_and_percentage[n]] 
+		end	
+  end
 
 end
 	
