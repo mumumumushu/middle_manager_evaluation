@@ -38,10 +38,9 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
   private
 
     def middle_manager?
-      render json: {
-                    error: "用户没有访问权限", 
-                    status: 401
-                    } ,status: 401 unless current_user.right_type?('middle_manager')
+      @error = '用户没有访问权限'
+      render @error, status: 401, 
+              template: "error" unless current_user.right_type?('middle_manager')
     end
 
     def set_self_evaluation

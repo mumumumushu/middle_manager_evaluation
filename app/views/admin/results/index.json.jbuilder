@@ -16,7 +16,7 @@ end
 
 json.statistics do
 
-		json.leader Result.change_socre_array_to_level_data(_leader_score_array)
+		json.leader _leader_score_array.change_socre_array_to_level_data
 		json.middle_manager Result.change_socre_array_to_level_data(_middle_manager_score_array)
 		json.staff Result.change_socre_array_to_level_data(_staff_score_array)
 
