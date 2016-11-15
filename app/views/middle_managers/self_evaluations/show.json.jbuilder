@@ -1,1 +1,1 @@
-json.partial! "middle_managers/self_evaluations/middle_manager_self_evaluation", self_evaluation: @self_evaluation
+json.partial! "middle_managers/self_evaluations/middle_manager_self_evaluation", self_evaluation: @self_evaluation if @self_evaluation

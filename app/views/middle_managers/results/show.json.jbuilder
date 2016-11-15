@@ -1,1 +1,1 @@
-json.partial! "/result", result: @result
+json.partial! "/result", result: @result if @result

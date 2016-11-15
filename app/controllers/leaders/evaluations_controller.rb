@@ -41,10 +41,9 @@ class Leaders::EvaluationsController < ApplicationController
   private
 
     def leader?
-      render json: {
-                    error: "用户没有访问权限", 
-                    status: 401
-                    } ,status: 401 unless current_user.right_type?('leader')
+      @error = '用户没有访问权限'
+      render @error, status: 401, 
+              template: "error" unless current_user.right_type?('leader')
     end
 
     def set_evaluation
