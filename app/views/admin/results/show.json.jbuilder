@@ -3,25 +3,28 @@ _all_array = []
 json.table do
 
 	i = 0
-	@leader_evaluations.each do |evaluation|
+	json.array! @leader_evaluations.each do |evaluation|
 		i += 1
-		json.set!  "#{evaluation.evaluating_user_type}_#{i}", evaluation.score_array_filled
+		_user = I18n.t :"user_type.#{evaluation.evaluating_user_type}"
+		json.array!  ["#{_user}#{i}"] + evaluation.score_array_filled
 
 		_all_array += [evaluation.score_array_filled]
 	end
 
 	i = 0
-	@middle_manager_evaluations.each do |evaluation|
+	json.array! @middle_manager_evaluations.each do |evaluation|
 		i += 1
-		json.set!  "#{evaluation.evaluating_user_type}_#{i}", evaluation.score_array_filled
+		_user = I18n.t :"user_type.#{evaluation.evaluating_user_type}"
+		json.array!  ["#{_user}#{i}"] + evaluation.score_array_filled
 
 		_all_array += [evaluation.score_array_filled]
 	end
 
 	i = 0
-	@staff_evaluations.each do |evaluation|
+	json.array! @staff_evaluations.each do |evaluation|
 		i += 1
-		json.set!  "#{evaluation.evaluating_user_type}_#{i}", evaluation.score_array_filled
+		_user = I18n.t :"user_type.#{evaluation.evaluating_user_type}"
+		json.array!  ["#{_user}#{i}"] + evaluation.score_array_filled
 
 		_all_array += [evaluation.score_array_filled]
 	end
