@@ -11,8 +11,8 @@
 #  created_year             :integer
 #  activity_id              :integer
 #  activity                 :reference
-#  user_info                :string #x
-#  evaluated_user_info      :text #x
+#  user_info                :string
+#  evaluated_user_info      :text
 #
 
 class SelfEvaluation < ApplicationRecord
