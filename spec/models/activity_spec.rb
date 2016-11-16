@@ -10,6 +10,8 @@
 #  updated_at            :datetime         not null
 #  activity_created_year :integer
 #  third_phase_end       :datetime
+#  first_phase_end       :datetime
+#  second_phase_end      :datetime
 #
 
 require 'rails_helper'
