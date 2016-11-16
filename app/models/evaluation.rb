@@ -26,12 +26,12 @@ class Evaluation < ApplicationRecord
   before_create :set_activity_id
  ##	
  	# validates_presence_of :in_first_or_second_phase?, :message => '填写未开放'
- ##	
- 	validates_presence_of	:thought_morals
- 	validates_presence_of	:upright_incorruptiable
- 	# :duties  ####!score
- 	validates_presence_of :duties
- 	validates_presence_of :evaluation_totality
+ # ##	
+ # 	validates_presence_of	:thought_morals
+ # 	validates_presence_of	:upright_incorruptiable
+ # 	# :duties  ####!score
+ # 	validates_presence_of :duties
+ # 	validates_presence_of :evaluation_totality
 ##
   scope :evaluated_by, -> (type) {where(evaluating_user_type: type)}
 ##
