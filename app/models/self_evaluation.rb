@@ -89,6 +89,9 @@ class SelfEvaluation < ApplicationRecord
         _duties = self.duties_output.map { |e| e[1] = -1 }
 
         _evaluation.duties = _duties
+        _evaluation.thought_morals = ''
+        _evaluation.upright_incorruptiable = ''
+        _evaluation.evaluation_totality = -1
         _evaluation.save
       end
     end

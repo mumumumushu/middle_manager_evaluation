@@ -50,7 +50,7 @@ Rails.application.routes.draw do
 		end
     resources :activities, only: [:index, :show, :create, :update]
 	end
-  
+  post 'admin/load_user_list', to: 'admin/file_operation#load_user_list'
   resource :user_info, only: [:show]
 	
 end
