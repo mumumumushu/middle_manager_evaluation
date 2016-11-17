@@ -70,21 +70,27 @@ class Evaluation < ApplicationRecord
   end
 
   #分数集合 填充 -1
+  #考核表选项 结构改变 需要改变
+  #固定项 可在 self_evaluation.rb 中 改变初始值
   def score_array_filled
     _score = self.change_output_format("thought_morals").map { |e| e[1].to_i} +
+             Array.new(3 - self.change_output_format("thought_morals").count, -1) +
              self.change_output_format("duties").map { |e| e[1].to_i} +
-             Array.new(11 - self.change_output_format("duties").count, -1) +
+             Array.new(13 - self.change_output_format("duties").count, -1) +
              self.change_output_format("upright_incorruptiable").map { |e| e[1].to_i} +
+             Array.new(2 - self.change_output_format("upright_incorruptiable").count, -1) +
              [self.evaluation_totality]
 
   end
   #分数集合 填充索引 转化数组每一项为键值对
   def add_index 
+    _user_type = I18n.t :"user_type.#{self.evaluating_user_type}"
     _score = self.score_array_filled
+    _hash = {"姓名": _user_type}
     0.upto(_score.count - 1) do |i|
-      _score[i] = Hash[i, _score[i]]  
+      _hash[i] =  _score[i] 
     end
-    _score
+    _hash
   end
 
   #好，较好，一般，较差
