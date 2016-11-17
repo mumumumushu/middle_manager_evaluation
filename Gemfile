@@ -1,7 +1,8 @@
 #source 'https://rubygems.org'
 source 'https://gems.ruby-china.org'
 
-
+#A Rails plugin to generate xls documents by using rxls templates.
+gem "spreadsheet_on_rails"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
