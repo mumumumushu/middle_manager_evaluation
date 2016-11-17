@@ -76,6 +76,15 @@ class Evaluation < ApplicationRecord
              Array.new(11 - self.change_output_format("duties").count, -1) +
              self.change_output_format("upright_incorruptiable").map { |e| e[1].to_i} +
              [self.evaluation_totality]
+
+  end
+  #分数集合 填充索引 转化数组每一项为键值对
+  def add_index 
+    _score = self.score_array_filled
+    0.upto(_score.count - 1) do |i|
+      _score[i] = Hash[i, _score[i]]  
+    end
+    _score
   end
 
   #好，较好，一般，较差

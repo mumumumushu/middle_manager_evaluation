@@ -6,7 +6,7 @@ json.table do
 	json.array! @leader_evaluations.each do |evaluation|
 		i += 1
 		_user = I18n.t :"user_type.#{evaluation.evaluating_user_type}"
-		json.array!  ["#{_user}#{i}"] + evaluation.score_array_filled
+		json.array!  ["姓名": "#{_user}#{i}"] + evaluation.add_index
 
 		_all_array += [evaluation.score_array_filled]
 	end
@@ -15,7 +15,7 @@ json.table do
 	json.array! @middle_manager_evaluations.each do |evaluation|
 		i += 1
 		_user = I18n.t :"user_type.#{evaluation.evaluating_user_type}"
-		json.array!  ["#{_user}#{i}"] + evaluation.score_array_filled
+		json.array!  ["姓名": "#{_user}#{i}"] + evaluation.add_index
 
 		_all_array += [evaluation.score_array_filled]
 	end
@@ -24,7 +24,7 @@ json.table do
 	json.array! @staff_evaluations.each do |evaluation|
 		i += 1
 		_user = I18n.t :"user_type.#{evaluation.evaluating_user_type}"
-		json.array!  ["#{_user}#{i}"] + evaluation.score_array_filled
+		json.array!  ["姓名": "#{_user}#{i}"] + evaluation.add_index
 
 		_all_array += [evaluation.score_array_filled]
 	end
