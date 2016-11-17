@@ -1,5 +1,6 @@
-_all_array = []
+json.name @result.name
 
+_all_array = []
 json.table do
 
 	i = 0
@@ -36,7 +37,7 @@ json.statistics do
 	
 		_statistics = _all_array[1][i] == -1 ? {} : Result.change_socre_array_to_level_data(_all_array.map { |a| a[i]})
 
-		json.array!  _statistics
+		json.set! i, _statistics
 			
 	end
 end
