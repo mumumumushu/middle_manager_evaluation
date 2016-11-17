@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     resources :activities, only: [:index, :show, :create, :update]
 	end
   post 'admin/load_user_list', to: 'admin/file_operation#load_user_list'
+  get 'home_info', to: 'home#get_home_info'
   resource :user_info, only: [:show]
 	
 end
