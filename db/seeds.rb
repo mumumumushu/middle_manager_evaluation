@@ -25,6 +25,21 @@ begin
 		}
 		])
 
+	UserInfo.create!([
+		{
+			id: 1111, user_id: 1111, name: "你是谁"
+		},
+		{
+			id: 1112, user_id: 1112, name: "你是谁"
+		},
+		{
+			id: 1113, user_id: 1113, name: "你是谁"
+		},
+		{
+			id: 1114, user_id: 1114, name: "你是谁"
+		}
+	])
+
 	Admin.delete_all
 	Admin.create!(
 		{

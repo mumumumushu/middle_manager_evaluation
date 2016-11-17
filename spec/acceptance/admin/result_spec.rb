@@ -15,20 +15,22 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
     	@middle_manager = create(:middle_manager)
       create(:user_info, user: @middle_manager)
       @leader = create(:leader)
+      create(:user_info, user: @leaeder)
+
       
       @activity = create(:activity)
       @self_evaluation = create(:self_evaluation, 
                                   middle_manager: @middle_manager,
                                   activity: @activity)
 
-      @evaluations = create_list(:evaluation, 2,
+      @evaluations = create_list(:evaluation, 1,
       												      self_evaluation: @self_evaluation,
                                     user: @leader)            
 
-    		@results = create_list(:result, 3,
-    																self_evaluation: @self_evaluation,
-                                    activity_year: 2016
-             								)	
+  		@results = create_list(:result, 3,
+  																self_evaluation: @self_evaluation,
+                                  activity_year: 2016
+           								)	
       
     end
 

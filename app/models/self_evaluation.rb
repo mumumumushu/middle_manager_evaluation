@@ -89,8 +89,8 @@ class SelfEvaluation < ApplicationRecord
         _duties = self.duties_output.map { |e| e[1] = -1 }
 
         _evaluation.duties = _duties
-        _evaluation.thought_morals = ''
-        _evaluation.upright_incorruptiable = ''
+        _evaluation.thought_morals = '思想政治态度,-1;道德作风品行,-1;团结协调合作,-1'
+        _evaluation.upright_incorruptiable = '廉洁从政,-1;执行党风廉政建设责任制,-1'
         _evaluation.evaluation_totality = -1
         _evaluation.save
       end

@@ -13,6 +13,8 @@
 class Result < ApplicationRecord
   belongs_to :self_evaluation
 
+  before_save :set_activity_year
+
   scope :activity_year, -> (year){where(activity_year: year)}
 
 	def user_id
@@ -201,6 +203,12 @@ class Result < ApplicationRecord
 		0.upto(7).map do |n|
 			Hash[ _name_keys[n], _count_and_percentage[n]] 
 		end	
+  end
+
+  private
+
+  def set_activity_year
+  	self.activity_year = self.self_evaluation.activity.activity_created_year
   end
 
 end
