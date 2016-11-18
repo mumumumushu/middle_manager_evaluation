@@ -16,7 +16,7 @@
 #
 
 class SelfEvaluation < ApplicationRecord
-  belongs_to :middle_manager
+  belongs_to :middle_managervalidate
   belongs_to :activity
   has_many :evaluations, dependent: :destroy
   has_one :result, dependent: :destroy
@@ -88,7 +88,7 @@ class SelfEvaluation < ApplicationRecord
         #   _duties.store( _keys[n], -1 )
         # end                        #####!!!!!#####
                                    ####打分表初始分数 --> -1
-        _duties = self.duties_output.map { |e| e[1] = -1 }
+        _duties = self.duties_output.map { |e| [ e[0], -1] }
 
         _evaluation.duties = _duties
         _evaluation.thought_morals = '思想政治态度,-1;道德作风品行,-1;团结协调合作,-1'
