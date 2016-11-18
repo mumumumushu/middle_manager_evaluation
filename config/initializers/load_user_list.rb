@@ -1,4 +1,3 @@
-
 class LoadUserList
 	require 'roo'
 
@@ -109,5 +108,12 @@ class LoadUserList
  			time = "20#{_x[3]}.#{_x[1]}.#{_x[2]}"
 		end
 	end
+end
 
+
+class OutputResultIndex
+	require 'roo'
+	def do
+		
+	end
 end
