@@ -18,22 +18,23 @@ class LoadUserList
 				_middle_manager.user_type = 'middle_manager'
 				_middle_manager.take_part_in = true
 				_middle_manager.password = Password.new
-				_middle_manager.save
+				if _middle_manager.save
 
-				_user_info = UserInfo.new
-				_user_info.user_id = _middle_manager.id
+					_user_info = UserInfo.new
+					_user_info.user_id = _middle_manager.id
 
-				_user_info.name = LoadUserList.get_name(row,xlsx)
-				_user_info.sex = LoadUserList.get_sex(row,xlsx)
-				_user_info.date_of_birth = LoadUserList.get_birth(row,xlsx)
-				_user_info.degree_of_education = LoadUserList.get_degree_of_education(row,xlsx)
-				_user_info.politics_status = LoadUserList.get_politics_status(row,xlsx)
-				_user_info.department_and_duty = LoadUserList.get_department(row,xlsx) + "  " + LoadUserList.get_duty(row,xlsx)
-				_user_info.starting_time_for_the_present_job = LoadUserList.get_time(row,xlsx)
+					_user_info.name = LoadUserList.get_name(row,xlsx)
+					_user_info.sex = LoadUserList.get_sex(row,xlsx)
+					_user_info.date_of_birth = LoadUserList.get_birth(row,xlsx)
+					_user_info.degree_of_education = LoadUserList.get_degree_of_education(row,xlsx)
+					_user_info.politics_status = LoadUserList.get_politics_status(row,xlsx)
+					_user_info.department_and_duty = LoadUserList.get_department(row,xlsx) + "  " + LoadUserList.get_duty(row,xlsx)
+					_user_info.starting_time_for_the_present_job = LoadUserList.get_time(row,xlsx)
 
-				_user_info.save		
+					_user_info.save		
 
-				file.write("姓名: #{_user_info.name},  工号: #{_middle_manager.job_num},  密码: #{_middle_manager.password}\n")
+					file.write("姓名: #{_user_info.name},  工号: #{_middle_manager.job_num},  密码: #{_middle_manager.password}\n")
+				end
 			# end
 		end
 

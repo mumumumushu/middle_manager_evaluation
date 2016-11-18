@@ -16,7 +16,7 @@
 
 class Activity < ApplicationRecord
 	# before_save :set_created_year
-	has_many :self_evaluations
+	has_many :self_evaluations, dependent: :destroy 
 
 	after_create :create_self_evaluation 
 	

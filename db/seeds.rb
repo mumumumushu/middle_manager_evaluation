@@ -46,10 +46,10 @@ begin
 			id: 1111, email: "hahaha@qq.com", password: 'hahaha', password_confirmation: 'hahaha'
 		})
 
-	# Activity.delete_all
-	# Activity.create!(
-	# 	{
-	# 		id: 2, first_phase_begin: "2016-10-1 00:00:00", second_phase_begin: "2016-11-1 00:00:00", third_phase_begin: "2016-12-1 00:00:00", third_phase_end: "2016-12-30 00:00:00"
-	# 	})
+	Activity.delete_all
+	Activity.create!(
+		{
+			id: 2, first_phase_begin: "2016-10-1 00:00:00", second_phase_begin: "2016-11-1 00:00:00", third_phase_begin: "2016-12-1 00:00:00", third_phase_end: "2016-12-30 00:00:00"
+		})
 
 end
