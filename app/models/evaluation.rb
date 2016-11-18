@@ -88,7 +88,7 @@ class Evaluation < ApplicationRecord
   end
   #分数集合 填充索引 转化数组每一项为键值对
   def add_index 
-    _user_type = I18n.t :"user_type.#{self.evaluating_user_type}"
+    _user_type = self.evaluating_user_type
     _score = self.score_array_filled
     _hash = {"姓名": _user_type}
     0.upto(_score.count - 1) do |i|
@@ -105,7 +105,6 @@ class Evaluation < ApplicationRecord
       self.score_array.select{ |x| x <= 79 && x >= 60 }.count,       
       self.score_array.select{ |x| x <= 59 && x >= 0}.count
     ]       
-
   end
 
   #平均分 
@@ -134,7 +133,7 @@ class Evaluation < ApplicationRecord
   private	
 
   def set_evaluating_user_type
-    self.evaluating_user_type = self.user.user_type
+    self.evaluating_user_type = I18n.t :"user_type.#{self.user.user_type}"
   end
 
   def set_activity_id

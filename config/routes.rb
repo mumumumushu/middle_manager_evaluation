@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   ###### File Operation ######
   post 'admin/load_user_list', to: 'admin/file_operation#load_user_list'
   post 'admin/output_result_index', to: 'admin/file_operation#output_result_index'
+  post 'admin/output_result_show', to: 'admin/file_operation#output_result_show'
 
 end
 
