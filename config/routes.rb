@@ -52,7 +52,8 @@ Rails.application.routes.draw do
 	end
 
   resource :user_info, only: [:show]
-
+  resources :evaluations, only: [ :index, :show, :update ]
+  
   get 'home_info', to: 'home#get_home_info'
 	
   ###### File Operation ######
