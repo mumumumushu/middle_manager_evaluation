@@ -11,29 +11,31 @@ class Admin::FileOperationController < ApplicationController
   	# respond_with @error, template: 'error'
   end
 
+  #post 'admin/output_result_index'
   def output_result_index
-    #params[:activity_id], params[:filename]
+
     @activity = Activity.find(params[:activity_id])
     @results = Result.where(self_evaluation_id: @activity.self_evaluations.collect(&:id))
-
+    _filename = params[:filename] || "#{@activity.activity_created_year}年中层干部考核成绩总表"
     respond_to do |format|
         format.xls {
             send_data xls_content_for_index(@results),#.force_encoding('binary'),
                 :type => "text/excel;charset=utf-8; header=present",
-                :filename => "#{params[:filename]}.xls" 
+                :filename => "#{_filename}.xls" 
         }
     end
   end
 
+  #post 'admin/output_result_show'
   def output_result_show
-    #params[:result_id], params[:filename]
-    @result = Result.find(params[:result_id])
 
+    @result = Result.find(params[:result_id])
+    _filename = params[:filename] || "#{@result.name}考核成绩详细表"
     respond_to do |format|
         format.xls {
             send_data xls_content_for_show(@result),#.force_encoding('binary'),
                 :type => "text/excel;charset=utf-8; header=present",
-                :filename => "#{params[:filename]}.xls" 
+                :filename => "#{_filename}.xls" 
         }
     end
   end
@@ -86,24 +88,36 @@ private
     xls_report.string
   end
 
-  def self.xls_content_for_show result
+  def xls_content_for_show result
     xls_report = StringIO.new
     book = Spreadsheet::Workbook.new
-    sheet1 = book.create_worksheet :name => "#{result.name}"
+    sheet1 = book.create_worksheet :name => "#{result.name}考核成绩详细表"
 
     blue = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 10
     sheet1.row(0).default_format = blue
 
-    #_evaluations
-    _evas = result.self_evaluation.evaluations
+    _evaluations = result.self_evaluation.evaluations
 
+    _all_score_array = []
+    _evaluations.each do |evaluation|
+      _all_score_array += [evaluation.score_array_filled + [evaluation.average_score]]
+    end
+    _item = ["思想道德 1", "思想道德 2", "思想道德 3", "岗位履职情况 1", "岗位履职情况 2", "岗位履职情况 3", "岗位履职情况 4", "岗位履职情况 5", "岗位履职情况 6", "岗位履职情况 7", "岗位履职情况 8", "岗位履职情况 9", "岗位履职情况 10", "岗位履职情况 11", "岗位履职情况 12", "廉洁自律情况 1", "廉洁自律情况 2", "总体评价", "总评计算"]
 
-    sheet1.row(0).concat %w{打分人 考核项}
+    _row_0 = ["评价项目"] + _evaluations.collect(&:evaluating_user_type) + ['优-数量','优-比例','良-数量','良-比例','中-数量','中-比例','差-数量','差-比例']
+    sheet1.row(0).concat _row_0
 
+    count_row = 1
+    1.upto(_all_score_array[0].count) do |count_row| #行 评价项目
+      sheet1[count_row, 0] = _item[count_row - 1]
 
+      0.upto(_all_score_array.count - 1) do |count_column| #列 评价人 evaluation
+        sheet1[count_row, count_column + 1] = _all_score_array[count_column][count_row]
+      end
 
+    end
 
-    book.write "/Users/mushu/rails/middle_manager_evaluation/aa.xls"
+    # book.write "/Users/mushu/rails/middle_manager_evaluation/aa.xls"
     book.write xls_report
     xls_report.string
   end
