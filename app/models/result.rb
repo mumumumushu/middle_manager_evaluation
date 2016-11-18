@@ -199,10 +199,11 @@ class Result < ApplicationRecord
 			_percentage = _sum_count == 0 ? -1 : ((_level_count_array[n]).to_f/(_sum_count).to_f ).round(2) * 100
 			_count_and_percentage += [ _level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
-
-		0.upto(7).map do |n|
-			Hash[ _name_keys[n], _count_and_percentage[n]] 
+		_hash = {}
+		0.upto(7).each do |n|
+			_hash[_name_keys[n]] = _count_and_percentage[n]
 		end	
+		_hash
   end
 
   private
