@@ -1,14 +1,9 @@
 json.name @result.name
 
-
-
-
 	json.leader_evaluations @leader_evaluations, :add_index
 	json.middle_manager_evaluations @middle_manager_evaluations, :add_index
 	json.staff_evaluations @staff_evaluations, :add_index
  
-
-
 _all_array = []
 
 @evaluations.each do |evaluation|

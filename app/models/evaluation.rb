@@ -43,6 +43,10 @@ class Evaluation < ApplicationRecord
     self.self_evaluation.name
   end
 
+  def job_num
+    self.self_evaluation.middle_manager.job_num
+  end
+
   # def evaluated_user_info
   #   self.self_evaluation.evaluated_user_info
   # end
