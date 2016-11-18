@@ -50,11 +50,11 @@ class Result < ApplicationRecord
 			_percentage = self.sum_of_level_count == 0 ? -1 :((self.each_level_count_array[n]).to_f/(self.sum_of_level_count).to_f * 100).round(2) || 0
 			_count_and_percentage += [ self.each_level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
-
-		0.upto(7).map do |n|
-			Hash[ _name_keys[n], _count_and_percentage[n]] 
+		_hash = {}
+		0.upto(7).each do |n|
+			_hash[_name_keys[n]] = _count_and_percentage[n]
 		end	
-	
+		_hash
 	end
 
 #############个人考核测评结果##############
@@ -92,11 +92,11 @@ class Result < ApplicationRecord
 			_percentage = self.sum_of_level_count == 0 ? -1 : ((self.each_result_level_count_array[n]).to_f/(self.sum_of_result_level_count).to_f * 100).round(2) 
 			_count_and_percentage += [ self.each_result_level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
-
-		0.upto(7).map do |n|
-			Hash[ _name_keys[n], _count_and_percentage[n]] 
+		_hash = {}
+		0.upto(7).each do |n|
+			_hash[_name_keys[n]] =  _count_and_percentage[n]
 		end	
-		
+		_hash		
 	end
 
 #############自评数据##############
@@ -181,6 +181,7 @@ class Result < ApplicationRecord
 	end	
 
 	##########
+
 	def self.change_socre_array_to_level_data array
     _level_count_array = [ 
       array.select{ |x| x <= 99 && x >= 90 }.count,

@@ -11,33 +11,39 @@ class Admin::FileOperationController < ApplicationController
   	# respond_with @error, template: 'error'
   end
 
+  def output_result_index
+    #params[:activity_id], params[:filename]
+    @activity = Activity.find(params[:activity_id])
+    @results = Result.where(self_evaluation_id: @activity.self_evaluations.collect(&:id))
 
-  # def output_result_index
-  # 	@activity = Activity.find(params[:activity_id])
-
-  # end
-
-
-def output_result_index
-  @activity = Activity.find(params[:activity_id])
-  @results = Result.where(self_evaluation_id: @activity.self_evaluations.collect(&:id))
-  logger.info "ids #{@activity.self_evaluations.collect(&:id)}"
-  respond_to do |format|
-      format.xls {
-          send_data xls_content_for_index(@results),#.force_encoding('binary'),
-              :type => "text/excel;charset=utf-8; header=present",
-              :filename => "#{params[:filename]}.xls" 
-      }
+    respond_to do |format|
+        format.xls {
+            send_data xls_content_for_index(@results),#.force_encoding('binary'),
+                :type => "text/excel;charset=utf-8; header=present",
+                :filename => "#{params[:filename]}.xls" 
+        }
+    end
   end
-end
+
+  def output_result_show
+    #params[:result_id], params[:filename]
+    @result = Result.find(params[:result_id])
+
+    respond_to do |format|
+        format.xls {
+            send_data xls_content_for_show(@result),#.force_encoding('binary'),
+                :type => "text/excel;charset=utf-8; header=present",
+                :filename => "#{params[:filename]}.xls" 
+        }
+    end
+  end
 
 private
 
-def xls_content_for_index(results)
-  require 'spreadsheet'
+  def xls_content_for_index results
     xls_report = StringIO.new
     book = Spreadsheet::Workbook.new
-    sheet1 = book.create_worksheet :name => "报名统计"
+    sheet1 = book.create_worksheet :name => "总表"
 
     blue = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 10
     sheet1.row(0).default_format = blue
@@ -78,6 +84,27 @@ def xls_content_for_index(results)
     # book.write "/Users/mushu/rails/middle_manager_evaluation/aa.xls"
     book.write xls_report
     xls_report.string
-end
+  end
 
+  def self.xls_content_for_show result
+    xls_report = StringIO.new
+    book = Spreadsheet::Workbook.new
+    sheet1 = book.create_worksheet :name => "#{result.name}"
+
+    blue = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 10
+    sheet1.row(0).default_format = blue
+
+    #_evaluations
+    _evas = result.self_evaluation.evaluations
+
+
+    sheet1.row(0).concat %w{打分人 考核项}
+
+
+
+
+    book.write "/Users/mushu/rails/middle_manager_evaluation/aa.xls"
+    book.write xls_report
+    xls_report.string
+  end
 end
