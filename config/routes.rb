@@ -50,10 +50,15 @@ Rails.application.routes.draw do
 		end
     resources :activities, only: [:index, :show, :create, :update]
 	end
-  post 'admin/load_user_list', to: 'admin/file_operation#load_user_list'
-  get 'home_info', to: 'home#get_home_info'
+
   resource :user_info, only: [:show]
+
+  get 'home_info', to: 'home#get_home_info'
 	
+  ###### File Operation ######
+  post 'admin/load_user_list', to: 'admin/file_operation#load_user_list'
+  post 'admin/output_result_index', to: 'admin/file_operation#output_result_index'
+
 end
 
 #                          Prefix Verb   URI Pattern                                   Controller#Action
