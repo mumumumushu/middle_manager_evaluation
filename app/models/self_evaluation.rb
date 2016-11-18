@@ -18,8 +18,10 @@
 class SelfEvaluation < ApplicationRecord
   belongs_to :middle_manager
   belongs_to :activity
-  has_many :evaluations
-  has_one :result
+  has_many :evaluations, dependent: :destroy
+  has_one :result, dependent: :destroy
+
+  before_save :set_created_year
 
   # before_validation :in_first_phase?
   # validates_presence_of :in_first_phase?, :message => '填写未开放'
@@ -31,9 +33,6 @@ class SelfEvaluation < ApplicationRecord
   # after_update :update_evaluations
   after_create :create_result
 
-  def created_year
-    self.activity.activity_created_year 
-  end
   ##??? middle_manager_id == user_id ??
   def name
     self.middle_manager.user_info.name
@@ -53,6 +52,9 @@ class SelfEvaluation < ApplicationRecord
 
   private
 
+  def set_created_year
+    self.created_year = self.activity.activity_created_year 
+  end
   #  def set_evaluated_user_info
   #   _user_info_in_user = self.middle_manager.user_info
   #   _arry = [
@@ -122,17 +124,3 @@ class SelfEvaluation < ApplicationRecord
   end
 
 end
-# class DateFormatConversion 
-
-#   def self.string_into_array string #one dimensional array
-#     if string
-#       _detail = string.split(";")
-#       _detail.map do |a| 
-#         a.split(",")
-#       end
-#     end
-#   end
-
-
-
-# end
