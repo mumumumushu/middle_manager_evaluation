@@ -25,7 +25,7 @@ json.statistics_result do
 end
 
 json.set_by_admin do
-	json.( result, :final_result, :updated_at)	
+	json.( result, :final_result, :final_evaluation_time)	
 end
 
 json.count_of_people do 
