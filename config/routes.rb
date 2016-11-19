@@ -57,10 +57,10 @@ Rails.application.routes.draw do
   get 'home_info', to: 'home#get_home_info'
 	
   ###### File Operation ######
-  post 'admin/load_user_list', to: 'admin/file_operation#load_user_list'
+  post 'admin/upload_user_list', to: 'admin/file_operation#upload_user_list'
   post 'admin/output_result_index', to: 'admin/file_operation#output_result_index'
   post 'admin/output_result_show', to: 'admin/file_operation#output_result_show'
-
+  post 'admin/load_user_list_template', to: 'admin/file_operation#load_user_list_template'
 end
 
 #                          Prefix Verb   URI Pattern                                   Controller#Action

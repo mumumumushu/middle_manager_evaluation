@@ -4,7 +4,7 @@ class LoadUserList
 	def self.load(input_file,output_path)
 		MiddleManager.all.each do |m| 
 			m.take_part_in = false
-			m.password = Password.new #< == 
+			m.password = Password.new #< == 重置所有用户的密码
 			m.save
 		end
 
@@ -12,7 +12,9 @@ class LoadUserList
 		file = File.new("#{output_path}password.txt", "w")
 
 		4.upto( LoadUserList.get_sum(xlsx) ).each do |row|
-			# ActiveRecord::Base.transaction do
+
+			if xlsx.formatted_value(row,"v") == 'middle_manager'
+
 				_middle_manager = MiddleManager.where( "job_num = ?", LoadUserList.get_job_num(row,xlsx)).first ||  MiddleManager.new
 				_middle_manager.job_num = LoadUserList.get_job_num(row,xlsx)
 				_middle_manager.user_type = 'middle_manager'
@@ -35,7 +37,31 @@ class LoadUserList
 
 					file.write("姓名: #{_user_info.name},  工号: #{_middle_manager.job_num},  密码: #{_middle_manager.password}\n")
 				end
-			# end
+			else #领导 与 职工
+				_user = User.where( "job_num = ?", LoadUserList.get_job_num(row,xlsx)).first ||  User.new
+				_user.job_num = LoadUserList.get_job_num(row,xlsx)
+				_user.user_type = xlsx.formatted_value(row,"v")
+				_user.take_part_in = true
+				_user.password = Password.new
+				if _user.save
+
+					_user_info = UserInfo.new
+					_user_info.user_id = _user.id
+
+					_user_info.name = LoadUserList.get_name(row,xlsx)
+					_user_info.sex = LoadUserList.get_sex(row,xlsx)
+					_user_info.date_of_birth = LoadUserList.get_birth(row,xlsx)
+					_user_info.degree_of_education = LoadUserList.get_degree_of_education(row,xlsx)
+					_user_info.politics_status = LoadUserList.get_politics_status(row,xlsx)
+					_user_info.department_and_duty = LoadUserList.get_department(row,xlsx) + "  " + LoadUserList.get_duty(row,xlsx)
+					_user_info.starting_time_for_the_present_job = LoadUserList.get_time(row,xlsx)
+
+					_user_info.save		
+
+					file.write("姓名: #{_user_info.name},  工号: #{_user.job_num},  密码: #{_user.password}\n")
+				end
+			end
+
 		end
 
 		file.close
@@ -45,11 +71,11 @@ class LoadUserList
 
 	
 	def self.get_sum(xlsx)
-		i = 0
+		i = 1
 		xlsx.each_row_streaming do |row| 
 			i += 1  
 		end	 
-		i - 2
+		i 
 	end
 
 	def self.get_job_num(row,xlsx)
@@ -108,13 +134,5 @@ class LoadUserList
 			_x = /(\d+)-(\d+)-(\d+)/.match(time)
  			time = "20#{_x[3]}.#{_x[1]}.#{_x[2]}"
 		end
-	end
-end
-
-
-class OutputResultIndex
-	require 'roo'
-	def do
-		
 	end
 end
