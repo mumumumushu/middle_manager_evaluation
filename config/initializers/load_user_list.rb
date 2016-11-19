@@ -1,8 +1,8 @@
-class LoadUserList
+class UploadUserList
 	require 'roo'
 
-	def self.load(input_file,output_path)
-		MiddleManager.all.each do |m| 
+	def self.upload(input_file,output_path)
+		User.all.each do |m| 
 			m.take_part_in = false
 			m.password = Password.new #< == 重置所有用户的密码
 			m.save
@@ -11,12 +11,12 @@ class LoadUserList
 		xlsx = Roo::Excelx.new(input_file)
 		file = File.new("#{output_path}password.txt", "w")
 
-		4.upto( LoadUserList.get_sum(xlsx) ).each do |row|
+		4.upto( UploadUserList.get_sum(xlsx) ).each do |row|
 
-			if xlsx.formatted_value(row,"v") == 'middle_manager'
+			if xlsx.formatted_value(row,"V") == '中层干部'
 
-				_middle_manager = MiddleManager.where( "job_num = ?", LoadUserList.get_job_num(row,xlsx)).first ||  MiddleManager.new
-				_middle_manager.job_num = LoadUserList.get_job_num(row,xlsx)
+				_middle_manager = MiddleManager.where( "job_num = ?", UploadUserList.get_job_num(row,xlsx)).first ||  MiddleManager.new
+				_middle_manager.job_num = UploadUserList.get_job_num(row,xlsx)
 				_middle_manager.user_type = 'middle_manager'
 				_middle_manager.take_part_in = true
 				_middle_manager.password = Password.new
@@ -25,22 +25,22 @@ class LoadUserList
 					_user_info = UserInfo.new
 					_user_info.user_id = _middle_manager.id
 
-					_user_info.name = LoadUserList.get_name(row,xlsx)
-					_user_info.sex = LoadUserList.get_sex(row,xlsx)
-					_user_info.date_of_birth = LoadUserList.get_birth(row,xlsx)
-					_user_info.degree_of_education = LoadUserList.get_degree_of_education(row,xlsx)
-					_user_info.politics_status = LoadUserList.get_politics_status(row,xlsx)
-					_user_info.department_and_duty = LoadUserList.get_department(row,xlsx) + "  " + LoadUserList.get_duty(row,xlsx)
-					_user_info.starting_time_for_the_present_job = LoadUserList.get_time(row,xlsx)
+					_user_info.name = UploadUserList.get_name(row,xlsx)
+					_user_info.sex = UploadUserList.get_sex(row,xlsx)
+					_user_info.date_of_birth = UploadUserList.get_birth(row,xlsx)
+					_user_info.degree_of_education = UploadUserList.get_degree_of_education(row,xlsx)
+					_user_info.politics_status = UploadUserList.get_politics_status(row,xlsx)
+					_user_info.department_and_duty = UploadUserList.get_department(row,xlsx) + "  " + UploadUserList.get_duty(row,xlsx)
+					_user_info.starting_time_for_the_present_job = UploadUserList.get_time(row,xlsx)
 
 					_user_info.save		
 
 					file.write("姓名: #{_user_info.name},  工号: #{_middle_manager.job_num},  密码: #{_middle_manager.password}\n")
 				end
 			else #领导 与 职工
-				_user = User.where( "job_num = ?", LoadUserList.get_job_num(row,xlsx)).first ||  User.new
-				_user.job_num = LoadUserList.get_job_num(row,xlsx)
-				_user.user_type = xlsx.formatted_value(row,"v")
+				_user = User.where( "job_num = ?", UploadUserList.get_job_num(row,xlsx)).first ||  User.new
+				_user.job_num = UploadUserList.get_job_num(row,xlsx)
+				_user.user_type = xlsx.formatted_value(row,"v") == '领导' ? 'leader' : 'staff'
 				_user.take_part_in = true
 				_user.password = Password.new
 				if _user.save
@@ -48,13 +48,13 @@ class LoadUserList
 					_user_info = UserInfo.new
 					_user_info.user_id = _user.id
 
-					_user_info.name = LoadUserList.get_name(row,xlsx)
-					_user_info.sex = LoadUserList.get_sex(row,xlsx)
-					_user_info.date_of_birth = LoadUserList.get_birth(row,xlsx)
-					_user_info.degree_of_education = LoadUserList.get_degree_of_education(row,xlsx)
-					_user_info.politics_status = LoadUserList.get_politics_status(row,xlsx)
-					_user_info.department_and_duty = LoadUserList.get_department(row,xlsx) + "  " + LoadUserList.get_duty(row,xlsx)
-					_user_info.starting_time_for_the_present_job = LoadUserList.get_time(row,xlsx)
+					_user_info.name = UploadUserList.get_name(row,xlsx)
+					_user_info.sex = UploadUserList.get_sex(row,xlsx)
+					_user_info.date_of_birth = UploadUserList.get_birth(row,xlsx)
+					_user_info.degree_of_education = UploadUserList.get_degree_of_education(row,xlsx)
+					_user_info.politics_status = UploadUserList.get_politics_status(row,xlsx)
+					_user_info.department_and_duty = UploadUserList.get_department(row,xlsx) + "  " + UploadUserList.get_duty(row,xlsx)
+					_user_info.starting_time_for_the_present_job = UploadUserList.get_time(row,xlsx)
 
 					_user_info.save		
 

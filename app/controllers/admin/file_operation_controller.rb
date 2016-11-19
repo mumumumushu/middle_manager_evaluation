@@ -6,7 +6,7 @@ class Admin::FileOperationController < ApplicationController
 
   # post 'admin/upload_user_list'
   def upload_user_list
-  	@error = LoadUserList.load(params[:file].tempfile, File.dirname(__FILE__) + '/../../../')
+  	@error = UploadUserList.upload(params[:file].tempfile, File.dirname(__FILE__) + '/../../../')
   	# @error = {error: _error}
   	# respond_with @error, template: 'error'
   end
