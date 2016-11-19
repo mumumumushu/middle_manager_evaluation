@@ -46,7 +46,7 @@ class Admin::ResultsController < ApplicationController
   def set_final_result
     @result = Result.find(params[:id])
     @result.update(result_params)
-    @reslut.final_evaluation_time = Time.now
+    @result.final_evaluation_time = Time.now
     @result.save
     respond_with @result, template: "admin/results/feedback_form", status: 201
   end
