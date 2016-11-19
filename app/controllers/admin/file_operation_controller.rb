@@ -4,8 +4,8 @@ class Admin::FileOperationController < ApplicationController
 
   # acts_as_token_authentication_handler_for Admin
 
-  # post 'admin/load_user_list'
-  def load_user_list
+  # post 'admin/upload_user_list'
+  def upload_user_list
   	@error = LoadUserList.load(params[:file].tempfile, File.dirname(__FILE__) + '/../../../')
   	# @error = {error: _error}
   	# respond_with @error, template: 'error'
@@ -38,6 +38,12 @@ class Admin::FileOperationController < ApplicationController
                 :filename => "#{_filename}.xls" 
         }
     end
+  end
+
+  #post 'admin/load_user_list_template'
+  def load_user_list_template
+    send_file File.dirname(__FILE__) + '/../../../用户信息上传模板.xlsx',
+        :filename => "用户信息上传模板.xls"   
   end
 
 private
