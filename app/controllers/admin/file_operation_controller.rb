@@ -14,7 +14,7 @@ class Admin::FileOperationController < ApplicationController
   #post 'admin/output_result_index'
   def output_result_index
 
-    @activity = Activity.find(params[:activity_id])
+    @activity = Activity.where(activity_year: params[:activity_year])
     @results = Result.where(self_evaluation_id: @activity.self_evaluations.collect(&:id))
     _filename = params[:filename] || "#{@activity.activity_created_year}年中层干部考核成绩总表"
     respond_to do |format|

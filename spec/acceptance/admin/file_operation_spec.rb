@@ -18,7 +18,7 @@ resource	'管理员 文件操作' do
   	end
 
     post 'admin/output_result_index' do
-      parameter :activity_id, "统计总表的 考核年度", required: true
+      parameter :activity_year, "统计总表的 考核年度", required: true
       parameter :filename, "返回文件的名称", required: false
 
       example "管理员 下载统计总表xls文件" do
