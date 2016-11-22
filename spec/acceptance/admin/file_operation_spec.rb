@@ -11,6 +11,7 @@ resource	'管理员 文件操作' do
 
     post 'admin/upload_user_list' do
     	parameter :file, "名单 仅(.xlsx)文件", required: true
+      parameter :activity_year, "考核年限", required: true
 
     	example "管理员上传 用户信息 已设置错误信息提示" do
         puts "哈哈哈"

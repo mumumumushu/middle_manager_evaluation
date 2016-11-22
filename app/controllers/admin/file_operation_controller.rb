@@ -8,9 +8,9 @@ class Admin::FileOperationController < ActionController::Base
   respond_to :json
   # post 'admin/upload_user_list'
   def upload_user_list
-    #得到文件 以考核年限为名
+    #得到文件 
     #输出密码文件password.txt
-  	@error = UploadUserList.upload(params[:file], File.dirname(__FILE__) + '/../../../')
+  	@error = UploadUserList.upload(params[:file], File.dirname(__FILE__) + '/../../../', params[:activity_year])
   	@error = @error ? "上传失败，请检查信息表格式。 {error: #{@error}}" : "上传成功"
     respond_with @error, template: 'error'
   end
