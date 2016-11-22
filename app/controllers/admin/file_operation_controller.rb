@@ -35,6 +35,12 @@ class Admin::FileOperationController < ActionController::Base
         :filename => "用户信息上传模板.xlsx"   
   end
 
+  #get 'admin/load_password_txt'
+  def load_password_txt
+    send_file File.dirname(__FILE__) + '/../../../password.txt',
+        :filename => "用户密码.txt"
+  end
+
 private
   def create_file_name #only .xls
     _filename = ""
