@@ -3,7 +3,7 @@ class Admin::FileOperationController < ActionController::Base
   include ActionController::MimeResponds
   # include ActionController::Helpers
   include ActionController::Flash
-  acts_as_token_authentication_handler_for Admin
+  # acts_as_token_authentication_handler_for Admin
 
   respond_to :json
   # post 'admin/upload_user_list'
@@ -19,14 +19,14 @@ class Admin::FileOperationController < ActionController::Base
     @activity = Activity.where(activity_created_year: params[:activity_year]).first
     @results = Result.where(self_evaluation_id: @activity.self_evaluations.collect(&:id))
     send_file xls_content_for_index(@results, create_file_name),
-              filename: "#{@activity.activity_created_year}年中层干部考核统计结果总表"
+              filename: "#{@activity.activity_created_year}年中层干部考核统计结果总表.xls"
   end
 
   #get 'admin/output_result_show'
   def output_result_show
     @result = Result.find(params[:result_id])
     send_file xls_content_for_show(@result, create_file_name),
-            filename: "#{@result.name}考核成绩详细表"
+            filename: "#{@result.name}考核成绩详细表.xls"
   end
 
   #get 'admin/load_user_list_template'
