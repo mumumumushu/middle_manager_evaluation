@@ -8,18 +8,19 @@ class Admin::FileOperationController < ActionController::Base
   respond_to :json
   # post 'admin/upload_user_list'
   def upload_user_list
-    #得到文件 输出密码文件password.txt
-  	@error = UploadUserList.upload(params[:file].tempfile, File.dirname(__FILE__) + '/../../../')
+    #得到文件 以考核年限为名
+    #输出密码文件password.txt
+  	@error = UploadUserList.upload(params[:file], File.dirname(__FILE__) + '/../../../')
   	@error = @error ? "上传失败，请检查信息表格式。 {error: #{@error}}" : "上传成功"
     respond_with @error, template: 'error'
   end
 
   #get 'admin/output_result_index'
   def output_result_index
-    @activity = Activity.where(activity_created_year: params[:activity_year]).first
+    @activity = Activity.where(activity_year: params[:activity_year]).first
     @results = Result.where(self_evaluation_id: @activity.self_evaluations.collect(&:id))
     send_file xls_content_for_index(@results, create_file_name),
-              filename: "#{@activity.activity_created_year}年中层干部考核统计结果总表.xls"
+              filename: "#{@activity.activity_year}年中层干部考核统计结果总表.xls"
   end
 
   #get 'admin/output_result_show'

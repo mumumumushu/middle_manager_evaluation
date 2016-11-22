@@ -22,13 +22,21 @@ class Admin::ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
-    @activity.save
-    respond_with @activity, template: 'activities/show', status: 201
+    if @activity.save
+      respond_with @activity, template: 'activities/show', status: 201
+    else
+      @error = "请确认已上传本次活动的用户名单（上传名单文件名请设置为\"考核年限\"）"
+      respond_with @error, template: 'error', status: 200
+    end
   end
 
   def update
-    @activity.update(activity_params)
-    respond_with @activity, template: 'activities/show', status: 201
+    if @activity.update(activity_params)
+      respond_with @activity, template: 'activities/show', status: 201
+    else
+      @error = "请确认已上传本次活动的用户名单（上传名单文件名请设置为\"考核年限\"）"
+      respond_with @error, template: 'error', status: 200
+    end
   end
 
   # def destroy
@@ -43,7 +51,7 @@ class Admin::ActivitiesController < ApplicationController
 
     def activity_params
       params.require(:activity).permit(
-        :activity_created_year, 
+        :activity_year, 
         :first_phase_begin, :first_phase_end, 
         :second_phase_begin, :second_phase_end, 
         :third_phase_begin, :third_phase_end
