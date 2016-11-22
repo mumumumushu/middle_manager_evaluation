@@ -3,7 +3,7 @@ class Admin::FileOperationController < ActionController::Base
   include ActionController::MimeResponds
   # include ActionController::Helpers
   include ActionController::Flash
-  # acts_as_token_authentication_handler_for Admin
+  acts_as_token_authentication_handler_for Admin
 
   respond_to :json
   # post 'admin/upload_user_list'
