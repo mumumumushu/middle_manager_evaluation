@@ -52,7 +52,7 @@ class SelfEvaluation < ApplicationRecord
   private
 
   def set_created_year
-    self.created_year = self.activity.activity_created_year 
+    self.created_year = self.activity.activity_year 
   end
   #  def set_evaluated_user_info
   #   _user_info_in_user = self.middle_manager.user_info
@@ -75,7 +75,7 @@ class SelfEvaluation < ApplicationRecord
   # end
 
  	def create_evaluations
-    User.where(:take_part_in => true).each do |user|
+    User.where(take_part_in: self.created_year).each do |user|
       unless user.id == self.middle_manager_id
         _evaluation = user.evaluations.where( :self_evaluation_id => self.id).first || Evaluation.new
         _evaluation.self_evaluation_id = self.id

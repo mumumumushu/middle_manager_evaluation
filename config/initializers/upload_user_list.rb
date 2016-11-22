@@ -1,15 +1,15 @@
 class UploadUserList
 	require 'roo'
 
-	def self.upload(input_file,output_path)
+	def self.upload(input_file, output_path)
 		ActiveRecord::Base.transaction do
 			User.all.each do |m| 
-				m.take_part_in = false
+				m.take_part_in = nil
 				m.password = Password.new #< == 重置所有用户的密码
 				m.save
 			end
 
-			xlsx = Roo::Excelx.new(input_file)
+			xlsx = Roo::Excelx.new(input_file.tempfile)
 			file = File.new("#{output_path}password.txt", "w")
 		
 			4.upto( UploadUserList.get_sum(xlsx) ).each do |row|
@@ -19,7 +19,7 @@ class UploadUserList
 					_middle_manager = MiddleManager.where( "job_num = ?", UploadUserList.get_job_num(row,xlsx)).first ||  MiddleManager.new
 					_middle_manager.job_num = UploadUserList.get_job_num(row,xlsx)
 					_middle_manager.user_type = 'middle_manager'
-					_middle_manager.take_part_in = true
+					_middle_manager.take_part_in = input_file.original_filename.delete('.xlsx')
 					_middle_manager.password = Password.new
 					if _middle_manager.save!
 
@@ -36,13 +36,13 @@ class UploadUserList
 
 						_user_info.save		
 
-						file.write("姓名: #{_user_info.name},  工号: #{_middle_manager.job_num},  密码: #{_middle_manager.password}\n")
+						file.write("姓名: #{_user_info.name},  工号: #{_middle_manager.job_num},  密码: #{_middle_manager.password},  用户类型: #{xlsx.formatted_value(row,"V")}\n")
 					end
 				else #领导 与 职工
 					_user = User.where( "job_num = ?", UploadUserList.get_job_num(row,xlsx)).first ||  User.new
 					_user.job_num = UploadUserList.get_job_num(row,xlsx)
 					_user.user_type = xlsx.formatted_value(row,"v") == '领导' ? 'leader' : 'staff'
-					_user.take_part_in = true
+					_user.take_part_in = input_file.original_filename.delete('.xlsx')
 					_user.password = Password.new
 					if _user.save!
 
@@ -59,7 +59,7 @@ class UploadUserList
 
 						_user_info.save		
 
-						file.write("姓名: #{_user_info.name},  工号: #{_user.job_num},  密码: #{_user.password}\n")
+						file.write("姓名: #{_user_info.name},  工号: #{_user.job_num},  密码: #{_user.password},  用户类型: #{xlsx.formatted_value(row,"V")}\n")
 					end
 				end
 			end

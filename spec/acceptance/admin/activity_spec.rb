@@ -11,7 +11,7 @@ resource	'管理员 查看修改 考核活动' do
 
     before do
       create(:admin)
-      @middle_manager = create(:middle_manager)
+      @middle_manager = create(:middle_manager, take_part_in: '2016')
       create(:user_info, user: @middle_manager)
       @leader = create(:leader)
       
@@ -48,7 +48,7 @@ resource	'管理员 查看修改 考核活动' do
 
       activity_attrs = FactoryGirl.attributes_for(:activity)
 
-      parameter :activity_created_year, "考核年度", required: true, scope: :activity
+      parameter :activity_year, "考核年度", required: true, scope: :activity
       parameter :first_phase_begin, "第一阶段【 中层干部填写自评表 】开始时间", required: true, scope: :activity
       parameter :first_phase_end, "第一阶段【 中层干部填写自评表 】结束时间", required: true, scope: :activity
       parameter :second_phase_begin, "第二阶段【 领导，职工，中层干部填写打分表 】开始时间", required: true, scope: :activity
@@ -56,7 +56,7 @@ resource	'管理员 查看修改 考核活动' do
       parameter :third_phase_begin, "第三阶段【 中层干部查看考核结果统计表 】开始时间", required: true, scope: :activity
       parameter :third_phase_end, "第三阶段【 中层干部查看考核结果统计表 】结束时间", required: true, scope: :activity
 
-      let(:activity_created_year) { "2016" }
+      let(:activity_year) { "2016" }
       let(:first_phase_begin) { activity_attrs[:first_phase_begin] }
       let(:first_phase_end) { activity_attrs[:first_phase_end] }
       let(:second_phase_begin) { activity_attrs[:second_phase_begin] }
@@ -69,33 +69,59 @@ resource	'管理员 查看修改 考核活动' do
         puts response_body
         expect(status).to eq(201)
       end
+      describe do 
+         let(:activity_year) { "6666" }
+        example "管理员 创建 考核活动 失败， 不存在对应用户名单" do
+         
+          do_request
+          puts response_body
+          expect(status).to eq(200)
+        end
+      end
+
     end
 
-    put '/admin/activities/:id' do
+    describe do
+      before do
+        create(:staff, take_part_in: '6666')
+      end
+      put '/admin/activities/:id' do
 
-      activity_attrs = FactoryGirl.attributes_for(:activity)
+        activity_attrs = FactoryGirl.attributes_for(:activity)
 
-      parameter :activity_created_year, "考核年度", required: true, scope: :activity
-      parameter :first_phase_begin, "第一阶段【 中层干部填写自评表 】开始时间", required: true, scope: :activity
-      parameter :first_phase_end, "第一阶段【 中层干部填写自评表 】结束时间", required: true, scope: :activity
-      parameter :second_phase_begin, "第二阶段【 领导，职工，中层干部填写打分表 】开始时间", required: true, scope: :activity
-      parameter :second_phase_end, "第二阶段【 领导，职工，中层干部填写打分表 】结束时间", required: true, scope: :activity
-      parameter :third_phase_begin, "第三阶段【 中层干部查看考核结果统计表 】开始时间", required: true, scope: :activity
-      parameter :third_phase_end, "第三阶段【 中层干部查看考核结果统计表 】结束时间", required: true, scope: :activity
+        parameter :activity_year, "考核年度", required: true, scope: :activity
+        parameter :first_phase_begin, "第一阶段【 中层干部填写自评表 】开始时间", required: true, scope: :activity
+        parameter :first_phase_end, "第一阶段【 中层干部填写自评表 】结束时间", required: true, scope: :activity
+        parameter :second_phase_begin, "第二阶段【 领导，职工，中层干部填写打分表 】开始时间", required: true, scope: :activity
+        parameter :second_phase_end, "第二阶段【 领导，职工，中层干部填写打分表 】结束时间", required: true, scope: :activity
+        parameter :third_phase_begin, "第三阶段【 中层干部查看考核结果统计表 】开始时间", required: true, scope: :activity
+        parameter :third_phase_end, "第三阶段【 中层干部查看考核结果统计表 】结束时间", required: true, scope: :activity
 
-      let(:activity_created_year) { "6666" }
-      let(:first_phase_begin) { "6666-10-1 00:00:00" }
-      let(:first_phase_end) { "6666-10-30 00:00:00" }
-      let(:second_phase_begin) { "6666-11-1 00:00:00" }
-      let(:second_phase_end) { "6666-11-30 00:00:00" }
-      let(:third_phase_begin) { "6666-12-1 00:00:00" }
-      let(:third_phase_end) { "6666-12-30 00:00:00" }
-      let(:id) {@activities.first.id}
+        
+        
+        let(:activity_year) { "6666" }
+        let(:first_phase_begin) { "6666-10-1 00:00:00" }
+        let(:first_phase_end) { "6666-10-30 00:00:00" }
+        let(:second_phase_begin) { "6666-11-1 00:00:00" }
+        let(:second_phase_end) { "6666-11-30 00:00:00" }
+        let(:third_phase_begin) { "6666-12-1 00:00:00" }
+        let(:third_phase_end) { "6666-12-30 00:00:00" }
+        let(:id) {@activities.first.id}
 
-      example "管理员 修改 考核活动 成功" do
-        do_request
-        puts response_body
-        expect(status).to eq(201)
+        example "管理员 修改 考核活动 成功" do
+          do_request
+          puts response_body
+          expect(status).to eq(201)
+        end
+
+        describe do 
+         let(:activity_year) { "11" }
+          example "管理员 修改 考核活动 失败， 不存在对应用户名单" do
+            do_request
+            puts response_body
+            expect(status).to eq(200)
+          end
+        end
       end
     end
 

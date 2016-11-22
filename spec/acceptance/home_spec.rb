@@ -6,6 +6,7 @@ resource	'主页获取活动信息' do
 	get '/home_info' do
 
     before do
+      create(:staff) #上传该次活动的用户名单
      	create(:activity, first_phase_begin: "2016-10-1 00:00:00",
      										third_phase_end: "2016-12-30 00:00:00")
     end

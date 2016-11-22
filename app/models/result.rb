@@ -174,11 +174,11 @@ class Result < ApplicationRecord
 #############参与人数##############
 
 	def count_of_middle_manager
-		User.where( "take_part_in = ? AND user_type = ?", true, 'middle_manager' ).count
+		User.where( "take_part_in = ? AND user_type = ?", self.activity_year, 'middle_manager' ).count
 	end
 	
 	def count_of_all_user
-		User.where(take_part_in: true).count
+		User.where(take_part_in: self.activity_year).count
 	end	
 
 	##########
@@ -211,7 +211,7 @@ class Result < ApplicationRecord
   private
 
   def set_activity_year
-  	self.activity_year = self.self_evaluation.activity.activity_created_year
+  	self.activity_year = self.self_evaluation.activity.activity_year
   end
 
 end

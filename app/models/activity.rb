@@ -8,26 +8,35 @@
 #  third_phase_begin     :datetime
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  activity_created_year :integer
+#  activity_year :integer
 #  third_phase_end       :datetime
 #  first_phase_end       :datetime
 #  second_phase_end      :datetime
+#  activity_year         :string
 #
 
 class Activity < ApplicationRecord
 	# before_save :set_created_year
 	has_many :self_evaluations, dependent: :destroy 
 
-	after_create :create_self_evaluation 
+	validate :has_user_list?
+
+	after_create :create_self_evaluation, on: [:create, :update]
 	
+	def has_user_list?
+		unless User.where(take_part_in: "#{self.activity_year}").any?
+			errors.add(:take_part_in, "please make sure that you have upload the user_list for this activity")
+		end
+	end
+
 private
 
 	# def set_created_year
-	# 	self.activity_created_year = self.first_phase_begin.year
+	# 	self.activity_year = self.first_phase_begin.year
 	# end
 
 	def create_self_evaluation  
-		MiddleManager.where(take_part_in: true, user_type: 'middle_manager').each do |middle_manager|
+		MiddleManager.where(take_part_in: self.activity_year, user_type: 'middle_manager').each do |middle_manager|
 			_self_evaluation = SelfEvaluation.new(activity_id: self.id,
 																						middle_manager_id: middle_manager.id,
 																						duties: '',

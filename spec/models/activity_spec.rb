@@ -12,6 +12,7 @@
 #  third_phase_end       :datetime
 #  first_phase_end       :datetime
 #  second_phase_end      :datetime
+#  activity_year         :string
 #
 
 require 'rails_helper'

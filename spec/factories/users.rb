@@ -16,7 +16,7 @@
 #  updated_at             :datetime         not null
 #  job_num                :string           default(""), not null
 #  authentication_token   :string(30)
-#  take_part_in           :boolean          default(FALSE)
+#  take_part_in           :string           default("f")
 #  user_type              :string
 #
 
@@ -28,7 +28,7 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 'l_qwertyuiop1'  #不可重复
     user_type 'leader'
-    take_part_in true
+    take_part_in "2016"
     
   end
 
@@ -37,7 +37,7 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 's_qwertyuiop1'
     user_type 'staff'
-    take_part_in true
+    take_part_in "2016"
   end
 
   factory :middle_manager do
@@ -45,7 +45,7 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 'm_qwertyuiop1'
     user_type 'middle_manager'
-    take_part_in true
+    take_part_in "2016"
   end
 
   # factory :other_middle_manager, class: :middle_manager do
@@ -53,7 +53,7 @@ FactoryGirl.define do
   #   sequence(:authentication_token) {|n| "qwertyuiop#{n}"}
   #   password 'hahaha'
   #   user_type 'middle_manager'
-  #   take_part_in true
+  #   take_part_in "2016"
   # end
 
   factory :middle_manager2, class: :middle_manager do
@@ -61,7 +61,7 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 'm_qwertyuiop12'
     user_type 'middle_manager'
-    take_part_in true
+    take_part_in "2016"
   end
 
   factory :wrong_type, class: :user do
@@ -69,7 +69,7 @@ FactoryGirl.define do
     password 'hahaha'
     authentication_token 'wertyuiop1'
     user_type 'wrong_type'
-    take_part_in true
+    take_part_in "2016"
   end
 
 
