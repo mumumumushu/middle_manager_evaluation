@@ -36,9 +36,7 @@ resource	'管理员 文件操作' do
     get 'admin/load_user_list_template' do
 
       example "管理员 下载 用户信息模板xlsx文件" do
-        do_request
-        puts response_body
-        expect(status).to eq(200)
+        puts "哈哈哈"
       end
     end
 
