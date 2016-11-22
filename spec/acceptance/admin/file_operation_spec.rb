@@ -17,7 +17,7 @@ resource	'管理员 文件操作' do
   		end
   	end
 
-    post 'admin/output_result_index' do
+    get 'admin/output_result_index' do
       parameter :activity_year, "统计总表的 考核年度", required: true
       parameter :filename, "返回文件的名称", required: false
 
@@ -26,7 +26,7 @@ resource	'管理员 文件操作' do
       end
     end
 
-    post 'admin/output_result_show' do
+    get 'admin/output_result_show' do
       parameter :result_id, "统计结果的 :id", required: true
       parameter :filename, "返回文件的名称", required: false
 
@@ -35,7 +35,7 @@ resource	'管理员 文件操作' do
       end
     end
 
-    post 'admin/load_user_list_template' do
+    get 'admin/load_user_list_template' do
 
       example "管理员 下载 用户信息模板xlsx文件" do
         do_request

@@ -1,54 +1,52 @@
-class Admin::FileOperationController < ApplicationController
+class Admin::FileOperationController < ActionController::Base
   include ActionView::Layouts
   include ActionController::MimeResponds
-
+  # include ActionController::Helpers
+  include ActionController::Flash
   # acts_as_token_authentication_handler_for Admin
 
+  respond_to :json
   # post 'admin/upload_user_list'
   def upload_user_list
+    #得到文件 输出密码文件password.txt
   	@error = UploadUserList.upload(params[:file].tempfile, File.dirname(__FILE__) + '/../../../')
-  	# @error = {error: _error}
-  	# respond_with @error, template: 'error'
+  	@error = @error ? "上传失败，请检查信息表格式。 {error: #{@error}}" : "上传成功"
+    respond_with @error, template: 'error'
   end
 
-  #post 'admin/output_result_index'
+  #get 'admin/output_result_index'
   def output_result_index
-
     @activity = Activity.where(activity_created_year: params[:activity_year]).first
     @results = Result.where(self_evaluation_id: @activity.self_evaluations.collect(&:id))
-    _filename = params[:filename] || "#{@activity.activity_created_year}年中层干部考核成绩总表"
-    respond_to do |format|
-        format.xls {
-            send_data xls_content_for_index(@results),#.force_encoding('binary'),
-                :type => "text/excel;charset=utf-8; header=present",
-                :filename => "#{_filename}.xls" 
-        }
-    end
+    send_file xls_content_for_index(@results, create_file_name),
+              filename: "#{@activity.activity_created_year}年中层干部考核统计结果总表"
   end
 
-  #post 'admin/output_result_show'
+  #get 'admin/output_result_show'
   def output_result_show
-
     @result = Result.find(params[:result_id])
-    _filename = params[:filename] || "#{@result.name}考核成绩详细表"
-    respond_to do |format|
-        format.xls {
-            send_data xls_content_for_show(@result),#.force_encoding('binary'),
-                :type => "text/excel;charset=utf-8; header=present",
-                :filename => "#{_filename}.xls" 
-        }
-    end
+    send_file xls_content_for_show(@result, create_file_name),
+            filename: "#{@result.name}考核成绩详细表"
   end
 
-  #post 'admin/load_user_list_template'
+  #get 'admin/load_user_list_template'
   def load_user_list_template
     send_file File.dirname(__FILE__) + '/../../../用户信息上传模板.xlsx',
-        :filename => "用户信息上传模板.xls"   
+        :filename => "用户信息上传模板.xlsx"   
   end
 
 private
+  def create_file_name #only .xls
+    _filename = ""
+    chars = ('a'..'z').to_a + ('0'..'9').to_a
+    1.upto(6) { |i| _filename << chars[rand(chars.size-1)] }
+    if File.exist?(File.join("pubilc/file/","#{_filename}.xls"))
+      create_file_name
+    end
+    "/home/edu/middle_manager_evaluation/pubilc/file/" +  _filename + '.xls'
+  end
 
-  def xls_content_for_index results
+  def xls_content_for_index results,filename
     xls_report = StringIO.new
     book = Spreadsheet::Workbook.new
     sheet1 = book.create_worksheet :name => "总表"
@@ -89,12 +87,13 @@ private
       sheet1[results.count + i, 5] = Result.change_socre_array_to_level_data(_average_score_for_all_array).values[i - 1]
       # sheet1[results.count + i, 6] = result.final_result
     end
-    # book.write "/Users/mushu/rails/middle_manager_evaluation/aa.xls"
-    book.write xls_report
-    xls_report.string
+
+    _path =  "#{filename}"
+    book.write _path
+    _path
   end
 
-  def xls_content_for_show result
+  def xls_content_for_show result,filename
     xls_report = StringIO.new
     book = Spreadsheet::Workbook.new
     sheet1 = book.create_worksheet :name => "#{result.name}考核成绩详细表"
@@ -122,9 +121,8 @@ private
       end
 
     end
-
-    # book.write "/Users/mushu/rails/middle_manager_evaluation/aa.xls"
-    book.write xls_report
-    xls_report.string
+    _path =  "#{filename}"
+    book.write _path
+    _path
   end
 end
