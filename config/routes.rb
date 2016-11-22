@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   get 'admin/output_result_index', to: 'admin/file_operation#output_result_index'
   get 'admin/output_result_show', to: 'admin/file_operation#output_result_show'
   get 'admin/load_user_list_template', to: 'admin/file_operation#load_user_list_template'
+  get 'admin/load_password_txt', to: 'admin/file_operation#load_password_txt'
 end
 
 #                          Prefix Verb   URI Pattern                                   Controller#Action

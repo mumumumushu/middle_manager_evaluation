@@ -34,8 +34,13 @@ resource	'管理员 文件操作' do
     end
 
     get 'admin/load_user_list_template' do
-
       example "管理员 下载 用户信息模板xlsx文件" do
+        puts "哈哈哈"
+      end
+    end
+
+    get 'admin/load_password_txt' do
+       example "管理员 下载 用户密码txt文件" do
         puts "哈哈哈"
       end
     end
