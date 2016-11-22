@@ -1,1 +1,1 @@
-json.extract! activity, :id, :first_phase_begin, :first_phase_end, :second_phase_begin, :second_phase_end, :third_phase_begin, :third_phase_end, :activity_year
+json.extract! activity, :id, :first_phase_begin, :first_phase_end, :second_phase_begin, :second_phase_end, :third_phase_begin, :third_phase_end, :activity_year, :activity_year_of_activities_have_user_list

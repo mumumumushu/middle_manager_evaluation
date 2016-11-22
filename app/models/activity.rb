@@ -29,6 +29,10 @@ class Activity < ApplicationRecord
 		end
 	end
 
+	def activity_year_of_activities_have_user_list
+		User.all.collect(&:take_part_in).uniq.reject{|x| x == nil}[0]
+	end
+
 private
 
 	# def set_created_year
