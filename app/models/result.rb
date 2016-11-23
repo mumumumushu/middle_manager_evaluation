@@ -18,10 +18,6 @@ class Result < ApplicationRecord
 
   scope :activity_year, -> (year){where(activity_year: year)}
 
-	def user_id
-		self.self_evaluation.middle_manager_id
-	end
-
 	def evaluations		
 		Evaluation.where( self_evaluation_id: self.self_evaluation_id )
 	end
@@ -111,11 +107,11 @@ class Result < ApplicationRecord
 	end
 
 	def name #（✔️）
-		User.find( self.user_id ).user_info.name
+		self.self_evaluation.name
 	end
 
 	def department_and_duty #职务 #（✔️）
-		User.find( self.user_id ).user_info.department_and_duty
+		UserInfo.find(self.self_evaluation.user_info_id).department_and_duty
 	end
 
 	def evaluated_user_info
@@ -150,9 +146,9 @@ class Result < ApplicationRecord
 ########  考核总分 及 考核等级  ##########
 
 	def average_score_for_all
-		self.average_score_for_leader * 0.5 +
-		self.average_score_for_middle_manager * 0.3 +
-		self.average_score_for_staff * 0.2
+		(self.average_score_for_leader || 0 ) * 0.5 +
+		(self.average_score_for_middle_manager || 0 )* 0.3 +
+		(self.average_score_for_staff || 0 )* 0.2
 	end
 
 	def level_of_average_score_for_all
@@ -184,6 +180,7 @@ class Result < ApplicationRecord
 	##########
 
 	def self.change_socre_array_to_level_data array
+		array = array.map { |e| e == nil ? -1 : e }
     _level_count_array = [ 
       array.select{ |x| x <= 99 && x >= 90 }.count,
       array.select{ |x| x <= 89 && x >= 80 }.count,

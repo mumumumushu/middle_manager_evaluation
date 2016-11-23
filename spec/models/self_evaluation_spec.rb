@@ -12,6 +12,7 @@
 #  activity_id              :integer
 #  user_info                :string
 #  evaluated_user_info      :text
+#  user_info_id             :integer
 #
 
 require 'rails_helper'
