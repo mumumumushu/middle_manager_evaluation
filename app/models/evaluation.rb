@@ -80,7 +80,7 @@ class Evaluation < ApplicationRecord
              Array.new(13 - self.change_output_format("duties").count, nil) +
              self.change_output_format("upright_incorruptiable").map { |e| e[1] == "-1" ? nil : e[1].to_i } +
              Array.new(2 - self.change_output_format("upright_incorruptiable").count, nil) +
-             [self.evaluation_totality]
+             [self.evaluation_totality == "-1" ? nil : self.evaluation_totality]
 
   end
   #分数集合 填充索引 转化数组每一项为键值对
