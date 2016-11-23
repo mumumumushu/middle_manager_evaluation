@@ -21,7 +21,7 @@ class Activity < ApplicationRecord
 
 	validate :has_user_list?
 
-	after_create :create_self_evaluation, on: [:create, :update]
+	after_create :create_self_evaluation
 	
 	def has_user_list?
 		unless User.where(take_part_in: "#{self.activity_year}").any?
@@ -40,6 +40,8 @@ private
 	# end
 
 	def create_self_evaluation  
+		Evaluation.delete_all
+		SelfEvaluation.delete_all
 		MiddleManager.where(take_part_in: self.activity_year, user_type: 'middle_manager').each do |middle_manager|
 			_self_evaluation = SelfEvaluation.new(activity_id: self.id,
 																						middle_manager_id: middle_manager.id,
