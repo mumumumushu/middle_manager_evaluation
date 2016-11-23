@@ -18,7 +18,7 @@ class SelfEvaluation < ApplicationRecord
   belongs_to :middle_manager
   belongs_to :activity
   has_many :evaluations, dependent: :destroy
-  has_one :result, dependent: :destroy
+  has_one :result
 
   before_save :set_created_year
 

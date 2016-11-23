@@ -136,15 +136,15 @@ class Result < ApplicationRecord
 	end
 
 	def average_score_for_staff
-		self.average_score_for_role('staff')
+		self.average_score_for_role('职工')
 	end
 
 	def average_score_for_middle_manager
-		self.average_score_for_role('middle_manager')
+		self.average_score_for_role('中层干部')
 	end
 
 	def average_score_for_leader
-		self.average_score_for_role('leader')
+		self.average_score_for_role('领导')
 	end
 
 ########  考核总分 及 考核等级  ##########
