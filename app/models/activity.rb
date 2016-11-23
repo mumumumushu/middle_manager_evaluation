@@ -20,7 +20,7 @@ class Activity < ApplicationRecord
 	has_many :self_evaluations, dependent: :destroy 
 
 	validate :has_user_list?
-
+	validates :activity_year, uniqueness:true
 	after_create :create_self_evaluation
 	
 	def has_user_list?
