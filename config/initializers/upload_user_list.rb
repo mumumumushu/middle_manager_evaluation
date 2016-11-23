@@ -13,6 +13,7 @@ class UploadUserList
 			file = File.new("#{output_path}password.txt", "w")
 		
 			4.upto( UploadUserList.get_sum(xlsx) ).each do |row|
+				next if xlsx.formatted_value(row,"B").nil?
 				raise "请填写正确的用户类型, \"领导\"、\"中层干部\"、\"职工\"" unless ['中层干部','领导','职工'].include?(xlsx.formatted_value(row,"V"))
 				if xlsx.formatted_value(row,"V") == '中层干部'
 
