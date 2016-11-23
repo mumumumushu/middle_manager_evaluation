@@ -56,7 +56,7 @@ module MiddleManagerEvaluation
         origins '*'
         resource '*',
           :headers => :any,
-          :methods => [:get, :post, :delete, :put, :options, :head],
+          :methods => [:get, :post, :delete, :put, :options, :head, :patch],
           :max_age => 0
       end
     end
