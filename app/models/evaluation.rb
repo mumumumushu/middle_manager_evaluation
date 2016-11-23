@@ -63,26 +63,23 @@ class Evaluation < ApplicationRecord
   #统计
   #分数集合  剔除 -1（空）
   def score_array
-    _score = self.change_output_format("thought_morals").map { |e| e[1] == -1 ? next : e[1].to_i } +
-             self.change_output_format("duties").map { |e| e[1] == -1 ? next : e[1].to_i } +
-             self.change_output_format("upright_incorruptiable").map { |e| e[1] == -1 ? next : e[1].to_i } +
+    _score = self.change_output_format("thought_morals").map { |e| e[1].to_i } +
+             self.change_output_format("duties").map { |e| e[1].to_i } +
+             self.change_output_format("upright_incorruptiable").map { |e| e[1].to_i } +
              [self.evaluation_totality]
-    # _score = MultiJson.load(self.thought_morals).values.reject{ |x| x == -1} +
-    #          MultiJson.load(self.upright_incorruptiable).values.reject{ |x| x == -1} + 
-    #          MultiJson.load(self.duties).values.reject{ |x| x == -1} +
-    #          [evaluation_totality]
+    _score.reject{ |x| x == -1 }
   end
 
-  #分数集合 填充 -1
+  #分数集合 未填写的duties项 填充 nil
   #考核表选项 结构改变 需要改变
   #固定项 可在 self_evaluation.rb 中 改变初始值
   def score_array_filled
-    _score = self.change_output_format("thought_morals").map { |e| e[1].to_i} +
-             Array.new(3 - self.change_output_format("thought_morals").count, -1) +
-             self.change_output_format("duties").map { |e| e[1].to_i} +
-             Array.new(13 - self.change_output_format("duties").count, -1) +
-             self.change_output_format("upright_incorruptiable").map { |e| e[1].to_i} +
-             Array.new(2 - self.change_output_format("upright_incorruptiable").count, -1) +
+    _score = self.change_output_format("thought_morals").map { |e| e[1] == "-1" ? nil : e[1].to_i } +
+             Array.new(3 - self.change_output_format("thought_morals").count, nil) +
+             self.change_output_format("duties").map { |e| e[1] == "-1" ? nil : e[1].to_i } +
+             Array.new(13 - self.change_output_format("duties").count, nil) +
+             self.change_output_format("upright_incorruptiable").map { |e| e[1] == "-1" ? nil : e[1].to_i } +
+             Array.new(2 - self.change_output_format("upright_incorruptiable").count, nil) +
              [self.evaluation_totality]
 
   end

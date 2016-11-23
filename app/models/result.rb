@@ -132,7 +132,7 @@ class Result < ApplicationRecord
 		_sum = 0.00
 		_arry.each { |evaluation| _sum += evaluation.average_score }
  	  
- 	  _arry.count == 0 ? -1 : ( _sum.to_f / _arry.count.to_f ).round(2)	
+ 	  _arry.count == 0 ? nil : ( _sum.to_f / _arry.count.to_f ).round(2)	
 	end
 
 	def average_score_for_staff

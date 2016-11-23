@@ -14,9 +14,9 @@ class Admin::ResultsController < ApplicationController
 
   def show
     @evaluations = Evaluation.where(self_evaluation: @result.self_evaluation)
-    @leader_evaluations = @evaluations.evaluated_by('leader')
-    @middle_manager_evaluations = @evaluations.evaluated_by('middle_manager')
-    @staff_evaluations = @evaluations.evaluated_by('staff')
+    @leader_evaluations = @evaluations.evaluated_by('领导')
+    @middle_manager_evaluations = @evaluations.evaluated_by('中层干部')
+    @staff_evaluations = @evaluations.evaluated_by('职工')
     respond_with(
       @result, @evaluations, @leader_evaluations, 
       @middle_manager_evaluations, @middle_manager_evaluations
