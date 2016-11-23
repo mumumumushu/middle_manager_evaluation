@@ -3,11 +3,7 @@ class UploadUserList
 
 	def self.upload(input_file, output_path, activity_year)
 		ActiveRecord::Base.transaction do
-			User.all.each do |m| 
-				m.take_part_in = nil
-				m.password = Password.new #< == 重置所有用户的密码
-				m.save
-			end
+			User.delete_all
 
 			xlsx = Roo::Excelx.new(input_file.tempfile)
 			file = File.new("#{output_path}password.txt", "w")
@@ -17,7 +13,7 @@ class UploadUserList
 				raise "请填写正确的用户类型, \"领导\"、\"中层干部\"、\"职工\"" unless ['中层干部','领导','职工'].include?(xlsx.formatted_value(row,"V"))
 				if xlsx.formatted_value(row,"V") == '中层干部'
 
-					_middle_manager = MiddleManager.where( "job_num = ?", UploadUserList.get_job_num(row,xlsx)).first ||  MiddleManager.new
+					_middle_manager =  MiddleManager.new
 					_middle_manager.job_num = UploadUserList.get_job_num(row,xlsx)
 					_middle_manager.user_type = 'middle_manager'
 					_middle_manager.take_part_in = activity_year
@@ -40,7 +36,7 @@ class UploadUserList
 						file.write("姓名: #{_user_info.name},  工号: #{_middle_manager.job_num},  密码: #{_middle_manager.password},  用户类型: #{xlsx.formatted_value(row,"V")}\n")
 					end
 				else #领导 与 职工
-					_user = User.where( "job_num = ?", UploadUserList.get_job_num(row,xlsx)).first ||  User.new
+					_user = User.new
 					_user.job_num = UploadUserList.get_job_num(row,xlsx)
 					_user.user_type = xlsx.formatted_value(row,"v") == '领导' ? 'leader' : 'staff'
 					_user.take_part_in = activity_year
