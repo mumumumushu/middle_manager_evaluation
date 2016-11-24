@@ -44,7 +44,7 @@ class Result < ApplicationRecord
 
 		_count_and_percentage = []
 		0.upto(3) do |n|
-			_percentage = self.sum_of_level_count == 0 ? -1 :((self.each_level_count_array[n]).to_f/(self.sum_of_level_count).to_f * 100).round(2) || 0
+			_percentage = self.sum_of_level_count == 0 ? 0 :((self.each_level_count_array[n]).to_f/(self.sum_of_level_count).to_f * 100).round(2) || 0
 			_count_and_percentage += [ self.each_level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
 		_hash = {}
@@ -86,7 +86,7 @@ class Result < ApplicationRecord
 
 		_count_and_percentage = []
 		0.upto(3) do |n|
-			_percentage = self.sum_of_level_count == 0 ? -1 : ((self.each_result_level_count_array[n]).to_f/(self.sum_of_result_level_count).to_f * 100).round(2) 
+			_percentage = self.sum_of_level_count == 0 ? 0 : ((self.each_result_level_count_array[n]).to_f/(self.sum_of_result_level_count).to_f * 100).round(2) 
 			_count_and_percentage += [ self.each_result_level_count_array[n], '%.2f' % _percentage + '%'] 
 		end
 		_hash = {}
