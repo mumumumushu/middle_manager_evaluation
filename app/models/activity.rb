@@ -20,12 +20,19 @@ class Activity < ApplicationRecord
 	has_many :self_evaluations, dependent: :destroy 
 
 	validate :has_user_list?
+	validate :right_time_parameter?
 	validates :activity_year, uniqueness:true
 	after_create :create_self_evaluation
 	
 	def has_user_list?
 		unless User.where(take_part_in: "#{self.activity_year}").any?
 			errors.add(:take_part_in, "please make sure that you have upload the user_list for this activity")
+		end
+	end
+
+	def right_time_parameter?
+		unless first_phase_end <= second_phase_begin &&  second_phase_end <= third_phase_begin
+			errors.add("请检查时间段信息")
 		end
 	end
 

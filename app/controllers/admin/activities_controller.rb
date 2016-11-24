@@ -25,7 +25,7 @@ class Admin::ActivitiesController < ApplicationController
     if @activity.save
       respond_with @activity, template: 'activities/show', status: 201
     else
-      @error = "请确认已上传本次活动的用户名单（上传名单文件名请设置为\"考核年限\"）"
+      @error = "请检查时间段参数先后顺序 且确保考核年度唯一，并确认已上传本次活动的用户名单"
       respond_with @error, template: 'error', status: 200
     end
   end
@@ -34,7 +34,7 @@ class Admin::ActivitiesController < ApplicationController
     if @activity.update(activity_params)
       respond_with @activity, template: 'activities/show', status: 201
     else
-      @error = "请确认已上传本次活动的用户名单（上传名单文件名请设置为\"考核年限\"）"
+      @error = "请检查时间段参数先后顺序 且确保考核年度唯一，并确认已上传本次活动的用户名单"
       respond_with @error, template: 'error', status: 200
     end
   end
