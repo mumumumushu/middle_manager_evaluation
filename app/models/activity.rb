@@ -32,7 +32,7 @@ class Activity < ApplicationRecord
 
 	def right_time_parameter?
 		unless first_phase_end <= second_phase_begin &&  second_phase_end <= third_phase_begin
-			errors.add("请检查时间段信息")
+			errors.add(:first_phase_end, "请检查时间段信息")
 		end
 	end
 
