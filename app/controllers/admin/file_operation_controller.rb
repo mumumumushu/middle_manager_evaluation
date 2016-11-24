@@ -142,9 +142,6 @@ private
 
     end
 
-    
-
-
     _path =  "#{filename}"
     book.write _path
     _path
