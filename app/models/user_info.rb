@@ -15,8 +15,17 @@
 #  created_at                        :datetime         not null
 #  updated_at                        :datetime         not null
 #  user_type                         :string
+#  job_num                           :string
 #
 
 class UserInfo < ApplicationRecord
   belongs_to :user
+
+  before_create :set_job_num
+
+  private
+
+  def set_job_num
+  	self.job_num = self.user.job_num
+  end
 end
