@@ -130,8 +130,19 @@ private
       0.upto(_all_score_array.count - 1) do |count_column| #列 评价人 evaluation
         sheet1[count_row, count_column + 1] = _all_score_array[count_column][count_row]
       end
+      _one_item_score_array = _all_score_array.map { |a| a[count_row - 1]}
+      if _one_item_score_array.any? 
+        _statistics = Result.change_socre_array_to_level_data(_one_item_score_array).values 
+        0.upto(7) do |i|
+           sheet1[count_row, _all_score_array.count + 1 + i] = _statistics[i]
+        end
+      end
 
     end
+
+    
+
+
     _path =  "#{filename}"
     book.write _path
     _path
