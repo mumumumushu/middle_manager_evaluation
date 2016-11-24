@@ -10,12 +10,17 @@ class Admin::FileOperationController < ActionController::Base
   def upload_user_list
     #得到文件 
     #输出密码文件password.txt
-  	@error = UploadUserList.upload(params[:file], File.dirname(__FILE__) + '/../../../', params[:activity_year])
-    if @error.nil?      
-      render nothing: true, status: 200
-    else
-      @error = "上传失败，请检查信息表格式。 {error: #{@error}}"
+    if params[:activity_year].nil?
+      @error = "请选择考核年限"
       respond_with @error, template: 'error'
+    else
+    	@error = UploadUserList.upload(params[:file], File.dirname(__FILE__) + '/../../../', params[:activity_year])
+      if @error.nil?      
+        render nothing: true, status: 200
+      else
+        @error = "上传失败，请检查信息表格式。 {error: #{@error}}"
+        respond_with @error, template: 'error'
+      end
     end
   end
 
