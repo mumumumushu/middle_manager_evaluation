@@ -186,10 +186,11 @@ class Result < ApplicationRecord
       array.select{ |x| x <= 99 && x >= 90 }.count,
       array.select{ |x| x <= 89 && x >= 80 }.count,
       array.select{ |x| x <= 79 && x >= 60 }.count,       
-      array.select{ |x| x <= 59 && x > 0}.count #将未填写的打分表（平均分0）剔除
+      array.select{ |x| x <= 59 && x >= 0}.count 
     ] 
 
-    _sum_count = array.count
+    _sum_count = 0 
+    _level_count_array.each {|x| _sum_count += x}
 
     _name_keys = [ 'excellent-count', 'excellent-proportion', 'good-count', 'good-proportion', 'average-count', 'average-proportion', 'bad-count', 'bad-proportion' ]
 
