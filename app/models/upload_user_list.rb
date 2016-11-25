@@ -42,19 +42,19 @@ class UploadUserList
 				_user.user_type = _en_user_type
 				_user.take_part_in = activity_year
 				_user.password = Password.new
-				
+
 				if _user.save!
 
 					_user_info = UserInfo.new
 					_user_info.user_id = _user.id
 
-					_user_info.name = UploadUserList.get_name(row,xlsx)
-					_user_info.sex = UploadUserList.get_sex(row,xlsx)
-					_user_info.date_of_birth = UploadUserList.get_birth(row,xlsx)
-					_user_info.degree_of_education = UploadUserList.get_degree_of_education(row,xlsx)
-					_user_info.politics_status = UploadUserList.get_politics_status(row,xlsx)
-					_user_info.department_and_duty = UploadUserList.get_department(row,xlsx) + "  " + UploadUserList.get_duty(row,xlsx)
-					_user_info.starting_time_for_the_present_job = UploadUserList.get_time(row,xlsx)
+					_user_info.name = UploadUserList.get_name(row,xlsx) 
+					_user_info.sex = UploadUserList.get_sex(row,xlsx) 
+					_user_info.date_of_birth = UploadUserList.get_birth(row,xlsx) 
+					_user_info.degree_of_education = UploadUserList.get_degree_of_education(row,xlsx) 
+					_user_info.politics_status = UploadUserList.get_politics_status(row,xlsx) 
+					_user_info.department_and_duty = UploadUserList.get_department(row,xlsx) + "  " + UploadUserList.get_duty(row,xlsx) 
+					_user_info.starting_time_for_the_present_job = UploadUserList.get_time(row,xlsx) 
 
 					_user_info.save!		
 
@@ -82,11 +82,13 @@ class UploadUserList
 
 	def self.get_name(row,xlsx)
 		name = xlsx.formatted_value(row,"C")
-		if name.include?(" ")# or name.include?("<")
-			_x = /([\u4e00-\u9fa5]).+([\u4e00-\u9fa5])/.match( name) 
-			name = _x[1] + _x[2]
-		else
-			name = name.strip
+		if name
+			if name.include?(" ")# or name.include?("<")
+				_x = /([\u4e00-\u9fa5]).+([\u4e00-\u9fa5])/.match( name) 
+				name = _x[1] + _x[2]
+			else
+				name = name.strip
+			end
 		end
 	end
 
@@ -100,12 +102,14 @@ class UploadUserList
 
 	def self.get_birth(row,xlsx)
 		birth = xlsx.formatted_value(row,"G")
-		if birth.include?("/")
-			_x = /(\d+)\/(\d+)\/(\d+)/.match(birth) || /(\d+)\/(\d+)/.match(birth)
-			birth = _x[3] ? "#{_x[1]}.#{_x[2]}.#{_x[3]}" : "#{_x[1]}.#{_x[2]}"
-		else
-			_x = /(\d+)-(\d+)-(\d+)/.match(birth) #["11-17-68",
-			birth = "19#{_x[3]}.#{_x[1]}.#{_x[2]}"
+			if birth
+			if birth.include?("/")
+				_x = /(\d+)\/(\d+)\/(\d+)/.match(birth) || /(\d+)\/(\d+)/.match(birth)
+				birth = _x[3] ? "#{_x[1]}.#{_x[2]}.#{_x[3]}" : "#{_x[1]}.#{_x[2]}"
+			else
+				_x = /(\d+)-(\d+)-(\d+)/.match(birth) #["11-17-68",
+				birth = "19#{_x[3]}.#{_x[1]}.#{_x[2]}"
+			end
 		end
 	end
 
@@ -124,13 +128,15 @@ class UploadUserList
 
 	def self.get_time(row,xlsx)
 		time = xlsx.formatted_value(row,"Q")
-		if time.include?("\n") or time.include?(".")
-			time = time.tr_s("\n", " ")
-			time = time.tr_s("/", ".")
-			time = time.tr_s("-", ".")
-		else
-			_x = /(\d+)-(\d+)-(\d+)/.match(time)
- 			time = "20#{_x[3]}.#{_x[1]}.#{_x[2]}"
+		if time
+			if time.include?("\n") or time.include?(".")
+				time = time.tr_s("\n", " ")
+				time = time.tr_s("/", ".")
+				time = time.tr_s("-", ".")
+			else
+				_x = /(\d+)-(\d+)-(\d+)/.match(time)
+	 			time = "20#{_x[3]}.#{_x[1]}.#{_x[2]}"
+			end
 		end
 	end
 end
