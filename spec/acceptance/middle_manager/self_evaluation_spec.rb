@@ -22,6 +22,10 @@ resource	'中层干部 自评表 查看修改' do
       
     end
 
+    parameter :activity_year, '考核年度', required: true, scope: :self_evaluation
+
+    let(:activity_year) { "2016" }
+
     example "中层干部 自评表 查看 成功" do
       do_request
       puts response_body
@@ -51,6 +55,7 @@ resource	'中层干部 自评表 查看修改' do
     header "X-User-Token", middle_manager_attrs[:authentication_token]
     header "X-User-JobNum", middle_manager_attrs[:job_num]
 
+    parameter :activity_year, '考核年度', required: true, scope: :self_evaluation
     parameter :job, "从事及分管工作", required: true, scope: :user_info
     parameter :duties, "履行岗位职责情况. 项目与分数 英文逗号隔开，项目之间 英文分号隔开， 例：'项目1,80;项目2,70;项目3,60;项目4,90'", required: true, scope: :self_evaluation
     parameter :self_evaluation_totality, "自我总体评价", required: true, scope: :self_evaluation
@@ -60,14 +65,14 @@ resource	'中层干部 自评表 查看修改' do
       create(:user_info, user: @middle_manager)
 
       @activity = create(:activity)
-      create(:self_evaluation, middle_manager: @middle_manager,
+      @a = create(:self_evaluation, middle_manager: @middle_manager,
                                activity: @activity)
     end
 
     let(:job) { "基层党建工作、学生教育与管基层党建工作" }
     let(:duties) { '项目1,80;项目2,70;项目3,60;项目4,90' }
     let(:self_evaluation_totality) { "new 优秀" }
-
+    let(:activity_year) { "2016" }
 
     example "中层干部 修改 自评表 成功" do
       do_request

@@ -13,6 +13,10 @@
 #  user_info                :string
 #  evaluated_user_info      :text
 #  user_info_id             :integer
+#  activity_year            :string
+#  department_and_duty      :string
+#  job                      :string
+#
 
 class SelfEvaluation < ApplicationRecord
   belongs_to :middle_manager
@@ -20,8 +24,9 @@ class SelfEvaluation < ApplicationRecord
   has_many :evaluations, dependent: :destroy
   has_one :result
 
-  before_save :set_created_year
-  before_save :set_user_info_id
+  before_save :set_activity_year
+  before_save :backup_some_params_from_user_info
+  # before_save :set_user_info_id
 
   # before_validation :in_first_phase?
   # validates_presence_of :in_first_phase?, :message => '填写未开放'
@@ -33,14 +38,15 @@ class SelfEvaluation < ApplicationRecord
   # after_update :update_evaluations
   after_create :create_result
 
-  ##??? middle_manager_id == user_id ??
+  scope :activity_year, -> (activity_year) {where(activity_year: activity_year)}
+  ##??? middle_manager_id == user_id  ✔️
   def name
-    UserInfo.find(self.user_info_id).name
+    self.middle_manager.user_info.name
   end
 
-  def department_and_duty #职务
-    UserInfo.find(self.user_info_id).department_and_duty
-  end
+  # def department_and_duty #职务
+  #   self.middle_manager.user_info.department_and_duty
+  # end
 
   def duties_output 
     self.duties ? self.duties.split(";").map { |e| e.split(",") } : []
@@ -52,16 +58,21 @@ class SelfEvaluation < ApplicationRecord
 
   private
 
-  def set_created_year
-    self.created_year = self.activity.activity_year 
+  def set_activity_year
+    self.activity_year = self.activity.activity_year 
   end
 
-  def set_user_info_id 
-    self.user_info_id = self.middle_manager.user_info.id  
+  # def set_user_info_id 
+  #   self.user_info_id = self.middle_manager.user_info.id  
+  # end
+
+  def backup_some_params_from_user_info
+    self.job = self.middle_manager.user_info.job
+    self.department_and_duty = self.middle_manager.user_info.department_and_duty
   end
 
  	def create_evaluations
-    User.where(take_part_in: self.created_year).each do |user|
+    User.where(take_part_in: self.activity_year).each do |user|
       unless user.id == self.middle_manager_id
         _evaluation = user.evaluations.where( :self_evaluation_id => self.id).first || Evaluation.new
         _evaluation.self_evaluation_id = self.id

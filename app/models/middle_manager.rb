@@ -24,10 +24,10 @@ class MiddleManager < User
 
 	validates :job_num, :password, presence: true
 	
-	has_one :self_evaluation
+	has_many :self_evaluations
 
 	def middle_manager_id
-	 ##??需要 ？??? self_evaluation 有middle_manager_id
+	 ##??需要 ？??不需要。 self_evaluation 有middle_manager_id
 		self.id
 	end
 

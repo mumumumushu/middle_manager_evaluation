@@ -19,6 +19,7 @@ resource	'主页获取活动信息' do
 
     describe '活动未开始' do
     	before do 
+        Activity.delete_all
     		create(:activity, first_phase_begin: "2016-12-1 00:00:00",
      										third_phase_end: "2016-12-30 00:00:00")
   		end

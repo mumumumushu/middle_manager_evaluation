@@ -25,8 +25,8 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
   # end
 
   def update
-    @self_evaluation.update(self_evaluation_params)
     @self_evaluation.middle_manager.user_info.update(user_info_params)
+    @self_evaluation.update(self_evaluation_params)#更新user_info 更新self_evaluation备份数据
     respond_with @self_evaluation, template: "middle_managers/self_evaluations/show", status: 201
   end
 
@@ -44,12 +44,12 @@ class MiddleManagers::SelfEvaluationsController < ApplicationController
     end
 
     def set_self_evaluation
-      @self_evaluation =  MiddleManager.find(current_user.id).self_evaluation
+      @self_evaluation =  MiddleManager.find(current_user.id).self_evaluations.activity_year(params[:self_evaluation][:activity_year]).first
     end
 
     def self_evaluation_params
       params.require(:self_evaluation).permit(
-        :duties, :self_evaluation_totality
+        :duties, :self_evaluation_totality, :activity_year
         )
     end
 
