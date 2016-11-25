@@ -13,6 +13,9 @@
 #  user_info                :string
 #  evaluated_user_info      :text
 #  user_info_id             :integer
+#  activity_year            :string
+#  department_and_duty      :string
+#  job                      :string
 #
 
 require 'rails_helper'

@@ -15,7 +15,7 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
     	@middle_manager = create(:middle_manager)
       create(:user_info, user: @middle_manager)
       @leader = create(:leader)
-      create(:user_info, user: @leaeder)
+      create(:user_info, user: @leader)
 
       
       @activity = create(:activity)

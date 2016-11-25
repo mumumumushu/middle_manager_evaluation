@@ -3,3 +3,6 @@ zh-CN:
     middle_manager: "中层干部"
     leader: "领导"
     staff: "职工"
+    "领导": leader
+    "职工": staff
+    "中层干部": middle_manager

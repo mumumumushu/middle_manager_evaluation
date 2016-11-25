@@ -33,9 +33,12 @@ class User < ApplicationRecord
 
   validates :job_num, uniqueness: true
   #has_many :evaluations, as: :evaluationable
-  has_many :evaluations
-  has_one :user_info
+  has_many :evaluations #不能dependent: :destory 需要evaluation做为result计算依据
+  has_one :user_info, dependent: :destroy
 
+  scope :job_num, -> (job_num) {where(job_num: job_num)}
+  scope :user_type, -> (type) {where(user_type: type)}
+  
   def right_type? type
     self.user_type == type and self.take_part_in
   end

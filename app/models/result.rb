@@ -111,7 +111,7 @@ class Result < ApplicationRecord
 	end
 
 	def department_and_duty #职务 #（✔️）
-		UserInfo.find(self.self_evaluation.user_info_id).department_and_duty
+		self.self_evaluation.department_and_duty
 	end
 
 	def evaluated_user_info
