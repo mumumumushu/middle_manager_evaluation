@@ -123,7 +123,7 @@ class Evaluation < ApplicationRecord
         "称职"
       when _x < 80 && _x >= 60
         "基本称职"
-      when _x < 60 && _x >= 0
+      when _x < 60 && _x > 0 #将未填写的打分表（平均分0）剔除
         "不称职"
     end  
   end
