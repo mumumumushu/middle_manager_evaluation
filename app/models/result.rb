@@ -124,11 +124,11 @@ class Result < ApplicationRecord
 ###########  各角色总平均分  #########
 ###待测试
 	def average_score_for_role role
-		_arry = Evaluation.where( " self_evaluation_id = ? AND evaluating_user_type = ?", self.self_evaluation_id, role)
+		_evaluations = Evaluation.where( "self_evaluation_id = ? AND evaluating_user_type = ?", self.self_evaluation_id, role)
+		_array = _evaluations.collect(&:average_score).reject{|x| x == 0 }
 		_sum = 0.00
-		_arry.each { |evaluation| _sum += evaluation.average_score }
- 	  
- 	  _arry.count == 0 ? nil : ( _sum.to_f / _arry.count.to_f ).round(2)	
+		_array.each { |e| _sum += e }
+ 	  _array.count == 0 ? nil : ( _sum.to_f / _array.count.to_f ).round(2)	
 	end
 
 	def average_score_for_staff
@@ -146,9 +146,10 @@ class Result < ApplicationRecord
 ########  考核总分 及 考核等级  ##########
 
 	def average_score_for_all
-		(self.average_score_for_leader || 0 ) * 0.5 +
+		s = (self.average_score_for_leader || 0 ) * 0.5 +
 		(self.average_score_for_middle_manager || 0 )* 0.3 +
 		(self.average_score_for_staff || 0 )* 0.2
+		s.round(2)
 	end
 
 	def level_of_average_score_for_all

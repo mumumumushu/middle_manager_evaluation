@@ -69,7 +69,7 @@ class Evaluation < ApplicationRecord
              [self.evaluation_totality]
     _score.reject{ |x| x == -1 }
   end
-
+  #为 视图组织数据结构
   #分数集合 未填写的duties项 填充 nil
   #考核表选项 结构改变 需要改变
   #固定项 可在 self_evaluation.rb 中 改变初始值
@@ -77,10 +77,11 @@ class Evaluation < ApplicationRecord
     _score = self.change_output_format("thought_morals").map { |e| e[1] == "-1" ? nil : e[1].to_i } +
              Array.new(3 - self.change_output_format("thought_morals").count, nil) +
              self.change_output_format("duties").map { |e| e[1] == "-1" ? nil : e[1].to_i } +
-             Array.new(13 - self.change_output_format("duties").count, nil) +
+             Array.new(12 - self.change_output_format("duties").count, nil) +
              self.change_output_format("upright_incorruptiable").map { |e| e[1] == "-1" ? nil : e[1].to_i } +
              Array.new(2 - self.change_output_format("upright_incorruptiable").count, nil) +
-             [self.evaluation_totality == -1 ? nil : self.evaluation_totality]
+             [self.evaluation_totality == -1 ? nil : self.evaluation_totality] +
+             [self.average_score]
 
   end
   #分数集合 填充索引 转化数组每一项为键值对
@@ -110,7 +111,7 @@ class Evaluation < ApplicationRecord
     _score = self.score_array
     _sum = 0.00
     _score.each { |x| _sum += x} 
-    (_average_score = _sum / _score.count).round(2)
+    _score.count == 0 ? 0 : (_average_score = _sum / _score.count).round(2)
   end
 
   def average_score_level
