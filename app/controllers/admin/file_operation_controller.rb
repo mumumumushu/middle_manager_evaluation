@@ -94,10 +94,10 @@ private
     1.upto(8) do |i|
     	# sheet1[i, 0] = i
       sheet1[results.count + i, 1] = _level_array[i - 1]
-      sheet1[results.count + i, 2] = Result.change_socre_array_to_level_data(_leader_score_array).values[i - 1]
-      sheet1[results.count + i, 3] = Result.change_socre_array_to_level_data(_middle_manager_score_array).values[i - 1]
-      sheet1[results.count + i, 4] = Result.change_socre_array_to_level_data(_staff_score_array).values[i - 1]
-      sheet1[results.count + i, 5] = Result.change_socre_array_to_level_data(_average_score_for_all_array).values[i - 1]
+      sheet1[results.count + i, 2] = Result.change_score_array_to_level_data(_leader_score_array).values[i - 1]
+      sheet1[results.count + i, 3] = Result.change_score_array_to_level_data(_middle_manager_score_array).values[i - 1]
+      sheet1[results.count + i, 4] = Result.change_score_array_to_level_data(_staff_score_array).values[i - 1]
+      sheet1[results.count + i, 5] = Result.change_score_array_to_level_data(_average_score_for_all_array).values[i - 1]
       # sheet1[results.count + i, 6] = result.final_result
     end
 
@@ -134,7 +134,7 @@ private
       end
       _one_item_score_array = _all_score_array.map { |a| a[count_row - 1]}
       if _one_item_score_array.any? 
-        _statistics = Result.change_socre_array_to_level_data(_one_item_score_array).values 
+        _statistics = Result.change_score_array_to_level_data(_one_item_score_array).values 
         0.upto(7) do |i|
            sheet1[count_row, _all_score_array.count + 1 + i] = _statistics[i]
         end

@@ -180,13 +180,13 @@ class Result < ApplicationRecord
 
 	##########
 
-	def self.change_socre_array_to_level_data array
+	def self.change_score_array_to_level_data array
 		array = array.map { |e| e == nil ? -1 : e }
     _level_count_array = [ 
       array.select{ |x| x <= 99 && x >= 90 }.count,
       array.select{ |x| x <= 89 && x >= 80 }.count,
       array.select{ |x| x <= 79 && x >= 60 }.count,       
-      array.select{ |x| x <= 59 && x >= 0}.count
+      array.select{ |x| x <= 59 && x > 0}.count #将未填写的打分表（平均分0）剔除
     ] 
 
     _sum_count = array.count

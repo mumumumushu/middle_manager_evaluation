@@ -18,10 +18,10 @@ end
 
 json.statistics do
 
-		json.leader Result.change_socre_array_to_level_data(_leader_score_array)
-		json.middle_manager Result.change_socre_array_to_level_data(_middle_manager_score_array)
-		json.staff Result.change_socre_array_to_level_data(_staff_score_array)
-		json.average_for_all Result.change_socre_array_to_level_data(_average_score_for_all_array)
+		json.leader Result.change_score_array_to_level_data(_leader_score_array)
+		json.middle_manager Result.change_score_array_to_level_data(_middle_manager_score_array)
+		json.staff Result.change_score_array_to_level_data(_staff_score_array)
+		json.average_for_all Result.change_score_array_to_level_data(_average_score_for_all_array)
 
 end
 
