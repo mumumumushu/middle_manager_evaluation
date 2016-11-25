@@ -36,13 +36,13 @@ class UploadUserList
 				else
 					#不存在该工号 创建新user 并赋予新密码
 					_user = _en_user_type == 'middle_manager' ? MiddleManager.new : User.new
-					_user.password = Password.new
 				end 
 
 				_user.job_num = UploadUserList.get_job_num(row,xlsx)
 				_user.user_type = _en_user_type
 				_user.take_part_in = activity_year
-
+				_user.password = Password.new
+				
 				if _user.save!
 
 					_user_info = UserInfo.new
