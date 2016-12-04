@@ -46,6 +46,10 @@ class User < ApplicationRecord
   def info
     self.user_info || self.create_user_info
   end
+  #避免角色切换可能的bug，不必
+  def middle_manager_id
+    self.id
+  end
  
   def email_required?
     false

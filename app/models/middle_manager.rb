@@ -30,6 +30,9 @@ class MiddleManager < User
 	 ##??需要 ？??不需要。 self_evaluation 有middle_manager_id
 		self.id
 	end
+	def user_id 
+		self.id
+	end
 
 	# def evaluationed_by_others
 	# 	self_evaluation.evaluations

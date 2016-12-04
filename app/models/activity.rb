@@ -47,7 +47,7 @@ private
 	# end
 
 	def create_self_evaluation  
-		MiddleManager.where(take_part_in: self.activity_year, user_type: 'middle_manager').each do |middle_manager|
+		User.where(take_part_in: self.activity_year, user_type: 'middle_manager').each do |middle_manager|
 			_self_evaluation = SelfEvaluation.new(activity_id: self.id,
 																						middle_manager_id: middle_manager.id,
 																						duties: '',
