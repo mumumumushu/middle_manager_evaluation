@@ -53,7 +53,7 @@ class UploadUserList
 					_user_info.date_of_birth = UploadUserList.get_birth(row,xlsx) 
 					_user_info.degree_of_education = UploadUserList.get_degree_of_education(row,xlsx) 
 					_user_info.politics_status = UploadUserList.get_politics_status(row,xlsx) 
-					_user_info.department_and_duty = UploadUserList.get_department(row,xlsx) || "" + "  " + UploadUserList.get_duty(row,xlsx) || ""
+					_user_info.department_and_duty = UploadUserList.get_department(row,xlsx) + "  " + UploadUserList.get_duty(row,xlsx) 
 					_user_info.starting_time_for_the_present_job = UploadUserList.get_time(row,xlsx) 
 
 					_user_info.save!		
@@ -118,12 +118,16 @@ class UploadUserList
 	end
 
 	def self.get_department(row,xlsx)
-		department = xlsx.formatted_value(row,"O")
+		department = xlsx.formatted_value(row,"O") || ""
 	end
 
 	
 	def self.get_duty(row,xlsx)
-		duty = xlsx.formatted_value(row,"P").tr_s("\n",", ")	
+		if xlsx.formatted_value(row,"P")
+			duty = xlsx.formatted_value(row,"P").tr_s("\n",", ")
+		else
+			""
+		end
 	end
 
 	def self.get_time(row,xlsx)
@@ -166,7 +170,7 @@ end
 	# 					file.write("姓名: #{_user_info.name},  工号: #{_middle_manager.job_num},  密码: #{_middle_manager.password},  用户类型: #{xlsx.formatted_value(row,"V")}\n")
 	# 				end
 	# 			else #领导 与 职工
-	# 				_user = User.new
+	# 				_user_info = _user.user_info || UserInfo.new
 	# 				_user.job_num = UploadUserList.get_job_num(row,xlsx)
 	# 				_user.user_type = xlsx.formatted_value(row,"v") == '领导' ? 'leader' : 'staff'
 	# 				_user.take_part_in = activity_year
