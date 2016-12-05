@@ -96,7 +96,7 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
 
       let(:activity_year) {2016}
 
-      example "管理员 统计结果列表 查看成功" do
+      example "管理员 打分表填写情况 查看成功" do
         do_request
         puts response_body
         expect(status).to eq(200)
