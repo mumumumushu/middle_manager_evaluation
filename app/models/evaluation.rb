@@ -60,7 +60,7 @@ class Evaluation < ApplicationRecord
 
   #转换 duties, thought_morals, upright_incorruptiable
   def change_output_format field
-    self.send(field) ? self.send(field).split(";").map { |e| e.split(",") } : []
+    self.send(field) ? self.send(field).split("*;*").map { |e| e.split("*,*") } : []
   end
 
   #统计

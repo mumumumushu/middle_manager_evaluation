@@ -54,7 +54,7 @@ class SelfEvaluation < ApplicationRecord
   # end
 
   def duties_output 
-    self.duties ? self.duties.split(";").map { |e| e.split(",") } : []
+    self.duties ? self.duties.split("*;*").map { |e| e.split("*,*") } : []
   end
   
   # def change_output_format field
@@ -84,11 +84,11 @@ class SelfEvaluation < ApplicationRecord
         _evaluation.user_id = user.id
 
         ##打分表初始分数 --> -1
-        _duties = self.duties_output.map { |e| "#{e[0]},-1" }.join(";")
+        _duties = self.duties_output.map { |e| "#{e[0]}*,*-1" }.join("*;*")
 
         _evaluation.duties = _duties
-        _evaluation.thought_morals = '思想政治态度,-1;道德作风品行,-1;团结协调合作,-1'
-        _evaluation.upright_incorruptiable = '廉洁从政,-1;执行党风廉政建设责任制,-1'
+        _evaluation.thought_morals = '思想政治态度*,*-1*;*道德作风品行*,*-1*;*团结协调合作*,*-1'
+        _evaluation.upright_incorruptiable = '廉洁从政*,*-1*;*执行党风廉政建设责任制*,*-1'
         _evaluation.evaluation_totality = -1
         _evaluation.save
       end
