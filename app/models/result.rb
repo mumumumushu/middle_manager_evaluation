@@ -174,8 +174,12 @@ class Result < ApplicationRecord
 		User.where( "take_part_in = ? AND user_type = ?", self.activity_year, 'middle_manager' ).count
 	end
 	
-	def count_of_all_user
-		User.where(take_part_in: self.activity_year).count
+	def count_of_all_user #仅至少完成一个打分表的人数
+		_sum = 0
+		User.where(take_part_in: self.activity_year).each do |user| #.count
+			_sum += 1 if user.evaluations.edited.any? 
+		end
+		_sum
 	end	
 
 	##########
