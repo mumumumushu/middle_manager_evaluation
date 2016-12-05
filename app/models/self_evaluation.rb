@@ -3,7 +3,7 @@
 # Table name: self_evaluations
 #
 #  id                       :integer          not null, primary key
-#  duties                   :string
+#  duties                   :text
 #  self_evaluation_totality :string
 #  middle_manager_id        :integer
 #  created_at               :datetime         not null

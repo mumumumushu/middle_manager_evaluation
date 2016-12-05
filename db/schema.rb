@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125030404) do
+ActiveRecord::Schema.define(version: 20161205070541) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "first_phase_begin"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20161125030404) do
   end
 
   create_table "self_evaluations", force: :cascade do |t|
-    t.string   "duties"
+    t.text     "duties"
     t.string   "self_evaluation_totality"
     t.integer  "middle_manager_id"
     t.datetime "created_at",               null: false
