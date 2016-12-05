@@ -53,7 +53,7 @@ class UploadUserList
 					_user_info.date_of_birth = UploadUserList.get_birth(row,xlsx) 
 					_user_info.degree_of_education = UploadUserList.get_degree_of_education(row,xlsx) 
 					_user_info.politics_status = UploadUserList.get_politics_status(row,xlsx) 
-					_user_info.department_and_duty = UploadUserList.get_department(row,xlsx) + "  " + UploadUserList.get_duty(row,xlsx) 
+					_user_info.department_and_duty = UploadUserList.get_department(row,xlsx) || "" + "  " + UploadUserList.get_duty(row,xlsx) || ""
 					_user_info.starting_time_for_the_present_job = UploadUserList.get_time(row,xlsx) 
 
 					_user_info.save!		

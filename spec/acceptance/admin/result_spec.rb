@@ -91,6 +91,18 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
       end
     end
 
+    get 'admin/evaluation_count' do 
+      parameter :activity_year, "考核年度", required: true
+
+      let(:activity_year) {2016}
+
+      example "管理员 统计结果列表 查看成功" do
+        do_request
+        puts response_body
+        expect(status).to eq(200)
+      end
+    end
+
   end
 
 end

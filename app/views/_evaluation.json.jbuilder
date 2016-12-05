@@ -1,5 +1,7 @@
 json.extract! evaluation, :id, :self_evaluation_id, :user_id, :already_edited, :created_year, :activity_id
 
+json.self_evaluation_has_edited evaluation.self_evaluation.already_edited
+
 json.info do
 	json.( evaluation, :name, :job_num, 
 	:department_and_duty, :evaluating_user_type )

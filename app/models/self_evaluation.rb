@@ -40,6 +40,11 @@ class SelfEvaluation < ApplicationRecord
 
   scope :activity_year, -> (activity_year) {where(activity_year: activity_year)}
   ##??? middle_manager_id == user_id  ✔️
+  
+  def already_edited
+    self.self_evaluation_totality == "" ? false : true
+  end
+
   def name
     self.middle_manager.user_info.name
   end

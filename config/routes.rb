@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   resources :evaluations, only: [ :index, :show, :update ]
   
   get 'home_info', to: 'home#get_home_info'
-	
+	get 'admin/evaluation_count', to: 'admin/evaluation_count#index'
   ###### File Operation ######
   post 'admin/upload_user_list', to: 'admin/file_operation#upload_user_list'
   get 'admin/output_result_index', to: 'admin/file_operation#output_result_index'

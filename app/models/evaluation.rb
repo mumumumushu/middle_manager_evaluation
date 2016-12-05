@@ -34,6 +34,9 @@ class Evaluation < ApplicationRecord
  # 	validates_presence_of :evaluation_totality
 ##
   scope :evaluated_by, -> (type) {where(evaluating_user_type: type)}
+  scope :activity_id_is, -> (id) {where(activity_id: id)}
+  scope :edited, -> {where(already_edited: true)}
+  scope :unedited, -> {where(already_edited: false)}
 ##
 	def created_year
     self.self_evaluation.created_year 
