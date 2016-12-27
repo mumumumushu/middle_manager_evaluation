@@ -190,7 +190,7 @@ class Result < ApplicationRecord
       array.select{ |x| x <= 99 && x >= 90 }.count,
       array.select{ |x| x <= 89 && x >= 80 }.count,
       array.select{ |x| x <= 79 && x >= 60 }.count,       
-      array.select{ |x| x <= 59 && x >= 0}.count 
+      array.select{ |x| x <= 59 && x > 0}.count 
     ] 
 
     _sum_count = 0 
