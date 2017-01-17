@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205070541) do
+ActiveRecord::Schema.define(version: 20170117061335) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "first_phase_begin"
@@ -62,11 +62,12 @@ ActiveRecord::Schema.define(version: 20161205070541) do
 
   create_table "results", force: :cascade do |t|
     t.integer  "self_evaluation_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "final_result"
     t.string   "activity_year"
     t.datetime "final_evaluation_time"
+    t.string   "average_level_by_setting"
     t.index ["self_evaluation_id"], name: "index_results_on_self_evaluation_id"
   end
 

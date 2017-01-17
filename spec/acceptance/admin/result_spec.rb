@@ -91,6 +91,21 @@ resource	'管理员 统计结果 查看 与 设置 单位评鉴结果' do
       end
     end
 
+    patch '/admin/results/:id/set_average_level' do
+
+      parameter :average_level_by_setting, "考核等级,[ 优秀, 称职, 基本称职, 不称职]", required: true, scope: :result
+
+      let(:average_level_by_setting) { '称职' }
+      let(:id) {@results.first.id}
+
+
+      example "管理员 设置 考核等级 成功" do
+        do_request
+        puts response_body
+        expect(status).to eq(201)
+      end
+    end
+
     get 'admin/evaluation_count' do 
       parameter :activity_year, "考核年度", required: true
 

@@ -2,13 +2,14 @@
 #
 # Table name: results
 #
-#  id                    :integer          not null, primary key
-#  self_evaluation_id    :integer
-#  created_at            :datetime         not null
-#  updated_at            :datetime         not null
-#  final_result          :string
-#  activity_year         :string
-#  final_evaluation_time :datetime
+#  id                       :integer          not null, primary key
+#  self_evaluation_id       :integer
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  final_result             :string
+#  activity_year            :string
+#  final_evaluation_time    :datetime
+#  average_level_by_setting :string
 #
 
 class Result < ApplicationRecord
@@ -166,6 +167,10 @@ class Result < ApplicationRecord
       else
       	""
     end
+	end
+
+	def output_of_level_of_average_score_for_all
+		self.average_level_by_setting || level_of_average_score_for_all
 	end
 
 #############参与人数##############

@@ -1,33 +1,7 @@
 Rails.application.routes.draw do
   
-  # devise_for :users#, controllers: { sessions: "users/sessions" }
- 
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # devise_for :users, controllers: {
-  #   sessions: 'user/sessions',
-  #   passwords: 'user/passwords'
-  # }
-
-  # devise_for :admins, controllers: {
-  #   sessions: 'admin/sessions',
-  #   passwords: 'admin/passwords', 
-  # }
-
-  # devise_for :leaders
-  # , controllers: {
-  #   sessions: 'leaders/sessions'
-  # }
-
-###？？？？？？？？user？？？？？？会无法验证
   devise_for :users
-  # devise_for :leaders
-  # devise_for :staffs
-  # devise_for :middle_managers
   devise_for :admins
-
-  # resources :evaluations
-  # resource :self_evaluations
 
   namespace :leaders do
   	resources :evaluations, only: [ :index, :show, :update ]
@@ -45,7 +19,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
   	resources :results, only: [ :index, :show ] do
-  		patch :set_final_result, on: :member
+  		patch :set_average_level, on: :member
+      patch :set_final_result, on: :member
       get :feedback_form, on: :member
 		end
     resources :activities, only: [:index, :show, :create, :update]
@@ -63,7 +38,6 @@ Rails.application.routes.draw do
   get 'admin/load_user_list_template', to: 'admin/file_operation#load_user_list_template'
   get 'admin/load_password_txt', to: 'admin/file_operation#load_password_txt'
 end
-
 #                          Prefix Verb   URI Pattern                                   Controller#Action
 #                         apitome        /api/docs                                     Apitome::Engine
 #                new_user_session GET    /users/sign_in(.:format)                      devise/sessions#new
@@ -114,15 +88,26 @@ end
 #                                 PUT    /middle_managers/self_evaluation(.:format)    middle_managers/self_evaluations#update
 #          middle_managers_result GET    /middle_managers/result(.:format)             middle_managers/results#show
 #   set_final_result_admin_result PATCH  /admin/results/:id/set_final_result(.:format) admin/results#set_final_result
+#      feedback_form_admin_result GET    /admin/results/:id/feedback_form(.:format)    admin/results#feedback_form
 #                   admin_results GET    /admin/results(.:format)                      admin/results#index
 #                    admin_result GET    /admin/results/:id(.:format)                  admin/results#show
-#                activitise_index GET    /activitise(.:format)                         activitise#index
-#                                 POST   /activitise(.:format)                         activitise#create
-#                      activitise GET    /activitise/:id(.:format)                     activitise#show
-#                                 PATCH  /activitise/:id(.:format)                     activitise#update
-#                                 PUT    /activitise/:id(.:format)                     activitise#update
-#                                 DELETE /activitise/:id(.:format)                     activitise#destroy
+#                admin_activities GET    /admin/activities(.:format)                   admin/activities#index
+#                                 POST   /admin/activities(.:format)                   admin/activities#create
+#                  admin_activity GET    /admin/activities/:id(.:format)               admin/activities#show
+#                                 PATCH  /admin/activities/:id(.:format)               admin/activities#update
+#                                 PUT    /admin/activities/:id(.:format)               admin/activities#update
 #                       user_info GET    /user_info(.:format)                          user_infos#show
+#                     evaluations GET    /evaluations(.:format)                        evaluations#index
+#                      evaluation GET    /evaluations/:id(.:format)                    evaluations#show
+#                                 PATCH  /evaluations/:id(.:format)                    evaluations#update
+#                                 PUT    /evaluations/:id(.:format)                    evaluations#update
+#                       home_info GET    /home_info(.:format)                          home#get_home_info
+#          admin_evaluation_count GET    /admin/evaluation_count(.:format)             admin/evaluation_count#index
+#          admin_upload_user_list POST   /admin/upload_user_list(.:format)             admin/file_operation#upload_user_list
+#       admin_output_result_index GET    /admin/output_result_index(.:format)          admin/file_operation#output_result_index
+#        admin_output_result_show GET    /admin/output_result_show(.:format)           admin/file_operation#output_result_show
+#   admin_load_user_list_template GET    /admin/load_user_list_template(.:format)      admin/file_operation#load_user_list_template
+#         admin_load_password_txt GET    /admin/load_password_txt(.:format)            admin/file_operation#load_password_txt
 
 # Routes for Apitome::Engine:
 #   root GET  /                         apitome/docs#index

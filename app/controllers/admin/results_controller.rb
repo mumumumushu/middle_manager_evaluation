@@ -3,7 +3,7 @@ class Admin::ResultsController < ApplicationController
   include ActionController::MimeResponds
 
   acts_as_token_authentication_handler_for Admin
-  before_action :set_result, only: [:show, :feedback_form, :set_fina_result]
+  before_action :set_result, only: [:show, :feedback_form, :set_final_result, :set_average_level]
 
   respond_to :json
 
@@ -43,12 +43,17 @@ class Admin::ResultsController < ApplicationController
   #   respond_with(@result)
   # end
 
+  def set_average_level
+    @result.update(average_level_params)
+    @result.save
+    render nothing: true, status: 201
+  end
+
   def set_final_result
-    @result = Result.find(params[:id])
     @result.update(result_params)
     @result.final_evaluation_time = Time.now
     @result.save
-    respond_with @result, template: "admin/results/feedback_form", status: 201
+    render nothing: true, status: 201
   end
 
   private
@@ -58,5 +63,9 @@ class Admin::ResultsController < ApplicationController
 
     def result_params
       params.require(:result).permit(:final_result)
+    end
+
+    def average_level_params
+      params.require(:result).permit(:average_level_by_setting)
     end
 end

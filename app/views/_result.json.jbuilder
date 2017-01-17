@@ -21,7 +21,7 @@ json.average_for_each_role do
 end 
 
 json.statistics_result do
-	json.( result, :average_score_for_all, :level_of_average_score_for_all)
+	json.( result, :average_score_for_all, :output_of_level_of_average_score_for_all)
 end
 
 json.set_by_admin do

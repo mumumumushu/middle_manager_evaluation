@@ -1,0 +1,458 @@
+Searching 62 files for "http://"
+
+/Users/mushu/rails/cadres_assess/.editorconfig:
+    1: # http://editorconfig.org
+    2  root = true
+    3  
+
+/Users/mushu/rails/cadres_assess/README.md:
+   15  ```
+   16  
+   17: 访问 http://127.0.0.1:8989
+   18  
+   19  ## Build
+
+/Users/mushu/rails/cadres_assess/src/components/admin/Admin.jsx:
+   33    componentWillMount() {
+   34      Agent
+   35:       .get("http://114.55.172.35:3232/admin/activities")
+   36        .set('Accept', 'application/json')
+   37        .set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/admin/AdminLogIn.jsx:
+   36    beginLogin(email, password){
+   37      SuperAgent
+   38:       .post("http://114.55.172.35:3232/admins/sign_in")
+   39        .set('Accept', 'application/json')
+   40        .set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/admin/evaluation_count/EvaluationCount.jsx:
+   32    getData(year){
+   33      SuperAgent
+   34:       .get(`http://114.55.172.35:3232/admin/evaluation_count?activity_year=${year}`)
+   35        .set('Accept', 'application/json')
+   36        .set('X-Admin-Token', sessionStorage.admin_token)
+
+/Users/mushu/rails/cadres_assess/src/components/admin/Statistics/Statistics.jsx:
+   98          console.log('Received values of form: ', values);
+   99          SuperAgent
+  100:           .patch(`http://114.55.172.35:3232//admin/results/${this.state.logic_record.id}/set_final_result`)
+  101            .set('Accept', 'application/json')
+  102            .set('Cache-control', 'no-cache')
+  ...
+  131  
+  132    getData(year){
+  133:     const url = `http://114.55.172.35:3232/admin/results?activity_year=${year}`;
+  134      SuperAgent
+  135        .get(url)
+  ...
+  161    render() {
+  162      const { getFieldDecorator } = this.props.form;
+  163:     const url = `http://114.55.172.35:3232/admin/output_result_index?activity_year=${this.props.location.query.year}`;
+  164      const formItemLayout = {
+  165        labelCol: { span: 6 },
+
+/Users/mushu/rails/cadres_assess/src/components/admin/Statistics/StatisticsD.jsx:
+  164      var token = localStorage.token
+  165      var phone = localStorage.phone
+  166:     var url = `http://114.55.172.35:3232/admin/results/${this.props.location.query.id}`
+  167      SuperAgent.get(url)
+  168                .set('Accept', 'application/json')
+  ...
+  182    render() {
+  183      const id = this.props.location.query.id;
+  184:     const url = `http://114.55.172.35:3232/admin/output_result_show?result_id=${id}`
+  185      return (
+  186        <Admin>
+
+/Users/mushu/rails/cadres_assess/src/components/admin/TestSet/ListModal.jsx:
+   71      let format = "YYYY-MM-DD";
+   72  
+   73:     SuperAgent(method, `http://114.55.172.35:3232/admin/activities/${id}`)
+   74        .set('Accept', 'application/json')
+   75        .set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/admin/TestSet/TestSet.jsx:
+   26    getActivities(){
+   27      SuperAgent
+   28:       .get("http://114.55.172.35:3232/admin/activities?page=1&per_page=1000")
+   29        .set('Accept', 'application/json')
+   30        .set('X-Admin-Token', sessionStorage.admin_token)
+
+/Users/mushu/rails/cadres_assess/src/components/admin/UserSet/UserSet.jsx:
+   46      var token = localStorage.token
+   47      var phone = localStorage.phone
+   48:     var url = `http://114.55.172.35:3232/admin/upload_user_list`
+   49      SuperAgent
+   50        .post(url)
+   ..
+  109    render() {
+  110      const { getFieldDecorator } = this.props.form;
+  111:     const url = `http://114.55.172.35:3232/admin/load_user_list_template`
+  112:     const url_user = `http://114.55.172.35:3232/admin/load_password_txt`
+  113  
+  114      let options = [];
+
+/Users/mushu/rails/cadres_assess/src/components/assess/Assess.jsx:
+   42  	getSelfEvaluation(timeline) {
+   43  		Agent
+   44: 			.get(`http://114.55.172.35:3232/middle_managers/self_evaluation?self_evaluation[activity_year]=${timeline.year}`)
+   45  			.set('Accept', 'application/json')
+   46  			.set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/assess/StepOne.jsx:
+   37  	getEvaluation() {
+   38  		Agent
+   39: 			.get(`http://114.55.172.35:3232/middle_managers/self_evaluation?self_evaluation[activity_year]=${this.props.year}`)
+   40  			.set('Accept', 'application/json')
+   41  			.set('Cache-control', 'no-cache')
+   ..
+  110  	updateSelf(params, duties) {
+  111  		Agent
+  112: 			.put("http://114.55.172.35:3232/middle_managers/self_evaluation")
+  113  			.set('Accept', 'application/json')
+  114  			.set('X-User-Token', sessionStorage.token)
+
+/Users/mushu/rails/cadres_assess/src/components/assess/StepThree.jsx:
+   70      var token = localStorage.token
+   71      var phone = localStorage.phone
+   72:     var url = `http://114.55.172.35:3232/admin/results/${this.props.id}/feedback_form?random=${Math.random()}`
+   73      SuperAgent.get(url)
+   74                .set('Accept', 'application/json')
+
+/Users/mushu/rails/cadres_assess/src/components/assess/StepTwo.jsx:
+   45  	getEvaluationList() {
+   46  		Agent
+   47: 			.get(`http://114.55.172.35:3232/evaluations?page=1&per_page=1000`)
+   48  			.set('Accept', 'application/json')
+   49  			.set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/assess/UserInfo.jsx:
+   11  	componentDidMount() {
+   12  		Agent
+   13: 			.get("http://114.55.172.35:3232/user_info")
+   14  			.set('Accept', 'application/json')
+   15  			.set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/login/Login.jsx:
+   42    	// 开始登录
+   43  		SuperAgent
+   44: 			.post("http://114.55.172.35:3232/users/sign_in")
+   45  			.set('Accept', 'application/json')
+   46  			.set('Cache-control', 'no-cache')
+   ..
+   69    getTimeLine() {
+   70    	SuperAgent
+   71: 			.get("http://114.55.172.35:3232/home_info")
+   72  			.set('Accept', 'application/json')
+   73  			.end((err, res) => {
+
+/Users/mushu/rails/cadres_assess/src/components/mobile/MobileEvaluate.jsx:
+   31      let id = this.props.location.query.id;
+   32      Agent
+   33:       .get(`http://114.55.172.35:3232/evaluations/${id}`)
+   34        .set('Accept', 'application/json')
+   35        .set('Cache-control', 'no-cache')
+   ..
+   81  
+   82      Agent
+   83:       .put(`http://114.55.172.35:3232/evaluations/${id}`)
+   84        .set('Accept', 'application/json')
+   85        .set('X-User-Token', localStorage.token)
+   ..
+  120    leaderEvalution(params) {
+  121      Agent
+  122:       .put(`http://114.55.172.35:3232/evaluations/${this.state.evaluation.id}`)
+  123        .set('Accept', 'application/json')
+  124        .set('X-User-Token', localStorage.token)
+
+/Users/mushu/rails/cadres_assess/src/components/mobile/MobileEvaluationList.jsx:
+   25  	getEvaluationList() {
+   26  		Agent
+   27: 			.get(`http://114.55.172.35:3232/evaluations?page=1&per_page=1000`)
+   28  			.set('Accept', 'application/json')
+   29  			.set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/mobile/MobileLogin.jsx:
+   36    	// 开始登录
+   37  		SuperAgent
+   38: 			.post("http://114.55.172.35:3232/users/sign_in")
+   39  			.set('Accept', 'application/json')
+   40  			.set('Cache-control', 'no-cache')
+   ..
+   60    getUserInfo() {
+   61    	SuperAgent
+   62: 			.get(`http://114.55.172.35:3232/user_info?random=${Math.random()}`)
+   63  			.set('Accept', 'application/json')
+   64  			.set('X-User-Token', localStorage.token)
+
+/Users/mushu/rails/cadres_assess/src/components/review/Review.jsx:
+   33      let id = this.props.location.query.id;
+   34      Agent
+   35:       .get(`http://114.55.172.35:3232/evaluations/${id}`)
+   36        .set('Accept', 'application/json')
+   37        .set('Cache-control', 'no-cache')
+   ..
+   89  
+   90      Agent
+   91:       .put(`http://114.55.172.35:3232/evaluations/${id}`)
+   92        .set('Accept', 'application/json')
+   93        .set('X-User-Token', sessionStorage.token)
+   ..
+  136      let id = this.state.evaluation.id;
+  137      Agent
+  138:       .put(`http://114.55.172.35:3232/evaluations/${id}`)
+  139        .set('Accept', 'application/json')
+  140        .set('X-User-Token', sessionStorage.token)
+
+/Users/mushu/rails/cadres_assess/src/entries/index.html:
+    9  	<meta http-equiv="Expires" content="0" />
+   10  	<link rel="stylesheet" type="text/css" href="./index.css"/>
+   11:   <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+   12    <!--[if lt IE 10]>
+   13    <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
+
+/Users/mushu/rails/cadres_assess/src/images/background.jpg:
+    <binary>
+
+/Users/mushu/rails/cadres_assess/src/images/setting.svg:
+    1  <?xml version="1.0" encoding="UTF-8"?>
+    2: <svg width="32px" height="30px" viewBox="0 0 32 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    3:     <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    4      <title>用户设置</title>
+    5      <desc>Created with Sketch.</desc>
+
+/Users/mushu/rails/cadres_assess/src/images/statistics.svg:
+    1  <?xml version="1.0" encoding="UTF-8"?>
+    2: <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    3:     <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    4      <title>分数统计</title>
+    5      <desc>Created with Sketch.</desc>
+
+/Users/mushu/rails/cadres_assess/src/images/testSetting.svg:
+    1  <?xml version="1.0" encoding="UTF-8"?>
+    2: <svg width="26px" height="29px" viewBox="0 0 26 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    3:     <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    4      <title>考核设置icon</title>
+    5      <desc>Created with Sketch.</desc>
+
+/Users/mushu/rails/cadres_assess/src/images/timeline.svg:
+    1  <?xml version="1.0" encoding="UTF-8"?>
+    2: <svg width="299px" height="426px" viewBox="0 0 299 426" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    3:     <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    4      <title>timeline</title>
+    5      <desc>Created with Sketch.</desc>
+
+/Users/mushu/rails/cadres_assess/src/layouts/UserInfoToolbar.jsx:
+   13  		let number = sessionStorage.getItem('number');
+   14  		SuperAgent
+   15: 			.get(`http://114.55.172.35:3232/user_info?random=${Math.random()}`)
+   16  			.set('Accept', 'application/json')
+   17  			.set('Cache-control', 'no-cache')
+
+57 matches across 27 files
+
+
+Searching 62 files for "http://114.55.172.35:3232"
+
+/Users/mushu/rails/cadres_assess/src/components/admin/Admin.jsx:
+   33    componentWillMount() {
+   34      Agent
+   35:       .get("http://114.55.172.35:3232/admin/activities")
+   36        .set('Accept', 'application/json')
+   37        .set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/admin/AdminLogIn.jsx:
+   36    beginLogin(email, password){
+   37      SuperAgent
+   38:       .post("http://114.55.172.35:3232/admins/sign_in")
+   39        .set('Accept', 'application/json')
+   40        .set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/admin/evaluation_count/EvaluationCount.jsx:
+   32    getData(year){
+   33      SuperAgent
+   34:       .get(`http://114.55.172.35:3232/admin/evaluation_count?activity_year=${year}`)
+   35        .set('Accept', 'application/json')
+   36        .set('X-Admin-Token', sessionStorage.admin_token)
+
+/Users/mushu/rails/cadres_assess/src/components/admin/Statistics/Statistics.jsx:
+   98          console.log('Received values of form: ', values);
+   99          SuperAgent
+  100:           .patch(`http://114.55.172.35:3232//admin/results/${this.state.logic_record.id}/set_final_result`)
+  101            .set('Accept', 'application/json')
+  102            .set('Cache-control', 'no-cache')
+  ...
+  131  
+  132    getData(year){
+  133:     const url = `http://114.55.172.35:3232/admin/results?activity_year=${year}`;
+  134      SuperAgent
+  135        .get(url)
+  ...
+  161    render() {
+  162      const { getFieldDecorator } = this.props.form;
+  163:     const url = `http://114.55.172.35:3232/admin/output_result_index?activity_year=${this.props.location.query.year}`;
+  164      const formItemLayout = {
+  165        labelCol: { span: 6 },
+
+/Users/mushu/rails/cadres_assess/src/components/admin/Statistics/StatisticsD.jsx:
+  164      var token = localStorage.token
+  165      var phone = localStorage.phone
+  166:     var url = `http://114.55.172.35:3232/admin/results/${this.props.location.query.id}`
+  167      SuperAgent.get(url)
+  168                .set('Accept', 'application/json')
+  ...
+  182    render() {
+  183      const id = this.props.location.query.id;
+  184:     const url = `http://114.55.172.35:3232/admin/output_result_show?result_id=${id}`
+  185      return (
+  186        <Admin>
+
+/Users/mushu/rails/cadres_assess/src/components/admin/TestSet/ListModal.jsx:
+   71      let format = "YYYY-MM-DD";
+   72  
+   73:     SuperAgent(method, `http://114.55.172.35:3232/admin/activities/${id}`)
+   74        .set('Accept', 'application/json')
+   75        .set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/admin/TestSet/TestSet.jsx:
+   26    getActivities(){
+   27      SuperAgent
+   28:       .get("http://114.55.172.35:3232/admin/activities?page=1&per_page=1000")
+   29        .set('Accept', 'application/json')
+   30        .set('X-Admin-Token', sessionStorage.admin_token)
+
+/Users/mushu/rails/cadres_assess/src/components/admin/UserSet/UserSet.jsx:
+   46      var token = localStorage.token
+   47      var phone = localStorage.phone
+   48:     var url = `http://114.55.172.35:3232/admin/upload_user_list`
+   49      SuperAgent
+   50        .post(url)
+   ..
+  109    render() {
+  110      const { getFieldDecorator } = this.props.form;
+  111:     const url = `http://114.55.172.35:3232/admin/load_user_list_template`
+  112:     const url_user = `http://114.55.172.35:3232/admin/load_password_txt`
+  113  
+  114      let options = [];
+
+/Users/mushu/rails/cadres_assess/src/components/assess/Assess.jsx:
+   42  	getSelfEvaluation(timeline) {
+   43  		Agent
+   44: 			.get(`http://114.55.172.35:3232/middle_managers/self_evaluation?self_evaluation[activity_year]=${timeline.year}`)
+   45  			.set('Accept', 'application/json')
+   46  			.set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/assess/StepOne.jsx:
+   37  	getEvaluation() {
+   38  		Agent
+   39: 			.get(`http://114.55.172.35:3232/middle_managers/self_evaluation?self_evaluation[activity_year]=${this.props.year}`)
+   40  			.set('Accept', 'application/json')
+   41  			.set('Cache-control', 'no-cache')
+   ..
+  110  	updateSelf(params, duties) {
+  111  		Agent
+  112: 			.put("http://114.55.172.35:3232/middle_managers/self_evaluation")
+  113  			.set('Accept', 'application/json')
+  114  			.set('X-User-Token', sessionStorage.token)
+
+/Users/mushu/rails/cadres_assess/src/components/assess/StepThree.jsx:
+   70      var token = localStorage.token
+   71      var phone = localStorage.phone
+   72:     var url = `http://114.55.172.35:3232/admin/results/${this.props.id}/feedback_form?random=${Math.random()}`
+   73      SuperAgent.get(url)
+   74                .set('Accept', 'application/json')
+
+/Users/mushu/rails/cadres_assess/src/components/assess/StepTwo.jsx:
+   45  	getEvaluationList() {
+   46  		Agent
+   47: 			.get(`http://114.55.172.35:3232/evaluations?page=1&per_page=1000`)
+   48  			.set('Accept', 'application/json')
+   49  			.set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/assess/UserInfo.jsx:
+   11  	componentDidMount() {
+   12  		Agent
+   13: 			.get("http://114.55.172.35:3232/user_info")
+   14  			.set('Accept', 'application/json')
+   15  			.set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/login/Login.jsx:
+   42    	// 开始登录
+   43  		SuperAgent
+   44: 			.post("http://114.55.172.35:3232/users/sign_in")
+   45  			.set('Accept', 'application/json')
+   46  			.set('Cache-control', 'no-cache')
+   ..
+   69    getTimeLine() {
+   70    	SuperAgent
+   71: 			.get("http://114.55.172.35:3232/home_info")
+   72  			.set('Accept', 'application/json')
+   73  			.end((err, res) => {
+
+/Users/mushu/rails/cadres_assess/src/components/mobile/MobileEvaluate.jsx:
+   31      let id = this.props.location.query.id;
+   32      Agent
+   33:       .get(`http://114.55.172.35:3232/evaluations/${id}`)
+   34        .set('Accept', 'application/json')
+   35        .set('Cache-control', 'no-cache')
+   ..
+   81  
+   82      Agent
+   83:       .put(`http://114.55.172.35:3232/evaluations/${id}`)
+   84        .set('Accept', 'application/json')
+   85        .set('X-User-Token', localStorage.token)
+   ..
+  120    leaderEvalution(params) {
+  121      Agent
+  122:       .put(`http://114.55.172.35:3232/evaluations/${this.state.evaluation.id}`)
+  123        .set('Accept', 'application/json')
+  124        .set('X-User-Token', localStorage.token)
+
+/Users/mushu/rails/cadres_assess/src/components/mobile/MobileEvaluationList.jsx:
+   25  	getEvaluationList() {
+   26  		Agent
+   27: 			.get(`http://114.55.172.35:3232/evaluations?page=1&per_page=1000`)
+   28  			.set('Accept', 'application/json')
+   29  			.set('Cache-control', 'no-cache')
+
+/Users/mushu/rails/cadres_assess/src/components/mobile/MobileLogin.jsx:
+   36    	// 开始登录
+   37  		SuperAgent
+   38: 			.post("http://114.55.172.35:3232/users/sign_in")
+   39  			.set('Accept', 'application/json')
+   40  			.set('Cache-control', 'no-cache')
+   ..
+   60    getUserInfo() {
+   61    	SuperAgent
+   62: 			.get(`http://114.55.172.35:3232/user_info?random=${Math.random()}`)
+   63  			.set('Accept', 'application/json')
+   64  			.set('X-User-Token', localStorage.token)
+
+/Users/mushu/rails/cadres_assess/src/components/review/Review.jsx:
+   33      let id = this.props.location.query.id;
+   34      Agent
+   35:       .get(`http://114.55.172.35:3232/evaluations/${id}`)
+   36        .set('Accept', 'application/json')
+   37        .set('Cache-control', 'no-cache')
+   ..
+   89  
+   90      Agent
+   91:       .put(`http://114.55.172.35:3232/evaluations/${id}`)
+   92        .set('Accept', 'application/json')
+   93        .set('X-User-Token', sessionStorage.token)
+   ..
+  136      let id = this.state.evaluation.id;
+  137      Agent
+  138:       .put(`http://114.55.172.35:3232/evaluations/${id}`)
+  139        .set('Accept', 'application/json')
+  140        .set('X-User-Token', sessionStorage.token)
+
+/Users/mushu/rails/cadres_assess/src/layouts/UserInfoToolbar.jsx:
+   13  		let number = sessionStorage.getItem('number');
+   14  		SuperAgent
+   15: 			.get(`http://114.55.172.35:3232/user_info?random=${Math.random()}`)
+   16  			.set('Accept', 'application/json')
+   17  			.set('Cache-control', 'no-cache')
+
+31 matches across 19 files
