@@ -28,7 +28,6 @@
 /tmp
 config/database.yml
 config/secrets.yml
-config/puma.rb
 
 Gemfile.lock
 
