@@ -36,9 +36,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors'
-
 ###############################################################################
 # Automatically generate API documentation from RSpec, Read more: https://github.com/zipmark/rspec_api_documentation
 gem 'rspec_api_documentation'
