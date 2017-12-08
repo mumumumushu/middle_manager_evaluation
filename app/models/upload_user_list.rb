@@ -19,7 +19,7 @@ class UploadUserList
 				raise "请填写正确的用户类型, \"领导\"、\"中层干部\"、\"职工\"" unless ['中层干部','领导','职工'].include?(_ch_user_type)
 				_en_user_type = I18n.t :"user_type.#{_ch_user_type}"
 				
-				_job_num = UploadUserList.get_job_num(row,xlsx)
+				_job_num = UploadUserList.get_job_num(row,xlsx).downcase
 
 				_user = User.job_num(_job_num).try(:first)
 				#确认 _user 对象
@@ -32,13 +32,14 @@ class UploadUserList
 						_user = MiddleManager.new(password: Password.new)
 					end 
 					#原为 中层干部  现不为中层干部
+					#原不为 现也不为
 					#仅改变use_type 并在 创建自评表时加上user_type 条件限制
 				else
 					#不存在该工号 创建新user 并赋予新密码
 					_user = _en_user_type == 'middle_manager' ? MiddleManager.new : User.new
 				end 
 
-				_user.job_num = UploadUserList.get_job_num(row,xlsx)
+				_user.job_num = _job_num
 				_user.user_type = _en_user_type
 				_user.take_part_in = activity_year
 				_user.password = Password.new
