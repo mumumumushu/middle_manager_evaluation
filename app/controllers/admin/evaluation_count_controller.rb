@@ -8,7 +8,9 @@ class Admin::EvaluationCountController < ApplicationController
 
   def index
     @activity = Activity.where(activity_year: params[:activity_year]).first
-    @users = User.where(take_part_in: params[:activity_year]).order(:job_num)
+    page = params[:page] || 1
+    per_page = params[:per_page] || 10
+    @users = User.where(take_part_in: params[:activity_year]).order(:job_num).paginate(page: page, per_page: per_page)
     respond_with @users, template: 'admin/evaluation_count', status: 200
   end
 

@@ -8,7 +8,9 @@ class Admin::ResultsController < ApplicationController
   respond_to :json
 
   def index
-    @results = Result.where(activity_year: params[:activity_year])
+    page = params[:page] || 1
+    per_page = params[:per_page] || 10
+    @results = Result.where(activity_year: params[:activity_year]).paginate(page: page, per_page: per_page)
     respond_with(@results)
   end
 
