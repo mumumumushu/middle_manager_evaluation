@@ -44,7 +44,8 @@ class User < ApplicationRecord
   end
 
   def info
-    self.user_info || self.create_user_info
+    # 取 最新 user_info
+    UserInfo.where(user_id: self.id).order(:updated_at).first || self.create_user_info
   end
   #避免角色切换可能的bug，不必
   def middle_manager_id
