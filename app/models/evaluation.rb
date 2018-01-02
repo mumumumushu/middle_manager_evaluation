@@ -137,6 +137,10 @@ class Evaluation < ApplicationRecord
     end  
   end
 
+  def clear_score
+    self.update!(JSON.parse(self.attributes.to_json.gsub(/\*\d+\*/, "*-1*")))
+  end
+
   private	
 
   def set_evaluating_user_type
