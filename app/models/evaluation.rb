@@ -138,7 +138,9 @@ class Evaluation < ApplicationRecord
   end
 
   def clear_score
-    self.update!(JSON.parse(self.attributes.to_json.gsub(/\*\d+\*/, "*-1*")))
+    self.update!(
+      JSON.parse(self.attributes.to_json.gsub(/\*\d+\*/, "*-1*")).merge(evaluation_totality: -1)
+    )
   end
 
   private	
