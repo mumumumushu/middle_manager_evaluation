@@ -8,7 +8,7 @@
 #  duties                 :text
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  evaluation_totality    :integer
+#  cl    :integer
 #  self_evaluation_id     :integer
 #  user_id                :integer
 #  already_edited         :boolean          default(FALSE)
@@ -137,9 +137,12 @@ class Evaluation < ApplicationRecord
     end  
   end
 
-  def clear_score
+  def clear_away_grade
     self.update!(
-      JSON.parse(self.attributes.to_json.gsub(/\*\d+\*/, "*-1*")).merge(evaluation_totality: -1)
+      JSON.parse(self.attributes.to_json.gsub(/\*\d+\*/, "*-1*")).merge(
+        evaluation_totality: -1,
+        already_edited: false
+      )
     )
   end
 
