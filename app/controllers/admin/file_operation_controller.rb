@@ -51,14 +51,14 @@ class Admin::FileOperationController < ActionController::Base
 private
   def create_file_name #only .xls
     _filename = ""
-    _dir = "pubilc/file/"
+    _dir = File.join(Rails.root, 'public/file/')
     chars = ('a'..'z').to_a + ('0'..'9').to_a
     1.upto(6) { |i| _filename << chars[rand(chars.size-1)] }
     FileUtils.mkdir(_dir) unless File.exist?(_dir)
     if File.exist?(File.join(_dir,"#{_filename}.xls"))
       create_file_name
     end
-    "/home/edu/middle_manager_evaluation/pubilc/file/" +  _filename + '.xls'
+    File.join(_dir, "#{_filename}.xls")
   end
 
   def xls_content_for_index results,filename
