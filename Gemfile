@@ -1,19 +1,19 @@
 #source 'https://rubygems.org'
-source 'https://gems.ruby-china.org'
+source 'https://gems.ruby-china.com'
 
 #A Rails plugin to generate xls documents by using rxls templates.
-gem "spreadsheet_on_rails"
+# gem "spreadsheet_on_rails"
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+# gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+# gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
@@ -66,7 +66,10 @@ gem 'multi_json'
 gem 'roo'
 #跨域Rack Middleware for handling Cross-Origin Resource Sharing (CORS), which makes cross-origin AJAX possible.https://github.com/cyu/rack-cors
 gem 'rack-cors'
-
+# A Ruby gem to load environment variables from `.env`.
+# https://github.com/bkeepers/dotenv
+# If you use gems that require environment variables to be set before they are loaded, then list dotenv-rails in the Gemfile before those other gems and require dotenv/rails-now.
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 ###############################################################################
 
 group :development, :test do
